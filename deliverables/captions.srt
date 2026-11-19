@@ -1,0 +1,204 @@
+1
+00:00:01,020 --> 00:00:02,950
+Sorry I kept you waiting.
+
+2
+00:00:02,900 --> 00:00:04,230
+That's AI chips,
+
+3
+00:00:04,180 --> 00:00:05,150
+every day,
+
+4
+00:00:05,100 --> 00:00:06,170
+waiting for data.
+
+5
+00:00:06,120 --> 00:00:07,230
+And you, Sky,
+
+6
+00:00:07,180 --> 00:00:09,390
+you pay full price to wait.
+
+7
+00:00:09,340 --> 00:00:10,030
+So first,
+
+8
+00:00:09,980 --> 00:00:10,930
+why change?
+
+9
+00:00:10,880 --> 00:00:12,570
+Ofcom says traditional TV
+
+10
+00:00:12,520 --> 00:00:15,050
+fell by 12% in a year
+
+11
+00:00:15,000 --> 00:00:16,510
+as people move to streaming.
+
+12
+00:00:16,460 --> 00:00:17,350
+Netflix and YouTube
+
+13
+00:00:17,300 --> 00:00:19,330
+already know what you want to watch,
+
+14
+00:00:19,280 --> 00:00:20,650
+so Sky needs that too,
+
+15
+00:00:20,600 --> 00:00:21,830
+and fast.
+
+16
+00:00:21,780 --> 00:00:23,250
+Second, why now?
+
+17
+00:00:23,200 --> 00:00:24,410
+Well, you've already started
+
+18
+00:00:24,360 --> 00:00:26,120
+with Sky Q voice search.
+
+19
+00:00:26,070 --> 00:00:27,300
+Now, the next step
+
+20
+00:00:27,250 --> 00:00:28,460
+is an AI assistant
+
+21
+00:00:28,410 --> 00:00:29,960
+that knows each household.
+
+22
+00:00:29,910 --> 00:00:30,900
+Imagine asking,
+
+23
+00:00:30,850 --> 00:00:32,620
+Sky, make me scared.
+
+24
+00:00:32,570 --> 00:00:33,380
+Third,
+
+25
+00:00:33,330 --> 00:00:34,260
+why DDN?
+
+26
+00:00:34,210 --> 00:00:36,020
+Idle chips will still cost you,
+
+27
+00:00:35,970 --> 00:00:37,180
+and Cast AI found
+
+28
+00:00:37,130 --> 00:00:39,000
+that enterprise chips average
+
+29
+00:00:38,950 --> 00:00:41,060
+around 5% of use.
+
+30
+00:00:41,010 --> 00:00:42,260
+It's like paying for
+
+31
+00:00:42,210 --> 00:00:43,600
+a whole Sky Sports bundle
+
+32
+00:00:43,550 --> 00:00:45,540
+just to watch Arsenal lose.
+
+33
+00:00:45,490 --> 00:00:46,580
+Now, DDN's Infinia
+
+34
+00:00:46,530 --> 00:00:48,460
+keeps data flowing to the chips,
+
+35
+00:00:48,410 --> 00:00:49,460
+and they say customers
+
+36
+00:00:49,410 --> 00:00:51,200
+reach up to 99% busy
+
+37
+00:00:51,150 --> 00:00:52,920
+and cut costs per token
+
+38
+00:00:52,870 --> 00:00:54,380
+by 75%.
+
+39
+00:00:54,330 --> 00:00:55,440
+Plus, they already work
+
+40
+00:00:55,390 --> 00:00:56,360
+with media companies
+
+41
+00:00:56,310 --> 00:00:58,620
+like Canal Plus and Starz.
+
+42
+00:00:58,570 --> 00:01:00,100
+So the ask is clear.
+
+43
+00:01:00,050 --> 00:01:01,400
+Let DDN run a pilot
+
+44
+00:01:01,350 --> 00:01:03,200
+on the AI behind your voice search
+
+45
+00:01:03,150 --> 00:01:04,840
+or your next assistant.
+
+46
+00:01:04,790 --> 00:01:05,760
+Then measure the values
+
+47
+00:01:05,710 --> 00:01:07,525
+before and after.
+
+48
+00:01:07,495 --> 00:01:09,930
+And if both improve, scale it.
+
+49
+00:01:09,930 --> 00:01:10,740
+So Sky,
+
+50
+00:01:10,690 --> 00:01:12,680
+don't be the next Blockbuster.
+
+51
+00:01:12,630 --> 00:01:13,360
+Thank you.
+

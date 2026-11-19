@@ -169,23 +169,22 @@ const NameSuperInner: React.FC<{dur: number; name: string; role: string; x: numb
 // ---------------------------------------------------------------------------------------------------------------
 // Arsenal "losing": the official crest arrives (light frost plate), holds, then droops (tilts and sinks), desaturates,
 // and a small red down arrow (drawn shape) slides down beside it. No score, no invented fact.
-export const ArsenalGag: React.FC<SlotProps & {loseAt: number}> = (p) => (
-  <Slot {...p} name="ArsenalGag">{() => <ArsenalInner loseAt={p.loseAt} />}</Slot>
+export const ArsenalGag: React.FC<SlotProps & {loseAt: number; crestH?: number}> = (p) => (
+  <Slot {...p} name="ArsenalGag">{({side}) => <ArsenalInner loseAt={p.loseAt} H={p.crestH ?? 190} reverse={side === 'left'} />}</Slot>
 );
-const ArsenalInner: React.FC<{loseAt: number}> = ({loseAt}) => {
+const ArsenalInner: React.FC<{loseAt: number; H: number; reverse: boolean}> = ({loseAt, H, reverse}) => {
   const frame = useCurrentFrame();
   const l = interpolate(frame, [loseAt, loseAt + 18], [0, 1], {...cl, easing: EASE.inOut});
   const arrow = interpolate(frame, [loseAt + 4, loseAt + 18], [0, 1], {...cl, easing: EASE.out});
-  const H = 190;
   return (
-    <div style={{display: 'flex', alignItems: 'center', gap: 18}}>
+    <div style={{display: 'flex', flexDirection: reverse ? 'row-reverse' : 'row', alignItems: 'center', gap: 22}}>
       <FrostedGlass tone="light" tint="rgba(250,247,245,0.62)" padX={28} padY={22} radius={22}>
         <div style={{transform: `translateY(${(l * 14).toFixed(2)}px) rotate(${(l * -9).toFixed(2)}deg)`, transformOrigin: '70% 90%',
           filter: `grayscale(${(l * 0.85).toFixed(3)}) brightness(${(1 - 0.12 * l).toFixed(3)})`}}>
           <Logo id="arsenal" height={H} />
         </div>
       </FrostedGlass>
-      <svg width={60} height={110} viewBox="0 0 60 110" style={{opacity: arrow, transform: `translateY(${((1 - arrow) * -24 + arrow * 6).toFixed(2)}px)`, filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.45))'}}>
+      <svg width={H * 0.3} height={H * 0.55} viewBox="0 0 60 110" style={{opacity: arrow, transform: `translateY(${((1 - arrow) * -24 + arrow * 6).toFixed(2)}px)`, filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.45))'}}>
         <rect x={22} y={4} width={16} height={60} rx={4} fill={C.red} />
         <path d="M6 58 L30 104 L54 58 Z" fill={C.red} />
       </svg>
@@ -213,8 +212,8 @@ const ScaleItInner: React.FC<{durationInFrames: number; words: {text: string; at
   const l2 = display('bold', 104, -0.02);
   return (
     <div style={{position: 'absolute', left: x, top: y, opacity: 1 - out, filter: out > 0 ? `blur(${(6 * out).toFixed(2)}px)` : undefined}}>
-      <div style={{position: 'absolute', left: -120, top: -70, right: -120, bottom: -70, background: 'radial-gradient(closest-side, rgba(12,8,10,0.38), rgba(12,8,10,0) 100%)', filter: 'blur(8px)'}} />
-      <div style={{position: 'relative', textShadow: '0 2px 4px rgba(0,0,0,0.4), 0 2px 16px rgba(0,0,0,0.45)'}}>
+      <div style={{position: 'absolute', left: -120, top: -70, right: -120, bottom: -70, background: 'radial-gradient(closest-side, rgba(12,8,10,0.62), rgba(12,8,10,0.4) 55%, rgba(12,8,10,0) 100%)', filter: 'blur(10px)'}} /> {/* stronger layer: the line sits over the white whiteboard */}
+      <div style={{position: 'relative', textShadow: '0 2px 4px rgba(0,0,0,0.55), 0 2px 18px rgba(0,0,0,0.6), 0 0 40px rgba(0,0,0,0.35)'}}>
         <div style={{...l1, color: '#FFFFFF', whiteSpace: 'nowrap', lineHeight: 1.15}}>
           {words.map((w, i) => {
             const a = interpolate(frame, [w.at, w.at + 8], [0, 1], {...cl, easing: EASE.out});

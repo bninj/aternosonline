@@ -101,7 +101,7 @@ const Film: React.FC<PitchV6Props> = ({plate, plateBlur, plateFrames, audio, voi
         typeStart={fr(chatWords[0].start) - chatFrom} typeEnd={fr(chatWords[3].start) - chatFrom} openAt={w('Imagine asking') - chatFrom}
         wordStarts={chatWords.map((x) => fr(x.start) - chatFrom)} />
       <ChipGrid from={idleFrom} durationInFrames={fr(41.0) - idleFrom} {...R} bottom={0.8} mode="idle" landAt={w('5%') - idleFrom} source="Cast AI, enterprise average" label="AVERAGE USE" />
-      <ArsenalGag from={arsFrom} durationInFrames={fr(45.45) - arsFrom} {...R} bottom={G} loseAt={w('Arsenal lose') - arsFrom} />
+      <ArsenalGag from={arsFrom} durationInFrames={fr(45.45) - arsFrom} anchor="left" bottom={0.75} offset={{x: -58}} crestH={340} loseAt={w('Arsenal lose') - arsFrom} />
       <ChipGrid from={ddnFrom} durationInFrames={fr(54.35) - ddnFrom} {...R} bottom={0.8} mode="ddn" flowAt={w('data flowing to the chips') - ddnFrom - 4} label="BUSY, UP TO"
         landAt={w('99%') - ddnFrom} countFrames={Math.min(34, w('99%') - w('customers'))} costFrom={w('cut costs per token') - ddnFrom - 2} costLandAt={w('75%') - ddnFrom} source="per DDN" />
       <LogoPlate from={caFrom} durationInFrames={fr(58.62) - caFrom} anchor="left" bottom={0.6} logo="canalplus" logoH={92} />
