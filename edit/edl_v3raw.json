@@ -1,0 +1,281 @@
+{
+ "fps": "30/1",
+ "clips": [
+  {
+   "src": "../footage/raw/IMG_3845.MOV",
+   "in": 209.553333,
+   "out": 210.886667,
+   "take": "IMG_3845#0",
+   "label": "1:16+2:15+3:11",
+   "text": "Sorry I kept you waiting.",
+   "frames": 40,
+   "join": "start"
+  },
+  {
+   "src": "../footage/raw/IMG_3845.MOV",
+   "in": 211.153333,
+   "out": 214.186667,
+   "take": "IMG_3845#0",
+   "label": "1:16+2:15+3:11",
+   "text": "That's AI chips every day waiting for data.",
+   "frames": 91,
+   "join": "pause"
+  },
+  {
+   "src": "../footage/raw/IMG_3845.MOV",
+   "in": 214.42,
+   "out": 215.453333,
+   "take": "IMG_3845#0",
+   "label": "1:16+2:15+3:11",
+   "text": "And you, Sky,",
+   "frames": 31,
+   "join": "pause"
+  },
+  {
+   "src": "../footage/raw/IMG_3845.MOV",
+   "in": 215.586667,
+   "out": 217.353333,
+   "take": "IMG_3845#0",
+   "label": "1:16+2:15+3:11",
+   "text": "you pay full price to wait.",
+   "frames": 53,
+   "join": "pause"
+  },
+  {
+   "src": "../footage/raw/IMG_3848.MOV",
+   "in": 31.331667,
+   "out": 32.965,
+   "take": "IMG_3848#1",
+   "label": "4:12",
+   "text": "So first, why change?",
+   "frames": 49,
+   "join": "take"
+  },
+  {
+   "src": "../footage/raw/IMG_3848.MOV",
+   "in": 130.858333,
+   "out": 134.325,
+   "take": "IMG_3848#2",
+   "label": "5:3",
+   "text": "Ofcom says traditional TV fell by 12 in a year as people moved to streaming.",
+   "frames": 96,
+   "join": "take"
+  },
+  {
+   "src": "../footage/raw/IMG_3848.MOV",
+   "in": 134.458333,
+   "out": 136.425,
+   "take": "IMG_3848#2",
+   "label": "5:3",
+   "text": "in a year as people moved to streaming.",
+   "frames": 59,
+   "join": "pause"
+  },
+  {
+   "src": "../footage/raw/IMG_3848.MOV",
+   "in": 200.32,
+   "out": 203.02,
+   "take": "IMG_3848#3",
+   "label": "6:2",
+   "text": "Netflix and YouTube already know what you want to watch,",
+   "frames": 81,
+   "join": "take"
+  },
+  {
+   "src": "../footage/raw/IMG_3848.MOV",
+   "in": 203.12,
+   "out": 204.586667,
+   "take": "IMG_3848#3",
+   "label": "6:2",
+   "text": "so Sky needs that too, and fast.",
+   "frames": 44,
+   "join": "pause"
+  },
+  {
+   "src": "../footage/raw/IMG_3848.MOV",
+   "in": 204.686667,
+   "out": 205.553333,
+   "take": "IMG_3848#3",
+   "label": "6:2",
+   "text": "so Sky needs that too, and fast.",
+   "frames": 26,
+   "join": "pause"
+  },
+  {
+   "src": "../footage/raw/IMG_3850.MOV",
+   "in": 18.531667,
+   "out": 20.031667,
+   "take": "IMG_3850#4",
+   "label": "7:7",
+   "text": "Second, why now?",
+   "frames": 24,
+   "join": "take"
+  },
+  {
+   "src": "../footage/raw/IMG_3850.MOV",
+   "in": 142.191667,
+   "out": 145.09,
+   "take": "IMG_3850#5",
+   "label": "8:12",
+   "text": "Well, you've already started with SkyQ Voice Search.",
+   "frames": 87,
+   "join": "take"
+  },
+  {
+   "src": "../footage/raw/IMG_3850.MOV",
+   "in": 266.35,
+   "out": 272.683333,
+   "take": "IMG_3850#6",
+   "label": "IMG_3850:266.36-272.66",
+   "frames": 190
+  },
+  {
+   "src": "../footage/raw/IMG_3851.MOV",
+   "in": 32.97,
+   "out": 33.703333,
+   "take": "IMG_3851#7",
+   "label": "11:8",
+   "text": "Third,",
+   "frames": 22,
+   "join": "take"
+  },
+  {
+   "src": "../footage/raw/IMG_3851.MOV",
+   "in": 33.736667,
+   "out": 34.736667,
+   "take": "IMG_3851#7",
+   "label": "11:8",
+   "text": "why DDN?",
+   "frames": 30,
+   "join": "pause"
+  },
+  {
+   "src": "../footage/raw/IMG_3852.MOV",
+   "in": 129.245,
+   "out": 136.046667,
+   "take": "IMG_3852#8",
+   "label": "12:11",
+   "text": "Idle chips will still cost you and Cast AI found that enterprise chips average around 5 of use.",
+   "frames": 179,
+   "join": "take"
+  },
+  {
+   "src": "../footage/raw/IMG_3852.MOV",
+   "in": 250.356667,
+   "out": 254.723333,
+   "take": "IMG_3852#9",
+   "label": "13:7",
+   "text": "It's like paying for a whole Sky Sports bundle just to watch Arsenal lose.",
+   "frames": 131,
+   "join": "take"
+  },
+  {
+   "src": "../footage/raw/IMG_3852.MOV",
+   "in": 315.163333,
+   "out": 318.263333,
+   "take": "IMG_3852#10",
+   "label": "14:5",
+   "text": "Now DDN's Infinia keeps data flowing to the chips.",
+   "frames": 93,
+   "join": "take"
+  },
+  {
+   "src": "../footage/raw/IMG_3853.MOV",
+   "in": 109.61,
+   "out": 112.576667,
+   "take": "IMG_3853#11",
+   "label": "15:7",
+   "text": "And they say customers reach up to 99 busy and cut costs per token by 75%.",
+   "frames": 89,
+   "join": "take"
+  },
+  {
+   "src": "../footage/raw/IMG_3853.MOV",
+   "in": 112.676667,
+   "out": 115.478333,
+   "take": "IMG_3853#11",
+   "label": "15:7",
+   "text": "And they say customers reach up to 99 busy and cut costs per token by 75%.",
+   "frames": 84,
+   "join": "pause"
+  },
+  {
+   "src": "../footage/raw/IMG_3854.MOV",
+   "in": 6.3,
+   "out": 10.401667,
+   "take": "IMG_3854#12",
+   "label": "16:0",
+   "text": "Plus, they already work with media companies like Canal Plus and Starz.",
+   "frames": 123,
+   "join": "take"
+  },
+  {
+   "src": "../footage/raw/IMG_3858.MOV",
+   "in": 10.001667,
+   "out": 11.435,
+   "take": "IMG_3858#13",
+   "label": "17:5+18:5+19:0",
+   "text": "So the arcs is clear. Let DDN run a pilot on the AI behind your voice search or your next assistant. Then measure the values before and after.",
+   "frames": 43,
+   "join": "take"
+  },
+  {
+   "src": "../footage/raw/IMG_3858.MOV",
+   "in": 11.601667,
+   "out": 16.301667,
+   "take": "IMG_3858#13",
+   "label": "17:5+18:5+19:0",
+   "text": "So the arcs is clear. Let DDN run a pilot on the AI behind your voice search or your next assistant. Then measure the values before and after.",
+   "frames": 141,
+   "join": "pause"
+  },
+  {
+   "src": "../footage/raw/IMG_3858.MOV",
+   "in": 16.501667,
+   "out": 19.301667,
+   "take": "IMG_3858#13",
+   "label": "17:5+18:5+19:0",
+   "text": "So the arcs is clear. Let DDN run a pilot on the AI behind your voice search or your next assistant. Then measure the values before and after.",
+   "frames": 84,
+   "join": "pause"
+  },
+  {
+   "src": "../footage/raw/IMG_3860.MOV",
+   "in": 48.598333,
+   "out": 49.431667,
+   "take": "IMG_3860#14",
+   "label": "20:15+21:8",
+   "text": "So Sky.",
+   "frames": 25,
+   "join": "take"
+  },
+  {
+   "src": "../footage/raw/IMG_3860.MOV",
+   "in": 49.898333,
+   "out": 51.698333,
+   "take": "IMG_3860#14",
+   "label": "20:15+21:8",
+   "text": "Don't be the next Blockbuster.",
+   "frames": 54,
+   "join": "pause"
+  },
+  {
+   "src": "../footage/raw/IMG_3860.MOV",
+   "in": 52.098333,
+   "out": 52.631667,
+   "take": "IMG_3860#14",
+   "label": "20:15+21:8",
+   "text": "Thank you.",
+   "frames": 16,
+   "join": "pause"
+  }
+ ],
+ "params": {
+  "lead": 0.05,
+  "tail": 0.09,
+  "max_pause": 0.3,
+  "keep_pause": 0.16,
+  "run_gap": 0.8,
+  "cut_fillers": false
+ }
+}
