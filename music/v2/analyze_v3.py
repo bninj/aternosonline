@@ -128,8 +128,8 @@ while i < len(sp):
         i = j
     else:
         i += 1
-base = -16.0                     # music_mix (-20 LUFS) -> about -36 LUFS under a -16 LUFS voice
-tgt = np.where(sp, base, base + 5.0)
+base = cfg.get("preview_music_db", -16.0)   # music_mix (-20 LUFS) -> base-20 LUFS under a -16 LUFS voice
+tgt = np.where(sp, base, base + cfg.get("preview_gap_lift_db", 5.0))
 g = np.zeros_like(tgt); g[0] = tgt[0]
 for i in range(1, len(g)):
     a = 1 - np.exp(-0.01 / 0.12) if tgt[i] < g[i - 1] else 1 - np.exp(-0.01 / 0.5)

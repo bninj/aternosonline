@@ -1,4 +1,78 @@
-# Music + SFX for the DDN "Why DDN" pitch: **current = v6** in `out_v6/` (76.5 s, CC0 only, no credits needed)
+# Music + SFX for the DDN "Why DDN" pitch: **current = v7** in `out_v7/` (77.247 s, understated, CC0 only, no credits needed)
+
+## v7: "softer, more subtle, less AI-generic"
+**Research.** How founder and pitch videos treat the bed (vendor guides; I found nothing specific to YC Demo Day):
+- Instrumental only.
+- Sits about 20–25 dB under the voice and is ducked during speech.
+- Rule of thumb: if you can follow the melody while someone talks, it is too loud.
+- Mid-tempo, building gradually rather than dropping.
+- Sources: [Foxi Music](https://www.foximusic.com/blog/explainer-video-music-background/), [BIGVU](https://bigvu.tv/blog/add-music-videos-free-1000-commercial-free-tracks/), [Sonilo, software demos](https://sonilo.com/blog/guides/background-music-software-demo-videos), [Supademo](https://docs.supademo.com/article/221-background-music).
+
+Premium motion-design SFX are short, rounded, low-passed, few in number, and placed exactly. v7 applies all of this.
+
+**What changed (`v2/compose_v7.py`, `v2/edit_v7.json`)**
+- **One warm instrument carries it:** a soft-mallet vibraphone (VCSL, recorded).
+  - Each chord is gently rolled, played once per bar or once per two bars, and left to ring.
+  - The motif appears only a few times: the question once in the hook and once in Why change, the answer twice in Why DDN, and a climb in the ask, ending on the payoff line.
+- **Removed:** the TX81Z pluck layer, the marimba ostinato and the busy repetitions. The marimba stem was silent, so it is not delivered.
+- **Bass:** the Yamaha RBX bass enters at 16.553 with long, quiet notes.
+- **Percussion:** only from Why now, and minimal:
+  - In Why now, a shaker "breath" on beats 2 and 4, then a soft kick on beat 1 from 26.252.
+  - In Why DDN, a soft kick on 1 and 3&, plus a very soft shaker 8th-note pulse.
+- **Humanised and softened:**
+  - Timing scatter of about 12 ms SD and velocity ±5.
+  - Chords rolled 25–45 ms, with the top note softer.
+  - An 8 ms softened mallet attack.
+  - More plate reverb (55 % wet on the vibes), so it sits behind the voice.
+- **The arc is unchanged but understated:** curious (sus / lydian), then confident (major) from Why DDN.
+- **Accents** are now all on the vibraphone, at the exact times: 12% (13.15), 5% (39.46, where everything thins to bass, kick and one note until 41.154), Arsenal (44.52), 99% (50.08), 75% (53.18), the payoff line (67.643) and the Blockbuster soft knock (71.82). Soft cymbal swells peak at 26.252 and 54.488.
+- **Re-timed to `edit/SHOTPLAN_v6.json` and `voice_master_v5.wav`:**
+  - The punchline starts at 69.943 and runs 2 bars.
+  - The resolve lands at **74.35** as the end card appears.
+  - The tail reaches silence by **77.247**.
+  - The tempo map glides 116 → 106 BPM.
+  - Section downbeats measure within −1 to +7 ms.
+
+**Measured** (`out_v7/analysis.json`, `spectrogram.png`):
+- `music_mix.wav` is −20.0 LUFS, true peak −3.6 dBTP, exactly 77.247 s.
+- Loudness by section (LUFS):
+
+| hook | change | now | DDN | ask | punchline drop | end card |
+|---|---|---|---|---|---|---|
+| −24.3 | −23.2 | −19.6 | −19.1 | −18.7 | −24.3 | −21.1 |
+
+- The music's 1–4 kHz share is ≤ 0.5 %.
+- **Preview** (`preview_with_voice.wav`):
+  - Voice at −16 LUFS, music placed at −19 dB from the mix, which puts it at **−39 LUFS under speech**, with a 4 dB lift in gaps.
+  - The voice is a median **26.8 dB above the music** full-band and 53 dB above it in 1–4 kHz. That is "felt more than heard". Use the same −19 dB in the final mix.
+
+**SFX v7: dampened but clean.** Five of them, placed exactly; `place_at` is in `out_v7/timing.json → sfx`.
+
+| SFX | Time (s) | Source | Treatment | Peak below dialogue peak |
+|---|---|---|---|---|
+| Timer start | 1.07 | **One recorded mechanical stopwatch tick**: BigSoundBank "Chronograph #2" (s2138, CC0) | LP 3.2 kHz, 2 ms rounded onset, 90 ms decay | −28 dB |
+| Chart swell | 10.93 | Recorded cymbal-roll swell + reversed soft vibes (VCSL) | Shorter (0.45–0.5 s), darker (LP 4.5 kHz), 60 ms release, less room | −23 dB |
+| Gauge swell | 48.98 | as above | as above | −21 dB |
+| Measure-card swell | 64.84 | as above | as above | −24 dB |
+| Chime | **74.45** | Soft vibes + hand chime D | LP 3.3 kHz, 20 ms rounded onset, 1.0 s tail | −29 dB |
+
+Under dense speech the swells are now mostly masked: −8 to −14 dB in the best third-octave. They are intentionally "felt" rather than heard; raise them by 2–3 dB if they disappear. The chime plays after the voice ends, so it is clear but soft.
+
+**Licensing.** CC0 only: VCSL, FreePats RBX, the Renoise kit and BigSoundBank. **No sample needs attribution.** Exact files are in `out_v7/timing.json` (`samples_used`, `sfx_sources`).
+
+**Re-render**
+```
+cd /home/user/ddn-project/music/v2
+/home/user/ddn-project/tools/venv/bin/python compose_v7.py      # edit_v7.json -> ../out_v7
+/home/user/ddn-project/tools/venv/bin/python sfx_v7.py
+/home/user/ddn-project/tools/venv/bin/python analyze_v3.py ../out_v7 edit_v7.json
+```
+
+The v6 audio was deleted to save disk; it can be re-rendered with `edit_v6.json`.
+
+---
+
+# v6 (superseded by v7)
 
 ## v6: the inserted ask line ("And if both improve, scale it.", 67.643–69.943)
 Inputs:

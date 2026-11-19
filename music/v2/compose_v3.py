@@ -390,14 +390,19 @@ def render(s, tm, out):
     for (b, d, p, v, ex) in s.ev["bass"]:
         place(tb["bass"], T(b), bass.render(p, v, dur(b, d), release=0.15))
     for (b, d, p, v, ex) in s.ev["marimba"]:
-        place(tb["marimba"], T(b), pan(mar.render(p, v, dur(b, d)), 0.15))
+        place(tb["marimba"], T(b), pan(mar.render(p, v, dur(b, d)), 0.15))  # (v7 does not use marimba)
     for (b, d, p, v, ex) in s.ev["clav"]:
         place(tb["keys"], T(b), pan(clav.render(p, v, dur(b, d), release=0.05), 0.35), 0.5)
     for (b, d, p, v, ex) in s.ev["fmpiano"]:
         for n in ex:
             place(tb["keys"], T(b) + 0.012 * ex.index(n), pan(fmp.render(n, v, dur(b, d), release=0.35), -0.2))
+    att_n = int(cfg.get("mallet_attack_ms", 0) / 1000 * SR)
+    def soften(x):                                   # optional softer mallet attack
+        if att_n > 1:
+            x = x.copy(); x[:att_n] *= (np.sin(np.linspace(0, np.pi / 2, att_n)) ** 2)[:, None]
+        return x
     for (b, d, p, v, ex) in s.ev["vibes"]:
-        place(tb["vibes"], T(b), pan(vs.render(p, v, dur(b, d), release=1.0), -0.25))
+        place(tb["vibes"], T(b), pan(soften(vs.render(p, v, dur(b, d), release=cfg.get("vibes_release", 1.0))), -0.25))
     for (b, d, p, v, ex) in s.ev["bowed"]:
         x = vbow.render(p, v, dur(b, d), release=1.0)
         x *= np.minimum(1, np.arange(len(x)) / (0.9 * SR))[:, None]
@@ -426,7 +431,7 @@ def render(s, tm, out):
             tb["shaker"] *= gate_env(L, t_on)[:, None]
         elif kind == "idle":                       # "5%": thin to kick + bass + one note
             e = gate_env(L, t_on, t_off, fade=0.35, off_gain=0.0)[:, None]
-            for k in ["shaker", "marimba", "keys", "snare"]:
+            for k in cfg.get("idle_tracks", ["shaker", "marimba", "keys", "snare"]):
                 tb[k] *= e
 
     # ---- processing: soft + keep 1-4 kHz clear ----
@@ -441,7 +446,7 @@ def render(s, tm, out):
     bs = hp(tb["bass"], 35); bs = lp(bs, 1500, 2); bs = comp(bs, -18, 2.5)
     mr = hp(tb["marimba"], 140); mr = peaking(mr, 2300, -6, 0.8); mr = lp(mr, 3200, 2); mr = reverb(mr, plate, 0.22)
     ky = hp(tb["keys"], 140); ky = peaking(ky, 2500, -6, 0.8); ky = lp(ky, 2600, 2); ky = reverb(ky, plate, 0.25)
-    vb = hp(tb["vibes"], 150); vb = peaking(vb, 3000, -5, 0.8); vb = lp(vb, 5000, 2); vb = reverb(vb, plate, 0.35)
+    vb = hp(tb["vibes"], 150); vb = peaking(vb, 3000, -5, 0.8); vb = lp(vb, 5000, 2); vb = reverb(vb, plate, cfg.get("vibes_wet", 0.35))
     fx = hp(tb["fx"], 300); fx = lp(fx, 7000, 2); fx = reverb(fx, plate, 0.25)
     stems = {"drums": drums, "shaker": sh, "bass": bs, "marimba": mr, "keys": ky, "vibes": vb, "fx": fx}
 
@@ -454,10 +459,14 @@ def render(s, tm, out):
         if kname == "fx":
             continue
         lk = meter.integrated_loudness(stems[kname][a0:a1])
+        if not np.isfinite(lk):                      # stem silent in the reference window
+            lk = meter.integrated_loudness(stems[kname]) if np.abs(stems[kname]).max() > 0 else None
+        if lk is None or not np.isfinite(lk):
+            continue
         stems[kname] = stems[kname] * 10 ** ((ref + rel[kname] - lk) / 20)
     r0 = int(T(tm["sec_beats"]["endcard"]) * SR)
     lf = meter.integrated_loudness(stems["fx"][r0 - 2 * SR: r0 + 2 * SR])
-    lm = meter.integrated_loudness(stems["marimba"][a0:a1])
+    lm = meter.integrated_loudness(stems[cfg.get("fx_ref", "marimba")][a0:a1])
     stems["fx"] = stems["fx"] * 10 ** ((lm + rel["fx"] - lf) / 20)
 
     # ---- end: resolve rings, then fade to silence by `end` ----

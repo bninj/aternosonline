@@ -50,7 +50,7 @@ export const Reveal: React.FC<{children: React.ReactNode; rise?: number; blur?: 
   const b = blur * (1 - sharp) + blur * 0.8 * exit;
   const o = Math.min(fadeIn, 1 - exit);
   return (
-    <div style={{transform: `translate3d(0, ${y.toFixed(2)}px, 0)`, filter: b > 0.05 ? `blur(${b.toFixed(2)}px)` : undefined, opacity: o, willChange: 'transform', ...style}}>
+    <div style={{transform: `translateY(${y.toFixed(2)}px)`, filter: b > 0.05 ? `blur(${b.toFixed(2)}px)` : undefined, opacity: o, ...style}}> {/* no will-change: keeps text vector-sharp when the whole film is scaled to 4K */}
       {children}
     </div>
   );

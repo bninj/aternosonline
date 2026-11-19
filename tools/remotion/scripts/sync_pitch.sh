@@ -7,5 +7,6 @@ cp ../../edit/captions_v2.json src/pitch/captions_v2.json 2>/dev/null || true
 cp ../../edit/SHOTPLAN_v4.json src/pitch/shotplan_v4.json
 cp ../../edit/SHOTPLAN_v5.json src/pitch/shotplan_v5.json
 cp ../../edit/captions_v4.json src/pitch/captions_v4.json
+cp ../../edit/SHOTPLAN_v6.json src/pitch/shotplan_v6.json
 cp ../../edit/captions_v3.json src/pitch/captions_v3.json
 echo synced

@@ -3,7 +3,7 @@
 // faces in the Why DDN wides). Camera moves: per-segment eased drift (reset at every cut), snap-zoom accents on key
 // words, and a velocity-matched seam (push zoom + rack-focus blur) at the four section changes only.
 import {Easing} from 'remotion';
-import plan from './shotplan_v5.json'; // v5: 21 shots (IMG_3859 inserted at 67.643)
+import plan from './shotplan_v6.json'; // v6: 21 shots, last shot rests to 74.247
 import detected from './faces_v5.json'; // v4 detections, re-indexed for the v5 insert (17 re-detected on the v5 plate)
 
 export type Box = {x: number; y: number; w: number; h: number};
@@ -107,3 +107,27 @@ export const faceZoomed = (i: number): Box => {
 const zoomAbout = (b: Box, c: number[], z: number): Box => ({x: c[0] + (b.x - c[0]) * z, y: c[1] + (b.y - c[1]) * z, w: b.w * z, h: b.h * z});
 export const keepOutZoomed = (i: number, z: number): Box[] => KEEP_OUT[i].map((b) => zoomAbout(b, faceOf(i).center, z));
 export const faceAt = (i: number, z: number): Box => zoomAbout(faceOf(i).box, faceOf(i).center, z);
+
+// ---------------------------------------------------------------------------------------------------------------
+// v6 camera (user: "the zooming got a lot worse"): calmer and simpler.
+//  * one slow, steady push per shot (the SHOTPLAN zoom pair, 1 to 4 %), eased over the WHOLE shot with an ease-out
+//    curve that never accelerates late; origin fixed per shot (no lateral motion);
+//  * only three gentle snaps (12 %, 99 %, Blockbuster): +2.5 % over 9 f, in-out, no blur;
+//  * section seams keep only a soft 4 f rack-focus blur (8 px peak) across the cut, no zoom.
+const PUSH = Easing.bezier(0.25, 0.46, 0.45, 0.94);
+const V6_SNAPS = plan.snap_zooms.filter((s) => ['12%', '99%', 'Blockbuster'].includes(s.word)).map((s) => fr(s.t));
+export const cameraV6 = (frame: number) => {
+  const i = segIndexAt(frame);
+  const s = plan.segments[i];
+  const f0 = fr((s as {zoom_from?: number}).zoom_from ?? s.start);
+  const f1 = fr(s.end);
+  let z = s.zoom[0] + (s.zoom[1] - s.zoom[0]) * PUSH(clamp01((frame - f0) / Math.max(1, f1 - f0)));
+  for (const sf of V6_SNAPS) {
+    if (sf >= segStart[i] && sf < f1 && frame >= sf) z *= 1 + 0.025 * DRIFT(clamp01((frame - sf) / 9));
+  }
+  let blur = 0;
+  for (const c of SEAM_CUTS) {
+    if (frame >= c - 3 && frame < c + 4) blur = Math.max(blur, 8 * (1 - Math.abs(frame - c + 0.5) / 4));
+  }
+  return {i, z, blur, origin: faceOf(i).center};
+};

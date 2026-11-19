@@ -107,10 +107,10 @@ const VoicePillInner: React.FC<{text: string; voice: string; from: number}> = ({
 // ---------------------------------------------------------------------------------------------------------------
 // "an AI assistant that knows each household": the assistant UI arrives as a LISTENING pill (mic + live voice bars),
 // then on "Imagine asking" it opens into the user's bubble and "Sky, make me scared." types on with his words.
-export const VoiceChat: React.FC<SlotProps & {text: string; voice: string; typeStart: number; typeEnd: number; openAt?: number}> = (p) => (
+export const VoiceChat: React.FC<SlotProps & {text: string; voice: string; typeStart: number; typeEnd: number; openAt?: number; wordStarts?: number[]}> = (p) => (
   <Slot {...p} name="VoiceChat">{({side}) => <VoiceChatInner {...p} tail={side === 'right' ? 'right' : 'left'} />}</Slot>
 );
-const VoiceChatInner: React.FC<{text: string; voice: string; typeStart: number; typeEnd: number; openAt?: number; from: number; tail: 'left' | 'right'}> = ({text, voice, typeStart, typeEnd, openAt, from, tail}) => {
+const VoiceChatInner: React.FC<{text: string; voice: string; typeStart: number; typeEnd: number; openAt?: number; wordStarts?: number[]; from: number; tail: 'left' | 'right'}> = ({text, voice, typeStart, typeEnd, openAt, wordStarts, from, tail}) => {
   const frame = useCurrentFrame();
   onScreen(text, 'VoiceChat');
   const rate = text.length / Math.max(1, typeEnd - typeStart);
@@ -134,9 +134,16 @@ const VoiceChatInner: React.FC<{text: string; voice: string; typeStart: number; 
         <div style={{...lab, lineHeight: `${lineH}px`, color: C.white, whiteSpace: 'pre', position: 'relative', marginTop: 10}}>
           <span style={{visibility: 'hidden'}}>{text}</span>
           <span style={{position: 'absolute', left: 0, top: 0}}>
-            {[...text].map((ch, i) => (
-              <span key={i} style={{opacity: interpolate(frame, [typeStart + i / rate, typeStart + i / rate + 3], [0, 1], cl)}}>{ch}</span>
-            ))}
+            {[...text].map((ch, i) => {
+              // v6: each WORD types on exactly when he says it (word timestamps), letters 1 f apart within the word
+              let t0 = typeStart + i / rate;
+              if (wordStarts) {
+                const wi = text.slice(0, i).split(' ').length - 1;
+                const wStart = text.split(' ').slice(0, wi).join(' ').length + (wi > 0 ? 1 : 0);
+                t0 = (wordStarts[Math.min(wi, wordStarts.length - 1)] ?? typeStart) + (i - wStart) * 1;
+              }
+              return <span key={i} style={{opacity: interpolate(frame, [t0, t0 + 3], [0, 1], cl)}}>{ch}</span>;
+            })}
           </span>
         </div>
       </div>
@@ -172,6 +179,7 @@ export type ChipGridProps = SlotProps & {
   costLandAt?: number; // ddn: 75 % lower lands
   source: string;
   costSource?: string;
+  label?: string; // mono label above the number (default CHIPS BUSY)
 };
 
 export const ChipGrid: React.FC<ChipGridProps> = (p) => <Slot {...p} name={`ChipGrid ${p.mode}`}>{() => <ChipGridInner p={p} />}</Slot>;
@@ -213,7 +221,7 @@ const ChipGridInner: React.FC<{p: ChipGridProps}> = ({p}) => {
           })}
         </div>
         <div>
-          <div style={{fontFamily: FONT.mono, fontSize: 26, color: 'rgba(255,255,255,0.78)', letterSpacing: '0.06em'}}>CHIPS BUSY</div>
+          <div style={{fontFamily: FONT.mono, fontSize: 26, color: 'rgba(255,255,255,0.78)', letterSpacing: '0.06em'}}>{p.label ?? 'CHIPS BUSY'}</div>
           <div style={{...display('regular', numSize, -0.02), lineHeight: 1, color: C.white, fontFeatureSettings: '"tnum" 1', whiteSpace: 'nowrap'}}>{lit}%</div>
           <div style={{marginTop: 12, height: TYPE.tagBar}}><MonoTag text={p.source} startFrame={p.landAt + 2} /></div>
         </div>
@@ -270,13 +278,17 @@ const LogoTilesInner: React.FC<{items: {logo: LogoId; at: number}[]; logoH: numb
 // holds a beat, hairline cracks run from the impact point (with a DDN-spectrum glint), then it splits into a few large
 // shards along those cracks that drift apart (motion blurred) and fade. The artwork is never redrawn: every shard is
 // the same official logo, clipped to its polygon.
-const SHARDS: {poly: [number, number][]; dir: [number, number]; rot: number}[] = [
-  {poly: [[0, 0], [0.42, 0], [0.36, 0.46], [0, 0.58]], dir: [-1, -0.7], rot: -9},
-  {poly: [[0.42, 0], [0.78, 0], [0.55, 0.42], [0.36, 0.46]], dir: [0.2, -1], rot: 6},
-  {poly: [[0.78, 0], [1, 0], [1, 0.52], [0.55, 0.42]], dir: [1, -0.6], rot: 11},
-  {poly: [[0, 0.58], [0.36, 0.46], [0.47, 1], [0, 1]], dir: [-1, 0.8], rot: 8},
-  {poly: [[0.36, 0.46], [0.55, 0.42], [0.72, 1], [0.47, 1]], dir: [0.1, 1], rot: -5},
-  {poly: [[0.55, 0.42], [1, 0.52], [1, 1], [0.72, 1]], dir: [1, 0.7], rot: -12},
+const SHARDS: {poly: [number, number][]; dir: [number, number]; rot: number; tilt: number; delay: number}[] = [
+  {poly: [[0, 0], [0.3, 0], [0.28, 0.32], [0, 0.4]], dir: [-1, -0.8], rot: -10, tilt: 22, delay: 2},
+  {poly: [[0.3, 0], [0.55, 0], [0.47, 0.45], [0.28, 0.32]], dir: [-0.3, -1], rot: 6, tilt: -18, delay: 0},
+  {poly: [[0.55, 0], [0.82, 0], [0.66, 0.38], [0.47, 0.45]], dir: [0.35, -1], rot: -7, tilt: 20, delay: 1},
+  {poly: [[0.82, 0], [1, 0], [1, 0.42], [0.66, 0.38]], dir: [1, -0.7], rot: 12, tilt: -24, delay: 3},
+  {poly: [[0, 0.4], [0.28, 0.32], [0.47, 0.45], [0.22, 0.7], [0, 0.72]], dir: [-1, 0.1], rot: 8, tilt: -16, delay: 1},
+  {poly: [[0.66, 0.38], [1, 0.42], [1, 0.75], [0.74, 0.66]], dir: [1, 0.15], rot: -9, tilt: 18, delay: 2},
+  {poly: [[0, 0.72], [0.22, 0.7], [0.38, 1], [0, 1]], dir: [-0.8, 1], rot: 10, tilt: 20, delay: 3},
+  {poly: [[0.22, 0.7], [0.47, 0.45], [0.58, 1], [0.38, 1]], dir: [-0.15, 1], rot: -6, tilt: -20, delay: 0},
+  {poly: [[0.47, 0.45], [0.74, 0.66], [0.8, 1], [0.58, 1]], dir: [0.3, 1], rot: 7, tilt: 16, delay: 1},
+  {poly: [[0.74, 0.66], [1, 0.75], [1, 1], [0.8, 1]], dir: [0.9, 0.9], rot: -11, tilt: -22, delay: 2},
 ];
 const IMPACT: [number, number] = [0.47, 0.45];
 
@@ -287,22 +299,24 @@ const ShatterInner: React.FC<{logo: LogoId; crackAt: number; breakAt: number; lo
   const frame = useCurrentFrame();
   const lw = logoH * LOGOS[logo].aspect;
   const crack = interpolate(frame, [crackAt, crackAt + 4], [0, 1], {...cl, easing: EASE.out});
-  const t = interpolate(frame, [breakAt, breakAt + 18], [0, 1], {...cl, easing: Easing4in});
-  const fade = interpolate(frame, [breakAt + 4, breakAt + 18], [1, 0], {...cl, easing: EASE.inOut});
-  const speed = frame >= breakAt && frame <= breakAt + 18 ? (Easing4in(Math.min(1, (frame - breakAt + 1) / 18)) - Easing4in(Math.max(0, (frame - breakAt) / 18))) : 0;
+  const tOf = (d: number) => interpolate(frame, [breakAt + d, breakAt + d + 18], [0, 1], {...cl, easing: Easing4in});
+  const t = tOf(0);
+  const fadeOf = (d: number) => interpolate(frame, [breakAt + d + 4, breakAt + d + 18], [1, 0], {...cl, easing: EASE.inOut});
+  const speedOf = (d: number) => (frame >= breakAt + d && frame <= breakAt + d + 18 ? Easing4in(Math.min(1, (frame - breakAt - d + 1) / 18)) - Easing4in(Math.max(0, (frame - breakAt - d) / 18)) : 0);
   const st = ['rgba(254,117,0,0.95)', 'rgba(237,39,56,0.95)', 'rgba(117,148,178,0.9)'];
   const cracks = SHARDS.flatMap((sh) => sh.poly).filter(([x, y]) => x > 0 && x < 1 && y > 0 && y < 1);
   return (
     <div style={{position: 'relative', width: lw, height: logoH, filter: 'drop-shadow(0 6px 18px rgba(10,6,8,0.35))'}}>
       {SHARDS.map((sh, i) => {
-        const dx = sh.dir[0] * 150 * t;
-        const dy = sh.dir[1] * 110 * t + 70 * t * t; // a little gravity
+        const ti = tOf(sh.delay);
+        const dx = sh.dir[0] * 170 * ti;
+        const dy = sh.dir[1] * 120 * ti + 90 * ti * ti; // a little gravity
         const clip = `polygon(${sh.poly.map(([x, y]) => `${(x * 100).toFixed(1)}% ${(y * 100).toFixed(1)}%`).join(', ')})`;
-        const mb = Math.min(10, speed * 260);
+        const mb = Math.min(8, speedOf(sh.delay) * 220);
         return (
-          <div key={i} style={{position: 'absolute', inset: 0, clipPath: clip, opacity: t > 0 ? fade : 1,
-            transform: `translate(${dx.toFixed(2)}px, ${dy.toFixed(2)}px) rotate(${(sh.rot * 1.8 * t).toFixed(2)}deg)`, transformOrigin: `${IMPACT[0] * 100}% ${IMPACT[1] * 100}%`,
-            filter: mb > 0.2 ? `blur(${mb.toFixed(2)}px)` : undefined}}>
+          <div key={i} style={{position: 'absolute', inset: 0, clipPath: clip, opacity: ti > 0 ? fadeOf(sh.delay) : 1,
+            transform: `perspective(900px) translate(${dx.toFixed(2)}px, ${dy.toFixed(2)}px) rotate(${(sh.rot * 1.6 * ti).toFixed(2)}deg) rotateY(${(sh.tilt * ti).toFixed(2)}deg) rotateX(${(-sh.tilt * 0.6 * ti).toFixed(2)}deg)`,
+            transformOrigin: `${IMPACT[0] * 100}% ${IMPACT[1] * 100}%`, filter: mb > 0.2 ? `blur(${mb.toFixed(2)}px)` : undefined}}>
             <Logo id={logo} height={logoH} />
           </div>
         );

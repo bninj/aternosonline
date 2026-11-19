@@ -1,0 +1,283 @@
+{
+ "music_mix": {
+  "lufs": -20.0,
+  "true_peak_dbtp": -3.56,
+  "sample_peak_dbfs": -3.57,
+  "clipped": 0,
+  "duration": 77.247,
+  "last_50ms_peak_dbfs": -72.8
+ },
+ "punchline_drop_lufs": {
+  "window": [
+   70.14,
+   74.15
+  ],
+  "lufs": -24.3
+ },
+ "sections": {
+  "chair": {
+   "t": [
+    0,
+    1.07
+   ],
+   "lufs": -50.9,
+   "band_pct": {
+    "<250": 0.0,
+    "250-1k": 99.0,
+    "1-4k": 1.0,
+    ">4k": 0.0
+   },
+   "stems_rms": {
+    "bass": -240.0,
+    "drums": -240.0,
+    "fx": -240.0,
+    "keys": -240.0,
+    "marimba": -240.0,
+    "shaker": -240.0,
+    "vibes": -54.2
+   }
+  },
+  "hook": {
+   "t": [
+    1.07,
+    9.35
+   ],
+   "lufs": -24.3,
+   "band_pct": {
+    "<250": 52.0,
+    "250-1k": 47.9,
+    "1-4k": 0.0,
+    ">4k": 0.0
+   },
+   "stems_rms": {
+    "bass": -240.0,
+    "drums": -240.0,
+    "fx": -240.0,
+    "keys": -240.0,
+    "marimba": -240.0,
+    "shaker": -240.0,
+    "vibes": -27.0
+   }
+  },
+  "change": {
+   "t": [
+    9.35,
+    21.91
+   ],
+   "lufs": -23.2,
+   "band_pct": {
+    "<250": 56.5,
+    "250-1k": 43.5,
+    "1-4k": 0.0,
+    ">4k": 0.0
+   },
+   "stems_rms": {
+    "bass": -29.2,
+    "drums": -240.0,
+    "fx": -240.0,
+    "keys": -240.0,
+    "marimba": -240.0,
+    "shaker": -240.0,
+    "vibes": -27.1
+   }
+  },
+  "now": {
+   "t": [
+    21.91,
+    32.59
+   ],
+   "lufs": -19.6,
+   "band_pct": {
+    "<250": 62.3,
+    "250-1k": 37.6,
+    "1-4k": 0.1,
+    ">4k": 0.0
+   },
+   "stems_rms": {
+    "bass": -24.8,
+    "drums": -39.5,
+    "fx": -49.3,
+    "keys": -240.0,
+    "marimba": -240.0,
+    "shaker": -55.6,
+    "vibes": -24.0
+   }
+  },
+  "ddn": {
+   "t": [
+    32.59,
+    58.71
+   ],
+   "lufs": -19.1,
+   "band_pct": {
+    "<250": 67.5,
+    "250-1k": 32.3,
+    "1-4k": 0.1,
+    ">4k": 0.1
+   },
+   "stems_rms": {
+    "bass": -23.9,
+    "drums": -34.7,
+    "fx": -53.1,
+    "keys": -240.0,
+    "marimba": -240.0,
+    "shaker": -47.7,
+    "vibes": -23.8
+   }
+  },
+  "ask": {
+   "t": [
+    58.71,
+    69.94
+   ],
+   "lufs": -18.7,
+   "band_pct": {
+    "<250": 69.4,
+    "250-1k": 30.2,
+    "1-4k": 0.2,
+    ">4k": 0.1
+   },
+   "stems_rms": {
+    "bass": -24.1,
+    "drums": -35.4,
+    "fx": -195.8,
+    "keys": -240.0,
+    "marimba": -240.0,
+    "shaker": -47.5,
+    "vibes": -23.2
+   }
+  },
+  "punch": {
+   "t": [
+    69.94,
+    74.35
+   ],
+   "lufs": -23.6,
+   "band_pct": {
+    "<250": 67.9,
+    "250-1k": 31.2,
+    "1-4k": 0.9,
+    ">4k": 0.0
+   },
+   "stems_rms": {
+    "bass": -28.0,
+    "drums": -37.7,
+    "fx": -47.2,
+    "keys": -240.0,
+    "marimba": -240.0,
+    "shaker": -240.0,
+    "vibes": -29.9
+   }
+  },
+  "endcard": {
+   "t": [
+    74.35,
+    77.25
+   ],
+   "lufs": -21.1,
+   "band_pct": {
+    "<250": 71.4,
+    "250-1k": 28.1,
+    "1-4k": 0.4,
+    ">4k": 0.0
+   },
+   "stems_rms": {
+    "bass": -26.0,
+    "drums": -37.9,
+    "fx": -48.2,
+    "keys": -29.6,
+    "marimba": -240.0,
+    "shaker": -240.0,
+    "vibes": -26.5
+   }
+  }
+ },
+ "section_downbeats_vs_edit": {
+  "change": {
+   "target": 9.353,
+   "requested": 9.353,
+   "onset_offset_ms": null
+  },
+  "now": {
+   "target": 21.906,
+   "requested": 21.906,
+   "onset_offset_ms": -1.0
+  },
+  "ddn": {
+   "target": 32.592,
+   "requested": 32.592,
+   "onset_offset_ms": -1.0
+  },
+  "ask": {
+   "target": 58.71,
+   "requested": 58.71,
+   "onset_offset_ms": -1.0
+  },
+  "punch": {
+   "target": 69.943,
+   "requested": 69.943,
+   "onset_offset_ms": -1.0
+  },
+  "endcard": {
+   "target": 74.35,
+   "requested": 74.35,
+   "onset_offset_ms": 7.0
+  },
+  "hook": {
+   "target": 1.07,
+   "onset_offset_ms": null
+  }
+ },
+ "accent_onsets_ms": {
+  "12% vibes @13.15": 43.0,
+  "5%: thins to bass + kick + one note until @41.154": "gain envelope (exact)",
+  "99% vibes bloom @50.08": null,
+  "75% vibes fall @53.18": null,
+  "snap zoom: vibes fall @44.52": null,
+  "vibes note @67.643": null,
+  "bass enters @16.553": "gain envelope (exact)",
+  "shaker enters (2 and 4) @21.906": null,
+  "soft kick enters @26.252": "gain envelope (exact)",
+  "soft cymbal swell peaks @26.252": 0.0,
+  "soft cymbal swell peaks @54.488": 0.0,
+  "snap zoom: soft low knock @71.82": "gain envelope (exact)"
+ },
+ "preview": {
+  "voice_lufs": -16.0,
+  "music_in_preview_lufs": -38.8,
+  "music_during_speech_lufs": -39.0,
+  "preview_peak_dbfs": -1.11
+ },
+ "masking_during_speech": {
+  "voice_over_music_1_4k_db_median": 52.8,
+  "p5": 30.1,
+  "voice_over_music_fullband_db_median": 26.8
+ },
+ "sfx_audibility": {
+  "click": {
+   "peak_dbfs": -29.2,
+   "best_third_octave_sfx_over_rest_db": 49.3,
+   "laptop_band_sfx_over_rest_db": -12.5
+  },
+  "whoosh_chart": {
+   "peak_dbfs": -24.2,
+   "best_third_octave_sfx_over_rest_db": -7.7,
+   "laptop_band_sfx_over_rest_db": -29.6
+  },
+  "whoosh_gauge": {
+   "peak_dbfs": -22.2,
+   "best_third_octave_sfx_over_rest_db": -13.7,
+   "laptop_band_sfx_over_rest_db": -26.1
+  },
+  "whoosh_ask": {
+   "peak_dbfs": -25.2,
+   "best_third_octave_sfx_over_rest_db": -10.9,
+   "laptop_band_sfx_over_rest_db": -25.8
+  },
+  "chime": {
+   "peak_dbfs": -30.2,
+   "best_third_octave_sfx_over_rest_db": 6.8,
+   "laptop_band_sfx_over_rest_db": 3.5
+  }
+ }
+}

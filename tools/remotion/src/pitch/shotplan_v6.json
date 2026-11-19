@@ -1,0 +1,403 @@
+{
+ "fps": 30,
+ "duration": 77.247,
+ "version": "v6 (+0.75 s rest after Thank you; 4K)",
+ "notes": "Times in seconds on the final timeline. Voice = edit/voice_master_v4.wav (0 to 73.497). Plate = edit/plates_look_v5/plate.mp4 (2304x1296, 2205 frames). End card 73.497 to 76.5. Picture cuts are J-cuts (3 frames after the audio cut); segment start/end below are PICTURE cut times. Same-spot cuts alternate wide/punch. Word times: edit/captions_v4.json.",
+ "segments": [
+  {
+   "i": 0,
+   "start": 0,
+   "end": 9.353,
+   "section": "hook",
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "framing": "wide",
+   "text": "Sorry I kept you waiting. That's AI chips every day waiting for data. And you, Sky, you pay full price to wait.",
+   "zoom_from": 2.2,
+   "note": "ONE continuous take: chair alone 0 to ~1.0, he rolls in, apology, turn to camera"
+  },
+  {
+   "i": 1,
+   "start": 9.353,
+   "end": 10.986,
+   "section": "change",
+   "zoom": [
+    1.0,
+    1.02
+   ],
+   "framing": "wide",
+   "text": "So first, why change?"
+  },
+  {
+   "i": 2,
+   "start": 10.986,
+   "end": 16.553,
+   "section": "change",
+   "zoom": [
+    1.12,
+    1.15
+   ],
+   "framing": "punch",
+   "text": "Ofcom says traditional TV fell by twelve percent in a year as people move to streaming."
+  },
+  {
+   "i": 3,
+   "start": 16.553,
+   "end": 21.906,
+   "section": "change",
+   "zoom": [
+    1.0,
+    1.03
+   ],
+   "framing": "wide",
+   "text": "Netflix and YouTube already know what you want to watch, so Sky needs that too, and fast."
+  },
+  {
+   "i": 4,
+   "start": 21.906,
+   "end": 23.354,
+   "section": "now",
+   "zoom": [
+    1.0,
+    1.02
+   ],
+   "framing": "wide",
+   "text": "Second, why now?"
+  },
+  {
+   "i": 5,
+   "start": 23.354,
+   "end": 26.252,
+   "section": "now",
+   "zoom": [
+    1.12,
+    1.14
+   ],
+   "framing": "punch",
+   "text": "Well, you've already started with Sky Q voice search."
+  },
+  {
+   "i": 6,
+   "start": 26.252,
+   "end": 29.962,
+   "section": "now",
+   "zoom": [
+    1.0,
+    1.03
+   ],
+   "framing": "wide",
+   "text": "Now, the next step is an AI assistant that knows each household."
+  },
+  {
+   "i": 7,
+   "start": 29.962,
+   "end": 32.592,
+   "section": "now",
+   "zoom": [
+    1.14,
+    1.16
+   ],
+   "framing": "punch",
+   "text": "Imagine asking, Sky, make me scared."
+  },
+  {
+   "i": 8,
+   "start": 32.592,
+   "end": 34.359,
+   "section": "ddn",
+   "zoom": [
+    1.0,
+    1.015
+   ],
+   "framing": "wide",
+   "text": "Third, why DDN?"
+  },
+  {
+   "i": 9,
+   "start": 34.359,
+   "end": 41.154,
+   "section": "ddn",
+   "zoom": [
+    1.0,
+    1.03
+   ],
+   "framing": "wide",
+   "text": "Idle chips will still cost you, and Cast AI found that enterprise chips average around five percent of use."
+  },
+  {
+   "i": 10,
+   "start": 41.154,
+   "end": 45.52,
+   "section": "ddn",
+   "zoom": [
+    1.1,
+    1.12
+   ],
+   "framing": "punch",
+   "text": "It's like paying for a whole Sky Sports bundle just to watch Arsenal lose."
+  },
+  {
+   "i": 11,
+   "start": 45.52,
+   "end": 48.62,
+   "section": "ddn",
+   "zoom": [
+    1.0,
+    1.02
+   ],
+   "framing": "wide",
+   "text": "Now DDN's Infinia keeps data flowing to the chips."
+  },
+  {
+   "i": 12,
+   "start": 48.62,
+   "end": 54.488,
+   "section": "ddn",
+   "zoom": [
+    1.1,
+    1.13
+   ],
+   "framing": "punch",
+   "text": "And they say customers reach up to ninety nine percent busy and cut costs per token by seventy five percent."
+  },
+  {
+   "i": 13,
+   "start": 54.488,
+   "end": 58.71,
+   "section": "ddn",
+   "zoom": [
+    1.0,
+    1.02
+   ],
+   "framing": "wide",
+   "text": "Plus, they already work with media companies like Canal Plus and Starz."
+  },
+  {
+   "i": 14,
+   "start": 58.71,
+   "end": 60.143,
+   "section": "ask",
+   "zoom": [
+    1.0,
+    1.02
+   ],
+   "framing": "wide",
+   "text": "So the ask is clear."
+  },
+  {
+   "i": 15,
+   "start": 60.143,
+   "end": 64.843,
+   "section": "ask",
+   "zoom": [
+    1.12,
+    1.14
+   ],
+   "framing": "punch",
+   "text": "Let DDN run a pilot on the AI behind your voice search or your next assistant."
+  },
+  {
+   "i": 16,
+   "start": 64.843,
+   "end": 67.643,
+   "section": "ask",
+   "zoom": [
+    1.0,
+    1.03
+   ],
+   "framing": "wide",
+   "text": "Then measure the values before and after."
+  },
+  {
+   "i": 17,
+   "start": 67.643,
+   "end": 69.943,
+   "section": "ask",
+   "zoom": [
+    1.0,
+    1.03
+   ],
+   "framing": "medium (IMG_3859)",
+   "text": "And if both improve, scale it."
+  },
+  {
+   "i": 18,
+   "start": 69.943,
+   "end": 70.945,
+   "section": "end",
+   "zoom": [
+    1.0,
+    1.01
+   ],
+   "framing": "wide",
+   "text": "So Sky."
+  },
+  {
+   "i": 19,
+   "start": 70.945,
+   "end": 72.745,
+   "section": "end",
+   "zoom": [
+    1.12,
+    1.14
+   ],
+   "framing": "punch",
+   "text": "Don't be the next Blockbuster."
+  },
+  {
+   "i": 20,
+   "start": 72.745,
+   "end": 74.247,
+   "section": "end",
+   "zoom": [
+    1.0,
+    1.03
+   ],
+   "framing": "wide",
+   "text": "Thank you."
+  }
+ ],
+ "sections_for_progress_bar": [
+  {
+   "id": "change",
+   "label": "Why change",
+   "start": 9.353,
+   "end": 21.906
+  },
+  {
+   "id": "now",
+   "label": "Why now",
+   "start": 21.906,
+   "end": 32.592
+  },
+  {
+   "id": "ddn",
+   "label": "Why DDN",
+   "start": 32.592,
+   "end": 58.71
+  },
+  {
+   "id": "ask",
+   "label": "The ask",
+   "start": 58.71,
+   "end": 73.497
+  }
+ ],
+ "snap_zooms": [
+  {
+   "t": 13.15,
+   "word": "12%",
+   "amount": 0.04
+  },
+  {
+   "t": 39.46,
+   "word": "5%",
+   "amount": 0.04
+  },
+  {
+   "t": 44.52,
+   "word": "Arsenal lose",
+   "amount": 0.04
+  },
+  {
+   "t": 50.08,
+   "word": "99%",
+   "amount": 0.04
+  },
+  {
+   "t": 53.18,
+   "word": "75%",
+   "amount": 0.04
+  },
+  {
+   "t": 71.82,
+   "word": "Blockbuster",
+   "amount": 0.04
+  }
+ ],
+ "word_anchors": {
+  "Sorry": 1.07,
+  "That's AI chips": 2.95,
+  "waiting for data": 5.15,
+  "Sky (hook)": 6.83,
+  "full price to wait": 7.63,
+  "So first": 9.39,
+  "Ofcom": 10.93,
+  "12%": 13.15,
+  "streaming": 15.97,
+  "Netflix": 16.51,
+  "YouTube": 17.07,
+  "so Sky needs": 19.33,
+  "and fast": 20.65,
+  "Second": 21.83,
+  "Sky Q voice search": 24.67,
+  "Now the next step": 26.12,
+  "AI assistant": 27.66,
+  "household": 29.32,
+  "Imagine asking": 29.96,
+  "Sky, make me scared": 30.9,
+  "Third": 32.62,
+  "why DDN": 33.38,
+  "Idle chips": 34.26,
+  "Cast AI": 36.1,
+  "enterprise chips average": 37.38,
+  "5%": 39.46,
+  "Sky Sports bundle": 42.58,
+  "Arsenal lose": 44.52,
+  "DDN's Infinia": 45.74,
+  "data flowing to the chips": 46.84,
+  "customers": 48.98,
+  "99%": 50.08,
+  "cut costs per token": 51.78,
+  "75%": 53.18,
+  "Plus": 54.38,
+  "Canal Plus": 56.64,
+  "Starz": 57.74,
+  "So the ask is clear": 58.62,
+  "pilot": 61.0,
+  "voice search (ask)": 62.58,
+  "next assistant": 63.78,
+  "Then measure": 64.84,
+  "before and after": 65.76,
+  "So Sky": 69.98,
+  "Blockbuster": 71.82,
+  "Thank you": 72.68,
+  "And if both improve": 67.6,
+  "scale it": 69.2
+ },
+ "sfx": [
+  {
+   "t": 1.07,
+   "sfx": "click",
+   "note": "timer start, barely audible"
+  },
+  {
+   "t": 10.93,
+   "sfx": "whoosh",
+   "note": "chart in"
+  },
+  {
+   "t": 48.98,
+   "sfx": "whoosh",
+   "note": "gauge"
+  },
+  {
+   "t": 64.84,
+   "sfx": "whoosh",
+   "note": "measure card"
+  },
+  {
+   "t": 74.45,
+   "sfx": "chime",
+   "note": "end card"
+  }
+ ],
+ "sfx_rule": "Max 5 SFX. Felt, not heard.",
+ "keep_out": {
+  "sky_monitor": "segments 1 to 7",
+  "ddn_monitor": "segments 8 to 13",
+  "ai_chair_sign": "segments 0 and 14 to 19"
+ }
+}

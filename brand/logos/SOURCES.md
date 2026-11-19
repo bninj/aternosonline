@@ -15,3 +15,10 @@ Commons marks these files as **public domain** because they are below the thresh
 DDN marks come from DDN's own brand page (`brand/`, see `research/DDN_STYLE_GUIDE.md` section 0). On light plates and the end card we use `ddn-logo-primary-color.svg`. On dark glass we use `main-logo-small.svg` (colour ring with a white wordmark), copied as `public/logos/ddn-logo-white.svg`. Note that DDN's own SVGs embed the ring as a 173 px PNG, so keep the logo at or below about 170 px tall.
 
 **Sky: not included.** Sky's current (2020) gradient wordmark is not on Commons; it is above the threshold of originality, so it is not public domain. Sky's press site was not reachable from this environment. To add it, download the official SVG from Sky's brand or press centre (skygroup.sky/press) and save it as `brand/logos/Sky_logo.svg` and `tools/remotion/public/logos/Sky_logo.svg`. Then add a `sky` entry in `tools/remotion/src/ddn/logos.tsx`. Until then, "Sky" appears only as text (and as caption emphasis).
+
+| `Arsenal_FC.svg` | Arsenal FC crest (current) | https://en.wikipedia.org/wiki/File:Arsenal_FC.svg | https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg | **Non-free** on English Wikipedia (copyrighted crest, fair-use rationale there; not on Commons) | ® The Arsenal Football Club plc |
+
+**Arsenal note:** the crest is copyrighted and trademarked artwork, not public domain.
+- It is used unaltered, for a few seconds of nominative / commentary use in a non-commercial pitch entry ("paying for a whole Sky Sports bundle just to watch Arsenal lose").
+- The user asked for it. Rights should be confirmed before any public or commercial release.
+- The animation desaturates and moves the whole crest; the artwork itself is never redrawn.

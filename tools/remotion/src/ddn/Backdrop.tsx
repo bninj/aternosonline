@@ -1,5 +1,5 @@
 import React, {createContext, useContext, useLayoutEffect, useRef, useState} from 'react';
-import {AbsoluteFill, Freeze, Img, Internals, OffthreadVideo, staticFile, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Freeze, Img, Internals, OffthreadVideo, staticFile} from 'remotion';
 
 // Deterministic frosted glass, v2.
 // CSS backdrop-filter dropped plates on ~1 % of frames in headless Chrome (critique log v1, round 3), so the frost
@@ -55,7 +55,6 @@ export const Footage: React.FC<{source: FootageSource | null; background?: strin
 // measured offset synchronously in the same commit (useLayoutEffect), before Chrome paints the frame.
 export const Frost: React.FC<{blurPx: number; filter: string; radius: number | string}> = ({blurPx, filter, radius}) => {
   const {source, rootRef} = useFootage();
-  const {width, height} = useVideoConfig();
   const ref = useRef<HTMLDivElement>(null);
   const [m, setM] = useState<{x: number; y: number; s: number} | null>(null);
   const seq = useContext(Internals.SequenceContext);
@@ -68,13 +67,16 @@ export const Frost: React.FC<{blurPx: number; filter: string; radius: number | s
     if (!el || !root) return;
     const r = el.getBoundingClientRect();
     const R = root.getBoundingClientRect();
-    const k = R.width / width || 1; // Studio preview scale
+    const k = R.width / (root.offsetWidth || 1) || 1; // preview / 4K output scale (layout px -> screen px)
     const s = el.offsetWidth > 0 ? r.width / (el.offsetWidth * k) : 1; // our own scale animations
     const next = {x: (r.left - R.left) / k, y: (r.top - R.top) / k, s: s || 1};
     
     if (!m || Math.abs(next.x - m.x) > 0.01 || Math.abs(next.y - m.y) > 0.01 || Math.abs(next.s - m.s) > 0.0005) setM(next);
   });
 
+  const root = rootRef.current ?? (ref.current ? (ref.current.closest('[data-ddn-footage-root]') as HTMLDivElement | null) : null);
+  const width = root?.offsetWidth || 1920;
+  const height = root?.offsetHeight || 1080;
   if (!source) return null;
   const css = source.blurredSrc ? filter : `blur(${blurPx}px) ${filter}`;
   return (
