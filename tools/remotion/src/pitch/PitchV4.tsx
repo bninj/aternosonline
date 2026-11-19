@@ -23,6 +23,7 @@ const W = plan.word_anchors as Record<string, number>;
 const w = (k: string) => fr(W[k]);
 const cutF = (i: number) => fr(plan.segments[i].start);
 const CUTS = plan.segments.slice(1).map((s) => fr(s.start));
+const SEAM_DDN = fr(32.592); // Why DDN section seam
 const G = 0.79; // graphics bottom (fraction of H): clears the 54 px caption pill (top at 0.83 H) by 40 px
 const R = {anchor: 'right' as const};
 // Depth logos: [x, y, height] in footage px @1920 (pre-zoom), placed behind calm edges (head side, shoulder).
@@ -48,7 +49,7 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
   const timerFrom = fr(0.85);
   const chartFrom = after(w('Ofcom') - 3, 2);
   const tilesFrom = after(w('Netflix') - 4, 3);
-  const voiceFrom = w('Sky Q voice search') - 6;
+  const voiceFrom = w('Sky Q voice search') - 16; // dwell: >= 2 s fully visible inside the punch shot
   const chatFrom = after(w('Imagine asking') - 2, 7);
   const idleFrom = w('Cast AI') - 4;
   const ddnFrom = w("DDN's Infinia") - 4;
@@ -64,19 +65,19 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
           through "Sorry I kept you waiting", locked to the footage transform; off by 3.0 s as he turns to camera.
           The pitch clock starts on "Sorry". */}
       <AbsoluteFill style={{transformOrigin: `${cam.origin[0]}px ${cam.origin[1]}px`, transform: `scale(${cam.z.toFixed(5)})`}}>
-        <ChairSpotlight dimIn={[4, 20]} dimOut={[34, 54]} lineIn={[8, 34]} offAt={[fr(2.45), fr(3.0)]} />
+        <ChairSpotlight dimIn={[w("That's AI chips"), w("That's AI chips") + 11]} dimOut={[w("That's AI chips") + 44, w("That's AI chips") + 59]} lineIn={[w("That's AI chips"), w("That's AI chips") + 12]} offAt={[w("That's AI chips") + 44, w("That's AI chips") + 59]} />
         {/* Logos IN the room, partly behind him (the person layer below re-composites him in front). Footage space. */}
         <DepthLogos from={tilesFrom} durationInFrames={fr(19.25) - tilesFrom} items={[
           {logo: 'netflix', at: 3, x: LOGO_POS.netflix[0], y: LOGO_POS.netflix[1], h: LOGO_POS.netflix[2]},
           {logo: 'youtube', at: w('YouTube') - 4 - tilesFrom, x: LOGO_POS.youtube[0], y: LOGO_POS.youtube[1], h: LOGO_POS.youtube[2]}]} />
-        <DepthLogos from={caFrom} durationInFrames={fr(58.5) - caFrom} items={[
+        <DepthLogos from={caFrom} durationInFrames={fr(58.62) - caFrom} items={[
           {logo: 'canalplus', at: 3, x: LOGO_POS.canal[0], y: LOGO_POS.canal[1], h: LOGO_POS.canal[2]},
-          {logo: 'starz', at: w('Starz') - 4 - caFrom, x: LOGO_POS.starz[0], y: LOGO_POS.starz[1], h: LOGO_POS.starz[2]}]} />
+          {logo: 'starz', at: 9 /* both logos on "Canal Plus" so Starz also dwells >= 2 s */, x: LOGO_POS.starz[0], y: LOGO_POS.starz[1], h: LOGO_POS.starz[2]}]} />
         <DepthShatter from={bbFrom} durationInFrames={fr(72.62) - bbFrom} x={LOGO_POS.bb[0]} y={LOGO_POS.bb[1]} h={LOGO_POS.bb[2]}
           crackAt={fr(71.92) - bbFrom} breakAt={fr(72.06) - bbFrom} />
       </AbsoluteFill>
       {PERSON.map((pl) => <PersonLayer key={pl.src} src={pl.src} plateFrom={pl.from} durationInFrames={pl.to - pl.from} style={camStyle} />)}
-      <NameTag from={fr(3.1)} durationInFrames={fr(6.0) - fr(3.1)} anchor="right" bottom={0.36} name="ELIUD AWUAH" />
+      <NameTag from={fr(5.2)} durationInFrames={fr(8.6) - fr(5.2)} anchor="right" bottom={0.36} name="ELIUD AWUAH" />
       <PitchTimer from={timerFrom} durationInFrames={fr(2.9) - timerFrom} clockZero={w('Sorry')} anchor="right" bottom={0.3} />
 
       {/* Progress: presents at each section seam, then a slim strip. */}
@@ -89,9 +90,9 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
 
 
       {/* Why now */}
-      <VoicePill from={voiceFrom} durationInFrames={fr(26.15) - voiceFrom} {...R} bottom={G} text="Sky Q voice search" voice={voice} />
-      <VoiceChat from={chatFrom} durationInFrames={fr(32.4) - chatFrom} {...R} bottom={G} text="Sky, make me scared." voice={voice}
-        typeStart={w('Sky, make me scared') - chatFrom} typeEnd={fr(32.25) - chatFrom} />
+      <VoicePill from={voiceFrom} durationInFrames={fr(26.2) - voiceFrom} {...R} bottom={0.645} text="Sky Q voice search" voice={voice} />
+      <VoiceChat from={chatFrom} durationInFrames={SEAM_DDN - chatFrom} {...R} bottom={G} text="Sky, make me scared." voice={voice}
+        typeStart={w('Sky, make me scared') - chatFrom} typeEnd={fr(32.2) - chatFrom} />
 
       {/* Why DDN: one chip-use grid that evolves (idle 5 %, then data flows in, 99 % busy, cost per token down 75 %) */}
       <ChipGrid from={idleFrom} durationInFrames={fr(41.0) - idleFrom} {...R} bottom={0.8} mode="idle" landAt={w('5%') - idleFrom} source="Cast AI, enterprise average" />
@@ -108,7 +109,8 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
 
 
       <Subtitles transcript={transcript} look={PITCH_CAPTION_LOOK} anchor="center" joinGapFrames={6} snapTo={CUTS}
-        suppress={[{from: chatFrom, to: fr(32.4)}, {from: PLATE_END - 6, to: 2400}]} />
+        suppress={[{from: chatFrom, to: SEAM_DDN}, {from: PLATE_END - 6, to: 2400}]}
+        centerX={cam.origin[0]} maxRight={1070} />
 
       <EndBuild from={PLATE_END} durationInFrames={2295 - PLATE_END} />
 

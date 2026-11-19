@@ -1,4 +1,50 @@
-# Music + SFX for the DDN "Why DDN" pitch: **current = v5** in `out_v5/` (the v4 sound, re-fitted to the tightened edit)
+# Music + SFX for the DDN "Why DDN" pitch: **current = v6** in `out_v6/` (76.5 s, CC0 only, no credits needed)
+
+## v6: the inserted ask line ("And if both improve, scale it.", 67.643–69.943)
+Inputs:
+- Edit: `edit/SHOTPLAN_v5.json`
+- Voice: `edit/voice_master_v4.wav` (73.497 s)
+- Config: `v2/edit_v6.json`
+
+Same sound and the same **CC0-only kit** as v5. **No sample needs attribution.**
+
+**Timing**
+- Section downbeats: 1.07, 9.353, 21.906, 32.592, 58.71, then punchline 69.943 and end-card resolve 73.60. Measured onsets are within ±4 ms. Bars per section are 4/6/5/12/**5**/1.5.
+- Tempo glides 116 → 97 BPM.
+- **The ask gains a 5th bar** that starts on the new line (bar downbeat 67.62, with a vibes accent exactly on the 67.643 cut). Its harmony lifts to A and the question figure climbs once more: the payoff, before the punchline drop.
+- New cut accents:
+  - 67.643: vibes E5
+  - 70.945: very soft vibes B4 inside the drop
+  - 72.745: carried by the resolve pickup, which starts there
+- "Blockbuster" soft knock: 71.82.
+- SFX are unchanged except the chime, which moves to 73.70: click 1.07, swells 10.93 / 48.98 / 64.84, chime 73.70. Each file's `place_at` is in `out_v6/timing.json`.
+
+**Measured**
+- `music_mix.wav`, `sfx_all_positioned.wav` and the preview are each exactly 76.5 s.
+- The mix is −20.0 LUFS, true peak −3.4 dBTP, and silent at the end (−77 dBFS).
+- Loudness by section (LUFS):
+
+| hook | change | now | DDN | ask | punchline drop | end card |
+|---|---|---|---|---|---|---|
+| −24.5 | −23.0 | −20.9 | −19.0 | −18.2 | −24.0 | −19.7 |
+
+- In the preview the voice is a median 23.8 dB above the music.
+- The clash scan leaves only intentional maj7 colours. The Gmaj7 ask bar was re-voiced to avoid a C#/D rub.
+- `samples_used` contains no Naked Drums files.
+
+**Re-render**
+```
+cd /home/user/ddn-project/music/v2
+/home/user/ddn-project/tools/venv/bin/python compose_v4.py edit_v6.json --out ../out_v6
+/home/user/ddn-project/tools/venv/bin/python sfx_v4.py edit_v6.json --out ../out_v6
+/home/user/ddn-project/tools/venv/bin/python analyze_v3.py ../out_v6 edit_v6.json
+```
+
+The v5 audio was deleted to save disk; it can be re-rendered with `edit_v5.json`.
+
+---
+
+# v5 (superseded by v6): the v4 sound re-fitted to the tightened edit
 
 ## v5: re-timed to `edit/SHOTPLAN_v4.json` and `edit/voice_master_v3.wav` (74.2 s)
 The sound and arrangement are v4's (curious, then confident; described below). Only the timing changed: `v2/edit_v5.json`.

@@ -391,7 +391,7 @@ export const ChairSpotlight: React.FC<{dimIn: [number, number]; dimOut: [number,
   if (vis <= 0.001 && dim <= 0.001) return null;
   return (
     <AbsoluteFill style={{pointerEvents: 'none'}}>
-      <AbsoluteFill style={{background: 'rgba(14,8,10,0.42)', opacity: dim * off, WebkitMaskImage: `url(${staticFile('pitch/chair_inverse.png')})`, WebkitMaskSize: '100% 100%', maskImage: `url(${staticFile('pitch/chair_inverse.png')})`, maskSize: '100% 100%'}} />
+      <AbsoluteFill style={{background: 'rgba(14,8,10,0.28)', opacity: dim * off, WebkitMaskImage: `url(${staticFile('pitch/chair_inverse.png')})`, WebkitMaskSize: '100% 100%', maskImage: `url(${staticFile('pitch/chair_inverse.png')})`, maskSize: '100% 100%'}} />
       <AbsoluteFill style={{background: 'rgba(255,240,236,0.22)', mixBlendMode: 'screen', opacity: vis, WebkitMaskImage: `url(${staticFile('pitch/chair_alpha.png')})`, WebkitMaskSize: '100% 100%', maskImage: `url(${staticFile('pitch/chair_alpha.png')})`, maskSize: '100% 100%'}} />
       <svg width={1920} height={1080} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible', opacity: off}}>
         <defs>

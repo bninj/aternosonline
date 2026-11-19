@@ -23,6 +23,8 @@ export type SubtitlesProps = {
   suppress?: {from: number; to: number}[]; // frame ranges with no caption (e.g. a chat bubble already shows the words) [4.6]
   joinGapFrames?: number; // phrases closer than this share one plate and swap softly (default 8)
   look?: Partial<CaptionLook>;
+  centerX?: number; // place the pill centred on this x (e.g. under the speaker's face), clamped to [margin, maxRight]
+  maxRight?: number; // right edge limit for the pill (keeps it clear of a graphics column)
   snapTo?: number[]; // picture-cut frames: a phrase starting up to 8 f before a cut appears ON the cut instead (clean J-cuts)
 };
 
@@ -30,7 +32,7 @@ export type SubtitlesProps = {
 // short-form preset (PITCH_CAPTION_LOOK): one line, 48 px semi-bold, frosted pill, 8 % bottom margin.
 export type CaptionLook = {size: number; role: TypeRole; emphRole: TypeRole; padX: number; padY: number; radius: number; bottomPx: number; maxLines: number};
 export const DDN_CAPTION_LOOK: CaptionLook = {size: TYPE.caption, role: 'regular', emphRole: 'medium', padX: 56, padY: 30, radius: 18, bottomPx: FRAME.h * SAFE.margin, maxLines: 2};
-export const PITCH_CAPTION_LOOK: CaptionLook = {size: 54, role: 'caption', emphRole: 'caption', padX: 34, padY: 15, radius: 999, bottomPx: Math.round(FRAME.h * 0.08), maxLines: 1};
+export const PITCH_CAPTION_LOOK: CaptionLook = {size: 59, role: 'caption', emphRole: 'caption', padX: 36, padY: 16, radius: 999, bottomPx: Math.round(FRAME.h * 0.24), maxLines: 1}; // v5b: up near the speaker (pill bottom at 76 % H), +10 %
 
 export const DEFAULT_EMPHASIS = ['DDN', 'Sky'];
 const isEmph = (core: string, list: string[], flag?: boolean) => (flag !== undefined ? flag : /\d/.test(core) || list.includes(core));
@@ -134,7 +136,7 @@ const PhraseText: React.FC<{laid: Laid; opacity: number; y: number; blur: number
 
 type Run = {from: number; to: number; phrases: {from: number; to: number; laid: Laid}[]};
 
-const RunBody: React.FC<{run: Run; fps: number; justify: string; side: number; bottom: number}> = ({run, fps, justify, side, bottom}) => {
+const RunBody: React.FC<{run: Run; fps: number; justify: string; side: number; bottom: number; centerX?: number; maxRight?: number}> = ({run, fps, justify, side, bottom, centerX, maxRight}) => {
   const frame = useCurrentFrame(); // relative to run.from
   const env = makeEnvelope(run.to - run.from, {delay: 0, enter: 10, exit: 8});
   const rel = run.phrases.map((p) => ({...p, from: p.from - run.from, to: p.to - run.from}));
@@ -155,8 +157,8 @@ const RunBody: React.FC<{run: Run; fps: number; justify: string; side: number; b
   return (
     <EnvelopeProvider value={env}>
       <MotionBlurWhileMoving env={env} samples={5}>
-        <AbsoluteFill style={{justifyContent: 'flex-end', alignItems: justify, padding: `0 ${side}px ${bottom}px`}}>
-        <Reveal rise={18} blur={10}>
+        <AbsoluteFill style={centerX !== undefined ? {} : {justifyContent: 'flex-end', alignItems: justify, padding: `0 ${side}px ${bottom}px`}}>
+        <Reveal rise={18} blur={10} style={centerX !== undefined ? {position: 'absolute', bottom, left: Math.max(side, Math.min((maxRight ?? FRAME.w - side) - w, centerX - w / 2))} : undefined}>
           <FrostedGlass padX={0} padY={0} radius={Math.min(cur.laid.look.radius, h / 2)} style={{width: w, height: h}}>
             <div style={{position: 'relative', width: w, height: h}}>
               <PhraseText laid={cur.laid} opacity={(prev ? 0.55 + 0.45 * q2 : 1) * (1 - 0.45 * q1)} y={prev ? 4 * (1 - q2) : 0} blur={(prev ? 6 * (1 - q2) : 0) + 6 * q1} fps={fps} runFrom={run.from} />
@@ -169,7 +171,7 @@ const RunBody: React.FC<{run: Run; fps: number; justify: string; side: number; b
   );
 };
 
-export const Subtitles: React.FC<SubtitlesProps> = ({transcript, emphasis = DEFAULT_EMPHASIS, anchor = 'center', faceBox, avoid = [], holdAfterLastWord = 0.5, strict = true, suppress = [], joinGapFrames = 8, look, snapTo = []}) => {
+export const Subtitles: React.FC<SubtitlesProps> = ({transcript, emphasis = DEFAULT_EMPHASIS, anchor = 'center', faceBox, avoid = [], holdAfterLastWord = 0.5, strict = true, suppress = [], joinGapFrames = 8, look, snapTo = [], centerX, maxRight}) => {
   const L: CaptionLook = {...DDN_CAPTION_LOOK, ...look};
   const {fps} = useVideoConfig();
   const ready = useFontsReady();
@@ -222,7 +224,7 @@ export const Subtitles: React.FC<SubtitlesProps> = ({transcript, emphasis = DEFA
     <>
       {runs.map((r, i) => (
         <Sequence key={i} from={r.from} durationInFrames={r.to - r.from} name={`Caption run ${i + 1}`} layout="none">
-          <RunBody run={r} fps={fps} justify={justify} side={side} bottom={L.bottomPx} />
+          <RunBody run={r} fps={fps} justify={justify} side={side} bottom={L.bottomPx} centerX={centerX} maxRight={maxRight} />
         </Sequence>
       ))}
     </>

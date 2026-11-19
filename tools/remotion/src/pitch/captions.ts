@@ -8,8 +8,8 @@ const MAX_WORDS = 6;
 const MAX_CHARS = 42;
 const len = (ws: Word[]) => ws.map((w) => w.text).join(' ').length;
 
-const split = (ws: Word[]): Word[][] => {
-  if (ws.length <= MAX_WORDS && len(ws) <= MAX_CHARS) return [ws];
+const split = (ws: Word[], mw = MAX_WORDS, mc = MAX_CHARS): Word[][] => {
+  if (ws.length <= mw && len(ws) <= mc) return [ws];
   let best = 1;
   let bestScore = Infinity;
   for (let k = 2; k <= ws.length - 2; k++) {
@@ -21,20 +21,22 @@ const split = (ws: Word[]): Word[][] => {
       best = k;
     }
   }
-  return [...split(ws.slice(0, best)), ...split(ws.slice(best))];
+  return [...split(ws.slice(0, best), mw, mc), ...split(ws.slice(best), mw, mc)];
 };
 
 type RawPhrase = {words: {text: string; start: number; end: number; emphasis: boolean}[]};
 export const pitchTranscript = (): Transcript => makeTranscript(raw as RawPhrase[]);
 // v5: captions_v3 phrases are the source of truth. They are only ever SPLIT (one-line rule), never merged, so a
 // caption can never join the end of one sentence or section to the start of the next.
-export const pitchTranscriptV3 = (): Transcript => makeTranscript(raw3 as RawPhrase[]);
+// v5b: captions sit up near the speaker and must stay left of the graphics column, so phrases are split to <= 5 words
+// and <= 28 characters (split only, never merged).
+export const pitchTranscriptV3 = (): Transcript => makeTranscript(raw3 as RawPhrase[], 5, 28);
 
-const makeTranscript = (rawPhrases: RawPhrase[]): Transcript => {
+const makeTranscript = (rawPhrases: RawPhrase[], mw = MAX_WORDS, mc = MAX_CHARS): Transcript => {
   const words: Word[] = [];
   const phrases: {from: number; to: number}[] = [];
   for (const p of rawPhrases as {words: {text: string; start: number; end: number; emphasis: boolean}[]}[]) {
-    for (const chunk of split(p.words.map((w) => ({text: w.text, start: w.start, end: w.end, emphasis: w.emphasis})))) {
+    for (const chunk of split(p.words.map((w) => ({text: w.text, start: w.start, end: w.end, emphasis: w.emphasis})), mw, mc)) {
       phrases.push({from: words.length, to: words.length + chunk.length - 1});
       words.push(...chunk);
     }

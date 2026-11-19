@@ -48,7 +48,7 @@ export const segIndexAt = (frame: number) => {
 
 const P4in = (x: number) => x * x * x * x;
 const P4out = (x: number) => 1 - Math.pow(1 - x, 4);
-const DRIFT = Easing.bezier(0.65, 0, 0.35, 1);
+const DRIFT = Easing.bezier(0.37, 0, 0.63, 1); // sine in-out: no linear starts or stops
 const clamp01 = (x: number) => Math.max(0, Math.min(1, x));
 
 export const faceOf = (i: number): {center: [number, number]; box: Box} => {

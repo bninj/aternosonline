@@ -169,7 +169,7 @@ def compose(tm):
                 for q, ci in enumerate([0, 1, 2, 1]):
                     s.add("marimba", b0 + q + 0.5, 0.4, ch[ci], 36)
         elif sec == "ask":
-            fig(s, b0, [62, 64, 62, 59, 64][i % 5], 48 + 2 * min(i, 4), Q2 if i in (0, 1, 4) else Q1)     # asks once more; bar 5 lifts
+            fig(s, b0, [62, 64, 62, 62, 64][i % 5], 48 + 2 * min(i, 4), Q2 if i in (0, 1, 4) else Q1)     # asks once more; bar 5 lifts
 
     # ---------------- accents at exact edit times (as v3) ----------------
     at = Bt
