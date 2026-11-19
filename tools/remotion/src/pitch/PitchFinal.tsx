@@ -64,36 +64,36 @@ export const PitchFinal: React.FC<PitchFinalProps> = ({plate, plateBlur, voice, 
 
       <PitchTimer from={f(g.timer.in)} durationInFrames={f(g.timer.out) - f(g.timer.in)} clockZero={f(1.85)} anchor="right" bottom={0.3} />
 
-      <SectionProgress sections={sections} from={cut(1) + 2} durationInFrames={f(g.progress.out) - cut(1) - 2} edge="top" anchor="right" width={800} labelSize={26} />
+      <SectionProgress sections={sections} from={cut(1) + 2} durationInFrames={f(g.progress.out) - cut(1) - 2} edge="top" anchor="right" width={740} labelSize={24} />
 
       <LineChartFall from={chartFrom} durationInFrames={f(g.ofcom_chart.out) - chartFrom} {...PLACE_R}
-        valueAt={f(14.63) - chartFrom} value="12%" source="Ofcom Media Nations 2026" chartW={500} chartH={120} />
+        valueAt={f(14.63) - chartFrom} value="12%" source="Ofcom Media Nations 2026" chartW={420} chartH={104} scale={0.76} />
 
-      <KeywordStack from={streamFrom} durationInFrames={f(g.netflix.out) - streamFrom} {...PLACE_R} show="logo"
+      <KeywordStack from={streamFrom} durationInFrames={f(g.netflix.out) - streamFrom} {...PLACE_R} show="logo" logoHeight={50}
         items={[{text: 'Netflix', logo: 'netflix', at: 3}, {text: 'YouTube', logo: 'youtube', at: f(g.youtube.in) - 4 - streamFrom}]} />
 
       <ChatBubble from={chatFrom} durationInFrames={f(g.chat_bubble.out) - chatFrom} {...PLACE_R}
-        text="Sky, make me scared." breakAfterComma={false} typeStart={f(33.47) - chatFrom} typeEnd={f(34.41) - chatFrom} />
+        text="Sky, make me scared." size={50} breakAfterComma={false} typeStart={f(33.47) - chatFrom} typeEnd={f(34.41) - chatFrom} />
 
       <StatCard from={statFrom} durationInFrames={f(g.stat_5.out) - statFrom} {...PLACE_R}
-        value="5%" source="Cast AI, enterprise average" landAt={f(42.43) - statFrom} />
+        value="5%" source="Cast AI, enterprise average" landAt={f(42.43) - statFrom} scale={0.8} />
 
       <BusyGauge from={gaugeFrom} durationInFrames={f(g.busy_gauge.out) - gaugeFrom} {...PLACE_R}
-        fromValue={5} toValue={99} source="per DDN" landAt={f(53.67) - gaugeFrom} riseFrames={30} />
+        fromValue={5} toValue={99} source="per DDN" landAt={f(53.67) - gaugeFrom} riseFrames={30} scale={0.72} />
       <StatCard from={card99From} durationInFrames={f(g.stat_99_75.out) - card99From} {...PLACE_R}
-        value="99% busy," countFrom={99} lines={['75% lower cost per token']} source="per DDN" linesAt={f(56.77) - card99From} />
+        value="99% busy," countFrom={99} lines={['75% lower cost per token']} source="per DDN" linesAt={f(56.77) - card99From} scale={0.72} />
 
-      <KeywordStack from={logosFrom} durationInFrames={f(g.canal.out) - logosFrom} {...PLACE_R} show="logo"
+      <KeywordStack from={logosFrom} durationInFrames={f(g.canal.out) - logosFrom} {...PLACE_R} show="logo" logoHeight={50}
         items={[{text: 'Canal Plus', logo: 'canalplus', at: 3}, {text: 'Starz', logo: 'starz', at: f(g.starz.in) - 4 - logosFrom}]} />
 
       {/* The ask: a "30 day pilot" pill on "pilot", grows into the measure card on "Then measure", holds across the
           close-up cut (same place, clear of the face in both shots and of the AI sign), leaves before "Blockbuster". */}
       <MeasureCard from={askFrom} durationInFrames={f(g.ask_card.out) - askFrom} anchor="right" bottom={500 / 1080}
-        tag="30 day pilot" tagAt={f(65.39) - askFrom - 2} itemsAt={f(69.11) - askFrom} width={540} labelSize={34} barLabelSize={25} pad={26} gap={12}
+        tag="30 day pilot" tagAt={f(65.39) - askFrom - 2} itemsAt={f(69.11) - askFrom} width={500} labelSize={32} barLabelSize={24} pad={24} gap={12}
         items={[{label: 'How busy the chips are', at: f(69.11) - askFrom + 2, before: 0.22, after: 0.9}, {label: 'What each answer costs', at: f(69.11) - askFrom + 12, before: 0.85, after: 0.3}]} />
 
       <BigWord from={bbFrom} durationInFrames={f(g.blockbuster.out) - bbFrom} anchor="left" bottom={G_BOTTOM}
-        text="Blockbuster" logo="blockbuster" show="logo" logoHeight={140} at={4} />
+        text="Blockbuster" logo="blockbuster" show="logo" logoHeight={110} at={4} />
 
       <Subtitles transcript={transcript} look={PITCH_CAPTION_LOOK} anchor="center"
         suppress={[{from: chatFrom, to: f(g.chat_bubble.out)}, {from: PLATE_END - 8, to: f(80) + 1}]} />

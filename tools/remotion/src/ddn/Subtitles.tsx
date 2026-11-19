@@ -29,7 +29,7 @@ export type SubtitlesProps = {
 // short-form preset (PITCH_CAPTION_LOOK): one line, 48 px semi-bold, frosted pill, 8 % bottom margin.
 export type CaptionLook = {size: number; role: TypeRole; emphRole: TypeRole; padX: number; padY: number; radius: number; bottomPx: number; maxLines: number};
 export const DDN_CAPTION_LOOK: CaptionLook = {size: TYPE.caption, role: 'regular', emphRole: 'medium', padX: 56, padY: 30, radius: 18, bottomPx: FRAME.h * SAFE.margin, maxLines: 2};
-export const PITCH_CAPTION_LOOK: CaptionLook = {size: 48, role: 'bold', emphRole: 'bold', padX: 34, padY: 17, radius: 999, bottomPx: Math.round(FRAME.h * 0.08), maxLines: 1};
+export const PITCH_CAPTION_LOOK: CaptionLook = {size: 46, role: 'bold', emphRole: 'bold', padX: 30, padY: 14, radius: 999, bottomPx: Math.round(FRAME.h * 0.08), maxLines: 1};
 
 export const DEFAULT_EMPHASIS = ['DDN', 'Sky'];
 const isEmph = (core: string, list: string[], flag?: boolean) => (flag !== undefined ? flag : /\d/.test(core) || list.includes(core));

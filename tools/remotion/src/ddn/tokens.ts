@@ -36,11 +36,14 @@ export const GLASS = {
   grainOpacity: 0.05, // [4.11] 3 to 5 % mono grain on 2026 cards
 } as const;
 
-// Prism: a thin refracted rim. Dispersion order follows a real prism (red, amber, green, cyan, violet), desaturated.
+// Prism (v3, user: "prism, but in line with DDN's brand"): the dispersion runs through DDN's own spectrum, the logo
+// ring's orange #FE7500 -> red-orange #F9502E -> Brand Red #ED2738 -> wine #7D2D3F, with a hint of Steel Blue #7594B2
+// as the cool end, instead of a generic rainbow. Used on the glass rim (refracted edge) and the entrance light sweep.
 export const PRISM = {
-  rimPx: 1.5,
-  stops: ['rgba(255,110,130,0.85)', 'rgba(255,205,140,0.75)', 'rgba(150,245,200,0.70)', 'rgba(120,200,255,0.75)', 'rgba(185,150,255,0.70)'],
-  sweepFrames: 22, // entrance glint travels the rim once
+  rimPx: 2,
+  stops: ['rgba(254,117,0,0.95)', 'rgba(249,80,46,0.95)', 'rgba(237,39,56,0.95)', 'rgba(125,45,63,0.9)', 'rgba(117,148,178,0.9)'],
+  sweepFrames: 26, // entrance: a soft prism light band crosses the glass once, and a glint travels the rim
+  sweepAlpha: 0.36, // peak opacity of the interior light band (screen blend)
   splitPx: 3, // RGB split on entrance, decays to 0 with the rise
 } as const;
 

@@ -31,3 +31,5 @@ Original brief: the competition, script, process, deviation rules, timing, capti
     - Interrupted: plate render (`tools/render_plates.py`), the final graphics composition (PitchFinal), and the music v2 composition.
 17. **Music v4 (user, 19 Nov):** soft, **curious and speculative** (an inquisitive "what if" feel that resolves into confidence by Why DDN and the ask). SFX smooth and premium.
 18. **Graphics (user, 19 Nov):** must not obstruct too much (compact, to the side, slim progress bar). **Prism effect clearly present but in DDN's palette** (red, orange to wine logo ring, a hint of steel blue), not a generic rainbow.
+19. **Progress indicator = the contest slide's scoring bar visual** (labelled segments: Why change, Why now, Why DDN, The ask; the active one solid DDN red, previous pale rose). It is shown clearly for about 1.5–2 s at each section change, then condenses to a slim top bar. It shows "which part I'm talking about".
+20. **Process:** after each draft, review it myself (frames, timing, audio) and iterate before showing the user, and show the user progress along the way.

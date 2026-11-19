@@ -47,7 +47,7 @@ const Body: React.FC<SectionProgressProps> = ({sections, from, durationInFrames,
         <AbsoluteFill>
           <div style={{position: 'absolute', ...vert, ...sideStyle(side, offset)}}>
             <Reveal rise={edge === 'top' ? -16 : 16} blur={10}>
-              <FrostedGlass padX={26} padY={16} radius={18}>
+              <FrostedGlass padX={22} padY={10} radius={14}>
                 <div style={{display: 'flex', gap: 22, width}}>
                   {sections.map((s, i) => {
                     onScreen(s.label, 'SectionProgress');
@@ -60,14 +60,14 @@ const Body: React.FC<SectionProgressProps> = ({sections, from, durationInFrames,
                     const barColor = interpolateColors(done, [0, 1], [C.red, C.palePink]);
                     return (
                       <div key={i} style={{flex: `${len / total} 1 0`, minWidth: 'max-content'}}>
-                        <div style={{display: 'flex', alignItems: 'center', height: Math.round(LABEL * 1.25), fontFamily: FONT.mono, fontSize: LABEL, color: `rgba(255,255,255,${labelAlpha.toFixed(3)})`, whiteSpace: 'nowrap'}}>
+                        <div style={{display: 'flex', alignItems: 'center', height: Math.round(LABEL * 1.15), fontFamily: FONT.mono, fontSize: LABEL, color: `rgba(255,255,255,${labelAlpha.toFixed(3)})`, whiteSpace: 'nowrap'}}>
                           <span style={{width: 8 * active + 0.001, height: 8, marginRight: 9 * active, borderRadius: 4, background: C.red, opacity: active, flex: 'none',
                             boxShadow: `0 0 10px rgba(237,39,56,${(0.6 * active).toFixed(3)})`}} />
                           <span>{s.label}</span>
                           {s.logo ? <span style={{marginLeft: 9, opacity: 0.55 + 0.45 * Math.max(active, done)}}><Logo id={s.logo} height={20} /></span> : null}
                           {showWeights && s.weight !== undefined ? <span style={{marginLeft: 10, opacity: 0.55}}>{s.weight}</span> : null}
                         </div>
-                        <div style={{position: 'relative', height: 6, marginTop: 10, borderRadius: 3, background: 'rgba(255,255,255,0.2)', overflow: 'hidden'}}>
+                        <div style={{position: 'relative', height: 5, marginTop: 6, borderRadius: 3, background: 'rgba(255,255,255,0.2)', overflow: 'hidden'}}>
                           <div style={{position: 'absolute', left: 0, top: 0, bottom: 0, width: `${(fill * 100).toFixed(3)}%`, borderRadius: 3, background: barColor,
                             boxShadow: active > 0.01 ? `0 0 12px rgba(237,39,56,${(0.5 * active).toFixed(3)})` : undefined}} />
                         </div>

@@ -103,19 +103,24 @@ const ringMask: React.CSSProperties = {
 const PrismRim: React.FC<{radius: number | string; tone: 'dark' | 'light'}> = ({radius, tone}) => {
   const {frame, env} = useEnvelope();
   const s = PRISM.stops;
-  const base = tone === 'dark' ? 'rgba(255,255,255,0.10)' : 'rgba(255,255,255,0.55)';
-  const rim = `linear-gradient(128deg, ${s[0]} 0%, ${s[1]} 6%, ${s[2]} 12%, ${s[3]} 18%, ${s[4]} 24%, rgba(255,255,255,0.34) 32%, ${base} 46%, ${base} 78%, rgba(255,255,255,${tone === 'dark' ? 0.2 : 0.7}) 100%)`;
+  const base = tone === 'dark' ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.55)';
+  // Refracted edge: the warm DDN spectrum along the top-left (light source), fading through a white hairline, with the
+  // cool steel end catching the bottom-right corner.
+  const rim = `linear-gradient(128deg, ${s[0]} 0%, ${s[1]} 7%, ${s[2]} 14%, ${s[3]} 22%, rgba(255,255,255,0.30) 32%, ${base} 46%, ${base} 74%, rgba(117,148,178,0.55) 90%, rgba(117,148,178,0.8) 100%)`;
   const t = env ? (frame - env.enterStart) / PRISM.sweepFrames : 2;
-  const glintOn = t > -0.1 && t < 1.1;
-  const pos = -30 + 160 * EASE.inOut(Math.max(0, Math.min(1, t)));
-  const fade = Math.sin(Math.PI * Math.max(0, Math.min(1, t)));
-  const glint = `linear-gradient(115deg, transparent ${pos - 14}%, ${s[0]} ${pos - 8}%, ${s[1]} ${pos - 4}%, ${s[2]} ${pos}%, ${s[3]} ${pos + 4}%, ${s[4]} ${pos + 8}%, transparent ${pos + 14}%)`;
-  const sheen = `linear-gradient(115deg, transparent ${pos - 18}%, rgba(255,255,255,${tone === 'dark' ? 0.07 : 0.18}) ${pos}%, transparent ${pos + 18}%)`;
+  const on = t > -0.05 && t < 1.05;
+  const tc = Math.max(0, Math.min(1, t));
+  const pos = -35 + 170 * EASE.inOut(tc);
+  const fade = Math.sin(Math.PI * tc);
+  const band = (a: number) => `linear-gradient(112deg, transparent ${pos - 22}%, rgba(254,117,0,${a * 0.7}) ${pos - 12}%, rgba(237,39,56,${a}) ${pos - 4}%, rgba(255,255,255,${a * 0.55}) ${pos}%, rgba(125,45,63,${a * 0.8}) ${pos + 5}%, rgba(117,148,178,${a * 0.8}) ${pos + 12}%, transparent ${pos + 22}%)`;
+  const glint = `linear-gradient(112deg, transparent ${pos - 12}%, ${s[0]} ${pos - 7}%, ${s[2]} ${pos - 2}%, rgba(255,255,255,0.95) ${pos}%, ${s[3]} ${pos + 3}%, ${s[4]} ${pos + 8}%, transparent ${pos + 12}%)`;
   return (
     <>
-      {glintOn ? <div style={{position: 'absolute', inset: 0, borderRadius: radius, background: sheen, opacity: fade, pointerEvents: 'none'}} /> : null}
+      {on ? <div style={{position: 'absolute', inset: 0, borderRadius: radius, overflow: 'hidden', pointerEvents: 'none', mixBlendMode: 'screen', opacity: fade}}>
+        <div style={{position: 'absolute', inset: 0, background: band(PRISM.sweepAlpha)}} />
+      </div> : null}
       <div style={{position: 'absolute', inset: 0, borderRadius: radius, padding: PRISM.rimPx, background: rim, pointerEvents: 'none', ...ringMask}} />
-      {glintOn ? <div style={{position: 'absolute', inset: 0, borderRadius: radius, padding: PRISM.rimPx + 0.5, background: glint, opacity: fade, pointerEvents: 'none', ...ringMask}} /> : null}
+      {on ? <div style={{position: 'absolute', inset: 0, borderRadius: radius, padding: PRISM.rimPx + 0.5, background: glint, opacity: fade, pointerEvents: 'none', ...ringMask}} /> : null}
     </>
   );
 };

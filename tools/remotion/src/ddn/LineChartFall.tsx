@@ -17,10 +17,11 @@ export type LineChartFallProps = SlotProps & {
   valueAt?: number; // frame (in slot) the value is spoken; the line finishes just before and the value lands on it
   chartW?: number;
   chartH?: number;
+  scale?: number; // overall card scale for type and padding (1 = default; the pitch film uses about 0.78)
 };
 
 
-const Inner: React.FC<Omit<LineChartFallProps, keyof SlotProps> & {duration: number}> = ({value, source, points = [0.86, 0.8, 0.83, 0.71, 0.66, 0.52, 0.47, 0.3, 0.18], label, valueAt, duration, chartW: W = 620, chartH: H = 250}) => {
+const Inner: React.FC<Omit<LineChartFallProps, keyof SlotProps> & {duration: number}> = ({value, source, points = [0.86, 0.8, 0.83, 0.71, 0.66, 0.52, 0.47, 0.3, 0.18], label, valueAt, duration, chartW: W = 620, chartH: H = 250, scale: k0 = 1}) => {
   const frame = useCurrentFrame();
   onScreen(value, 'chart value');
   if (label) onScreen(label, 'chart label');
@@ -45,7 +46,7 @@ const Inner: React.FC<Omit<LineChartFallProps, keyof SlotProps> & {duration: num
   const valueStart = valueAt !== undefined ? valueAt - 6 : autoValue;
   const tagStart = valueStart + Math.round(12 * k);
   return (
-    <GlassPlate padX={48} padY={40}>
+    <GlassPlate padX={Math.round(48 * k0)} padY={Math.round(40 * k0)}>
       {label ? <div style={{fontFamily: FONT.mono, fontSize: TYPE.eyebrow, color: 'rgba(255,255,255,0.7)', marginBottom: 16}}>{label}</div> : null}
       <div style={{display: 'flex', alignItems: 'flex-end', gap: 28}}>
         <svg width={W} height={H} style={{overflow: 'visible', display: 'block'}}>
@@ -56,10 +57,10 @@ const Inner: React.FC<Omit<LineChartFallProps, keyof SlotProps> & {duration: num
           <circle cx={last[1][0]} cy={last[1][1]} r={9 * dot} fill={C.red} opacity={dot} />
         </svg>
         <Rise startFrame={valueStart}>
-          <div style={{...display('regular', TYPE.number, -0.02), lineHeight: 1, color: C.white, fontFeatureSettings: '"tnum" 1', transform: 'translateY(8px)'}}>{value}</div>
+          <div style={{...display('regular', Math.round(TYPE.number * k0), -0.02), lineHeight: 1, color: C.white, fontFeatureSettings: '"tnum" 1', transform: 'translateY(8px)'}}>{value}</div>
         </Rise>
       </div>
-      <div style={{marginTop: 28, height: TYPE.tagBar}}><MonoTag text={source} startFrame={tagStart} /></div>
+      <div style={{marginTop: Math.round(28 * k0), height: TYPE.tagBar}}><MonoTag text={source} startFrame={tagStart} /></div>
     </GlassPlate>
   );
 };

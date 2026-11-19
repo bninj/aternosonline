@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(HERE), "out_v3")
-cfg = json.load(open(os.path.join(HERE, "edit_v3.json")))
+cfg = json.load(open(sys.argv[2] if len(sys.argv) > 2 else os.path.join(HERE, "edit_v3.json")))
 VOICE = "/home/user/ddn-project/edit/voice_v1.wav"
 SR = 48000
 tm = json.load(open(os.path.join(out, "timing.json")))

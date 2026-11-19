@@ -7,11 +7,11 @@ import {Slot, SlotProps} from './Slot';
 import {C, EASE, T, TYPE} from './tokens';
 
 // BUSY gauge: Geist Mono label, number counts with the bar (one motion, ddn-inout), Brand Red fill.
-export type BusyGaugeProps = SlotProps & {fromValue?: number; toValue?: number; label?: string; source: string; riseFrames?: number; landAt?: number /* frame in slot the top value is spoken */};
+export type BusyGaugeProps = SlotProps & {fromValue?: number; toValue?: number; label?: string; source: string; riseFrames?: number; landAt?: number /* frame in slot the top value is spoken */; scale?: number};
 
-const BAR_W = 600;
 
-const Inner: React.FC<Omit<BusyGaugeProps, keyof SlotProps> & {duration: number}> = ({fromValue = 5, toValue = 99, label = 'BUSY', source, riseFrames = 36, duration, landAt}) => {
+const Inner: React.FC<Omit<BusyGaugeProps, keyof SlotProps> & {duration: number}> = ({fromValue = 5, toValue = 99, label = 'BUSY', source, riseFrames = 36, duration, landAt, scale: k0 = 1}) => {
+  const BAR_W = Math.round(600 * k0);
   const frame = useCurrentFrame();
   onScreen(label, 'gauge label');
   const k = buildScale(duration, riseFrames + 24);
@@ -21,11 +21,11 @@ const Inner: React.FC<Omit<BusyGaugeProps, keyof SlotProps> & {duration: number}
   const v = interpolate(frame, [g0, g0 + rf], [fromValue, toValue], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.inOut});
   const tagStart = g0 + rf + Math.round(4 * k);
   return (
-    <GlassPlate padX={48} padY={40}>
+    <GlassPlate padX={Math.round(48 * k0)} padY={Math.round(40 * k0)}>
       <Rise startFrame={s0}>
         <div style={{display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', width: BAR_W}}>
           <div style={{fontFamily: FONT.mono, fontSize: 28, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.78)'}}>{label}</div>
-          <div style={{...display('regular', TYPE.number, -0.02), lineHeight: 1, color: C.white, fontFeatureSettings: '"tnum" 1'}}>
+          <div style={{...display('regular', Math.round(TYPE.number * k0), -0.02), lineHeight: 1, color: C.white, fontFeatureSettings: '"tnum" 1'}}>
             {Math.floor(v + 1e-6)}%
           </div>
         </div>
@@ -34,7 +34,7 @@ const Inner: React.FC<Omit<BusyGaugeProps, keyof SlotProps> & {duration: number}
         <div style={{position: 'absolute', left: 0, top: 0, bottom: 0, width: `${v}%`, background: C.red}} />
         {[25, 50, 75].map((t) => <div key={t} style={{position: 'absolute', left: `${t}%`, top: -6, width: 1, height: 26, background: 'rgba(255,255,255,0.35)'}} />)}
       </div>
-      <div style={{marginTop: 28, height: TYPE.tagBar}}><MonoTag text={source} startFrame={tagStart} /></div>
+      <div style={{marginTop: Math.round(28 * k0), height: TYPE.tagBar}}><MonoTag text={source} startFrame={tagStart} /></div>
     </GlassPlate>
   );
 };

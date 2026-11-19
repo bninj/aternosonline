@@ -16,9 +16,10 @@ export type StatCardProps = SlotProps & {
   valueSize?: number;
   landAt?: number; // frame (in slot) the number is spoken: the count lands exactly there
   linesAt?: number; // frame (in slot) the extra lines rise (e.g. on a spoken "75%")
+  scale?: number; // overall card scale (1 = default)
 };
 
-const Inner: React.FC<Omit<StatCardProps, keyof SlotProps> & {duration: number}> = ({value, lines = [], source, countFrom = 0, valueSize = TYPE.number, duration, landAt, linesAt}) => {
+const Inner: React.FC<Omit<StatCardProps, keyof SlotProps> & {duration: number}> = ({value, lines = [], source, countFrom = 0, valueSize = TYPE.number, duration, landAt, linesAt, scale: k0 = 1}) => {
   const frame = useCurrentFrame();
   const k = buildScale(duration, 40);
   onScreen(value, 'StatCard value');
@@ -35,17 +36,17 @@ const Inner: React.FC<Omit<StatCardProps, keyof SlotProps> & {duration: number}>
   const linesStart = linesAt !== undefined ? linesAt - 6 : start + Math.round(14 * k);
   const tagStart = Math.max(start, linesStart) + Math.round((lines.length ? 12 : 10) * k);
   return (
-    <GlassPlate padX={48} padY={40}>
+    <GlassPlate padX={Math.round(48 * k0)} padY={Math.round(40 * k0)}>
       <Rise startFrame={start}>
-        <div style={{...display('regular', valueSize, -0.02), lineHeight: 1, color: C.white,
+        <div style={{...display('regular', Math.round(valueSize * k0), -0.02), lineHeight: 1, color: C.white,
           fontFeatureSettings: '"tnum" 1', whiteSpace: 'pre', minWidth: `${value.length * 0.62}em`}}>{shown}</div>
       </Rise>
       {lines.map((l, i) => (
         <Rise key={i} startFrame={linesStart + i * 2} style={{marginTop: i === 0 ? 18 : 4}}>
-          <div style={{...display('regular', TYPE.headline, -0.01), lineHeight: 1.15, color: C.white}}>{l}</div>
+          <div style={{...display('regular', Math.round(TYPE.headline * k0), -0.01), lineHeight: 1.15, color: C.white}}>{l}</div>
         </Rise>
       ))}
-      <div style={{marginTop: 28, height: TYPE.tagBar}}>
+      <div style={{marginTop: Math.round(28 * k0), height: TYPE.tagBar}}>
         <MonoTag text={source} startFrame={tagStart} />
       </div>
     </GlassPlate>
