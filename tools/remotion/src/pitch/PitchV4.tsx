@@ -27,7 +27,9 @@ const SEAM_DDN = fr(32.592); // Why DDN section seam
 const G = 0.79; // graphics bottom (fraction of H): clears the 54 px caption pill (top at 0.83 H) by 40 px
 const R = {anchor: 'right' as const};
 // Depth logos: [x, y, height] in footage px @1920 (pre-zoom), placed behind calm edges (head side, shoulder).
-const LOGO_POS = {netflix: [290, 160, 112], youtube: [230, 322, 108], canal: [320, 170, 108], starz: [300, 318, 96], bb: [360, 110, 196]} as const;
+// v5b: solved by scripts/logo_place.py against the per-frame person alpha: each logo tucks behind him by 4 to 9 % of
+// its width at one edge (max 3 % after review: the wordmark's last letter must stay whole), on every frame.
+const LOGO_POS = {netflix: [204, 64, 140], youtube: [72, 222, 120], canal: [340, 64, 112], starz: [324, 204, 100], bb: [360, 110, 196]} as const;
 // Person alpha (SAM 2.1 + ViTMatte on the look plate), plate frame ranges [from, to).
 const PERSON = [{src: 'pitch/person_s3.webm', from: 497, to: 583}, {src: 'pitch/person_s13.webm', from: 1694, to: 1761}, {src: 'pitch/person_s19.webm', from: 2148, to: 2182}];
 
@@ -50,7 +52,7 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
   const chartFrom = after(w('Ofcom') - 3, 2);
   const tilesFrom = after(w('Netflix') - 4, 3);
   const voiceFrom = w('Sky Q voice search') - 16; // dwell: >= 2 s fully visible inside the punch shot
-  const chatFrom = after(w('Imagine asking') - 2, 7);
+  const chatFrom = w('AI assistant') - 4; // v5b: listening state from "an AI assistant", opens on "Imagine asking"
   const idleFrom = w('Cast AI') - 4;
   const ddnFrom = w("DDN's Infinia") - 4;
   const caFrom = w('Canal Plus') - 4;
@@ -70,7 +72,7 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
         <DepthLogos from={tilesFrom} durationInFrames={fr(19.25) - tilesFrom} items={[
           {logo: 'netflix', at: 3, x: LOGO_POS.netflix[0], y: LOGO_POS.netflix[1], h: LOGO_POS.netflix[2]},
           {logo: 'youtube', at: w('YouTube') - 4 - tilesFrom, x: LOGO_POS.youtube[0], y: LOGO_POS.youtube[1], h: LOGO_POS.youtube[2]}]} />
-        <DepthLogos from={caFrom} durationInFrames={fr(58.62) - caFrom} items={[
+        <DepthLogos from={caFrom} durationInFrames={fr(58.62) - caFrom} panel={{x: 302, y: 40, w: 520, h: 286}} items={[
           {logo: 'canalplus', at: 3, x: LOGO_POS.canal[0], y: LOGO_POS.canal[1], h: LOGO_POS.canal[2]},
           {logo: 'starz', at: 9 /* both logos on "Canal Plus" so Starz also dwells >= 2 s */, x: LOGO_POS.starz[0], y: LOGO_POS.starz[1], h: LOGO_POS.starz[2]}]} />
         <DepthShatter from={bbFrom} durationInFrames={fr(72.62) - bbFrom} x={LOGO_POS.bb[0]} y={LOGO_POS.bb[1]} h={LOGO_POS.bb[2]}
@@ -92,7 +94,7 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
       {/* Why now */}
       <VoicePill from={voiceFrom} durationInFrames={fr(26.2) - voiceFrom} {...R} bottom={0.645} text="Sky Q voice search" voice={voice} />
       <VoiceChat from={chatFrom} durationInFrames={SEAM_DDN - chatFrom} {...R} bottom={G} text="Sky, make me scared." voice={voice}
-        typeStart={w('Sky, make me scared') - chatFrom} typeEnd={fr(32.2) - chatFrom} />
+        typeStart={w('Sky, make me scared') - chatFrom} typeEnd={fr(32.2) - chatFrom} openAt={w('Imagine asking') - chatFrom} />
 
       {/* Why DDN: one chip-use grid that evolves (idle 5 %, then data flows in, 99 % busy, cost per token down 75 %) */}
       <ChipGrid from={idleFrom} durationInFrames={fr(41.0) - idleFrom} {...R} bottom={0.8} mode="idle" landAt={w('5%') - idleFrom} source="Cast AI, enterprise average" />
@@ -109,7 +111,7 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
 
 
       <Subtitles transcript={transcript} look={PITCH_CAPTION_LOOK} anchor="center" joinGapFrames={6} snapTo={CUTS}
-        suppress={[{from: chatFrom, to: SEAM_DDN}, {from: PLATE_END - 6, to: 2400}]}
+        suppress={[{from: w('Imagine asking'), to: SEAM_DDN}, {from: PLATE_END - 6, to: 2400}]}
         centerX={cam.origin[0]} maxRight={1070} />
 
       <EndBuild from={PLATE_END} durationInFrames={2295 - PLATE_END} />

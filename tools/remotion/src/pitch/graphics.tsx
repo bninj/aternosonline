@@ -6,6 +6,7 @@ import {getLength, getPointAtLength} from '@remotion/paths';
 import chair from './chair_contour.json';
 import {AbsoluteFill, interpolate, OffthreadVideo, Sequence, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {getWaveformPortion, useAudioData} from '@remotion/media-utils';
+import {measureText} from '@remotion/layout-utils';
 import {C, display, EASE, FONT, FrostedGlass, Grain, Hairline, Logo, LogoId, LOGOS, MonoTag, onScreen, Rise, Slot, SlotProps, T, TYPE} from '../ddn';
 
 const cl = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
@@ -22,7 +23,7 @@ const VoiceBars: React.FC<{voice: string; absFrame: number; bars?: number; heigh
   return (
     <div style={{display: 'flex', alignItems: 'center', gap: width * 0.75, height}}>
       {amps.map((a, i) => (
-        <div key={i} style={{width, height: Math.max(width, Math.min(1, a * 3.2) * height), borderRadius: width / 2, background: color, opacity: 0.55 + 0.45 * Math.min(1, a * 3)}} />
+        <div key={i} style={{width, height: Math.max(width, Math.min(1, a * 5) * height), borderRadius: width / 2, background: color, opacity: 0.55 + 0.45 * Math.min(1, a * 4)}} />
       ))}
     </div>
   );
@@ -104,32 +105,40 @@ const VoicePillInner: React.FC<{text: string; voice: string; from: number}> = ({
 };
 
 // ---------------------------------------------------------------------------------------------------------------
-// "Imagine asking, Sky, make me scared": a voice bubble listens (live bars), then the request types on with his words.
-export const VoiceChat: React.FC<SlotProps & {text: string; voice: string; typeStart: number; typeEnd: number}> = (p) => (
+// "an AI assistant that knows each household": the assistant UI arrives as a LISTENING pill (mic + live voice bars),
+// then on "Imagine asking" it opens into the user's bubble and "Sky, make me scared." types on with his words.
+export const VoiceChat: React.FC<SlotProps & {text: string; voice: string; typeStart: number; typeEnd: number; openAt?: number}> = (p) => (
   <Slot {...p} name="VoiceChat">{({side}) => <VoiceChatInner {...p} tail={side === 'right' ? 'right' : 'left'} />}</Slot>
 );
-const VoiceChatInner: React.FC<{text: string; voice: string; typeStart: number; typeEnd: number; from: number; tail: 'left' | 'right'}> = ({text, voice, typeStart, typeEnd, from, tail}) => {
+const VoiceChatInner: React.FC<{text: string; voice: string; typeStart: number; typeEnd: number; openAt?: number; from: number; tail: 'left' | 'right'}> = ({text, voice, typeStart, typeEnd, openAt, from, tail}) => {
   const frame = useCurrentFrame();
   onScreen(text, 'VoiceChat');
   const rate = text.length / Math.max(1, typeEnd - typeStart);
-  const n = Math.max(0, Math.min(text.length, Math.floor((frame - typeStart) * rate)));
+  const open = openAt === undefined ? 1 : interpolate(frame, [openAt, openAt + 14], [0, 1], {...cl, easing: EASE.inOut});
   const r = 30;
-  const radius = tail === 'left' ? `${r}px ${r}px ${r}px 6px` : `${r}px ${r}px 6px ${r}px`;
+  const tailR = r - (r - 6) * open; // pill -> speech bubble: one corner sharpens into the tail
+  const radius = tail === 'left' ? `${r}px ${r}px ${r}px ${tailR}px` : `${r}px ${r}px ${tailR}px ${r}px`;
   const lab = display('regular', 48, -0.005);
+  const lineH = Math.round(48 * 0.966 * 1.15);
+  const barsH = 40 - 18 * open; // the waveform settles smaller once the words appear
+  const tw = measureText({text, fontFamily: FONT.displayFamilyLoaded, fontSize: lab.fontSize, fontWeight: String(lab.fontWeight), letterSpacing: lab.letterSpacing}).width;
+  const wNow = 330 + (Math.max(330, tw + 6) - 330) * open; // compact listening pill, opens to the sentence width
   return (
-    <FrostedGlass padX={34} padY={22} radius={radius}>
-      <div style={{display: 'flex', alignItems: 'center', gap: 12, marginBottom: 10}}>
-        <Mic size={22} color={C.red} />
-        <VoiceBars voice={voice} absFrame={from + frame} bars={20} height={22} width={3} color="rgba(255,255,255,0.85)" />
+    <FrostedGlass padX={30} padY={18 + 4 * open} radius={radius}>
+      <div style={{display: 'flex', alignItems: 'center', gap: 14, width: wNow}}>
+        <Mic size={30 - 8 * open} color={C.red} />
+        <div style={{fontFamily: FONT.mono, fontSize: 24, color: 'rgba(255,255,255,0.75)', letterSpacing: '0.05em', opacity: 1 - open, width: 150 * (1 - open), overflow: 'hidden', whiteSpace: 'nowrap'}}>Listening</div>
+        <VoiceBars voice={voice} absFrame={from + frame} bars={16} height={barsH} width={5 - 2 * open} color="rgba(255,255,255,0.9)" />
       </div>
-      <div style={{...lab, lineHeight: 1.15, color: C.white, whiteSpace: 'pre', position: 'relative'}}>
-        <span style={{visibility: 'hidden'}}>{text}</span>
-        <span style={{position: 'absolute', left: 0, top: 0}}>
-          {[...text].map((ch, i) => (
-            <span key={i} style={{opacity: interpolate(frame, [typeStart + i / rate, typeStart + i / rate + 3], [0, 1], cl)}}>{ch}</span>
-          ))}
-        </span>
-        {n > 0 && n < text.length ? null : null}
+      <div style={{height: (lineH + 10) * open, overflow: 'hidden', width: wNow}}>
+        <div style={{...lab, lineHeight: `${lineH}px`, color: C.white, whiteSpace: 'pre', position: 'relative', marginTop: 10}}>
+          <span style={{visibility: 'hidden'}}>{text}</span>
+          <span style={{position: 'absolute', left: 0, top: 0}}>
+            {[...text].map((ch, i) => (
+              <span key={i} style={{opacity: interpolate(frame, [typeStart + i / rate, typeStart + i / rate + 3], [0, 1], cl)}}>{ch}</span>
+            ))}
+          </span>
+        </div>
       </div>
     </FrostedGlass>
   );
@@ -451,16 +460,22 @@ const NameTagInner: React.FC<{name: string; size: number}> = ({name, size}) => {
 // top from a SAM 2.1 + ViTMatte alpha). Depth: a touch of blur and atmosphere so they sit on the wall plane, a soft
 // glow behind for separation. Positions are px @1920 in footage space (they ride the camera transform).
 export type DepthLogoItem = {logo: LogoId; at: number; x: number; y: number; h: number};
-export const DepthLogos: React.FC<{from: number; durationInFrames: number; items: DepthLogoItem[]; exitFrames?: number; breakAt?: number; crackAt?: number}> = (p) => (
+export const DepthLogos: React.FC<{from: number; durationInFrames: number; items: DepthLogoItem[]; exitFrames?: number; breakAt?: number; crackAt?: number; panel?: {x: number; y: number; w: number; h: number}}> = (p) => (
   <Sequence from={p.from} durationInFrames={p.durationInFrames} name="DepthLogos" layout="none">
     <DepthLogosInner {...p} />
   </Sequence>
 );
-const DepthLogosInner: React.FC<{durationInFrames: number; items: DepthLogoItem[]; exitFrames?: number}> = ({durationInFrames, items, exitFrames = 10}) => {
+const DepthLogosInner: React.FC<{durationInFrames: number; items: DepthLogoItem[]; exitFrames?: number; panel?: {x: number; y: number; w: number; h: number}}> = ({durationInFrames, items, exitFrames = 10, panel}) => {
   const frame = useCurrentFrame();
   const out = interpolate(frame, [durationInFrames - exitFrames, durationInFrames], [0, 1], {...cl, easing: EASE.exit});
   return (
     <AbsoluteFill style={{pointerEvents: 'none'}}>
+      {/* optional in-scene light frost behind a logo group (legibility of dark marks over a dark room) */}
+      {panel ? (
+        <div style={{position: 'absolute', left: panel.x, top: panel.y, opacity: interpolate(frame, [0, 12], [0, 1], {...cl, easing: EASE.inOut}) * (1 - out) * 0.92}}>
+          <FrostedGlass tone="light" tint="rgba(250,247,245,0.5)" padX={0} padY={0} radius={22} prism={false} style={{width: panel.w, height: panel.h}}><div style={{width: panel.w, height: panel.h}} /></FrostedGlass>
+        </div>
+      ) : null}
       {items.map((it, i) => {
         const pr = interpolate(frame, [it.at, it.at + 18], [0, 1], {...cl, easing: EASE.out});
         const o = interpolate(frame, [it.at, it.at + 12], [0, 1], {...cl, easing: EASE.inOut}) * (1 - out);
