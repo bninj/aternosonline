@@ -1,0 +1,10 @@
+{
+ "model": "large-v3-turbo",
+ "mode": "islands",
+ "duration": 36.5853125,
+ "load_s": 70.93028378486633,
+ "transcribe_s": 0.41302967071533203,
+ "min_silence_ms": 300,
+ "segments": [],
+ "islands": []
+}

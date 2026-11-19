@@ -1,0 +1,86 @@
+[
+ {
+  "text": "Data",
+  "startMs": 80,
+  "endMs": 640,
+  "timestampMs": 360,
+  "confidence": 0.955
+ },
+ {
+  "text": " is",
+  "startMs": 640,
+  "endMs": 880,
+  "timestampMs": 760,
+  "confidence": 0.999
+ },
+ {
+  "text": " the",
+  "startMs": 880,
+  "endMs": 1040,
+  "timestampMs": 960,
+  "confidence": 0.999
+ },
+ {
+  "text": " fuel",
+  "startMs": 1040,
+  "endMs": 1340,
+  "timestampMs": 1190,
+  "confidence": 1.0
+ },
+ {
+  "text": " of",
+  "startMs": 1340,
+  "endMs": 1600,
+  "timestampMs": 1470,
+  "confidence": 0.986
+ },
+ {
+  "text": " AI.",
+  "startMs": 1600,
+  "endMs": 1860,
+  "timestampMs": 1730,
+  "confidence": 0.997
+ },
+ {
+  "text": " At",
+  "startMs": 2100,
+  "endMs": 2500,
+  "timestampMs": 2300,
+  "confidence": 0.995
+ },
+ {
+  "text": " DDN,",
+  "startMs": 2500,
+  "endMs": 3160,
+  "timestampMs": 2830,
+  "confidence": 0.999
+ },
+ {
+  "text": " of",
+  "startMs": 3200,
+  "endMs": 3420,
+  "timestampMs": 3310,
+  "confidence": 0.76
+ },
+ {
+  "text": " AI.",
+  "startMs": 3420,
+  "endMs": 3680,
+  "timestampMs": 3550,
+  "confidence": 0.02
+ },
+ {
+  "text": " Um,",
+  "startMs": 3920,
+  "endMs": 4320,
+  "timestampMs": 4120,
+  "confidence": 0.187
+ },
+ {
+  "text": " at",
+  "startMs": 4600,
+  "endMs": 4800,
+  "timestampMs": 4700,
+  "confidence": 0.98
+ }
+]

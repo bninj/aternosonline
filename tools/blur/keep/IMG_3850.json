@@ -1,0 +1,3 @@
+{"regions": [
+  {"name": "Sky monitor (light blur, keep logo legible)", "points": [[0.58,0.14],[0.91,0.14],[0.91,0.54],[0.58,0.54]], "strength": 0.35, "feather": 0.015}
+]}

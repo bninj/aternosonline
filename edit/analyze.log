@@ -1,0 +1,449 @@
+WARNING: Logging before InitGoogle() is written to STDERR
+W0000 00:00:1795046068.334719    7400 face_landmarker_graph.cc:181] Sets FaceBlendshapesGraph acceleration to xnnpack by default.
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+W0000 00:00:1795046068.466028    7432 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046068.493613    7435 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046080.314891    8248 face_landmarker_graph.cc:181] Sets FaceBlendshapesGraph acceleration to xnnpack by default.
+W0000 00:00:1795046080.324988    8250 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046080.341663    8250 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046114.199913    8689 face_landmarker_graph.cc:181] Sets FaceBlendshapesGraph acceleration to xnnpack by default.
+W0000 00:00:1795046114.203478    8691 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046114.211186    8692 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046117.879275    8838 face_landmarker_graph.cc:181] Sets FaceBlendshapesGraph acceleration to xnnpack by default.
+W0000 00:00:1795046117.883579    8840 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046117.915773    8842 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046162.273641    9957 face_landmarker_graph.cc:181] Sets FaceBlendshapesGraph acceleration to xnnpack by default.
+W0000 00:00:1795046162.277574    9960 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046162.286246    9959 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046173.710038   10161 face_landmarker_graph.cc:181] Sets FaceBlendshapesGraph acceleration to xnnpack by default.
+W0000 00:00:1795046173.713975   10163 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046173.721967   10163 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046226.051149   11734 face_landmarker_graph.cc:181] Sets FaceBlendshapesGraph acceleration to xnnpack by default.
+W0000 00:00:1795046226.055915   11736 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046226.064343   11736 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046234.503177   11825 face_landmarker_graph.cc:181] Sets FaceBlendshapesGraph acceleration to xnnpack by default.
+W0000 00:00:1795046234.507916   11827 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046234.532828   11827 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046291.467245   12795 face_landmarker_graph.cc:181] Sets FaceBlendshapesGraph acceleration to xnnpack by default.
+W0000 00:00:1795046291.471988   12797 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046291.487396   12797 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046306.825202   12869 face_landmarker_graph.cc:181] Sets FaceBlendshapesGraph acceleration to xnnpack by default.
+W0000 00:00:1795046306.828747   12871 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046306.836125   12872 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046314.241521   12890 face_landmarker_graph.cc:181] Sets FaceBlendshapesGraph acceleration to xnnpack by default.
+W0000 00:00:1795046314.244878   12892 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046314.252153   12893 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046320.133154   12914 face_landmarker_graph.cc:181] Sets FaceBlendshapesGraph acceleration to xnnpack by default.
+W0000 00:00:1795046320.137235   12916 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046320.146676   12916 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046326.813672   12938 face_landmarker_graph.cc:181] Sets FaceBlendshapesGraph acceleration to xnnpack by default.
+W0000 00:00:1795046326.820150   12940 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1795046326.829953   12940 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+# Take table
+
+Rules: meaning over exact wording; later attempt over earlier, all else equal; prefer continuous runs; never splice half-takes mid-sentence unless on a natural pause; lines never said: report, don't invent.
+Pick per unit with `refine_cuts.py --pick UNIT:IDX ...`. kind FULL = cov>=0.9 with first+last word.
+
+## [1] Sorry I kept you waiting.
+suggested: **16** (best FULL; 16 within 1 pt -> latest in a run)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3844 | 2.01-2.93 | FULL | 1.00 | - / - | - | 0.00 | 326 | 0.75/0.91 | -17.8 | 7.89 / 4.46 | 0% blink0 sharpNone | - | Sorry I kept you waiting. |
+| 1 | IMG_3844 | 5.98-6.92 | FULL | 1.00 | - / - | - | 0.00 | 319 | 0.44/0.79 | -21.9 | 7.44 / 5.06 | 0% blink0 sharpNone | - | Sorry I kept you waiting. |
+| 2 | IMG_3844 | 7.45-8.79 | FALSE_START | 0.40 | couldn't do it, I was wrong, I was wrong. / kept you waiting | - | 0.10 | 493 | 0.04/0.40 | -19.5 | 5.75 / 4.95 | 0% blink0 sharpNone | - | Sorry, I couldn't do it, I was wrong, I was wrong. |
+| 3 | IMG_3845 | 12.06-13.06 | FULL | 1.00 | - / - | - | 0.00 | 300 | 0.78/0.91 | -19.6 | 8.0 / 4.5 | 0% blink0 sharpNone | - | Sorry I kept you waiting. |
+| 4 | IMG_3845 | 21.15-22.11 | FULL | 1.00 | - / - | - | 0.00 | 312 | 0.79/0.91 | -17.7 | 8.37 / 4.51 | 0% blink0 sharpNone | R1 | Sorry I kept you waiting. |
+| 5 | IMG_3845 | 36.89-37.85 | FULL | 1.00 | - / - | - | 0.00 | 313 | 0.72/0.89 | -17.2 | 7.38 / 5.44 | 0% blink0 sharpNone | R2 | Sorry I kept you waiting. |
+| 6 | IMG_3845 | 53.53-54.45 | FULL | 1.00 | - / - | - | 0.00 | 326 | 0.73/0.89 | -15.3 | 8.32 / 2.2 | 0% blink0 sharpNone | R3 | Sorry I kept you waiting. |
+| 7 | IMG_3845 | 72.44-73.38 | FULL | 1.00 | - / - | - | 0.00 | 319 | 0.44/0.79 | -16.4 | 8.15 / 2.67 | 0% blink0 sharpNone | - | Sorry I kept you waiting. |
+| 8 | IMG_3845 | 83.00-83.98 | FULL | 1.00 | - / - | - | 0.00 | 306 | 0.65/0.86 | -16.8 | 8.58 / 2.26 | 0% blink0 sharpNone | - | Sorry I kept you waiting. |
+| 9 | IMG_3845 | 93.24-94.16 | FULL | 1.00 | - / - | - | 0.00 | 326 | 0.77/0.92 | -19.2 | 7.89 / 1.81 | 0% blink0 sharpNone | R4 | Sorry I kept you waiting. |
+| 10 | IMG_3845 | 112.09-113.01 | FULL | 1.00 | - / - | - | 0.00 | 326 | 0.69/0.91 | -17.0 | 8.58 / 3.03 | 0% blink0 sharpNone | R5 | Sorry I kept you waiting. |
+| 11 | IMG_3845 | 128.38-129.30 | FULL | 1.00 | - / - | - | 0.00 | 326 | 0.68/0.90 | -17.3 | 7.48 / 3.38 | 0% blink0 sharpNone | R6 | Sorry I kept you waiting. |
+| 12 | IMG_3845 | 143.23-144.13 | FULL | 1.00 | - / - | - | 0.00 | 333 | 0.67/0.86 | -16.1 | 8.52 / 1.97 | 0% blink0 sharpNone | R7 | Sorry I kept you waiting. |
+| 13 | IMG_3845 | 159.71-160.65 | FULL | 1.00 | - / - | - | 0.00 | 319 | 0.75/0.91 | -14.7 | 9.05 / 0.93 | 0% blink0 sharpNone | R8 | Sorry I kept you waiting. |
+| 14 | IMG_3845 | 187.32-188.28 | FULL | 1.00 | - / - | - | 0.00 | 313 | 0.67/0.88 | -17.8 | 7.98 / 2.59 | 0% blink0 sharpNone | - | Sorry I kept you waiting. |
+| 15 | IMG_3845 | 194.91-195.83 | FULL | 1.00 | - / - | - | 0.00 | 326 | 0.36/0.82 | -17.5 | 8.1 / 2.69 | 0% blink0 sharpNone | R9 | Sorry I kept you waiting. |
+| 16 | IMG_3845 | 209.56-210.54 | FULL | 1.00 | - / - | - | 0.00 | 306 | 0.69/0.86 | -16.6 | 7.57 / 4.23 | 0% blink0 sharpNone | R10 | Sorry I kept you waiting. |
+
+## [2] That's AI chips, every day, waiting for data.
+suggested: **15** (best FULL; 10 within 1 pt -> latest in a run)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3845 | 13.98-14.92 | FALSE_START | 0.38 | - / every day waiting for data | - | 0.00 | 191 | 0.81/0.89 | -20.8 | 7.78 / 5.79 | 0% blink0 sharpNone | - | that's AI chips. |
+| 1 | IMG_3845 | 22.67-25.43 | FULL | 1.00 | - / - | - | 0.00 | 174 | 0.46/0.87 | -23.6 | 6.33 / 6.07 | 0% blink0 sharpNone | R1 | that's AI chips every day waiting for data. |
+| 2 | IMG_3845 | 38.56-41.52 | FULL | 1.00 | - / - | - | 0.46 | 162 | 0.75/0.89 | -21.2 | 7.47 / 6.05 | 0% blink0 sharpNone | R2 | That's AI chips, every day waiting for data. |
+| 3 | IMG_3845 | 55.20-58.38 | FULL | 1.00 | - / - | - | 0.00 | 151 | 0.34/0.84 | -22.2 | 7.02 / 5.6 | 0% blink0 sharpNone | R3 | that's AI chips every day waiting for data. |
+| 4 | IMG_3845 | 74.15-75.21 | FALSE_START | 0.25 | data. / chips every day waiting for data | - | 0.00 | 170 | 0.43/0.69 | -21.7 | 6.91 / 3.95 | 0% blink0 sharpNone | - | that's AI data. |
+| 5 | IMG_3845 | 85.70-86.96 | FALSE_START | 0.38 | AI chips. / every day waiting for data | - | 0.16 | 238 | 0.75/0.92 | -26.4 | 4.84 / 5.52 | 0% blink0 sharpNone | - | that's AI chips, AI chips. |
+| 6 | IMG_3845 | 88.58-90.08 | part | 0.62 | - / waiting for data | - | 0.00 | 200 | 0.83/0.92 | -25.4 | 6.13 / 6.21 | 0% blink0 sharpNone | - | That's AI chips every day. |
+| 7 | IMG_3845 | 94.72-97.62 | FULL | 1.00 | - / - | - | 0.46 | 166 | 0.32/0.82 | -21.2 | 7.52 / 6.26 | 0% blink0 sharpNone | R4 | That's AI chips, every day waiting for data. |
+| 8 | IMG_3845 | 113.63-116.91 | FULL | 1.00 | - / - | - | 0.46 | 146 | 0.17/0.77 | -22.3 | 6.96 / 5.53 | 0% blink0 sharpNone | R5 | That's AI chips. Every day waiting for data. |
+| 9 | IMG_3845 | 129.95-132.93 | FULL | 1.00 | - / - | - | 0.00 | 161 | 0.32/0.85 | -21.3 | 7.6 / 5.81 | 0% blink0 sharpNone | R6 | That's AI chips every day waiting for data. |
+| 10 | IMG_3845 | 144.80-147.66 | FULL | 1.00 | - / - | - | 0.34 | 168 | 0.70/0.91 | -19.0 | 7.99 / 6.57 | 0% blink0 sharpNone | R7 | That's AI chips, every day, waiting for data. |
+| 11 | IMG_3845 | 161.28-164.30 | FULL | 1.00 | - / - | - | 0.00 | 159 | 0.68/0.90 | -20.7 | 7.87 / 5.76 | 12% blink0 sharp1.05 | R8 | That's AI chips every day waiting for data. |
+| 12 | IMG_3845 | 189.05-190.39 | FALSE_START | 0.38 | data / every day waiting for data | - | 0.00 | 179 | 0.56/0.77 | -17.6 | 8.54 / 7.33 | 50% blink0 sharp0.87 closed(keep) | - | That's AI data chip. |
+| 13 | IMG_3845 | 190.59-191.61 | FALSE_START | 0.38 | - / every day waiting for data | - | 0.00 | 176 | 0.70/0.89 | -22.3 | 6.56 / 7.08 | 0% blink0 sharpNone | - | That's AI chips. |
+| 14 | IMG_3845 | 196.41-199.47 | FULL | 1.00 | - / - | - | 0.00 | 157 | 0.47/0.83 | -19.8 | 7.69 / 6.02 | 0% blink0 sharpNone | R9 | That's AI chips every day waiting for data. |
+| 15 | IMG_3845 | 211.13-213.97 | FULL | 1.00 | - / - | - | 0.00 | 169 | 0.36/0.81 | -21.1 | 7.32 / 6.53 | 0% blink0 sharpNone | R10 | That's AI chips every day waiting for data. |
+
+## [3] And you, Sky, pay full price to wait.
+suggested: **11** (best FULL; 6 within 1 pt -> latest in a run)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3844 | 3.55-5.37 | part | 0.75 | you the / to wait | - | 0.30 | 264 | 0.50/0.87 | -19.7 | 8.94 / 5.09 | 0% blink0 sharpNone | - | And you, Sky, you pay the full price. |
+| 1 | IMG_3845 | 25.85-28.49 | part | 0.88 | are / pay | - | 0.00 | 205 | 0.52/0.92 | -23.9 | 6.37 / 5.9 | 0% blink0 sharpNone | R1 | And you Sky are paying full price to wait. |
+| 2 | IMG_3845 | 41.96-44.58 | FULL | 1.00 | you / - | - | 0.54 | 206 | 0.86/0.98 | -25.4 | 5.83 / 6.58 | 0% blink0 sharpNone | R2 | And you, Sky, you pay full price to wait. |
+| 3 | IMG_3845 | 58.94-62.52 | part | 0.88 | You are just / pay | - | 0.54 | 185 | 0.38/0.81 | -24.4 | 6.55 / 6.3 | 0% blink0 sharpNone | R3 | And you, Sky? You are paying full price just to wait. |
+| 4 | IMG_3845 | 98.04-100.50 | FULL | 1.00 | you / - | - | 0.38 | 220 | 0.25/0.83 | -23.8 | 6.21 / 5.61 | 0% blink0 sharpNone | R4 | And you Sky, you pay full price to wait. |
+| 5 | IMG_3845 | 105.47-107.41 | part | 0.88 | use When / and | - | 0.38 | 278 | 0.11/0.64 | -27.1 | 6.22 / 7.49 | 0% blink0 sharpNone | - | When you use Sky, pay full price to wait. |
+| 6 | IMG_3845 | 117.34-119.42 | part | 0.75 | away. / to wait | - | 0.36 | 202 | 0.32/0.66 | -22.1 | 6.8 / 5.74 | 0% blink0 sharpNone | R5 | And you, Sky, pay full price away. |
+| 7 | IMG_3845 | 133.39-135.63 | FULL | 1.00 | - / - | - | 0.38 | 214 | 0.79/0.94 | -23.2 | 6.72 / 7.11 | 0% blink0 sharpNone | R6 | And you, Sky, pay full price to wait. |
+| 8 | IMG_3845 | 148.10-150.54 | FULL | 1.00 | - / - | - | 0.38 | 197 | 0.89/0.97 | -21.5 | 7.05 / 6.75 | 0% blink0 sharpNone | R7 | And you, Sky, pay full price to wait. |
+| 9 | IMG_3845 | 164.76-167.60 | FULL | 1.00 | - / - | - | 0.38 | 169 | 0.68/0.93 | -20.2 | 6.8 / 6.17 | 0% blink0 sharpNone | R8 | And you, Sky, pay full price to wait. |
+| 10 | IMG_3845 | 199.96-202.26 | FULL | 1.00 | - / - | - | 0.40 | 209 | 0.37/0.82 | -24.2 | 6.28 / 6.05 | 0% blink0 sharpNone | R9 | And you, Sky, pay full price to wait. |
+| 11 | IMG_3845 | 214.40-217.20 | FULL | 1.00 | you / - | - | 0.44 | 193 | 0.64/0.93 | -21.3 | 7.38 / 6.27 | 0% blink0 sharpNone | R10 | And you, Sky, you pay full price to wait. |
+| 12 | IMG_3848 | 191.56-192.56 | FALSE_START | 0.25 | needs that too. / you pay full price to wait | - | 0.00 | 300 | 0.88/0.95 | -29.7 | 4.22 / 4.81 | 33% blink0 sharp0.99 | - | and Sky needs that too. |
+
+## [4] So first, why change?
+suggested: **23** (best FULL; 19 within 1 pt -> latest)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3847 | 2.84-3.92 | part | 0.75 | - / so | - | 0.22 | 167 | 0.71/0.87 | -27.3 | 5.6 / 4.71 | 0% blink0 sharpNone | - | First, why change? |
+| 1 | IMG_3847 | 5.79-6.81 | part | 0.75 | - / so | - | 0.32 | 176 | 0.75/0.91 | -20.4 | 6.89 / 4.03 | 0% blink0 sharpNone | - | First, why change? |
+| 2 | IMG_3847 | 8.09-9.11 | part | 0.75 | - / so | - | 0.20 | 176 | 0.82/0.92 | -25.3 | 7.36 / 5.54 | 0% blink0 sharpNone | - | First, why change? |
+| 3 | IMG_3847 | 10.01-10.83 | part | 0.50 | Thus, / so first | - | 0.10 | 220 | 0.88/0.95 | -30.2 | 6.25 / 7.32 | 0% blink0 sharpNone | - | Thus, why change? |
+| 4 | IMG_3847 | 12.28-13.12 | part | 0.75 | - / so | - | 0.12 | 214 | 0.56/0.83 | -24.7 | 6.48 / 5.01 | 0% blink0 sharpNone | - | First, why change? |
+| 5 | IMG_3848 | 8.09-9.37 | FULL | 1.00 | - / - | - | 0.22 | 188 | 0.88/0.95 | -21.7 | 7.38 / 6.19 | 0% blink0 sharpNone | - | So first, why change? |
+| 6 | IMG_3848 | 10.62-11.90 | FULL | 1.00 | - / - | - | 0.24 | 187 | 0.88/0.93 | -19.2 | 7.95 / 6.47 | 0% blink0 sharpNone | - | So first, why change? |
+| 7 | IMG_3848 | 13.98-15.26 | FULL | 1.00 | - / - | - | 0.24 | 188 | 0.88/0.94 | -19.6 | 8.68 / 5.94 | 0% blink0 sharpNone | - | So first, why change? |
+| 8 | IMG_3848 | 19.64-20.88 | FULL | 1.00 | - / - | - | 0.24 | 194 | 0.65/0.90 | -21.3 | 7.64 / 5.45 | 0% blink0 sharpNone | - | So first, why change? |
+| 9 | IMG_3848 | 22.14-23.40 | FULL | 1.00 | - / - | - | 0.30 | 190 | 0.86/0.92 | -21.2 | 7.99 / 7.22 | 0% blink0 sharpNone | - | So first, why change? |
+| 10 | IMG_3848 | 24.70-26.02 | FULL | 1.00 | - / - | - | 0.34 | 182 | 0.79/0.91 | -18.7 | 10.09 / 6.89 | 0% blink0 sharpNone | - | So first, why change? |
+| 11 | IMG_3848 | 28.35-29.57 | FULL | 1.00 | - / - | - | 0.24 | 197 | 0.56/0.86 | -21.1 | 7.98 / 4.9 | 0% blink0 sharpNone | - | So first, why change? |
+| 12 | IMG_3848 | 31.32-32.60 | FULL | 1.00 | - / - | - | 0.18 | 188 | 0.89/0.93 | -20.1 | 8.97 / 7.02 | 0% blink0 sharpNone | - | So first, why change? |
+| 13 | IMG_3848 | 34.43-35.73 | FULL | 1.00 | - / - | - | 0.32 | 185 | 0.78/0.90 | -20.3 | 7.93 / 5.3 | 0% blink0 sharpNone | - | So first, why change? |
+| 14 | IMG_3848 | 37.50-38.88 | FULL | 1.00 | - / - | - | 0.36 | 174 | 0.82/0.92 | -20.3 | 9.25 / 5.71 | 0% blink0 sharpNone | - | So first, why change? |
+| 15 | IMG_3848 | 41.08-42.22 | FULL | 1.00 | - / - | - | 0.18 | 211 | 0.87/0.94 | -21.0 | 8.36 / 6.81 | 25% blink0 sharp1.44 | - | So first, why change? |
+| 16 | IMG_3848 | 44.06-45.26 | FULL | 1.00 | - / - | - | 0.24 | 200 | 0.91/0.95 | -19.5 | 9.2 / 5.34 | 0% blink0 sharpNone | - | So first, why change? |
+| 17 | IMG_3848 | 46.97-48.13 | FULL | 1.00 | - / - | - | 0.22 | 207 | 0.92/0.95 | -20.3 | 8.84 / 6.97 | 0% blink0 sharpNone | - | So first, why change? |
+| 18 | IMG_3848 | 63.52-64.76 | FULL | 1.00 | - / - | - | 0.22 | 194 | 0.62/0.81 | -20.7 | 8.74 / 6.43 | 0% blink0 sharpNone | - | So first, why change? |
+| 19 | IMG_3848 | 66.49-67.71 | FULL | 1.00 | - / - | - | 0.20 | 197 | 0.88/0.93 | -20.0 | 8.58 / 6.12 | 25% blink0 sharp1.38 | - | So first, why change? |
+| 20 | IMG_3848 | 69.18-70.38 | FULL | 1.00 | - / - | - | 0.20 | 200 | 0.84/0.91 | -21.7 | 6.82 / 4.58 | 0% blink0 sharpNone | - | So first, why change? |
+| 21 | IMG_3848 | 73.88-75.06 | FULL | 1.00 | - / - | - | 0.22 | 203 | 0.89/0.93 | -21.2 | 8.34 / 6.84 | 0% blink0 sharpNone | - | So first, why change? |
+| 22 | IMG_3848 | 76.70-78.08 | FULL | 1.00 | - / - | - | 0.36 | 174 | 0.76/0.88 | -19.6 | 9.61 / 7.28 | 0% blink0 sharpNone | - | So first, why change? |
+| 23 | IMG_3848 | 79.84-81.10 | FULL | 1.00 | - / - | - | 0.24 | 190 | 0.91/0.94 | -22.8 | 8.23 / 6.41 | 0% blink0 sharpNone | - | So first, why change? |
+
+## [5] Ofcom says traditional TV fell by twelve percent in a year, as people move to streaming.
+suggested: **8** (no FULL take: best partial, check wording; 4 within 1 pt -> latest)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3848 | 87.77-93.05 | part | 0.88 | viewing / twelve percent | - | 0.40 | 182 | 0.68/0.93 | -29.5 | 5.42 / 6.66 | 0% blink0 sharpNone | - | Ofcom says traditional TV viewing fell by 12 in a year as people move to stream. |
+| 1 | IMG_3848 | 104.25-105.27 | FALSE_START | 0.19 | - / tv fell by twelve percent in a year as people move to streaming | - | 0.00 | 176 | 0.29/0.51 | -29.6 | 5.69 / 3.35 | 0% blink0 sharpNone | - | Ofcom says traditional. |
+| 2 | IMG_3848 | 118.01-124.14 | part | 0.88 | - / twelve percent | - | 0.57 | 147 | 0.10/0.83 | -28.4 | 6.04 / 5.64 | 0% blink0 sharpNone | - | Ofcom says traditional TV fell by 12%. In a year. As people move to streaming |
+| 3 | IMG_3848 | 131.07-136.23 | part | 0.88 | - / twelve percent | - | 0.40 | 174 | 0.57/0.92 | -27.0 | 5.18 / 6.04 | 33% blink0 sharp1.05 | - | Ofcom says traditional TV fell by 12 in a year as people moved to streaming. |
+| 4 | IMG_3848 | 138.59-142.79 | part | 0.69 | - / twelve percent in a year | - | 0.32 | 171 | 0.64/0.94 | -26.0 | 6.52 / 5.95 | 0% blink0 sharpNone | - | Ofcom says traditional TV fell by 12 as people moved to streaming. |
+| 5 | IMG_3848 | 144.22-149.10 | part | 0.69 | - / twelve percent move to streaming | - | 0.70 | 148 | 0.21/0.90 | -25.9 | 6.02 / 6.06 | 0% blink0 sharpNone | - | Ofcom says traditional TV fell by 12 in a year. As people. |
+| 6 | IMG_3848 | 150.56-156.32 | part | 0.81 | traditional TV. / twelve percent streaming | - | 0.34 | 167 | 0.62/0.94 | -28.4 | 6.3 / 6.42 | 0% blink0 sharpNone | - | Ofcom says traditional TV fell by 12 in a year as people move to traditional TV. |
+| 7 | IMG_3848 | 158.27-159.03 | FALSE_START | 0.12 | - / traditional tv fell by twelve percent in a year as people move to streaming | - | 0.00 | 158 | 0.89/0.93 | -20.9 | 7.97 / 3.53 | 0% blink0 sharpNone | - | Ofcom says, |
+| 8 | IMG_3848 | 160.54-165.93 | part | 0.88 | - / twelve percent | - | 0.47 | 167 | 0.03/0.89 | -26.2 | 6.26 / 5.9 | 8% blink0 sharp0.79 | - | Ofcom says traditional TV fell by 12%. In a year, as people move to streaming. |
+
+## [6] Netflix and YouTube already know what you want to watch, so Sky needs that too, and fast.
+suggested: **2** (only FULL)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3848 | 171.93-174.84 | FALSE_START | 0.47 | - / already watch so sky needs that too and fast | - | 0.66 | 186 | 0.83/0.93 | -30.7 | 4.15 / 6.61 | 0% blink0 sharpNone | - | Netflix and YouTube know. Know what you want to. |
+| 1 | IMG_3848 | 178.59-192.56 | part | 0.88 | Netflix YouTube already know what you want to watch, and Sky needs that too. / already fast | - | 6.12 | 125 | 0.54/0.94 | -30.2 | 4.86 / 7.38 | 7% blink0 sharp0.93 | - | Netflix and YouTube know what you want to watch. So Sky needs that too. Netflix and YouTube already know what you want to watch, and Sky needs that too. |
+| 2 | IMG_3848 | 200.32-205.26 | FULL | 1.00 | - / - | - | 0.42 | 206 | 0.91/0.98 | -25.7 | 6.33 / 6.05 | 36% blink0 sharp1.04 big(keep) | - | Netflix and YouTube already know what you want to watch, so Sky needs that too, and fast. |
+| 3 | IMG_3848 | 207.93-211.69 | part | 0.65 | Netflix... / sky needs that too and fast | - | 0.44 | 191 | 0.70/0.95 | -26.4 | 5.27 / 5.07 | 0% blink0 sharpNone | - | Netflix and YouTube already know what you want to watch. So Netflix... |
+| 4 | IMG_3848 | 214.56-219.16 | part | 0.88 | FOSS. / too fast | - | 0.30 | 209 | 0.62/0.96 | -26.0 | 6.85 / 6.54 | 10% blink0 sharp1.06 | - | Netflix and YouTube already know what you want to watch, so Sky needs that, and FOSS. |
+| 5 | IMG_3848 | 220.73-231.79 | part | 0.88 | Farce. YouTube already know what you want to watch, so Sky needs that. / too fast | - | 2.79 | 157 | 0.87/0.97 | -26.0 | 6.44 / 7.32 | 4% blink0 sharp1.06 | - | Netflix and YouTube already know what you want to watch, so Sky needs that. Farce. Netflix and YouTube already know what you want to watch, so Sky needs that. |
+| 6 | IMG_3848 | 234.24-237.86 | part | 0.82 | - / too and fast | - | 0.34 | 232 | 0.90/0.98 | -26.2 | 6.22 / 5.88 | 0% blink0 sharpNone | - | Netflix and YouTube already know what you want to watch, so Sky needs that. |
+
+## [7] Second, why now?
+suggested: **13** (best FULL; 13 within 1 pt -> latest)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3849 | 67.84-69.00 | FULL | 1.00 | - / - | - | 0.34 | 155 | 0.76/0.86 | -23.3 | 6.73 / 5.83 | 0% blink0 sharpNone | - | Second, why now? |
+| 1 | IMG_3850 | 4.32-5.54 | FULL | 1.00 | - / - | - | 0.40 | 148 | 0.76/0.89 | -23.9 | 6.04 / 4.87 | 100% blink0 sharp1.06 tilt(keep) | - | Second, why now? |
+| 2 | IMG_3850 | 7.39-8.53 | FULL | 1.00 | - / - | - | 0.30 | 158 | 0.77/0.87 | -22.5 | 7.12 / 3.99 | 67% blink0 sharp1.28 | - | Second, why now? |
+| 3 | IMG_3850 | 9.72-10.92 | FULL | 1.00 | - / - | - | 0.36 | 150 | 0.77/0.85 | -24.0 | 6.54 / 5.83 | 100% blink0 sharp0.92 | - | Second, why now? |
+| 4 | IMG_3850 | 12.00-13.12 | FULL | 1.00 | - / - | - | 0.26 | 161 | 0.69/0.86 | -21.7 | 8.03 / 6.23 | 100% blink0 sharp1.34 turn(keep) side(keep) | - | Second, why now? |
+| 5 | IMG_3850 | 14.20-15.36 | FULL | 1.00 | - / - | - | 0.26 | 155 | 0.60/0.84 | -23.6 | 6.83 / 6.66 | 100% blink0 sharp0.98 glance(keep) glance(keep) big(keep) | - | Second, why now? |
+| 6 | IMG_3850 | 16.35-17.41 | part | 0.67 | not? / now | - | 0.28 | 170 | 0.67/0.76 | -19.7 | 8.16 / 7.12 | 100% blink0 sharp0.98 turn(keep) turn(keep) tilt(keep) tilt(keep) | - | Second, why not? |
+| 7 | IMG_3850 | 18.52-19.80 | FULL | 1.00 | - / - | - | 0.34 | 141 | 0.66/0.86 | -20.1 | 9.03 / 7.87 | 75% blink0 sharp1.18 turn(keep) glance(keep) big(keep) | - | Second, why now? |
+| 8 | IMG_3850 | 20.89-21.97 | FULL | 1.00 | - / - | - | 0.22 | 167 | 0.74/0.89 | -22.9 | 7.92 / 6.62 | 100% blink0 sharp0.98 tilt(keep) | - | Second, why now? |
+| 9 | IMG_3850 | 23.13-24.23 | FULL | 1.00 | - / - | - | 0.26 | 164 | 0.51/0.78 | -17.0 | 9.35 / 7.58 | 25% blink0 sharp0.81 | - | Second, why now? |
+| 10 | IMG_3850 | 25.63-26.79 | FULL | 1.00 | - / - | - | 0.22 | 155 | 0.54/0.81 | -20.5 | 7.18 / 6.95 | 100% blink0 sharp1.12 turn(keep) turn(keep) glance(keep) tilt(cover) | - | Second, why now? |
+| 11 | IMG_3850 | 28.19-29.21 | FULL | 1.00 | - / - | - | 0.22 | 176 | 0.81/0.90 | -21.1 | 7.85 / 6.2 | 100% blink0 sharp0.89 | - | Second, why now? |
+| 12 | IMG_3850 | 31.13-32.19 | FULL | 1.00 | - / - | - | 0.24 | 170 | 0.72/0.88 | -20.0 | 8.36 / 6.89 | 100% blink0 sharp1.11 side(keep) | - | Second, why now? |
+| 13 | IMG_3850 | 33.53-34.69 | FULL | 1.00 | - / - | - | 0.28 | 155 | 0.80/0.91 | -22.8 | 7.32 / 6.47 | 67% blink0 sharp1.25 | - | Second, why now? |
+
+## [8] Well, you've already started with Sky Q voice search.
+suggested: **14** (no FULL take: best partial, check wording; 2 within 1 pt -> latest)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3850 | 41.98-45.48 | FALSE_START | 0.44 | Viewers can talk to Sky to find shows. / with sky q voice search | - | 0.24 | 206 | 0.73/0.96 | -29.2 | 5.65 / 6.74 | 0% blink0 sharpNone | - | Well, you've already started. Viewers can talk to Sky to find shows. |
+| 1 | IMG_3850 | 48.00-49.40 | FALSE_START | 0.44 | - / with sky q voice search | - | 0.28 | 171 | 0.76/0.93 | -22.1 | 7.2 / 4.62 | 100% blink0 sharp0.5 turn(keep) closed(keep) big(keep) big(keep) SOFT | - | Well, you've already started. |
+| 2 | IMG_3850 | 50.56-51.58 | FALSE_START | 0.44 | - / with sky q voice search | - | 0.02 | 235 | 0.74/0.92 | -22.7 | 5.73 / 5.97 | 100% blink0 sharp0.84 turn(keep) turn(keep) | - | Well, you've already started. |
+| 3 | IMG_3850 | 100.44-103.00 | part | 0.89 | - / q | - | 0.10 | 187 | 0.62/0.88 | -24.6 | 7.02 / 5.49 | 0% blink0 sharpNone | - | Well, you've already started with SkyQ Voice Search. |
+| 4 | IMG_3850 | 106.17-108.85 | part | 0.78 | - / sky q | - | 0.10 | 179 | 0.68/0.89 | -24.7 | 7.03 / 6.03 | 71% blink0 sharp0.92 turn(keep) turn(keep) glance(cover) tilt(keep) tilt(keep) | - | Well, you've already started with Skyview Voice Search. |
+| 5 | IMG_3850 | 109.98-112.70 | part | 0.78 | - / sky q | - | 0.10 | 176 | 0.70/0.91 | -24.4 | 8.05 / 5.8 | 100% blink0 sharp1.14 glance(keep) tilt(cover) big(keep) big(keep) big(keep) | - | Well, you've already started with Skyview Voice Search. |
+| 6 | IMG_3850 | 114.88-117.40 | part | 0.78 | - / sky q | - | 0.10 | 190 | 0.67/0.89 | -24.4 | 7.43 / 6.44 | 67% blink0 sharp0.96 turn(cover) turn(keep) tilt(keep) | - | Well, you've already started with Skyview Voice Search. |
+| 7 | IMG_3850 | 119.39-121.95 | part | 0.78 | - / sky q | - | 0.06 | 188 | 0.60/0.87 | -24.1 | 8.33 / 5.47 | 50% blink0 sharp1.04 side(keep) tilt(keep) | - | Well, you've already started with Skyview Voice Search. |
+| 8 | IMG_3850 | 124.54-127.04 | part | 0.89 | - / youve | - | 0.04 | 216 | 0.39/0.83 | -22.4 | 7.64 / 5.28 | 100% blink0 sharp0.99 turn(cover) tilt(cover) tilt(keep) | - | Well, we've already started with Sky Q Voice Search. |
+| 9 | IMG_3850 | 129.24-131.68 | part | 0.89 | - / youve | - | 0.06 | 221 | 0.25/0.85 | -23.6 | 7.58 / 5.56 | 83% blink0 sharp1.02 turn(keep) turn(cover) tilt(cover) | - | Well, we've already started with Sky Q Voice Search. |
+| 10 | IMG_3850 | 134.75-137.17 | part | 0.78 | - / sky q | - | 0.08 | 198 | 0.68/0.88 | -24.2 | 8.2 / 5.56 | 50% blink0 sharp0.94 turn(keep) | - | Well, you've already started with Skyview Voice Search. |
+| 11 | IMG_3850 | 138.30-140.84 | part | 0.78 | - / youve q | - | 0.08 | 213 | 0.53/0.84 | -22.3 | 7.81 / 5.35 | 86% blink0 sharp1.12 turn(keep) side(keep) tilt(cover) tilt(cover) big(keep) | - | Well, we've already started with Sky Cue Voice Search. |
+| 12 | IMG_3850 | 142.17-144.85 | part | 0.89 | - / q | - | 0.14 | 179 | 0.65/0.88 | -21.6 | 7.89 / 5.86 | 100% blink0 sharp1.19 turn(keep) glance(cover) tilt(keep) tilt(keep) tilt(cover) | - | Well, you've already started with SkyQ Voice Search. |
+| 13 | IMG_3850 | 146.40-149.52 | part | 0.67 | Church. Right. / sky q search | - | 0.30 | 173 | 0.52/0.83 | -21.5 | 8.14 / 5.86 | 71% blink0 sharp1.04 turn(keep) turn(keep) tilt(keep) | - | Well, you've already started with Skyview Voice Church. Right. |
+| 14 | IMG_3850 | 150.43-152.83 | part | 0.89 | - / q | - | 0.08 | 200 | 0.46/0.80 | -24.0 | 8.24 / 5.44 | 67% blink0 sharp1.05 turn(keep) turn(keep) | - | Well, you've already started with SkyQ Voice Search. |
+
+## [9] Now the next step is an AI assistant that knows each household.
+suggested: **13** (best FULL; 2 within 1 pt -> latest)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3850 | 158.04-164.22 | part | 0.58 | the next step. / now ai that each household | - | 3.54 | 107 | 0.47/0.90 | -27.5 | 6.56 / 6.93 | 0% blink0 sharpNone | - | The next step is an assistant. No. Now the next step. |
+| 1 | IMG_3850 | 167.23-170.79 | FULL | 0.92 | - / ai | - | 0.00 | 185 | 0.52/0.94 | -28.5 | 6.46 / 7.02 | 0% blink0 sharpNone | - | Now the next step is an assistant that knows each household. |
+| 2 | IMG_3850 | 183.64-186.58 | part | 0.83 | - / now ai | - | 0.00 | 204 | 0.91/0.98 | -27.7 | 7.07 / 5.48 | 86% blink0 sharp0.91 turn(keep) turn(keep) glance(keep) tilt(keep) big(keep) | R11 | The next step is an assistant that knows each household. |
+| 3 | IMG_3850 | 192.76-195.78 | part | 0.83 | - / now ai | - | 0.00 | 199 | 0.93/0.99 | -26.7 | 6.73 / 5.57 | 88% blink0 sharp1.02 glance(keep) tilt(cover) | R12 | The next step is an assistant that knows each household. |
+| 4 | IMG_3850 | 203.52-206.96 | part | 0.92 | - / now | - | 0.00 | 192 | 0.76/0.96 | -23.6 | 7.34 / 5.71 | 100% blink0 sharp1.04 turn(keep) glance(keep) tilt(keep) | R13 | The next step is an AI assistant that knows each household. |
+| 5 | IMG_3850 | 211.29-213.91 | part | 0.58 | - / now assistant knows each household | - | 0.00 | 183 | 0.20/0.79 | -19.0 | 9.11 / 6.36 | 86% blink1 sharp0.96 glance(keep) closed(keep) big(keep) big(keep) | - | The next step is an AI system that |
+| 6 | IMG_3850 | 215.32-218.38 | part | 0.83 | - / now knows | - | 0.00 | 196 | 0.86/0.96 | -20.2 | 8.32 / 5.85 | 71% blink0 sharp1.2 turn(cover) glance(keep) tilt(keep) | - | The next step is an AI assistant that each household |
+| 7 | IMG_3850 | 220.19-223.52 | part | 0.92 | - / now | - | 0.34 | 198 | 0.67/0.93 | -23.3 | 7.62 / 5.71 | 88% blink0 sharp0.92 turn(keep) tilt(keep) | R14 | The next step. is an AI assistant that knows each household. |
+| 8 | IMG_3850 | 241.50-244.78 | FULL | 0.92 | - / assistant | - | 0.00 | 201 | 0.82/0.96 | -19.9 | 8.17 / 5.09 | 88% blink0 sharp0.99 turn(keep) glance(keep) tilt(cover) big(keep) | - | Now the next step is an AI that knows each household. |
+| 9 | IMG_3850 | 250.01-251.67 | part | 0.50 | - / ai assistant that knows each household | - | 0.00 | 217 | 0.58/0.86 | -20.4 | 8.73 / 5.0 | 100% blink0 sharp1.03 tilt(keep) | - | Now the next step is an... |
+| 10 | IMG_3850 | 252.67-254.37 | part | 0.58 | - / assistant that knows each household | - | 0.18 | 247 | 0.80/0.95 | -17.7 | 8.27 / 5.72 | 80% blink0 sharp1.01 turn(keep) glance(keep) tilt(keep) big(keep) big(keep) | - | Now, the next step is an AI. |
+| 11 | IMG_3850 | 255.36-257.18 | part | 0.58 | - / assistant that knows each household | - | 0.32 | 231 | 0.72/0.94 | -18.6 | 8.08 / 5.89 | 100% blink0 sharp1.01 turn(keep) tilt(keep) | - | Now, the next step is an AI. |
+| 12 | IMG_3850 | 258.65-262.09 | FULL | 1.00 | - / - | - | 0.28 | 209 | 0.89/0.97 | -22.0 | 7.66 / 6.59 | 88% blink0 sharp0.91 turn(keep) turn(keep) glance(cover) tilt(keep) big(keep) | - | Now, the next step is an AI assistant that knows each household. |
+| 13 | IMG_3850 | 266.36-269.96 | FULL | 1.00 | - / - | - | 0.22 | 200 | 0.68/0.96 | -22.6 | 7.9 / 4.78 | 88% blink0 sharp0.98 turn(keep) glance(keep) glance(keep) side(keep) tilt(keep) big(keep) big(keep) | - | Now, the next step is an AI assistant that knows each household. |
+
+## [10] Imagine asking, find me a show my kids will love.
+suggested: **5** (best FULL; 4 within 1 pt -> latest in a run)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3850 | 171.64-172.84 | FALSE_START | 0.20 | - / find me a show my kids will love | - | 0.00 | 100 | 0.60/0.67 | -30.2 | 5.4 / 5.16 | 0% blink0 sharpNone | - | Imagine arcsing. |
+| 1 | IMG_3850 | 173.37-176.54 | FULL | 1.00 | - / - | - | 0.51 | 189 | 0.14/0.73 | -31.0 | 4.66 / 5.43 | 0% blink0 sharpNone | - | Imagine asking, find me a show. My kids will love. |
+| 2 | IMG_3850 | 186.76-189.64 | FULL | 1.00 | that / - | - | 0.20 | 229 | 0.67/0.96 | -23.8 | 6.77 / 5.4 | 71% blink0 sharp0.93 turn(keep) turn(keep) turn(keep) tilt(keep) | R11 | Imagine asking, find me a show that my kids will love. |
+| 3 | IMG_3850 | 195.98-198.62 | part | 0.90 | that enjoy. / love | - | 0.14 | 250 | 0.73/0.97 | -25.2 | 6.35 / 4.96 | 83% blink0 sharp1.01 turn(keep) turn(keep) glance(keep) tilt(keep) | R12 | Imagine asking, find me a show that my kids will enjoy. |
+| 4 | IMG_3850 | 207.32-209.80 | FULL | 1.00 | and / - | - | 0.20 | 266 | 0.43/0.89 | -20.1 | 7.26 / 4.39 | 67% blink0 sharp1.08 turn(keep) | R13 | Imagine asking, find me a show and my kids will love. |
+| 5 | IMG_3850 | 223.90-226.40 | FULL | 1.00 | - / - | - | 0.18 | 240 | 0.62/0.89 | -20.2 | 7.72 / 4.62 | 100% blink0 sharp0.93 turn(keep) glance(keep) closed(keep) tilt(keep) big(keep) | R14 | Imagine asking, find me a show my kids will love. |
+| 6 | IMG_3850 | 244.96-247.20 | FALSE_START | 0.20 | oh, I'm feeling scared. / find me a show my kids will love | - | 0.26 | 161 | 0.10/0.81 | -21.0 | 7.6 / 5.45 | 83% blink0 sharp1.01 turn(cover) glance(keep) | - | Imagine asking, oh, I'm feeling scared. |
+
+## [11] Third, why DDN?
+suggested: **12** (best FULL; 12 within 1 pt -> latest)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3851 | 6.11-7.59 | FULL | 1.00 | - / - | - | 0.36 | 122 | 0.08/0.65 | -18.7 | 8.11 / 6.65 | 0% blink0 sharpNone | - | Third, why DDN? |
+| 1 | IMG_3851 | 12.48-13.86 | FULL | 1.00 | - / - | - | 0.34 | 130 | 0.32/0.65 | -20.8 | 7.0 / 4.94 | 0% blink0 sharpNone | - | Third, why DDN? |
+| 2 | IMG_3851 | 18.04-19.38 | FULL | 1.00 | - / - | - | 0.30 | 134 | 0.25/0.46 | -15.9 | 9.0 / 5.46 | 0% blink0 sharpNone | - | Third, why DDN? |
+| 3 | IMG_3851 | 20.57-22.01 | FULL | 1.00 | - / - | - | 0.40 | 125 | 0.32/0.72 | -19.4 | 7.87 / 4.91 | 25% blink0 sharp1.95 | - | Third, why DDN? |
+| 4 | IMG_3851 | 23.29-24.69 | FULL | 1.00 | - / - | - | 0.32 | 129 | 0.26/0.64 | -17.5 | 9.7 / 6.21 | 0% blink0 sharpNone | - | Third, why DDN? |
+| 5 | IMG_3851 | 25.72-27.12 | FULL | 1.00 | - / - | - | 0.32 | 129 | 0.19/0.39 | -16.8 | 9.17 / 5.74 | 25% blink0 sharp0.71 | - | Third, why DDN? |
+| 6 | IMG_3851 | 28.25-29.65 | FULL | 1.00 | - / - | - | 0.34 | 129 | 0.14/0.62 | -17.9 | 8.41 / 4.29 | 50% blink0 sharp1.52 | - | Third, why DDN? |
+| 7 | IMG_3851 | 30.68-32.12 | part | 0.67 | FUD, / third | - | 0.34 | 125 | 0.56/0.71 | -18.6 | 7.67 / 5.7 | 0% blink0 sharpNone | - | FUD, why DDN? |
+| 8 | IMG_3851 | 33.05-34.57 | FULL | 1.00 | - / - | - | 0.38 | 118 | 0.29/0.62 | -15.8 | 8.95 / 6.49 | 0% blink0 sharpNone | - | Third, why DDN? |
+| 9 | IMG_3851 | 35.55-37.09 | FULL | 1.00 | - / - | - | 0.40 | 117 | 0.24/0.45 | -15.6 | 8.61 / 6.04 | 0% blink0 sharpNone | - | Third, why DDN? |
+| 10 | IMG_3851 | 38.46-39.98 | FULL | 1.00 | - / - | - | 0.40 | 118 | 0.34/0.68 | -13.7 | 11.03 / 5.52 | 0% blink0 sharpNone | - | Third, why DDN? |
+| 11 | IMG_3851 | 41.21-42.73 | FULL | 1.00 | - / - | - | 0.36 | 118 | 0.10/0.50 | -16.5 | 9.19 / 5.79 | 0% blink0 sharpNone | - | Third, why DDN? |
+| 12 | IMG_3851 | 43.90-45.34 | FULL | 1.00 | - / - | - | 0.36 | 125 | 0.20/0.54 | -13.0 | 9.55 / 4.98 | 25% blink0 sharp2.0 | - | Third, why DDN? |
+
+## [12] Idle chips still cost you, and Cast AI found that enterprise chips average around five percent of use.
+suggested: **6** (no FULL take: best partial, check wording)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3852 | 17.69-24.30 | part | 0.67 | about 5 use. / that around five percent of use | - | 0.79 | 145 | 0.45/0.85 | -26.4 | 6.24 / 7.42 | 0% blink0 sharpNone | R15 | Idle chips still cost you, and Cast AI found enterprise Enterprise chips average about 5 use. |
+| 1 | IMG_3852 | 36.83-47.13 | part | 0.67 | average Found enterprise chips average. / that around five percent of use | - | 3.60 | 105 | 0.20/0.83 | -25.3 | 6.68 / 6.43 | 0% blink0 sharpNone | - | Idle chips still cost you, and Cast AI found average chips. Found enterprise chips average, enterprise chips average. |
+| 2 | IMG_3852 | 48.96-56.08 | part | 0.83 | - / that five percent | - | 0.32 | 135 | 0.26/0.79 | -24.1 | 6.85 / 6.34 | 0% blink0 sharpNone | - | Idle chips still cost you and Cast AI found enterprise chips average around 5 of use. |
+| 3 | IMG_3852 | 58.46-67.40 | part | 0.83 | Enterprise / around five percent | - | 2.98 | 121 | 0.21/0.81 | -23.0 | 7.22 / 6.11 | 0% blink0 sharpNone | - | Idle chips still cost you, and Cast AI found that Enterprise Enterprise chips average about 5 of use. |
+| 4 | IMG_3852 | 69.63-76.15 | part | 0.83 | - / around five percent | - | 0.30 | 156 | 0.10/0.78 | -22.3 | 7.34 / 5.93 | 0% blink0 sharpNone | - | Idle chips still cost you and Cast AI found that enterprise chips average about 5 of use. |
+| 5 | IMG_3852 | 79.68-82.78 | part | 0.56 | for / enterprise chips average around five percent of use | - | 0.12 | 213 | 0.40/0.80 | -22.7 | 7.25 / 5.31 | 0% blink0 sharpNone | - | Idle chips still cost for you, and Cast AI found that. |
+| 6 | IMG_3852 | 84.54-91.00 | part | 0.89 | - / five percent | - | 0.26 | 158 | 0.32/0.82 | -22.5 | 7.48 / 5.84 | 0% blink0 sharpNone | - | Idle chips still cost you and Cast AI found that Enterprise chips average around 5 of use. |
+| 7 | IMG_3852 | 93.12-94.78 | FALSE_START | 0.28 | will / and cast ai found that enterprise chips average around five percent of use | - | 0.00 | 217 | 0.09/0.71 | -23.8 | 7.33 / 6.68 | 0% blink0 sharpNone | - | Idle chips will still cost you. |
+| 8 | IMG_3852 | 96.89-101.51 | part | 0.67 | average / average around five percent of use | - | 0.20 | 169 | 0.28/0.85 | -20.8 | 7.58 / 5.46 | 0% blink0 sharpNone | - | Idle chips still cost you, and Cast AI found that average enterprise chips |
+| 9 | IMG_3852 | 106.33-114.44 | part | 0.72 | will found that I... about 5 use. / around five percent of use | - | 0.98 | 148 | 0.01/0.74 | -23.5 | 6.75 / 6.95 | 0% blink0 sharpNone | - | Idle chips will still cost you, and Cast AI found that I... Found that. Enterprise chips average about 5 use. |
+| 10 | IMG_3852 | 117.28-123.10 | part | 0.89 | will / five percent | - | 0.26 | 186 | 0.00/0.81 | -21.7 | 7.48 / 5.39 | 0% blink0 sharpNone | - | Idle chips will still cost you and Cast AI found that enterprise chips average around 5 of use. |
+| 11 | IMG_3852 | 129.31-135.79 | part | 0.89 | will / five percent | - | 0.30 | 167 | 0.27/0.83 | -21.8 | 7.43 / 5.46 | 0% blink0 sharpNone | - | Idle chips will still cost you and Cast AI found that enterprise chips average around 5 of use. |
+| 12 | IMG_3852 | 138.56-141.74 | FALSE_START | 0.44 | will / and that enterprise chips average around five percent of use | - | 0.26 | 189 | 0.36/0.86 | -19.9 | 8.06 / 5.75 | 0% blink0 sharpNone | - | Idle chips will still cost you, but Cast AI found. |
+| 13 | IMG_3852 | 143.20-148.36 | part | 0.67 | will average / average around five percent of use | - | 0.00 | 163 | 0.25/0.80 | -22.6 | 7.65 / 5.67 | 0% blink0 sharpNone | - | Idle chips will still cost you and Cast AI found that average enterprise chips |
+| 14 | IMG_3852 | 152.83-154.83 | FALSE_START | 0.33 | will / cast ai found that enterprise chips average around five percent of use | - | 0.32 | 210 | 0.43/0.78 | -23.8 | 7.67 / 7.61 | 0% blink0 sharpNone | - | Idle chips will still cost you. And. |
+| 15 | IMG_3852 | 156.03-162.95 | part | 0.89 | will / five percent | - | 0.34 | 156 | 0.22/0.84 | -21.1 | 7.62 / 5.4 | 0% blink0 sharpNone | - | Idle chips will still cost you, and Cast AI found that Enterprise chips average around 5 of use. |
+| 16 | IMG_3852 | 165.44-172.24 | part | 0.89 | will / five percent | - | 0.34 | 159 | 0.20/0.84 | -21.8 | 7.27 / 6.08 | 0% blink0 sharpNone | - | Idle chips will still cost you, and Cast AI found that Enterprise chips average around 5 of use. |
+| 17 | IMG_3852 | 175.26-176.72 | FALSE_START | 0.28 | will / and cast ai found that enterprise chips average around five percent of use | - | 0.00 | 247 | 0.52/0.84 | -23.5 | 7.67 / 5.82 | 0% blink0 sharpNone | - | Idle chips will still cost you. |
+| 18 | IMG_3852 | 177.95-180.23 | FALSE_START | 0.33 | will / and ai found that enterprise chips average around five percent of use | - | 0.14 | 211 | 0.25/0.79 | -23.0 | 7.93 / 5.2 | 0% blink0 sharpNone | - | Idle chips will still cost you, but Cast... |
+| 19 | IMG_3852 | 183.77-185.19 | FALSE_START | 0.28 | will / and cast ai found that enterprise chips average around five percent of use | - | 0.00 | 254 | 0.37/0.83 | -23.7 | 7.38 / 5.9 | 0% blink0 sharpNone | - | Idle chips will still cost you. |
+| 20 | IMG_3852 | 194.56-200.04 | part | 0.67 | will average use 5%. / average around five percent of use | - | 0.16 | 175 | 0.12/0.88 | -23.9 | 7.15 / 6.29 | 0% blink0 sharpNone | - | Idle chips will still cost you, and Cast AI found that average enterprise chips use 5%. |
+| 21 | IMG_3852 | 202.46-208.90 | part | 0.78 | will energy. / average five percent use | - | 0.38 | 168 | 0.17/0.85 | -22.5 | 7.17 / 5.48 | 0% blink0 sharpNone | - | Idle chips will still cost you, and Cast AI found that enterprise chips use around 5 of energy. |
+
+## [13] It's like paying for a whole Sky Sports bundle just to watch Arsenal lose.
+suggested: **11** (best FULL; 5 within 1 pt -> latest)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3852 | 24.70-28.32 | part | 0.86 | news. / a lose | - | 0.00 | 232 | 0.68/0.94 | -32.8 | 3.62 / 8.58 | 0% blink0 sharpNone | R15 | It's like paying for the whole Sky Sports bundle just to watch Arsenal news. |
+| 1 | IMG_3852 | 224.38-227.80 | FULL | 0.93 | - / whole | - | 0.00 | 228 | 0.48/0.91 | -26.0 | 6.27 / 4.65 | 0% blink0 sharpNone | - | It's like paying for a Sky Sports bundle just to watch Arsenal lose. |
+| 2 | IMG_3852 | 228.76-230.36 | FALSE_START | 0.43 | - / sky sports bundle just to watch arsenal lose | - | 0.00 | 225 | 0.63/0.90 | -22.6 | 6.62 / 4.09 | 0% blink0 sharpNone | - | It's like paying for a whole... |
+| 3 | IMG_3852 | 231.52-235.30 | FULL | 1.00 | - / - | - | 0.00 | 222 | 0.78/0.96 | -24.5 | 7.06 / 5.94 | 0% blink0 sharpNone | - | It's like paying for a whole Sky Sports bundle just to watch Arsenal lose. |
+| 4 | IMG_3852 | 236.28-239.70 | part | 0.86 | possible. / arsenal lose | - | 0.00 | 228 | 0.40/0.90 | -24.3 | 6.79 / 5.67 | 0% blink0 sharpNone | - | It's like paying for a whole Sky Sports bundle just to watch possible. |
+| 5 | IMG_3852 | 241.02-244.72 | part | 0.86 | Slight / its like | - | 0.00 | 211 | 0.73/0.90 | -23.6 | 7.37 / 6.75 | 0% blink0 sharpNone | - | Slight pain for a whole Sky Sports bundle just to watch Arsenal lose. |
+| 6 | IMG_3852 | 246.30-247.30 | FALSE_START | 0.36 | - / whole sky sports bundle just to watch arsenal lose | - | 0.00 | 300 | 0.36/0.85 | -18.3 | 8.78 / 4.61 | 0% blink0 sharpNone | - | it's like paying for a... |
+| 7 | IMG_3852 | 250.59-254.51 | FULL | 1.00 | - / - | - | 0.00 | 214 | 0.74/0.95 | -23.5 | 7.15 / 6.62 | 0% blink0 sharpNone | - | It's like paying for a whole Sky Sports bundle just to watch Arsenal lose. |
+| 8 | IMG_3852 | 255.36-258.92 | FULL | 1.00 | - / - | - | 0.00 | 236 | 0.87/0.96 | -21.4 | 8.1 / 4.5 | 0% blink0 sharpNone | - | It's like paying for a whole Sky Sports bundle just to watch Arsenal lose. |
+| 9 | IMG_3852 | 260.09-261.33 | FALSE_START | 0.36 | ho / whole sky sports bundle just to watch arsenal lose | - | 0.00 | 290 | 0.28/0.78 | -20.5 | 7.21 / 3.36 | 0% blink0 sharpNone | - | It's like paying for a ho |
+| 10 | IMG_3852 | 262.30-265.84 | FULL | 1.00 | - / - | - | 0.00 | 237 | 0.92/0.98 | -22.6 | 7.19 / 6.59 | 0% blink0 sharpNone | - | It's like paying for a whole Sky Sports bundle just to watch Arsenal lose. |
+| 11 | IMG_3852 | 267.10-270.74 | FULL | 1.00 | - / - | - | 0.00 | 231 | 0.84/0.97 | -21.9 | 7.38 / 7.29 | 0% blink0 sharpNone | - | It's like paying for a whole Sky Sports bundle just to watch Arsenal lose. |
+
+## [14] Now DDN's Infinia keeps data flowing to the chips.
+suggested: **11** (best FULL; 10 within 1 pt -> latest)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3852 | 281.28-283.90 | part | 0.89 | - / now | - | 0.00 | 183 | 0.46/0.91 | -27.4 | 5.05 / 4.91 | 0% blink0 sharpNone | - | DDN's Infinia keeps data flowing to the chips. |
+| 1 | IMG_3852 | 286.81-289.15 | part | 0.89 | - / now | - | 0.00 | 205 | 0.59/0.92 | -27.9 | 4.8 / 4.21 | 0% blink0 sharpNone | - | DDN's Infinia keeps data flowing to the chips. |
+| 2 | IMG_3852 | 296.99-300.21 | FULL | 1.00 | - / - | - | 0.28 | 168 | 0.50/0.92 | -24.4 | 6.1 / 6.17 | 0% blink0 sharpNone | - | Now, DDN's Infinia keeps data flowing to the chips. |
+| 3 | IMG_3852 | 306.78-310.38 | FULL | 1.00 | - / - | - | 0.42 | 150 | 0.26/0.89 | -24.1 | 6.05 / 5.42 | 0% blink0 sharpNone | - | Now, DDN's Infinia keeps data flowing to the chips. |
+| 4 | IMG_3852 | 311.39-314.03 | FULL | 1.00 | - / - | - | 0.10 | 205 | 0.34/0.85 | -24.1 | 5.94 / 4.7 | 0% blink0 sharpNone | - | Now, DDN's Infinia keeps data flowing to the chips. |
+| 5 | IMG_3852 | 315.16-317.94 | FULL | 1.00 | - / - | - | 0.00 | 194 | 0.69/0.92 | -24.6 | 5.74 / 5.25 | 0% blink0 sharpNone | - | Now DDN's Infinia keeps data flowing to the chips. |
+| 6 | IMG_3852 | 318.94-321.74 | FULL | 1.00 | - / - | - | 0.14 | 193 | 0.37/0.86 | -24.6 | 5.51 / 5.22 | 0% blink0 sharpNone | - | Now, DDN's Infinia keeps data flowing to the chips. |
+| 7 | IMG_3852 | 322.72-325.54 | FULL | 1.00 | - / - | - | 0.00 | 191 | 0.59/0.90 | -26.6 | 5.72 / 5.47 | 0% blink0 sharpNone | - | Now DDN's Infinia keeps data flowing to the chips. |
+| 8 | IMG_3852 | 326.46-329.18 | FULL | 1.00 | - / - | - | 0.00 | 199 | 0.50/0.89 | -25.7 | 5.67 / 5.05 | 0% blink0 sharpNone | - | Now DDN's Infinia keeps data flowing to the chips. |
+| 9 | IMG_3852 | 330.14-332.88 | FULL | 1.00 | - / - | - | 0.00 | 197 | 0.64/0.91 | -26.8 | 4.98 / 4.85 | 0% blink0 sharpNone | - | Now DDN's Infinia keeps data flowing to the chips. |
+| 10 | IMG_3852 | 333.69-336.29 | FULL | 1.00 | - / - | - | 0.14 | 208 | 0.45/0.88 | -25.7 | 5.45 / 5.28 | 0% blink0 sharpNone | - | Now, DDN's Infinia keeps data flowing to the chips. |
+| 11 | IMG_3852 | 336.83-339.63 | FULL | 1.00 | - / - | - | 0.00 | 193 | 0.44/0.86 | -25.4 | 5.64 / 5.77 | 0% blink0 sharpNone | - | Now DDN's Infinia keeps data flowing to the chips. |
+
+## [15] And they say customers reach up to ninety nine percent busy and cut costs per token by seventy five percent.
+suggested: **7** (no FULL take: best partial, check wording; 4 within 1 pt -> latest)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3852 | 358.84-363.50 | part | 0.65 | - / ninety nine percent by seventy five percent | - | 0.34 | 180 | 0.73/0.95 | -29.4 | 5.25 / 6.12 | 0% blink0 sharpNone | - | And they say customers reach up to 99 busy and cut costs per token. |
+| 1 | IMG_3853 | 17.88-22.96 | part | 0.65 | - / ninety nine percent by seventy five percent | - | 0.68 | 165 | 0.59/0.92 | -30.7 | 4.56 / 6.81 | 0% blink0 sharpNone | - | And they say customers reach up to 99 busy. and cut costs per token. |
+| 2 | IMG_3853 | 31.48-36.80 | part | 0.65 | 75%. / ninety nine percent cut seventy five percent | - | 0.32 | 180 | 0.35/0.88 | -29.0 | 5.25 / 5.57 | 0% blink0 sharpNone | - | And they say customers reach up to 99 busy and cost cost per token by 75%. |
+| 3 | IMG_3853 | 39.16-45.02 | part | 0.60 | up to 90. / ninety nine percent cut by seventy five percent | - | 0.28 | 174 | 0.45/0.90 | -25.4 | 6.03 / 6.25 | 0% blink0 sharpNone | - | And they say customers reach up to 99 busy and cot costs per token up to 90. |
+| 4 | IMG_3853 | 56.89-64.86 | part | 0.60 | cock, blah. ARGH! / ninety nine percent cut by seventy five percent | - | 1.72 | 128 | 0.03/0.76 | -23.2 | 8.39 / 7.84 | 0% blink0 sharpNone | - | And they say customers reach up to 99 busy and cock, blah. ARGH! Cop cost per token. |
+| 5 | IMG_3853 | 71.04-75.98 | FALSE_START | 0.55 | but / ninety nine percent and per token seventy five percent | - | 0.30 | 170 | 0.62/0.95 | -23.7 | 6.77 / 5.82 | 0% blink0 sharpNone | - | And they say customers reach up to 99 busy, but also cut costs by. |
+| 6 | IMG_3853 | 98.94-105.50 | part | 0.65 | 75%. / and ninety nine percent seventy five percent | - | 1.24 | 146 | 0.41/0.89 | -27.0 | 6.36 / 5.5 | 0% blink0 sharpNone | - | They say customers reach up to 99 busy. Busy, and cut costs per token by 75%. |
+| 7 | IMG_3853 | 109.60-115.22 | part | 0.70 | 75%. / ninety nine percent seventy five percent | - | 0.26 | 171 | 0.54/0.93 | -23.6 | 7.14 / 5.17 | 0% blink0 sharpNone | - | And they say customers reach up to 99 busy and cut costs per token by 75%. |
+| 8 | IMG_3853 | 116.73-121.84 | FALSE_START | 0.55 | - / ninety nine percent and cut by seventy five percent | - | 0.53 | 153 | 0.43/0.88 | -24.3 | 7.14 / 5.44 | 0% blink0 sharpNone | - | And they say customers reach up to 99 busy. ANCOT cost per token. |
+| 9 | IMG_3858 | 44.54-47.10 | FALSE_START | 0.10 | measure the values before and after. / say customers reach up to ninety nine percent busy and cut costs per token by seventy five percent | - | 0.00 | 187 | 0.12/0.87 | -21.2 | 7.35 / 5.23 | 0% blink0 sharpNone | - | And then measure the values before and after. |
+
+## [16] Plus, they already work with media companies like Canal Plus and Starz.
+suggested: **8** (best FULL; 7 within 1 pt -> latest)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3854 | 6.33-10.23 | FULL | 1.00 | - / - | - | 0.22 | 185 | 0.33/0.84 | -25.6 | 5.81 / 7.16 | 0% blink0 sharpNone | - | Plus, they already work with media companies like Canal Plus and Starz. |
+| 1 | IMG_3854 | 16.67-20.55 | FULL | 1.00 | - / - | - | 0.18 | 186 | 0.44/0.87 | -25.6 | 6.28 / 5.88 | 0% blink0 sharpNone | - | Plus, they already work with media companies like Canal Plus and Starz. |
+| 2 | IMG_3854 | 22.59-24.27 | FALSE_START | 0.50 | - / with like canal plus and starz | - | 0.16 | 250 | 0.45/0.81 | -23.9 | 6.53 / 2.24 | 0% blink0 sharpNone | - | Plus, they already work for media comp |
+| 3 | IMG_3854 | 25.95-29.67 | FULL | 1.00 | - / - | - | 0.18 | 194 | 0.27/0.85 | -26.2 | 6.64 / 5.72 | 0% blink0 sharpNone | - | Plus, they've already worked with media companies like Canal Plus and Starz. |
+| 4 | IMG_3854 | 34.68-38.24 | FULL | 1.00 | - / - | - | 0.12 | 202 | 0.49/0.86 | -27.0 | 6.29 / 6.41 | 0% blink0 sharpNone | - | Plus, they've already worked with media companies like Canal Plus and Starz. |
+| 5 | IMG_3854 | 39.16-40.94 | FALSE_START | 0.42 | Canal... / media companies like canal plus and starz | - | 0.16 | 202 | 0.27/0.82 | -22.5 | 7.58 / 4.79 | 0% blink0 sharpNone | - | Plus, they've already worked with Canal... |
+| 6 | IMG_3854 | 42.17-45.73 | FULL | 1.00 | - / - | - | 0.20 | 202 | 0.43/0.86 | -26.3 | 6.71 / 5.82 | 0% blink0 sharpNone | - | Plus, they've already worked with media companies like Canal Plus and Starz. |
+| 7 | IMG_3854 | 46.27-50.35 | FULL | 1.00 | - / - | - | 0.32 | 176 | 0.31/0.82 | -24.7 | 6.45 / 6.64 | 0% blink0 sharpNone | - | Plus, they've already worked with media companies like Canal Plus and Starz. |
+| 8 | IMG_3854 | 51.23-55.07 | FULL | 1.00 | - / - | - | 0.20 | 188 | 0.23/0.85 | -25.0 | 6.9 / 6.47 | 0% blink0 sharpNone | - | Plus, they've already worked with media companies like Canal Plus and Starz. |
+
+## [17] So the ask is clear.
+suggested: **9** (no FULL take: best partial, check wording; 10 within 1 pt -> latest in a run)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3856 | 10.46-11.50 | part | 0.80 | - / ask | - | 0.00 | 288 | 0.60/0.82 | -20.3 | 8.78 / 3.64 | 0% blink0 sharpNone | - | So the arcs is clear. |
+| 1 | IMG_3856 | 17.40-19.06 | part | 0.80 | - / ask | - | 0.00 | 181 | 0.71/0.85 | -24.7 | 7.94 / 7.53 | 25% blink0 sharp1.01 | R16 | So the arcs is clear. |
+| 2 | IMG_3856 | 25.69-26.63 | part | 0.80 | - / ask | - | 0.00 | 319 | 0.72/0.89 | -17.6 | 9.11 / 4.73 | 0% blink0 sharpNone | - | So the arcs is clear. |
+| 3 | IMG_3856 | 31.26-32.28 | part | 0.80 | - / ask | - | 0.00 | 294 | 0.70/0.84 | -21.8 | 8.81 / 3.78 | 0% blink0 sharpNone | - | So the arcs is clear. |
+| 4 | IMG_3856 | 37.21-38.29 | part | 0.80 | - / ask | - | 0.00 | 278 | 0.64/0.86 | -22.5 | 8.56 / 5.15 | 0% blink0 sharpNone | R17 | So the arcs is clear. |
+| 5 | IMG_3858 | 10.04-11.24 | part | 0.80 | - / ask | - | 0.00 | 250 | 0.76/0.89 | -23.1 | 7.8 / 7.03 | 0% blink0 sharpNone | R18 | So the arcs is clear. |
+| 6 | IMG_3858 | 22.59-23.67 | part | 0.80 | - / ask | - | 0.00 | 278 | 0.54/0.82 | -23.8 | 8.15 / 5.87 | 0% blink0 sharpNone | - | So the arcs is clear. |
+| 7 | IMG_3858 | 25.08-26.10 | part | 0.80 | - / ask | - | 0.00 | 294 | 0.57/0.82 | -21.4 | 7.64 / 4.79 | 0% blink0 sharpNone | R19 | So the arcs is clear. |
+| 8 | IMG_3858 | 29.76-30.66 | part | 0.80 | - / ask | - | 0.00 | 333 | 0.74/0.87 | -20.5 | 9.27 / 4.4 | 0% blink0 sharpNone | R20 | So the arcs is clear. |
+| 9 | IMG_3858 | 38.24-39.26 | part | 0.80 | - / ask | - | 0.00 | 294 | 0.72/0.86 | -22.7 | 7.58 / 4.77 | 0% blink0 sharpNone | R21 | So the arcs is clear. |
+
+## [18] Let DDN run a pilot on the AI behind your voice search or your next assistant.
+suggested: **8** (best FULL; 5 within 1 pt -> latest in a run)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3856 | 11.90-15.96 | FALSE_START | 0.56 | current AI. / the ai behind voice search next assistant | - | 0.00 | 192 | 0.82/0.95 | -26.2 | 6.13 / 4.84 | 0% blink0 sharpNone | - | Let DDN run a pilot on your next AI or your current AI. |
+| 1 | IMG_3856 | 19.50-24.18 | FULL | 1.00 | - / - | - | 0.00 | 205 | 0.86/0.98 | -23.9 | 6.68 / 5.97 | 10% blink0 sharp0.99 | R16 | Let DDN run a pilot on the AI behind your voice search or your next assistant. |
+| 2 | IMG_3856 | 26.87-32.28 | FALSE_START | 0.44 | your So arcs is clear. / ai behind your voice search or your next assistant | - | 1.97 | 133 | 0.70/0.92 | -25.2 | 6.8 / 5.73 | 0% blink0 sharpNone | - | Let DDN run a pilot on your So the arcs is clear. |
+| 3 | IMG_3856 | 32.50-38.29 | FALSE_START | 0.44 | So arcs is clear. / ai behind your voice search or your next assistant | - | 2.35 | 114 | 0.64/0.90 | -24.0 | 7.46 / 6.7 | 0% blink0 sharpNone | - | Let DDN run a pilot on... So the arcs is clear. |
+| 4 | IMG_3856 | 38.65-42.99 | FULL | 1.00 | - / - | - | 0.00 | 221 | 0.60/0.95 | -22.5 | 6.86 / 5.17 | 0% blink0 sharpNone | R17 | Let DDN run a pilot on the AI behind your voice search or your next assistant. |
+| 5 | IMG_3858 | 11.48-16.16 | FULL | 1.00 | - / - | - | 0.00 | 205 | 0.81/0.97 | -25.9 | 5.44 / 6.18 | 30% blink0 sharp1.0 | R18 | Let DDN run a pilot on the AI behind your voice search or your next assistant. |
+| 6 | IMG_3858 | 26.30-28.86 | part | 0.50 | - / behind your voice search or your next assistant | - | 0.00 | 187 | 0.59/0.91 | -22.6 | 6.28 / 5.06 | 0% blink0 sharpNone | R19 | Let DDN run a pilot on the AI. |
+| 7 | IMG_3858 | 31.07-35.35 | FULL | 1.00 | - / - | - | 0.00 | 224 | 0.78/0.96 | -25.1 | 6.58 / 5.75 | 0% blink0 sharpNone | R20 | Let DDN run a pilot on the AI behind your voice search or your next assistant. |
+| 8 | IMG_3858 | 39.46-44.12 | FULL | 1.00 | - / - | - | 0.00 | 206 | 0.78/0.96 | -23.8 | 6.69 / 5.43 | 0% blink0 sharpNone | R21 | Let DDN run a pilot on the AI behind your voice search or your next assistant. |
+
+## [19] Then measure the values before and after.
+suggested: **0** (best FULL; 2 within 1 pt -> latest in a run)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3858 | 16.32-19.06 | FULL | 1.00 | - / - | - | 0.00 | 153 | 0.96/0.98 | -19.9 | 6.72 / 5.33 | 17% blink0 sharp0.94 | R18 | Then measure the values before and after. |
+| 1 | IMG_3858 | 44.76-47.10 | FULL | 1.00 | - / - | - | 0.00 | 179 | 0.95/0.98 | -20.3 | 7.31 / 5.06 | 0% blink0 sharpNone | - | then measure the values before and after. |
+
+## [20] So Sky, don't be the next Blockbuster.
+suggested: **16** (best FULL; 3 within 1 pt -> latest in a run)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3848 | 181.24-182.58 | FALSE_START | 0.29 | needs that too. / dont be the next blockbuster | - | 0.00 | 224 | 0.54/0.80 | -33.7 | 1.94 / 7.74 | 0% blink0 sharpNone | - | So Sky needs that too. |
+| 1 | IMG_3848 | 203.24-205.26 | FALSE_START | 0.29 | needs that too, and fast. / dont be the next blockbuster | - | 0.20 | 208 | 0.91/0.96 | -24.5 | 6.32 / 7.2 | 67% blink0 sharp1.04 big(keep) | - | so Sky needs that too, and fast. |
+| 2 | IMG_3848 | 217.50-219.16 | FALSE_START | 0.29 | needs that, and FOSS. / dont be the next blockbuster | - | 0.30 | 217 | 0.62/0.91 | -20.2 | 8.1 / 7.14 | 25% blink0 sharp1.06 | - | so Sky needs that, and FOSS. |
+| 3 | IMG_3848 | 223.51-224.39 | FALSE_START | 0.29 | needs that. / dont be the next blockbuster | - | 0.00 | 273 | 0.90/0.97 | -23.2 | 7.79 / 5.51 | 0% blink0 sharpNone | - | so Sky needs that. |
+| 4 | IMG_3848 | 230.99-231.79 | FALSE_START | 0.29 | needs that. / dont be the next blockbuster | - | 0.00 | 300 | 0.91/0.96 | -25.5 | 6.23 / 6.88 | 0% blink0 sharpNone | - | so Sky needs that. |
+| 5 | IMG_3848 | 237.04-237.86 | FALSE_START | 0.29 | needs that. / dont be the next blockbuster | - | 0.00 | 293 | 0.90/0.97 | -23.2 | 7.76 / 5.1 | 0% blink0 sharpNone | - | so Sky needs that. |
+| 6 | IMG_3860 | 4.60-7.51 | FULL | 1.00 | - / - | - | 0.95 | 144 | 0.26/0.79 | -26.2 | 6.59 / 6.78 | 100% blink0 sharp0.96 turn(keep) tilt(keep) big(keep) | - | So Sky. Don't be the next Blockbuster. |
+| 7 | IMG_3860 | 10.43-13.30 | FULL | 1.00 | - / - | - | 0.87 | 146 | 0.57/0.85 | -23.9 | 6.87 / 7.19 | 86% blink0 sharp1.12 turn(keep) glance(cover) tilt(keep) big(cover) | R22 | So, Sky. Don't be the next Blockbuster. |
+| 8 | IMG_3860 | 15.48-18.36 | FULL | 1.00 | - / - | - | 0.79 | 146 | 0.42/0.81 | -25.5 | 6.7 / 6.26 | 86% blink0 sharp1.08 turn(cover) turn(cover) big(keep) | R23 | So, Sky. Don't be the next Blockbuster. |
+| 9 | IMG_3860 | 20.44-23.34 | FULL | 1.00 | - / - | - | 0.99 | 145 | 0.37/0.86 | -23.7 | 7.24 / 7.75 | 43% blink0 sharp1.15 turn(keep) big(keep) | R24 | So Sky, Don't be the next blockbuster. |
+| 10 | IMG_3860 | 25.50-28.32 | FULL | 1.00 | - / - | - | 0.88 | 149 | 0.29/0.80 | -21.9 | 7.31 / 7.13 | 71% blink0 sharp1.18 turn(keep) glance(keep) big(keep) | - | So Sky. Don't be the next Blockbuster. |
+| 11 | IMG_3860 | 30.75-33.44 | FULL | 1.00 | - / - | - | 0.81 | 156 | 0.38/0.87 | -21.8 | 8.18 / 6.72 | 43% blink0 sharp1.22 turn(keep) tilt(keep) big(keep) | - | So Sky. Don't be the next blockbuster. |
+| 12 | IMG_3860 | 36.22-36.72 | FALSE_START | 0.29 | - / dont be the next blockbuster | - | 0.00 | 240 | 0.35/0.59 | -15.3 | 9.97 / 4.81 | 33% blink0 sharp1.1 | - | So Sky, |
+| 13 | IMG_3860 | 38.49-41.74 | FULL | 1.00 | - / - | - | 0.93 | 129 | 0.28/0.80 | -23.8 | 7.79 / 7.56 | 88% blink0 sharp0.96 turn(keep) | R25 | So Sky, Don't be the next Blockbuster. |
+| 14 | IMG_3860 | 43.84-46.87 | FULL | 1.00 | - / - | - | 0.79 | 139 | 0.25/0.79 | -24.8 | 7.91 / 8.03 | 86% blink0 sharp1.33 side(cover) tilt(keep) tilt(keep) big(keep) | R26 | So Sky. Don't be the next Blockbuster. |
+| 15 | IMG_3860 | 48.60-51.50 | FULL | 1.00 | - / - | - | 0.78 | 145 | 0.47/0.83 | -27.9 | 6.57 / 7.8 | 100% blink0 sharp0.92 glance(keep) tilt(cover) big(cover) | R27 | So Sky. Don't be the next Blockbuster. |
+| 16 | IMG_3860 | 55.26-58.14 | FULL | 1.00 | - / - | - | 0.58 | 146 | 0.41/0.82 | -23.3 | 8.69 / 6.97 | 100% blink0 sharp1.17 turn(keep) tilt(keep) tilt(keep) | R28 | So Sky, Don't be the next Blockbuster. |
+| 17 | IMG_3860 | 60.19-63.28 | FULL | 1.00 | - / - | - | 0.79 | 136 | 0.57/0.83 | -26.2 | 7.44 / 7.05 | 100% blink1 sharp0.97 turn(cover) glance(keep) closed(keep) tilt(keep) tilt(keep) big(keep) | - | So, Sky. Don't be the next Blockbuster. |
+| 18 | IMG_3860 | 65.18-68.14 | FULL | 1.00 | - / - | - | 0.76 | 142 | 0.37/0.81 | -24.8 | 8.3 / 6.64 | 100% blink0 sharp0.97 turn(cover) turn(keep) glance(keep) glance(keep) tilt(cover) tilt(cover) big(keep) | R29 | So Sky. Don't be the next Blockbuster. |
+| 19 | IMG_3860 | 70.27-73.06 | FULL | 1.00 | - / - | - | 0.55 | 151 | 0.51/0.83 | -24.0 | 7.73 / 6.72 | 71% blink0 sharp0.94 turn(keep) turn(cover) glance(keep) glance(keep) tilt(keep) tilt(keep) big(keep) big(keep) | - | So, Sky. Don't be the next Blockbuster. |
+| 20 | IMG_3860 | 75.55-78.46 | FULL | 1.00 | - / - | - | 0.59 | 144 | 0.34/0.78 | -25.1 | 8.68 / 6.42 | 100% blink0 sharp1.24 turn(keep) side(keep) tilt(keep) tilt(keep) big(cover) | - | So Sky. Don't be the next Blockbuster. |
+| 21 | IMG_3860 | 80.22-83.80 | FULL | 1.00 | - / - | - | 1.30 | 117 | 0.61/0.83 | -23.7 | 7.66 / 7.37 | 100% blink0 sharp1.13 turn(cover) glance(cover) tilt(cover) | R30 | So, Sky. Don't be the next Blockbuster. |
+
+## [21] Thank you.
+suggested: **12** (best FULL; 12 within 1 pt -> latest in a run)
+
+| idx | clip | time | kind | cov | extra / missing | fillers | gap | wpm | p min/mean | lvl dB | rmsσ / pitchσ | face | run | said |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | IMG_3860 | 8.48-8.94 | FULL | 1.00 | - / - | - | 0.00 | 261 | 0.88/0.94 | -28.9 | 3.78 / 9.77 | 100% blink0 sharp1.18 | - | Thank you. |
+| 1 | IMG_3860 | 14.01-14.49 | FULL | 1.00 | - / - | - | 0.00 | 250 | 0.84/0.92 | -25.8 | 5.01 / 7.38 | 100% blink0 sharp1.0 closed(keep) | R22 | Thank you. |
+| 2 | IMG_3860 | 19.10-19.52 | FULL | 1.00 | - / - | - | 0.00 | 286 | 0.93/0.96 | -28.4 | 3.48 / 8.89 | 50% blink0 sharp0.92 | R23 | Thank you. |
+| 3 | IMG_3860 | 24.06-24.50 | FULL | 1.00 | - / - | - | 0.00 | 273 | 0.90/0.95 | -25.8 | 5.21 / 8.87 | 100% blink0 sharp0.66 | R24 | Thank you. |
+| 4 | IMG_3860 | 29.21-29.65 | FULL | 1.00 | - / - | - | 0.00 | 273 | 0.78/0.88 | -36.0 | 1.52 / 8.95 | 100% blink0 sharp0.95 side(keep) | - | Thank you. |
+| 5 | IMG_3860 | 34.27-34.73 | FULL | 1.00 | - / - | - | 0.00 | 261 | 0.13/0.56 | -32.8 | 2.34 / 9.65 | 100% blink1 sharp0.75 side(keep) closed(keep) big(cover) | - | Thank you. |
+| 6 | IMG_3860 | 42.52-42.98 | FULL | 1.00 | - / - | - | 0.00 | 261 | 0.92/0.96 | -29.7 | 2.7 / 9.68 | 100% blink0 sharp0.79 | R25 | Thank you. |
+| 7 | IMG_3860 | 47.61-48.01 | FULL | 1.00 | - / - | - | 0.00 | 300 | 0.93/0.96 | -36.5 | 1.36 / 9.56 | 100% blink0 sharp1.03 | R26 | Thank you. |
+| 8 | IMG_3860 | 52.06-52.52 | FULL | 1.00 | - / - | - | 0.00 | 261 | 0.92/0.96 | -29.8 | 3.47 / 9.12 | 100% blink1 sharp0.61 closed(keep) | R27 | Thank you. |
+| 9 | IMG_3860 | 58.91-59.35 | FULL | 1.00 | - / - | - | 0.00 | 273 | 0.91/0.95 | -31.3 | 3.05 / 5.94 | 100% blink0 sharp0.63 | R28 | Thank you. |
+| 10 | IMG_3860 | 68.89-69.35 | FULL | 1.00 | - / - | - | 0.00 | 261 | 0.95/0.97 | -32.0 | 2.3 / 9.98 | 100% blink0 sharp0.64 glance(keep) | R29 | Thank you. |
+| 11 | IMG_3860 | 73.98-74.42 | FULL | 1.00 | - / - | - | 0.00 | 273 | 0.89/0.94 | -35.3 | 1.5 / 10.31 | 100% blink0 sharp0.79 glance(keep) side(keep) | - | Thank you. |
+| 12 | IMG_3860 | 84.51-84.97 | FULL | 1.00 | - / - | - | 0.00 | 261 | 0.73/0.86 | -35.4 | 1.58 / 9.91 | 100% blink0 sharp1.04 | R30 | Thank you. |
+
+Unmatched islands in IMG_3845 (ad-libs, restarts of nothing, noise): #16 "News, Sky."; #26 "Haha."; #34 "You."; #35 "All right, let's go."; #39 "Right."; #40 "Perfect."
+Unmatched islands in IMG_3847 (ad-libs, restarts of nothing, noise): #1 "A little bit."; #6 "How'd I look?"
+Unmatched islands in IMG_3848 (ad-libs, restarts of nothing, noise): #10 "Uh."; #21 "Traditional."; #31 "Nah."; #37 "Where do you know what you want you want?"; #41 "Foss."; #48 "Foss."; #50 "Foss."
+Unmatched islands in IMG_3850 (ad-libs, restarts of nothing, noise): #13 "Well, Sky, you, well..."; #17 "Use them."; #21 "Huh."; #39 "The next step is finding."; #47 "The next step is an ant."; #54 "Imagine OXing, Sky, Make Me Scared."
+Unmatched islands in IMG_3851 (ad-libs, restarts of nothing, noise): #1 "FUD, YDDN."; #3 "Third, YDDN."; #15 "Third, YDDN."; #16 "Third, YDDN."
+Unmatched islands in IMG_3852 (ad-libs, restarts of nothing, noise): #10 "Ugh."; #18 "AI chips, Sky Sports, Starz, Blockbuster, Perkins, Sky Sports, Starz, Blockbuster, Perkins,"; #27 "Hmph."; #29 "I don't... I don't..."; #31 "I do chips will still cost."; #40 "Yeah."; #41 "Eeeh."
+Unmatched islands in IMG_3853 (ad-libs, restarts of nothing, noise): #2 "The COT cost per token by 75%."; #8 "And they say,"; #10 "And they, ugh."; #11 "And water."; #12 "All right. Perfect."; #15 "And they saying customers."

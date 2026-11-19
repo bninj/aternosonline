@@ -1,0 +1,15 @@
+blur 0 IMG_3845 207.3 217.8
+[bgblur] levels=['0.0', '1.0', '2.0', '3.5', '5.5', '8.0', '11.5', '16.0', '22.0'] R=16.2px focus=0.897
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+WARNING: Logging before InitGoogle() is written to STDERR
+W0000 00:00:1795050848.548799    4265 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+[bgblur] 30 frames  1.54s/frame  focus=0.897
+[bgblur] 60 frames  1.45s/frame  focus=0.897
+[bgblur] 90 frames  1.56s/frame  focus=0.769
+[bgblur] 120 frames  1.67s/frame  focus=0.783
+[bgblur] 150 frames  1.63s/frame  focus=0.844
+[bgblur] 180 frames  1.60s/frame  focus=0.868
+[vost#0:0/rawvideo @ 0x563243af7740] Error submitting a packet to the muxer: Broken pipe
+[out#0/rawvideo @ 0x563243c1ca00] Error muxing a packet
+[out#0/rawvideo @ 0x563243c1ca00] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x563243c1ca00] Error closing file: Broken pipe

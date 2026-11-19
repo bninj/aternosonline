@@ -1,0 +1,9 @@
+ref cap px 72 width 625 w/h 8.680555555555555
+Inter            w560 IoU(width-normalised) 0.818 natural width/ref 0.939 ink 1.00 tracking to match +44/1000em
+Onest            w580 IoU(width-normalised) 0.805 natural width/ref 0.997 ink 1.03 tracking to match +2/1000em
+Mona Sans        w580 IoU(width-normalised) 0.794 natural width/ref 1.006 ink 1.02 tracking to match -5/1000em
+Inter Tight      w540 IoU(width-normalised) 0.773 natural width/ref 0.918 ink 1.02 tracking to match +58/1000em
+Funnel Sans      w500 IoU(width-normalised) 0.779 natural width/ref 0.979 ink 0.97 tracking to match +14/1000em
+Instrument Sans  w600 IoU(width-normalised) 0.740 natural width/ref 0.984 ink 1.03 tracking to match +11/1000em
+Geist            w560 IoU(width-normalised) 0.717 natural width/ref 0.944 ink 1.01 tracking to match +40/1000em
+Manrope          w640 IoU(width-normalised) 0.688 natural width/ref 0.918 ink 0.98 tracking to match +59/1000em

@@ -1,0 +1,152 @@
+[
+ {
+  "start": 0,
+  "end": 10.5,
+  "src": "../footage/raw/IMG_3845.MOV",
+  "in": 207.3,
+  "out": 217.8,
+  "section": "hook",
+  "label": "hook (one take, chair opener)",
+  "text": "Sorry I kept you waiting. That's AI chips every day waiting for data. And you, Sky, you pay full price to wait."
+ },
+ {
+  "start": 10.5,
+  "end": 12.299999999999997,
+  "src": "../footage/raw/IMG_3848.MOV",
+  "in": 31.265,
+  "out": 33.065,
+  "section": "change",
+  "label": "4:12",
+  "text": "So first, why change?"
+ },
+ {
+  "start": 12.299999999999997,
+  "end": 18.066666000000012,
+  "src": "../footage/raw/IMG_3848.MOV",
+  "in": 130.791667,
+  "out": 136.558333,
+  "section": "change",
+  "label": "5:3",
+  "text": "Ofcom says traditional TV fell by 12 in a year as people moved to streaming."
+ },
+ {
+  "start": 18.066666000000012,
+  "end": 23.763333000000003,
+  "src": "../footage/raw/IMG_3848.MOV",
+  "in": 200.253333,
+  "out": 205.95,
+  "section": "change",
+  "label": "6:2",
+  "text": "Netflix and YouTube already know what you want to watch, so Sky needs that too, and fast."
+ },
+ {
+  "start": 23.763333000000003,
+  "end": 25.463333000000002,
+  "src": "../footage/raw/IMG_3850.MOV",
+  "in": 18.465,
+  "out": 20.165,
+  "section": "now",
+  "label": "7:7",
+  "text": "Second, why now?"
+ },
+ {
+  "start": 25.463333000000002,
+  "end": 28.561666,
+  "src": "../footage/raw/IMG_3850.MOV",
+  "in": 142.125,
+  "out": 145.223333,
+  "section": "now",
+  "label": "8:12",
+  "text": "Well, you've already started with SkyQ Voice Search."
+ },
+ {
+  "start": 28.561666,
+  "end": 35.21166599999998,
+  "src": "../footage/raw/IMG_3850.MOV",
+  "in": 266.35,
+  "out": 273.0,
+  "section": "now",
+  "label": "IMG_3850:266.36-272.66",
+  "text": "Now, the next step is an AI assistant that knows each household. Imagine asking, Sky, make me scared."
+ },
+ {
+  "start": 35.21166599999998,
+  "end": 37.178332999999974,
+  "src": "../footage/raw/IMG_3851.MOV",
+  "in": 32.903333,
+  "out": 34.87,
+  "section": "ddn",
+  "label": "11:8",
+  "text": "Third, why DDN?"
+ },
+ {
+  "start": 37.178332999999974,
+  "end": 44.17999999999997,
+  "src": "../footage/raw/IMG_3852.MOV",
+  "in": 129.178333,
+  "out": 136.18,
+  "section": "ddn",
+  "label": "12:11",
+  "text": "Idle chips will still cost you and Cast AI found that enterprise chips average around 5 of use."
+ },
+ {
+  "start": 44.17999999999997,
+  "end": 48.74666699999997,
+  "src": "../footage/raw/IMG_3852.MOV",
+  "in": 250.29,
+  "out": 254.856667,
+  "section": "ddn",
+  "label": "13:7",
+  "text": "It's like paying for a whole Sky Sports bundle just to watch Arsenal lose."
+ },
+ {
+  "start": 48.74666699999997,
+  "end": 52.04666699999992,
+  "src": "../footage/raw/IMG_3852.MOV",
+  "in": 315.096667,
+  "out": 318.396667,
+  "section": "ddn",
+  "label": "14:5",
+  "text": "Now DDN's Infinia keeps data flowing to the chips."
+ },
+ {
+  "start": 52.04666699999992,
+  "end": 58.115000999999914,
+  "src": "../footage/raw/IMG_3853.MOV",
+  "in": 109.543333,
+  "out": 115.611667,
+  "section": "ddn",
+  "label": "15:7",
+  "text": "And they say customers reach up to 99 busy and cut costs per token by 75%."
+ },
+ {
+  "start": 58.115000999999914,
+  "end": 62.731667999999914,
+  "src": "../footage/raw/IMG_3854.MOV",
+  "in": 6.233333,
+  "out": 10.85,
+  "section": "ddn",
+  "label": "16:0",
+  "text": "Plus, they already work with media companies like Canal Plus and Starz."
+ },
+ {
+  "start": 62.731667999999914,
+  "end": 72.23166799999991,
+  "src": "../footage/raw/IMG_3858.MOV",
+  "in": 9.935,
+  "out": 19.435,
+  "section": "ask",
+  "label": "17:5+18:5+19:0",
+  "text": "So the arcs is clear. Let DDN run a pilot on the AI behind your voice search or your next assistant. Then measure the values before and after."
+ },
+ {
+  "start": 72.23166799999991,
+  "end": 77.00166799999991,
+  "src": "../footage/raw/IMG_3860.MOV",
+  "in": 48.53,
+  "out": 53.3,
+  "section": "ask",
+  "label": "ending (one take)",
+  "text": "So Sky. Don't be the next Blockbuster. Thank you."
+ }
+]

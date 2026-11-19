@@ -1,0 +1,281 @@
+[
+ {
+  "id": "g01",
+  "title": "Hook: Sorry I kept you waiting / AI chips / Sky pays",
+  "section": "Hook",
+  "units": [
+   "1",
+   "2",
+   "3"
+  ],
+  "take": 1,
+  "clip": "IMG_3845",
+  "start": 209.56,
+  "end": 217.2,
+  "said": "Sorry I kept you waiting. That's AI chips every day waiting for data. And you, Sky, you pay full price to wait.",
+  "notes": "pause 0.4s mid line",
+  "wpm": 223,
+  "picks": {
+   "1": 16,
+   "2": 15,
+   "3": 11
+  }
+ },
+ {
+  "id": "g02",
+  "title": "So first, why change?",
+  "section": "Why change",
+  "units": [
+   "4"
+  ],
+  "take": 1,
+  "clip": "IMG_3848",
+  "start": 31.32,
+  "end": 32.6,
+  "said": "So first, why change?",
+  "notes": "",
+  "wpm": 188,
+  "picks": {
+   "4": 12
+  }
+ },
+ {
+  "id": "g03",
+  "title": "Ofcom 12%",
+  "section": "Why change",
+  "units": [
+   "5"
+  ],
+  "take": 2,
+  "clip": "IMG_3848",
+  "start": 131.07,
+  "end": 136.23,
+  "said": "Ofcom says traditional TV fell by 12 in a year as people moved to streaming.",
+  "notes": "",
+  "wpm": 174,
+  "picks": {
+   "5": 3
+  }
+ },
+ {
+  "id": "g04",
+  "title": "Netflix and YouTube\u2026 and fast",
+  "section": "Why change",
+  "units": [
+   "6"
+  ],
+  "take": 1,
+  "clip": "IMG_3848",
+  "start": 200.32,
+  "end": 205.26,
+  "said": "Netflix and YouTube already know what you want to watch, so Sky needs that too, and fast.",
+  "notes": "quick (206 wpm); pause 0.4s mid line",
+  "wpm": 206,
+  "picks": {
+   "6": 2
+  }
+ },
+ {
+  "id": "g05",
+  "title": "Second, why now?",
+  "section": "Why now",
+  "units": [
+   "7"
+  ],
+  "take": 1,
+  "clip": "IMG_3850",
+  "start": 18.52,
+  "end": 19.8,
+  "said": "Second, why now?",
+  "notes": "",
+  "wpm": 141,
+  "picks": {
+   "7": 7
+  }
+ },
+ {
+  "id": "g06",
+  "title": "Sky Q voice search",
+  "section": "Why now",
+  "units": [
+   "8"
+  ],
+  "take": 1,
+  "clip": "IMG_3850",
+  "start": 142.17,
+  "end": 144.85,
+  "said": "Well, you've already started with SkyQ Voice Search.",
+  "notes": "",
+  "wpm": 179,
+  "picks": {
+   "8": 12
+  }
+ },
+ {
+  "id": "g07",
+  "title": "Next step: AI assistant + Imagine asking (one run)",
+  "section": "Why now",
+  "units": [
+   "9",
+   "10"
+  ],
+  "take": 5,
+  "clip": "IMG_3850",
+  "start": 266.36,
+  "end": 272.66,
+  "said": "Now, the next step is an AI assistant that knows each household. Imagine asking, Sky, make me scared.",
+  "notes": "ALTERNATE JOKE: 'Sky, make me scared' (latest take)",
+  "wpm": 171,
+  "picks": {}
+ },
+ {
+  "id": "g09",
+  "title": "Third, why DDN?",
+  "section": "Why DDN",
+  "units": [
+   "11"
+  ],
+  "take": 4,
+  "clip": "IMG_3851",
+  "start": 33.05,
+  "end": 34.57,
+  "said": "Third, why DDN?",
+  "notes": "",
+  "wpm": 118,
+  "picks": {
+   "11": 8
+  }
+ },
+ {
+  "id": "g10",
+  "title": "Idle chips / Cast AI 5%",
+  "section": "Why DDN",
+  "units": [
+   "12"
+  ],
+  "take": 3,
+  "clip": "IMG_3852",
+  "start": 129.31,
+  "end": 135.79,
+  "said": "Idle chips will still cost you and Cast AI found that enterprise chips average around 5 of use.",
+  "notes": "",
+  "wpm": 167,
+  "picks": {
+   "12": 11
+  }
+ },
+ {
+  "id": "g11",
+  "title": "Sky Sports / Arsenal",
+  "section": "Why DDN",
+  "units": [
+   "13"
+  ],
+  "take": 1,
+  "clip": "IMG_3852",
+  "start": 250.59,
+  "end": 254.51,
+  "said": "It's like paying for a whole Sky Sports bundle just to watch Arsenal lose.",
+  "notes": "quick (214 wpm)",
+  "wpm": 214,
+  "picks": {
+   "13": 7
+  }
+ },
+ {
+  "id": "g12",
+  "title": "DDN's Infinia",
+  "section": "Why DDN",
+  "units": [
+   "14"
+  ],
+  "take": 2,
+  "clip": "IMG_3852",
+  "start": 315.16,
+  "end": 317.94,
+  "said": "Now DDN's Infinia keeps data flowing to the chips.",
+  "notes": "",
+  "wpm": 194,
+  "picks": {
+   "14": 5
+  }
+ },
+ {
+  "id": "g13",
+  "title": "99% busy, 75% cost per token",
+  "section": "Why DDN",
+  "units": [
+   "15"
+  ],
+  "take": 1,
+  "clip": "IMG_3853",
+  "start": 109.6,
+  "end": 115.22,
+  "said": "And they say customers reach up to 99 busy and cut costs per token by 75%.",
+  "notes": "wording differs",
+  "wpm": 171,
+  "picks": {
+   "15": 7
+  }
+ },
+ {
+  "id": "g14",
+  "title": "Canal Plus and Starz",
+  "section": "Why DDN",
+  "units": [
+   "16"
+  ],
+  "take": 1,
+  "clip": "IMG_3854",
+  "start": 6.33,
+  "end": 10.23,
+  "said": "Plus, they already work with media companies like Canal Plus and Starz.",
+  "notes": "says 'work with' \u2713",
+  "wpm": 185,
+  "picks": {
+   "16": 0
+  }
+ },
+ {
+  "id": "g15",
+  "title": "Ask: the ask is clear / pilot / measure",
+  "section": "Ask",
+  "units": [
+   "17",
+   "18",
+   "19"
+  ],
+  "take": 1,
+  "clip": "IMG_3858",
+  "start": 10.04,
+  "end": 19.06,
+  "said": "So the arcs is clear. Let DDN run a pilot on the AI behind your voice search or your next assistant. Then measure the values before and after.",
+  "notes": "wording differs; quick (205 wpm)",
+  "wpm": 203,
+  "picks": {
+   "17": 5,
+   "18": 5,
+   "19": 0
+  }
+ },
+ {
+  "id": "g16",
+  "title": "Ending: don't be the next Blockbuster / Thank you",
+  "section": "Ask",
+  "units": [
+   "20",
+   "21"
+  ],
+  "take": 3,
+  "clip": "IMG_3860",
+  "start": 48.6,
+  "end": 52.52,
+  "said": "So Sky. Don't be the next Blockbuster. Thank you.",
+  "notes": "pause 0.8s mid line",
+  "wpm": 203,
+  "picks": {
+   "20": 15,
+   "21": 8
+  }
+ }
+]

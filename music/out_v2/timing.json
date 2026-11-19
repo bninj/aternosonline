@@ -1,0 +1,425 @@
+{
+ "bpm": 119.6402,
+ "seconds_per_beat": 0.5015,
+ "sections": {
+  "change": 10.5,
+  "resolve": 77.2,
+  "now": 23.539,
+  "ddn": 35.074,
+  "ask": 62.656,
+  "drop": 72.185,
+  "hook": 2.476
+ },
+ "section_beats": {
+  "change": 0,
+  "resolve": 133,
+  "now": 26,
+  "ddn": 49,
+  "ask": 104,
+  "drop": 123,
+  "hook": -16
+ },
+ "requested": {
+  "change": 10.5,
+  "now": 23.76,
+  "ddn": 35.21,
+  "ask": 62.73,
+  "drop": 72.4,
+  "resolve": 77.2,
+  "end": 80.0
+ },
+ "bars": [
+  {
+   "t": 2.476,
+   "beats": 4,
+   "section": "hook",
+   "chord": "Bm"
+  },
+  {
+   "t": 4.482,
+   "beats": 4,
+   "section": "hook",
+   "chord": "Bm"
+  },
+  {
+   "t": 6.488,
+   "beats": 4,
+   "section": "hook",
+   "chord": "Bm/A"
+  },
+  {
+   "t": 8.494,
+   "beats": 4,
+   "section": "hook",
+   "chord": "G"
+  },
+  {
+   "t": 10.5,
+   "beats": 4,
+   "section": "change",
+   "chord": "Bm"
+  },
+  {
+   "t": 12.506,
+   "beats": 4,
+   "section": "change",
+   "chord": "Bm"
+  },
+  {
+   "t": 14.512,
+   "beats": 4,
+   "section": "change",
+   "chord": "G"
+  },
+  {
+   "t": 16.518,
+   "beats": 4,
+   "section": "change",
+   "chord": "G"
+  },
+  {
+   "t": 18.524,
+   "beats": 4,
+   "section": "change",
+   "chord": "Em7"
+  },
+  {
+   "t": 20.53,
+   "beats": 4,
+   "section": "change",
+   "chord": "Asus"
+  },
+  {
+   "t": 22.536,
+   "beats": 2,
+   "section": "change",
+   "chord": "Asus"
+  },
+  {
+   "t": 23.539,
+   "beats": 4,
+   "section": "now",
+   "chord": "G"
+  },
+  {
+   "t": 25.545,
+   "beats": 4,
+   "section": "now",
+   "chord": "A"
+  },
+  {
+   "t": 27.551,
+   "beats": 4,
+   "section": "now",
+   "chord": "Bm"
+  },
+  {
+   "t": 29.557,
+   "beats": 4,
+   "section": "now",
+   "chord": "D/F#"
+  },
+  {
+   "t": 31.563,
+   "beats": 4,
+   "section": "now",
+   "chord": "Em7"
+  },
+  {
+   "t": 33.569,
+   "beats": 3,
+   "section": "now",
+   "chord": "Asus"
+  },
+  {
+   "t": 35.074,
+   "beats": 4,
+   "section": "ddn",
+   "chord": "D"
+  },
+  {
+   "t": 37.08,
+   "beats": 4,
+   "section": "ddn",
+   "chord": "D"
+  },
+  {
+   "t": 39.086,
+   "beats": 4,
+   "section": "ddn",
+   "chord": "G"
+  },
+  {
+   "t": 41.092,
+   "beats": 4,
+   "section": "ddn",
+   "chord": "G"
+  },
+  {
+   "t": 43.098,
+   "beats": 4,
+   "section": "ddn",
+   "chord": "Bm"
+  },
+  {
+   "t": 45.104,
+   "beats": 4,
+   "section": "ddn",
+   "chord": "A/C#"
+  },
+  {
+   "t": 47.11,
+   "beats": 4,
+   "section": "ddn",
+   "chord": "D"
+  },
+  {
+   "t": 49.116,
+   "beats": 4,
+   "section": "ddn",
+   "chord": "D"
+  },
+  {
+   "t": 51.122,
+   "beats": 4,
+   "section": "ddn",
+   "chord": "Em7"
+  },
+  {
+   "t": 53.128,
+   "beats": 4,
+   "section": "ddn",
+   "chord": "F#m7"
+  },
+  {
+   "t": 55.134,
+   "beats": 4,
+   "section": "ddn",
+   "chord": "G"
+  },
+  {
+   "t": 57.14,
+   "beats": 4,
+   "section": "ddn",
+   "chord": "G"
+  },
+  {
+   "t": 59.146,
+   "beats": 4,
+   "section": "ddn",
+   "chord": "Asus"
+  },
+  {
+   "t": 61.152,
+   "beats": 3,
+   "section": "ddn",
+   "chord": "Asus"
+  },
+  {
+   "t": 62.656,
+   "beats": 4,
+   "section": "ask",
+   "chord": "G"
+  },
+  {
+   "t": 64.662,
+   "beats": 4,
+   "section": "ask",
+   "chord": "A"
+  },
+  {
+   "t": 66.668,
+   "beats": 4,
+   "section": "ask",
+   "chord": "F#m7"
+  },
+  {
+   "t": 68.674,
+   "beats": 4,
+   "section": "ask",
+   "chord": "Bm"
+  },
+  {
+   "t": 70.68,
+   "beats": 3,
+   "section": "ask",
+   "chord": "Gmaj7"
+  }
+ ],
+ "preroll_swell": [
+  0.15,
+  3.48
+ ],
+ "sfx_suggested": {
+  "timer_click": 1.85,
+  "impacts": [
+   10.5,
+   23.539,
+   35.074,
+   62.656
+  ],
+  "end_chime": 77.2
+ },
+ "mix_gain_db": 9.18,
+ "samples_used": [
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_20_four-FGQC.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_20_one-9PUL.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_20_three-Y0KW.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_20_two-O1FN.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_30_four-MJRC.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_30_four-WTDR.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_30_one-BZ42.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_30_one-NLNF.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_30_three-JE4P.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_30_three-JMSZ.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_30_two-VYTH.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_30_two-Z8QN.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_40_four-H8IO.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_40_four-X0YF.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_40_one-HLYB.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_40_one-T3PW.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_40_three-04C0.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_40_three-YU0Z.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_40_two-29CD.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_40_two-G626.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_20_four-STIG.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_20_one-ZUBL.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_20_three-IBS7.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_20_two-1NDI.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_30_four-7MPB.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_30_four-XXXF.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_30_one-YFZG.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_30_one-YSQC.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_30_three-FF15.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_30_three-JF3N.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_30_two-OI7B.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_30_two-QKVP.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_40_four-7STF.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_40_four-RL4Q.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_40_one-DSR6.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_40_one-HF7Z.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_40_three-G2V4.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_40_three-K1NX.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_40_two-KXZE.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_40_two-QHJY.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_20_four-17FY.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_20_four-L8JX.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_20_four-WEBD.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_20_one-1KRF.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_20_one-6XRU.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_20_one-K1TI.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_20_three-141N.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_20_three-NETD.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_20_three-ZMDA.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_20_two-4P9B.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_20_two-MTCO.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_20_two-Q5N1.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_30_four-TE2K.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_30_one-AW1C.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_30_one-ZWA5.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_30_two-7Q5A.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_20_four-O1L3.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_20_one-9XTQ.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_20_three-K3EQ.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_20_two-40CU.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_30_four-DAKO.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_30_four-Z8SX.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_30_one-D1ZY.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_30_one-IULU.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_30_three-92MD.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_30_three-THBB.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_30_two-C48O.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_30_two-F9P6.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_40_four-K90I.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_40_four-KQZI.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_40_one-IJQP.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_40_one-J3ZS.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_40_three-4TTQ.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_40_three-FB3P.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_40_two-GQSQ.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_40_two-R0CX.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_20_four-JWEY.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_20_four-ORER.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_20_four-T555.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_20_one-N5ZE.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_20_one-P2LC.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_20_one-YM4F.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_20_three-FJ84.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_20_three-GBC1.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_20_three-ODYD.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_20_two-53HU.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_20_two-DJ8Z.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_20_two-V9FL.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_30_four-WLRQ.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_30_one-6AWO.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_30_one-A4DQ.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_30_two-R7DP.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/HatMic_A2_10_one-7G28.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/HatMic_A2_10_three-1ICH.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/HatMic_A2_20_four-FKAB.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/HatMic_A2_20_one-GU63.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/HatMic_A2_20_three-VG68.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/HatMic_A2_20_two-VJNC.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/HatMic_F2_20_four-9G3A.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/HatMic_F2_20_one-35LR.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/HatMic_F2_20_three-D768.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/HatMic_F2_20_two-DSEK.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/OH_A2_10_one-CWG6.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/OH_A2_10_three-DN89.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/OH_A2_20_four-2PXE.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/OH_A2_20_one-4I2D.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/OH_A2_20_three-7UNY.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/OH_A2_20_two-88YK.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/OH_F2_20_four-D5NF.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/OH_F2_20_one-GZYD.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/OH_F2_20_three-Q3BH.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/OH_F2_20_two-J722.flac",
+  "VCSL/Electrophones/TX81Z/Clavisynth/Clavisynth_C2_vl1.wav",
+  "VCSL/Electrophones/TX81Z/Clavisynth/Clavisynth_C2_vl2.wav",
+  "VCSL/Electrophones/TX81Z/Clavisynth/Clavisynth_E1_vl1.wav",
+  "VCSL/Electrophones/TX81Z/Clavisynth/Clavisynth_E2_vl1.wav",
+  "VCSL/Electrophones/TX81Z/Clavisynth/Clavisynth_E2_vl2.wav",
+  "VCSL/Electrophones/TX81Z/Clavisynth/Clavisynth_G#1_vl1.wav",
+  "VCSL/Electrophones/TX81Z/Clavisynth/Clavisynth_G#1_vl2.wav",
+  "VCSL/Electrophones/TX81Z/FM Piano/FMPiano_C4_vl2.wav",
+  "VCSL/Electrophones/TX81Z/FM Piano/FMPiano_E3_vl2.wav",
+  "VCSL/Electrophones/TX81Z/FM Piano/FMPiano_E4_vl2.wav",
+  "VCSL/Electrophones/TX81Z/FM Piano/FMPiano_G#3_vl2.wav",
+  "VCSL/Electrophones/TX81Z/FM Piano/FMPiano_G#4_vl2.wav",
+  "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_B2_med_01.wav",
+  "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_B2_soft_01.wav",
+  "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_C2_med_01.wav",
+  "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_C4_med_01.wav",
+  "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_F3_med_01.wav",
+  "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_F3_soft_01.wav",
+  "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_G2_med_01.wav",
+  "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_G2_soft_01.wav",
+  "VCSL/Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerLowFaster_Down_rr1.wav",
+  "VCSL/Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerLowFaster_Down_rr2.wav",
+  "VCSL/Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerLowFaster_Up_rr1.wav",
+  "VCSL/Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerLowFaster_Up_rr2.wav",
+  "VCSL/Idiophones/Struck Idiophones/Suspended Cymbal 1/susCymb1_cresc_1.5s.wav",
+  "VCSL/Idiophones/Struck Idiophones/Suspended Cymbal 2/susCymb2_hit_mp1.wav",
+  "VCSL/Idiophones/Struck Idiophones/Suspended Cymbal 2/susCymb2_hit_pp1.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Bowed/Vibes_bowed_D4_rr1_Main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Bowed/Vibes_bowed_E3_rr1_Main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Bowed/Vibes_bowed_G3_rr1_Main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Hard Mallets/Vibes_hard_A4_v2_rr1_Main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Hard Mallets/Vibes_hard_B3_v2_rr1_Main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Hard Mallets/Vibes_hard_D4_v2_rr1_Main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Hard Mallets/Vibes_hard_E5_v2_rr1_Main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Hard Mallets/Vibes_hard_F4_v2_rr1_Main.wav",
+  "freepats_yamaha_rbx_bass/PickedBassYR/PickedBassYR SFZ+WAV-20190930/samples/pick/A#.wav",
+  "freepats_yamaha_rbx_bass/PickedBassYR/PickedBassYR SFZ+WAV-20190930/samples/pick/A.wav",
+  "freepats_yamaha_rbx_bass/PickedBassYR/PickedBassYR SFZ+WAV-20190930/samples/pick/B.wav",
+  "freepats_yamaha_rbx_bass/PickedBassYR/PickedBassYR SFZ+WAV-20190930/samples/pick/C#.wav",
+  "freepats_yamaha_rbx_bass/PickedBassYR/PickedBassYR SFZ+WAV-20190930/samples/pick/C.wav",
+  "freepats_yamaha_rbx_bass/PickedBassYR/PickedBassYR SFZ+WAV-20190930/samples/pick/D.wav",
+  "freepats_yamaha_rbx_bass/PickedBassYR/PickedBassYR SFZ+WAV-20190930/samples/pick/E.wav",
+  "freepats_yamaha_rbx_bass/PickedBassYR/PickedBassYR SFZ+WAV-20190930/samples/pick/E2.wav",
+  "freepats_yamaha_rbx_bass/PickedBassYR/PickedBassYR SFZ+WAV-20190930/samples/pick/F#.wav",
+  "freepats_yamaha_rbx_bass/PickedBassYR/PickedBassYR SFZ+WAV-20190930/samples/pick/F.wav",
+  "freepats_yamaha_rbx_bass/PickedBassYR/PickedBassYR SFZ+WAV-20190930/samples/pick/G#.wav",
+  "freepats_yamaha_rbx_bass/PickedBassYR/PickedBassYR SFZ+WAV-20190930/samples/pick/G.wav"
+ ]
+}

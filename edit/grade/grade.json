@@ -1,0 +1,137 @@
+{
+ "0": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=1.0165:bb=1.0143,eq=gamma=1.450:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.45,
+  "r": 1.0165,
+  "b": 1.0143,
+  "med": 0.226,
+  "rg": 1.053,
+  "bg": 0.917
+ },
+ "1": {
+  "filter": "colorchannelmixer=rr=1.0066:bb=0.9976,eq=gamma=0.850:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 0.85,
+  "r": 1.0066,
+  "b": 0.9976,
+  "med": 0.475,
+  "rg": 1.063,
+  "bg": 0.932
+ },
+ "2": {
+  "filter": "colorchannelmixer=rr=1.0069:bb=0.9966,eq=gamma=0.850:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 0.85,
+  "r": 1.0069,
+  "b": 0.9966,
+  "med": 0.472,
+  "rg": 1.063,
+  "bg": 0.933
+ },
+ "3": {
+  "filter": "colorchannelmixer=rr=1.0137:bb=0.9789,eq=gamma=0.850:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 0.85,
+  "r": 1.0137,
+  "b": 0.9789,
+  "med": 0.467,
+  "rg": 1.055,
+  "bg": 0.95
+ },
+ "4": {
+  "filter": "colorchannelmixer=rr=0.9895:bb=0.9901,eq=gamma=0.850:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 0.85,
+  "r": 0.9895,
+  "b": 0.9901,
+  "med": 0.487,
+  "rg": 1.081,
+  "bg": 0.939
+ },
+ "5": {
+  "filter": "colorchannelmixer=rr=0.9953:bb=0.9839,eq=gamma=0.850:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 0.85,
+  "r": 0.9953,
+  "b": 0.9839,
+  "med": 0.474,
+  "rg": 1.075,
+  "bg": 0.945
+ },
+ "6": {
+  "filter": "colorchannelmixer=rr=0.9887:bb=0.9902,eq=gamma=0.850:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 0.85,
+  "r": 0.9887,
+  "b": 0.9902,
+  "med": 0.499,
+  "rg": 1.082,
+  "bg": 0.939
+ },
+ "7": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=0.9787:bb=1.0410,eq=gamma=1.450:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.45,
+  "r": 0.9787,
+  "b": 1.041,
+  "med": 0.257,
+  "rg": 1.093,
+  "bg": 0.893
+ },
+ "8": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=0.9980:bb=1.0254,eq=gamma=1.450:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.45,
+  "r": 0.998,
+  "b": 1.0254,
+  "med": 0.231,
+  "rg": 1.072,
+  "bg": 0.907
+ },
+ "9": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=0.9887:bb=1.0205,eq=gamma=1.450:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.45,
+  "r": 0.9887,
+  "b": 1.0205,
+  "med": 0.221,
+  "rg": 1.082,
+  "bg": 0.911
+ },
+ "10": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=0.9950:bb=1.0138,eq=gamma=1.450:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.45,
+  "r": 0.995,
+  "b": 1.0138,
+  "med": 0.224,
+  "rg": 1.075,
+  "bg": 0.917
+ },
+ "11": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=0.9912:bb=1.0137,eq=gamma=1.450:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.45,
+  "r": 0.9912,
+  "b": 1.0137,
+  "med": 0.222,
+  "rg": 1.08,
+  "bg": 0.917
+ },
+ "12": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=0.9971:bb=1.0120,eq=gamma=1.450:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.45,
+  "r": 0.9971,
+  "b": 1.012,
+  "med": 0.227,
+  "rg": 1.073,
+  "bg": 0.919
+ },
+ "13": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=1.0499:bb=0.9916,eq=gamma=1.241:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.241,
+  "r": 1.0499,
+  "b": 0.9916,
+  "med": 0.321,
+  "rg": 1.019,
+  "bg": 0.938
+ },
+ "14": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=1.0296:bb=0.9792,eq=gamma=1.164:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.164,
+  "r": 1.0296,
+  "b": 0.9792,
+  "med": 0.344,
+  "rg": 1.039,
+  "bg": 0.95
+ }
+}

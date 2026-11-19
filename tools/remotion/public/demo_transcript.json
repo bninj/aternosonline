@@ -1,0 +1,518 @@
+{
+ "words": [
+  {
+   "text": "Live",
+   "start": 0.6,
+   "end": 0.94
+  },
+  {
+   "text": "TV",
+   "start": 0.98,
+   "end": 1.22
+  },
+  {
+   "text": "viewing",
+   "start": 1.26,
+   "end": 1.75
+  },
+  {
+   "text": "fell",
+   "start": 1.95,
+   "end": 2.29
+  },
+  {
+   "text": "12%",
+   "start": 2.33,
+   "end": 2.88
+  },
+  {
+   "text": "in",
+   "start": 2.92,
+   "end": 3.16
+  },
+  {
+   "text": "a",
+   "start": 3.2,
+   "end": 3.39
+  },
+  {
+   "text": "year.",
+   "start": 3.43,
+   "end": 3.77
+  },
+  {
+   "text": "Families",
+   "start": 4.23,
+   "end": 4.77
+  },
+  {
+   "text": "drift",
+   "start": 4.81,
+   "end": 5.2
+  },
+  {
+   "text": "to",
+   "start": 5.4,
+   "end": 5.64
+  },
+  {
+   "text": "Netflix",
+   "start": 5.68,
+   "end": 6.17
+  },
+  {
+   "text": "and",
+   "start": 6.21,
+   "end": 6.5
+  },
+  {
+   "text": "YouTube.",
+   "start": 6.54,
+   "end": 7.03
+  },
+  {
+   "text": "Parents",
+   "start": 7.99,
+   "end": 8.48
+  },
+  {
+   "text": "ask",
+   "start": 8.52,
+   "end": 8.81
+  },
+  {
+   "text": "Sky",
+   "start": 8.85,
+   "end": 9.14
+  },
+  {
+   "text": "for",
+   "start": 9.34,
+   "end": 9.63
+  },
+  {
+   "text": "one",
+   "start": 9.67,
+   "end": 9.96
+  },
+  {
+   "text": "thing.",
+   "start": 10,
+   "end": 10.39
+  },
+  {
+   "text": "Something",
+   "start": 10.85,
+   "end": 11.44
+  },
+  {
+   "text": "for",
+   "start": 11.48,
+   "end": 11.77
+  },
+  {
+   "text": "me",
+   "start": 11.81,
+   "end": 12.05
+  },
+  {
+   "text": "and",
+   "start": 12.09,
+   "end": 12.38
+  },
+  {
+   "text": "the",
+   "start": 12.42,
+   "end": 12.71
+  },
+  {
+   "text": "kids,",
+   "start": 12.75,
+   "end": 13.09
+  },
+  {
+   "text": "under",
+   "start": 13.29,
+   "end": 13.68
+  },
+  {
+   "text": "two",
+   "start": 13.72,
+   "end": 14.01
+  },
+  {
+   "text": "hours.",
+   "start": 14.05,
+   "end": 14.44
+  },
+  {
+   "text": "Most",
+   "start": 15.4,
+   "end": 15.74
+  },
+  {
+   "text": "enterprise",
+   "start": 15.78,
+   "end": 16.42
+  },
+  {
+   "text": "chips",
+   "start": 16.46,
+   "end": 16.85
+  },
+  {
+   "text": "sit",
+   "start": 17.05,
+   "end": 17.34
+  },
+  {
+   "text": "at",
+   "start": 17.38,
+   "end": 17.62
+  },
+  {
+   "text": "5%",
+   "start": 17.66,
+   "end": 18.21
+  },
+  {
+   "text": "busy.",
+   "start": 18.25,
+   "end": 18.59
+  },
+  {
+   "text": "With",
+   "start": 19.05,
+   "end": 19.39
+  },
+  {
+   "text": "DDN,",
+   "start": 19.43,
+   "end": 19.72
+  },
+  {
+   "text": "they",
+   "start": 19.92,
+   "end": 20.26
+  },
+  {
+   "text": "run",
+   "start": 20.3,
+   "end": 20.59
+  },
+  {
+   "text": "near",
+   "start": 20.63,
+   "end": 20.97
+  },
+  {
+   "text": "99%.",
+   "start": 21.01,
+   "end": 21.56
+  },
+  {
+   "text": "99%",
+   "start": 22.02,
+   "end": 22.57
+  },
+  {
+   "text": "busy,",
+   "start": 22.61,
+   "end": 22.95
+  },
+  {
+   "text": "75%",
+   "start": 23.15,
+   "end": 23.7
+  },
+  {
+   "text": "lower",
+   "start": 23.74,
+   "end": 24.13
+  },
+  {
+   "text": "cost",
+   "start": 24.17,
+   "end": 24.51
+  },
+  {
+   "text": "per",
+   "start": 24.55,
+   "end": 24.84
+  },
+  {
+   "text": "token.",
+   "start": 24.88,
+   "end": 25.27
+  },
+  {
+   "text": "Canal",
+   "start": 25.73,
+   "end": 26.12
+  },
+  {
+   "text": "Plus",
+   "start": 26.16,
+   "end": 26.5
+  },
+  {
+   "text": "and",
+   "start": 26.54,
+   "end": 26.83
+  },
+  {
+   "text": "Starz",
+   "start": 26.87,
+   "end": 27.26
+  },
+  {
+   "text": "already",
+   "start": 27.46,
+   "end": 27.95
+  },
+  {
+   "text": "run",
+   "start": 27.99,
+   "end": 28.28
+  },
+  {
+   "text": "on",
+   "start": 28.32,
+   "end": 28.56
+  },
+  {
+   "text": "it.",
+   "start": 28.6,
+   "end": 28.84
+  },
+  {
+   "text": "So",
+   "start": 29.8,
+   "end": 30.04
+  },
+  {
+   "text": "measure",
+   "start": 30.08,
+   "end": 30.57
+  },
+  {
+   "text": "two",
+   "start": 30.61,
+   "end": 30.9
+  },
+  {
+   "text": "things.",
+   "start": 30.94,
+   "end": 31.38
+  },
+  {
+   "text": "How",
+   "start": 31.58,
+   "end": 31.87
+  },
+  {
+   "text": "busy",
+   "start": 31.91,
+   "end": 32.25
+  },
+  {
+   "text": "the",
+   "start": 32.29,
+   "end": 32.58
+  },
+  {
+   "text": "chips",
+   "start": 32.62,
+   "end": 33.01
+  },
+  {
+   "text": "are,",
+   "start": 33.05,
+   "end": 33.34
+  },
+  {
+   "text": "and",
+   "start": 33.54,
+   "end": 33.83
+  },
+  {
+   "text": "what",
+   "start": 33.87,
+   "end": 34.21
+  },
+  {
+   "text": "each",
+   "start": 34.25,
+   "end": 34.59
+  },
+  {
+   "text": "answer",
+   "start": 34.63,
+   "end": 35.07
+  },
+  {
+   "text": "costs.",
+   "start": 35.11,
+   "end": 35.5
+  },
+  {
+   "text": "That",
+   "start": 35.96,
+   "end": 36.3
+  },
+  {
+   "text": "is",
+   "start": 36.34,
+   "end": 36.58
+  },
+  {
+   "text": "how",
+   "start": 36.62,
+   "end": 36.91
+  },
+  {
+   "text": "Sky",
+   "start": 36.95,
+   "end": 37.24
+  },
+  {
+   "text": "finds",
+   "start": 37.28,
+   "end": 37.67
+  },
+  {
+   "text": "its",
+   "start": 37.87,
+   "end": 38.16
+  },
+  {
+   "text": "next",
+   "start": 38.2,
+   "end": 38.54
+  },
+  {
+   "text": "Blockbuster.",
+   "start": 38.58,
+   "end": 39.27
+  },
+  {
+   "text": "DDN.",
+   "start": 39.73,
+   "end": 40.02
+  },
+  {
+   "text": "Keep",
+   "start": 40.22,
+   "end": 40.56
+  },
+  {
+   "text": "the",
+   "start": 40.6,
+   "end": 40.89
+  },
+  {
+   "text": "chips",
+   "start": 40.93,
+   "end": 41.32
+  },
+  {
+   "text": "busy.",
+   "start": 41.36,
+   "end": 41.7
+  }
+ ],
+ "phrases": [
+  {
+   "from": 0,
+   "to": 2
+  },
+  {
+   "from": 3,
+   "to": 7
+  },
+  {
+   "from": 8,
+   "to": 9
+  },
+  {
+   "from": 10,
+   "to": 13
+  },
+  {
+   "from": 14,
+   "to": 16
+  },
+  {
+   "from": 17,
+   "to": 19
+  },
+  {
+   "from": 20,
+   "to": 25
+  },
+  {
+   "from": 26,
+   "to": 28
+  },
+  {
+   "from": 29,
+   "to": 31
+  },
+  {
+   "from": 32,
+   "to": 35
+  },
+  {
+   "from": 36,
+   "to": 37
+  },
+  {
+   "from": 38,
+   "to": 41
+  },
+  {
+   "from": 42,
+   "to": 43
+  },
+  {
+   "from": 44,
+   "to": 48
+  },
+  {
+   "from": 49,
+   "to": 52
+  },
+  {
+   "from": 53,
+   "to": 56
+  },
+  {
+   "from": 57,
+   "to": 60
+  },
+  {
+   "from": 61,
+   "to": 65
+  },
+  {
+   "from": 66,
+   "to": 70
+  },
+  {
+   "from": 71,
+   "to": 75
+  },
+  {
+   "from": 76,
+   "to": 78
+  },
+  {
+   "from": 79,
+   "to": 79
+  },
+  {
+   "from": 80,
+   "to": 83
+  }
+ ]
+}

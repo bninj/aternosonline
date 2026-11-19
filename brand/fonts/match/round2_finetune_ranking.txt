@@ -1,0 +1,40 @@
+
+== Articulat 400
+Manrope          w380  score 26.82 IoU 0.787 chamf 0.94 xh 1.024 setW 1.022 ink 1.053 size x0.977 track -11/1000em
+Onest            w340  score 28.95 IoU 0.764 chamf 1.14 xh 0.992 setW 1.056 ink 1.088 size x0.977 track -27/1000em
+Inter Tight      w340  score 29.99 IoU 0.741 chamf 1.16 xh 1.012 setW 0.966 ink 0.999 size x0.966 track +14/1000em
+Mona Sans        w360  score 30.30 IoU 0.737 chamf 1.18 xh 0.992 setW 1.042 ink 1.012 size x0.977 track -20/1000em
+Funnel Sans      w340  score 32.44 IoU 0.746 chamf 1.19 xh 1.004 setW 1.078 ink 1.174 size x1.037 track -29/1000em
+Instrument Sans  w340  score 36.41 IoU 0.710 chamf 1.36 xh 0.961 setW 1.041 ink 1.095 size x0.977 track -17/1000em
+Geist            w340  score 36.95 IoU 0.696 chamf 1.45 xh 1.004 setW 1.045 ink 1.075 size x0.988 track -18/1000em
+Inter            w360  score 41.55 IoU 0.647 chamf 1.62 xh 0.966 setW 0.959 ink 1.009 size x0.966 track +19/1000em
+
+== Articulat 500
+Funnel Sans      w340  score 24.01 IoU 0.801 chamf 0.96 xh 1.004 setW 1.067 ink 1.051 size x1.037 track -25/1000em
+Onest            w360  score 24.20 IoU 0.794 chamf 1.06 xh 0.992 setW 1.047 ink 1.010 size x0.977 track -23/1000em
+Manrope          w440  score 24.67 IoU 0.806 chamf 0.94 xh 1.024 setW 1.024 ink 1.046 size x0.977 track -12/1000em
+Mona Sans        w400  score 26.35 IoU 0.774 chamf 1.10 xh 0.992 setW 1.039 ink 1.010 size x0.977 track -19/1000em
+Inter Tight      w380  score 26.46 IoU 0.777 chamf 1.10 xh 1.012 setW 0.949 ink 0.983 size x0.966 track +22/1000em
+Instrument Sans  w420  score 29.75 IoU 0.760 chamf 1.22 xh 0.961 setW 1.033 ink 1.029 size x0.977 track -14/1000em
+Geist            w360  score 32.74 IoU 0.725 chamf 1.43 xh 1.004 setW 1.038 ink 1.007 size x0.988 track -15/1000em
+Inter            w400  score 38.18 IoU 0.681 chamf 1.62 xh 0.966 setW 0.961 ink 0.991 size x0.966 track +18/1000em
+
+== Articulat 600
+Funnel Sans      w440  score 18.93 IoU 0.842 chamf 0.92 xh 1.004 setW 1.051 ink 1.009 size x1.037 track -20/1000em
+Onest            w480  score 19.50 IoU 0.837 chamf 1.00 xh 0.992 setW 1.035 ink 0.997 size x0.977 track -19/1000em
+Inter Tight      w480  score 20.46 IoU 0.833 chamf 0.98 xh 1.012 setW 0.943 ink 0.976 size x0.966 track +25/1000em
+Mona Sans        w480  score 20.92 IoU 0.827 chamf 1.00 xh 0.992 setW 1.030 ink 0.980 size x0.977 track -17/1000em
+Manrope          w560  score 21.73 IoU 0.830 chamf 1.00 xh 1.024 setW 1.025 ink 1.021 size x0.977 track -13/1000em
+Instrument Sans  w500  score 23.96 IoU 0.811 chamf 1.14 xh 0.961 setW 1.018 ink 0.990 size x0.977 track -8/1000em
+Geist            w460  score 27.85 IoU 0.776 chamf 1.41 xh 1.020 setW 1.037 ink 0.996 size x0.988 track -14/1000em
+Inter            w520  score 31.18 IoU 0.746 chamf 1.55 xh 0.966 setW 0.963 ink 0.995 size x0.966 track +18/1000em
+
+== Articulat 700
+Funnel Sans      w620  score 15.16 IoU 0.877 chamf 0.87 xh 1.004 setW 1.035 ink 1.017 size x1.037 track -14/1000em
+Inter Tight      w620  score 15.24 IoU 0.877 chamf 0.86 xh 1.012 setW 0.951 ink 1.005 size x0.966 track +23/1000em
+Onest            w620  score 17.26 IoU 0.859 chamf 1.04 xh 0.992 setW 1.024 ink 0.999 size x0.977 track -14/1000em
+Mona Sans        w620  score 18.24 IoU 0.855 chamf 1.03 xh 1.008 setW 1.028 ink 1.026 size x0.977 track -15/1000em
+Manrope          w740  score 19.23 IoU 0.855 chamf 1.03 xh 1.024 setW 1.032 ink 1.036 size x0.977 track -17/1000em
+Instrument Sans  w620  score 19.93 IoU 0.847 chamf 1.11 xh 0.961 setW 1.004 ink 1.001 size x0.977 track -2/1000em
+Geist            w600  score 23.88 IoU 0.818 chamf 1.38 xh 1.020 setW 1.043 ink 1.021 size x0.988 track -17/1000em
+Inter            w660  score 24.11 IoU 0.810 chamf 1.35 xh 0.966 setW 0.963 ink 0.993 size x0.966 track +18/1000em

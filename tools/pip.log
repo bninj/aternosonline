@@ -1,0 +1,5 @@
+WARNING: scenedetect 0.7.3 does not provide the extra 'opencv-headless'
+
+real	5m27.818s
+user	0m39.004s
+sys	0m14.895s

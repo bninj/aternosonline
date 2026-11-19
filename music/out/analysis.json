@@ -1,0 +1,110 @@
+{
+ "integrated_lufs": -22.0,
+ "sample_peak_dbfs": -5.72,
+ "true_peak_dbtp": -5.71,
+ "clipped_samples": 0,
+ "dc_offset": [
+  0.0,
+  -0.0
+ ],
+ "first_10ms_peak_dbfs": -37.3,
+ "last_100ms_rms_dbfs": -86.6,
+ "last_sample_abs": 0.0,
+ "duration_s": 85.5,
+ "sections": {
+  "hook": {
+   "lufs": -43.2,
+   "rms_dbfs": -48.8,
+   "speechband_1_4k_pct": 3.01,
+   "above_4k_pct": 70.54,
+   "below_250_pct": 8.9,
+   "centroid_hz": 4358,
+   "stem_rms_dbfs": {
+    "piano": -240.0,
+    "pad": -51.5,
+    "pulse": -240.0,
+    "tick": -52.2
+   }
+  },
+  "change": {
+   "lufs": -25.0,
+   "rms_dbfs": -27.0,
+   "speechband_1_4k_pct": 1.02,
+   "above_4k_pct": 0.07,
+   "below_250_pct": 49.1,
+   "centroid_hz": 294,
+   "stem_rms_dbfs": {
+    "piano": -28.5,
+    "pad": -32.5,
+    "pulse": -240.0,
+    "tick": -60.8
+   }
+  },
+  "now": {
+   "lufs": -22.7,
+   "rms_dbfs": -24.8,
+   "speechband_1_4k_pct": 0.95,
+   "above_4k_pct": 0.0,
+   "below_250_pct": 43.0,
+   "centroid_hz": 315,
+   "stem_rms_dbfs": {
+    "piano": -27.0,
+    "pad": -29.4,
+    "pulse": -38.9,
+    "tick": -81.8
+   }
+  },
+  "ddn": {
+   "lufs": -20.9,
+   "rms_dbfs": -22.9,
+   "speechband_1_4k_pct": 0.99,
+   "above_4k_pct": 0.0,
+   "below_250_pct": 44.7,
+   "centroid_hz": 305,
+   "stem_rms_dbfs": {
+    "piano": -25.2,
+    "pad": -27.6,
+    "pulse": -33.9,
+    "tick": -240.0
+   }
+  },
+  "ask": {
+   "lufs": -20.7,
+   "rms_dbfs": -22.6,
+   "speechband_1_4k_pct": 0.93,
+   "above_4k_pct": 0.0,
+   "below_250_pct": 43.9,
+   "centroid_hz": 327,
+   "stem_rms_dbfs": {
+    "piano": -25.5,
+    "pad": -26.3,
+    "pulse": -34.8,
+    "tick": -240.0
+   }
+  },
+  "post": {
+   "lufs": -23.2,
+   "rms_dbfs": -25.7,
+   "speechband_1_4k_pct": 1.13,
+   "above_4k_pct": 0.0,
+   "below_250_pct": 44.6,
+   "centroid_hz": 291,
+   "stem_rms_dbfs": {
+    "piano": -28.1,
+    "pad": -29.8,
+    "pulse": -44.1,
+    "tick": -240.0
+   }
+  }
+ },
+ "cadence_onset_vs_ding_ms": -1,
+ "piano_chroma_at_ding_top4": [
+  "D",
+  "F#",
+  "A",
+  "E"
+ ],
+ "ding_peak_hz": 1174.8,
+ "ding_peak_dbfs": -12.0,
+ "ding_tail_last_s": -53.8
+}

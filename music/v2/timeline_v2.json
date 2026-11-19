@@ -1,0 +1,17 @@
+{
+  "_comment": "Locked edit timeline (seconds in the final video). change = groove entry, resolve = end-card downbeat (both exact); now/ddn/ask snap to the nearest beat; drop = 'So Sky,'.",
+  "chair": 0.0,
+  "hook": 1.85,
+  "change": 10.5,
+  "now": 23.76,
+  "ddn": 35.21,
+  "ask": 62.73,
+  "drop": 72.4,
+  "resolve": 77.2,
+  "end": 80.0,
+  "hook_bars": 4,
+  "bpm": 120,
+  "bpm_range": [116, 124],
+  "target_lufs": -20.0,
+  "seed": 5
+}
