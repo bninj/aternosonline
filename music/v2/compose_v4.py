@@ -72,8 +72,9 @@ def compose(tm):
     T, Bt = tm["time"], tm["beat"]
     A = cfg["accents"]
     bars = []
-    for sec, nb in SEC_BARS:
-        for i in range(nb):
+    secbars = [(k, cfg["bars"][k]) for k, _ in SEC_BARS] if "bars" in cfg else SEC_BARS
+    for sec, nb in secbars:
+        for i in range(int(np.ceil(nb))):
             bars.append((SB[sec] + 4 * i, sec, i, PROG[sec][i % len(PROG[sec])], nb))
     s.bars = bars
     b_pluck = Bt(A["pluck_in"])           # 12.30: muted TX81Z plucks enter
@@ -209,6 +210,15 @@ def compose(tm):
         s.add("marimba", at(g["75%"]) + k * 0.5, 0.45, p, 44, human=0)
     s.accents.append(("75% marimba fall", g["75%"]))
     s.gates.append(("shaker_in", A["shaker_in"], None))
+    sz = A.get("snap_zooms", {})
+    if "arsenal" in sz:                                       # wry little fall on "Arsenal lose"
+        s.add("marimba", at(sz["arsenal"]), 0.45, 66, 40, human=0)
+        s.add("marimba", at(sz["arsenal"]) + 0.5, 0.9, 61, 36, human=0)
+        s.accents.append(("snap zoom: marimba fall", sz["arsenal"]))
+    if "blockbuster" in sz:                                   # one soft low knock in the drop
+        s.add("kick", at(sz["blockbuster"]), 0, 36, 32, human=0)
+        s.add("bass", at(sz["blockbuster"]), 0.8, 28, 44, human=0)
+        s.accents.append(("snap zoom: soft low knock", sz["blockbuster"]))
 
     # ---------------- punchline + resolve (as v3) ----------------
     p0, r0 = SB["punch"], SB["endcard"]
@@ -245,7 +255,7 @@ def main():
     info = render(s, tm, a.out)
     T = tm["time"]
     timing = dict(
-        version="v4 curious/speculative",
+        version=cfg.get("version", "v4 curious/speculative"),
         tempo_map="smooth PCHIP beat->time through the section downbeats; see bars[] for every downbeat",
         bpm_min=round(tm["bpm_min"], 2), bpm_max=round(tm["bpm_max"], 2),
         section_downbeats={k: round(T(v), 4) for k, v in tm["sec_beats"].items()},

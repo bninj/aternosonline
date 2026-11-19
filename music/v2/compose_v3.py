@@ -412,9 +412,12 @@ def render(s, tm, out):
             x = S.cymbal("susCymb2_hit_pp1.wav")
             place(tb["fx"], T(b), x, {1: 0.4, 4: 0.6}[p])
     # pre-roll swell: bowed vibes F#4 + D5 under the empty chair
-    x = vbow.render(66, 30, 2.6, release=1.2) + 0.6 * vbow.render(74, 28, 2.6, release=1.2)
+    pre = T(0)                                   # hook start (1.85 in v3/v4)
+    dpre = pre + 0.75
+    x = vbow.render(66, 30, dpre, release=1.2) + 0.6 * vbow.render(74, 28, dpre, release=1.2)
     n = len(x); t = np.arange(n) / SR
-    env = np.clip(t / 1.2, 0, 1) ** 2 * np.clip((2.7 - t) / 1.5, 0, 1)
+    rise = min(1.2, 0.65 * pre)
+    env = np.clip(t / rise, 0, 1) ** 2 * np.clip((dpre + 0.1 - t) / min(1.5, dpre * 0.6), 0, 1)
     place(tb["vibes"], 0.10, x * env[:, None], 0.18)
 
     # ---- gain envelopes at exact edit times ----

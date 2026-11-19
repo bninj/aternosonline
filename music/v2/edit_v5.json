@@ -1,0 +1,115 @@
+{
+ "_comment": "v5: v4 sound re-fitted to the tightened edit (SHOTPLAN_v4.json, voice_master_v3.wav). sections = exact downbeats.",
+ "sections": {
+  "hook": 1.07,
+  "change": 9.353,
+  "now": 21.906,
+  "ddn": 32.592,
+  "ask": 58.71,
+  "punch": 67.643,
+  "endcard": 71.3
+ },
+ "end": 74.2,
+ "cuts": [
+  9.353,
+  10.986,
+  16.553,
+  21.906,
+  23.354,
+  26.252,
+  29.962,
+  32.592,
+  34.359,
+  41.154,
+  45.52,
+  48.62,
+  54.488,
+  58.71,
+  60.143,
+  64.843,
+  67.643,
+  68.645,
+  70.445,
+  71.197
+ ],
+ "accents": {
+  "pluck_in": 10.986,
+  "bass_in": 16.553,
+  "shaker_in": 21.906,
+  "kick_in": 26.252,
+  "tom_fill_into": [
+   45.52
+  ],
+  "mallet_on": [
+   [
+    23.354,
+    69
+   ],
+   [
+    34.359,
+    74
+   ],
+   [
+    60.143,
+    74
+   ]
+  ],
+  "swell_into": [
+   26.252,
+   54.488
+  ],
+  "idle_until": 41.154,
+  "graphics": {
+   "12%": 13.15,
+   "5%": 39.46,
+   "99%": 50.08,
+   "75%": 53.18
+  },
+  "snap_zooms": {
+   "arsenal": 44.52,
+   "blockbuster": 69.52
+  }
+ },
+ "sfx": {
+  "click": [
+   1.07
+  ],
+  "whoosh": [
+   10.93,
+   48.98,
+   64.84
+  ],
+  "chime": [
+   71.4
+  ]
+ },
+ "balance": {
+  "bass": -1.0,
+  "drums": -4.0,
+  "shaker": -16.0,
+  "marimba": 0.0,
+  "keys": -2.0,
+  "vibes": -4.0,
+  "fx": -8.0
+ },
+ "target_lufs": -20.0,
+ "seed": 4,
+ "sfx_level_below_dialogue_peak_db": {
+  "click": 25,
+  "whoosh": 24,
+  "whoosh_chart": 24,
+  "whoosh_gauge": 21,
+  "whoosh_ask": 27,
+  "chime": 27
+ },
+ "version": "v5 (v4 sound, tightened edit)",
+ "voice": "/home/user/ddn-project/edit/voice_master_v3.wav",
+ "bars": {
+  "hook": 4,
+  "change": 6,
+  "now": 5,
+  "ddn": 12,
+  "ask": 4,
+  "punch": 1.5
+ }
+}

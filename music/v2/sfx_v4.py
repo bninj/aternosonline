@@ -18,7 +18,7 @@ from compose_v2 import hp, lp, peaking, make_ir, reverb
 
 SR = 48000
 BSB = os.path.join(S.CAND, "bigsoundbank")
-VOICE = "/home/user/ddn-project/edit/voice_v1.wav"
+VOICE = "/home/user/ddn-project/edit/voice_v1.wav"   # overridden by cfg["voice"]
 
 
 def voice_ref_db():
@@ -117,6 +117,8 @@ def main():
     ap.add_argument("--out", default=os.path.join(os.path.dirname(HERE), "out_v4"))
     a = ap.parse_args()
     cfg = json.load(open(a.timeline))
+    global VOICE
+    VOICE = cfg.get("voice", VOICE)
     ref = voice_ref_db()
     below = cfg["sfx_level_below_dialogue_peak_db"]
     snd = build(ref)
@@ -142,7 +144,7 @@ def main():
                        below_dialogue_peak_db=below.get(k, below.get(kind)), length_s=round(len(x) / SR, 2))
     sf.write(os.path.join(a.out, "sfx_all_positioned.wav"), allp, SR, subtype="PCM_24")
     info["_reference"] = dict(dialogue_peak_ref_dbfs=round(ref, 2),
-                              definition="95th pct of 50 ms peaks of voice_v1.wav at -16 LUFS integrated")
+                              definition="95th pct of 50 ms peaks of " + os.path.basename(VOICE) + " at -16 LUFS integrated")
     info["_sources"] = sorted(os.path.relpath(p, S.CAND) for p in S.USED)
     json.dump(info, open(os.path.join(a.out, "sfx_timing.json"), "w"), indent=1)
     tp = os.path.join(a.out, "timing.json")
