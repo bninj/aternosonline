@@ -4,7 +4,7 @@
 import React, {useMemo} from 'react';
 import {getLength, getPointAtLength} from '@remotion/paths';
 import chair from './chair_contour.json';
-import {AbsoluteFill, interpolate, Sequence, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, interpolate, OffthreadVideo, Sequence, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {getWaveformPortion, useAudioData} from '@remotion/media-utils';
 import {C, display, EASE, FONT, FrostedGlass, Grain, Hairline, Logo, LogoId, LOGOS, MonoTag, onScreen, Rise, Slot, SlotProps, T, TYPE} from '../ddn';
 
@@ -409,3 +409,101 @@ export const ChairSpotlight: React.FC<{dimIn: [number, number]; dimOut: [number,
     </AbsoluteFill>
   );
 };
+
+// ---------------------------------------------------------------------------------------------------------------
+// DDN bracket name tag [4.2]: "[ ELIUD AWUAH ]". Thin bracket rules with short serifs (taller than the caps); the
+// empty brackets open, hold a beat, then the name types on (each new letter fades up over 2 f) and the right bracket
+// travels with the last glyph. Name only, no title. Over footage with a soft shadow, as in DDN's series.
+const Bracket: React.FC<{side: 'l' | 'r'; h: number}> = ({side, h}) => (
+  <svg width={14} height={h} viewBox={`0 0 14 ${h}`} style={{display: 'block', flex: 'none'}}>
+    <path d={side === 'l' ? `M12 2 H3 V${h - 2} H12` : `M2 2 H11 V${h - 2} H2`} fill="none" stroke="#FFFFFF" strokeWidth={3} />
+  </svg>
+);
+export const NameTag: React.FC<SlotProps & {name: string; size?: number}> = (p) => (
+  <Slot {...p} name="NameTag" enterFrames={p.enterFrames ?? 8}>{() => <NameTagInner name={p.name} size={p.size ?? 46} />}</Slot>
+);
+const NameTagInner: React.FC<{name: string; size: number}> = ({name, size}) => {
+  const frame = useCurrentFrame();
+  onScreen(name, 'NameTag');
+  const t0 = 12; // brackets hold, then type
+  const cpf = 0.5; // one character every 2 frames
+  const lab = display('capsName', size);
+  const open = interpolate(frame, [2, 10], [0.6, 1], {...cl, easing: EASE.out}); // brackets open from 0.6x cap width
+  const n = Math.max(0, (frame - t0) * cpf);
+  const chars = [...name];
+  const shown = chars.filter((_, i) => i < Math.ceil(n));
+  const h = Math.round(size * 0.966 * 1.25);
+  return (
+    <div style={{display: 'flex', alignItems: 'center', filter: 'drop-shadow(0 2px 10px rgba(10,6,8,0.45))'}}>
+      <Bracket side="l" h={h} />
+      <div style={{...lab, color: C.white, lineHeight: `${h}px`, whiteSpace: 'pre', padding: `0 ${Math.round(size * 0.22)}px`, minWidth: size * 0.6 * open}}>
+        {shown.map((ch, i) => (
+          <span key={i} style={{opacity: interpolate(frame, [t0 + i / cpf, t0 + i / cpf + 2], [0, 1], cl)}}>{ch}</span>
+        ))}
+      </div>
+      <Bracket side="r" h={h} />
+    </div>
+  );
+};
+
+// ---------------------------------------------------------------------------------------------------------------
+// Logos placed IN the room: large, official artwork, sitting behind the speaker (the person layer is composited on
+// top from a SAM 2.1 + ViTMatte alpha). Depth: a touch of blur and atmosphere so they sit on the wall plane, a soft
+// glow behind for separation. Positions are px @1920 in footage space (they ride the camera transform).
+export type DepthLogoItem = {logo: LogoId; at: number; x: number; y: number; h: number};
+export const DepthLogos: React.FC<{from: number; durationInFrames: number; items: DepthLogoItem[]; exitFrames?: number; breakAt?: number; crackAt?: number}> = (p) => (
+  <Sequence from={p.from} durationInFrames={p.durationInFrames} name="DepthLogos" layout="none">
+    <DepthLogosInner {...p} />
+  </Sequence>
+);
+const DepthLogosInner: React.FC<{durationInFrames: number; items: DepthLogoItem[]; exitFrames?: number}> = ({durationInFrames, items, exitFrames = 10}) => {
+  const frame = useCurrentFrame();
+  const out = interpolate(frame, [durationInFrames - exitFrames, durationInFrames], [0, 1], {...cl, easing: EASE.exit});
+  return (
+    <AbsoluteFill style={{pointerEvents: 'none'}}>
+      {items.map((it, i) => {
+        const pr = interpolate(frame, [it.at, it.at + 18], [0, 1], {...cl, easing: EASE.out});
+        const o = interpolate(frame, [it.at, it.at + 12], [0, 1], {...cl, easing: EASE.inOut}) * (1 - out);
+        const bl = 10 * (1 - interpolate(frame, [it.at, it.at + 18], [0, 1], {...cl, easing: EASE.soft})) + 6 * out;
+        const w = it.h * LOGOS[it.logo].aspect;
+        return (
+          <div key={i} style={{position: 'absolute', left: it.x, top: it.y, width: w, height: it.h, opacity: o * 0.96,
+            transform: `translateY(${((1 - pr) * 40 - out * 20).toFixed(2)}px) scale(${(0.97 + 0.03 * pr).toFixed(4)})`,
+            filter: `blur(${(0.7 + bl).toFixed(2)}px) drop-shadow(0 0 28px rgba(255,255,255,0.18)) drop-shadow(0 10px 24px rgba(10,6,8,0.35))`}}>
+            <Logo id={it.logo} height={it.h} />
+          </div>
+        );
+      })}
+    </AbsoluteFill>
+  );
+};
+
+// Blockbuster in the room: lands (rise + blur to sharp), cracks and shatters in place, behind the speaker.
+export const DepthShatter: React.FC<{from: number; durationInFrames: number; x: number; y: number; h: number; crackAt: number; breakAt: number}> = (p) => (
+  <Sequence from={p.from} durationInFrames={p.durationInFrames} name="DepthShatter" layout="none">
+    <DepthShatterInner {...p} />
+  </Sequence>
+);
+const DepthShatterInner: React.FC<{x: number; y: number; h: number; crackAt: number; breakAt: number}> = ({x, y, h, crackAt, breakAt}) => {
+  const frame = useCurrentFrame();
+  const pr = interpolate(frame, [0, 16], [0, 1], {...cl, easing: EASE.out});
+  const o = interpolate(frame, [0, 10], [0, 1], {...cl, easing: EASE.inOut});
+  const bl = 10 * (1 - interpolate(frame, [0, 16], [0, 1], {...cl, easing: EASE.soft}));
+  return (
+    <AbsoluteFill style={{pointerEvents: 'none'}}>
+      <div style={{position: 'absolute', left: x, top: y, opacity: o, transform: `translateY(${((1 - pr) * 40).toFixed(2)}px)`, filter: `blur(${(0.6 + bl).toFixed(2)}px)`}}>
+        <ShatterInner logo="blockbuster" crackAt={crackAt} breakAt={breakAt} logoH={h} />
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+// The speaker, cut out of the same plate by a SAM 2.1 + ViTMatte alpha (VP9 with alpha, frame-aligned to the plate
+// range [plateFrom, plateFrom + duration)). Drawn above the depth logos, below the cards and captions.
+export const PersonLayer: React.FC<{src: string; plateFrom: number; durationInFrames: number; style: React.CSSProperties}> = ({src, plateFrom, durationInFrames, style}) => (
+  <Sequence from={plateFrom} durationInFrames={durationInFrames} name="PersonLayer" layout="none">
+    <AbsoluteFill style={style}>
+      <OffthreadVideo src={staticFile(src)} transparent muted style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+    </AbsoluteFill>
+  </Sequence>
+);

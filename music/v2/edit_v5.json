@@ -111,5 +111,7 @@
   "ddn": 12,
   "ask": 4,
   "punch": 1.5
- }
+ },
+ "kit": "cc0",
+ "resolve_vel_offset": -10
 }

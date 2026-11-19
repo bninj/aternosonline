@@ -1,0 +1,572 @@
+{
+ "verdict": "PASS",
+ "cut": "rough_v4.mp4",
+ "joins": [
+  9.253,
+  10.886,
+  16.453,
+  21.806,
+  23.254,
+  26.152,
+  29.862,
+  32.492,
+  34.259,
+  41.054,
+  45.42,
+  48.52,
+  54.388,
+  58.61,
+  60.043,
+  64.743,
+  67.543,
+  69.843,
+  70.845,
+  72.645
+ ],
+ "issues": [
+  {
+   "sev": "WARN",
+   "t": 29.86,
+   "kind": "edge voice",
+   "msg": "piece 6 tail @ src 270.06s: speech-level sound in the last 40 ms"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "dead air",
+   "msg": "1.52 s of silence"
+  },
+  {
+   "sev": "WARN",
+   "t": 9.25,
+   "kind": "choppy",
+   "msg": "3 joins within 8 s from 9.25s: alternate 1.0/1.4 framing or cut whole sentences"
+  },
+  {
+   "sev": "WARN",
+   "t": 26.15,
+   "kind": "join word not heard",
+   "msg": "join 6: \"Search.\" (before the cut) not in window transcript \"Now, the next...\""
+  },
+  {
+   "sev": "WARN",
+   "t": 32.49,
+   "kind": "join word not heard",
+   "msg": "join 8: \"Third,\" (after the cut) not in window transcript \"Make me scared. FUD.\""
+  },
+  {
+   "sev": "WARN",
+   "t": 41.05,
+   "kind": "join word not heard",
+   "msg": "join 10: \"use.\" (before the cut) not in window transcript \"It's like...\""
+  },
+  {
+   "sev": "WARN",
+   "t": 53.17,
+   "kind": "long word",
+   "msg": "\"75%.\" lasts 0.98 s"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[1] \"Sorry I kept you waiting.\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[2] \"That's AI chips, every day, waiting for data.\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[3] \"And you, Sky, pay full price to wait.\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[4] \"So first, why change?\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[5] \"Ofcom says traditional TV fell by twelve percent in a year, as people move to streaming.\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[6] \"Netflix and YouTube already know what you want to watch, so Sky needs that too, and fast.\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[7] \"Second, why now?\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[8] \"Well, you've already started with Sky Q voice search.\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[9] \"Now the next step is an AI assistant that knows each household.\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[10] \"Imagine asking, find me a show my kids will love.\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[11] \"Third, why DDN?\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[12] \"Idle chips still cost you, and Cast AI found that enterprise chips average around five percent of use.\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[13] \"It's like paying for a whole Sky Sports bundle just to watch Arsenal lose.\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[14] \"Now DDN's Infinia keeps data flowing to the chips.\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[15] \"And they say customers reach up to ninety nine percent busy and cut costs per token by seventy five percent.\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[16] \"Plus, they already work with media companies like Canal Plus and Starz.\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[17] \"So the ask is clear.\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[18] \"Let DDN run a pilot on the AI behind your voice search or your next assistant.\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[19] \"Then measure the values before and after.\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[20] \"So Sky, don't be the next Blockbuster.\" is not in the EDL"
+  },
+  {
+   "sev": "WARN",
+   "t": 0.0,
+   "kind": "unit not in cut",
+   "msg": "[21] \"Thank you.\" is not in the EDL"
+  }
+ ],
+ "join_windows": [
+  {
+   "join": 1,
+   "t": 9.25,
+   "heard": "So, wait. So, first...",
+   "expected": "to wait. So first,"
+  },
+  {
+   "join": 2,
+   "t": 10.89,
+   "heard": "Why change? Offcome says...",
+   "expected": "why change? Ofcom says"
+  },
+  {
+   "join": 3,
+   "t": 16.45,
+   "heard": "We'll move to streaming. Netflix and YouTube...",
+   "expected": "to streaming. Netflix and"
+  },
+  {
+   "join": 4,
+   "t": 21.81,
+   "heard": "Foss. Second...",
+   "expected": "fast. Second,"
+  },
+  {
+   "join": 5,
+   "t": 23.25,
+   "heard": "Why now? Well, you've already...",
+   "expected": "why now? Well, you've already"
+  },
+  {
+   "join": 6,
+   "t": 26.15,
+   "heard": "Now, the next...",
+   "expected": "Search. Now, the"
+  },
+  {
+   "join": 7,
+   "t": 29.86,
+   "heard": "to each household. Imagine arcs in...",
+   "expected": "household. Imagine"
+  },
+  {
+   "join": 8,
+   "t": 32.49,
+   "heard": "Make me scared. FUD.",
+   "expected": "Me Scared. Third,"
+  },
+  {
+   "join": 9,
+   "t": 34.26,
+   "heard": "IDDN, Idle Chips will...",
+   "expected": "DDN? Idle chips will"
+  },
+  {
+   "join": 10,
+   "t": 41.05,
+   "heard": "It's like...",
+   "expected": "of use. It's like"
+  },
+  {
+   "join": 11,
+   "t": 45.42,
+   "heard": "Arsenal lose. Now, DDN's...",
+   "expected": "lose. Now DDN's"
+  },
+  {
+   "join": 12,
+   "t": 48.52,
+   "heard": "to the chips. And they say cuss...",
+   "expected": "the chips. And they say"
+  },
+  {
+   "join": 13,
+   "t": 54.39,
+   "heard": "Plus, they already...",
+   "expected": "Plus, they already"
+  },
+  {
+   "join": 14,
+   "t": 58.61,
+   "heard": "Starts. So, the AUX...",
+   "expected": "Starz. So the arcs"
+  },
+  {
+   "join": 15,
+   "t": 60.04,
+   "heard": "The box is clear. Let DDN...",
+   "expected": "is clear. Let DDN"
+  },
+  {
+   "join": 16,
+   "t": 64.74,
+   "heard": "Next, assistant. Then, measure the value...",
+   "expected": "assistant. Then measure the"
+  },
+  {
+   "join": 17,
+   "t": 67.54,
+   "heard": "And after, and if both...",
+   "expected": "after."
+  },
+  {
+   "join": 18,
+   "t": 69.84,
+   "heard": "Scale it. So, Sky.",
+   "expected": "So Sky."
+  },
+  {
+   "join": 19,
+   "t": 70.84,
+   "heard": "The sky, don't be...",
+   "expected": "Sky. Don't be the"
+  },
+  {
+   "join": 20,
+   "t": 72.64,
+   "heard": "Blockbuster. Thank you.",
+   "expected": "Blockbuster. Thank you."
+  }
+ ],
+ "subcheck": [
+  {
+   "piece": 0,
+   "parts": [
+    [
+     1.31,
+     "Sorry, I kept you waiting."
+    ],
+    [
+     3.07,
+     "That's AI chips."
+    ],
+    [
+     4.29,
+     "Everyday waiting for data."
+    ],
+    [
+     6.35,
+     "And you, Sky."
+    ],
+    [
+     7.5,
+     "You pay full price to wait."
+    ]
+   ]
+  },
+  {
+   "piece": 1,
+   "parts": [
+    [
+     9.26,
+     "So first, why change?"
+    ]
+   ]
+  },
+  {
+   "piece": 2,
+   "parts": [
+    [
+     10.92,
+     "Ofcom says traditional TV fell by 12%."
+    ],
+    [
+     14.52,
+     "In a year, as people move to streaming."
+    ]
+   ]
+  },
+  {
+   "piece": 3,
+   "parts": [
+    [
+     16.46,
+     "Netflix and YouTube already know what you want to watch."
+    ],
+    [
+     19.27,
+     "So, Sky needs that too."
+    ],
+    [
+     20.85,
+     "and FOSS."
+    ]
+   ]
+  },
+  {
+   "piece": 4,
+   "parts": [
+    [
+     21.82,
+     "Second,"
+    ],
+    [
+     22.61,
+     "Why now?"
+    ]
+   ]
+  },
+  {
+   "piece": 5,
+   "parts": [
+    [
+     23.28,
+     "Well, you've already started with SkyQ Voice Search."
+    ]
+   ]
+  },
+  {
+   "piece": 6,
+   "parts": [
+    [
+     26.22,
+     "Now, the next step is an AI assistant that knows each household."
+    ]
+   ]
+  },
+  {
+   "piece": 7,
+   "parts": [
+    [
+     29.98,
+     "Imagine OX in the sky."
+    ],
+    [
+     31.45,
+     "Make me scared."
+    ]
+   ]
+  },
+  {
+   "piece": 8,
+   "parts": [
+    [
+     32.53,
+     "FUD!"
+    ],
+    [
+     33.25,
+     "Why DDN?"
+    ]
+   ]
+  },
+  {
+   "piece": 9,
+   "parts": [
+    [
+     34.29,
+     "Idle Chips will still cost you, and Cast.ai found that Enterprise Chips..."
+    ],
+    [
+     38.66,
+     "Average around 5% of use."
+    ]
+   ]
+  },
+  {
+   "piece": 10,
+   "parts": [
+    [
+     41.07,
+     "It's like paying for a whole Sky Sports bundle."
+    ],
+    [
+     43.97,
+     "Just to watch Arsenal lose."
+    ]
+   ]
+  },
+  {
+   "piece": 11,
+   "parts": [
+    [
+     45.45,
+     "Now, DDN's Infinia keeps data flowing to the chips."
+    ]
+   ]
+  },
+  {
+   "piece": 12,
+   "parts": [
+    [
+     48.52,
+     "And they say customers reach up to 99% busy and cut costs per token by 75%."
+    ]
+   ]
+  },
+  {
+   "piece": 13,
+   "parts": [
+    [
+     54.41,
+     "Plus, they already work with media companies like Canel Plus."
+    ],
+    [
+     57.61,
+     "And start."
+    ]
+   ]
+  },
+  {
+   "piece": 14,
+   "parts": [
+    [
+     58.63,
+     "So the arcs is clear."
+    ]
+   ]
+  },
+  {
+   "piece": 15,
+   "parts": [
+    [
+     60.06,
+     "Let DDN run a pilot on the AI behind your voice search or your next assistant."
+    ]
+   ]
+  },
+  {
+   "piece": 16,
+   "parts": [
+    [
+     64.76,
+     "Then measure the values before..."
+    ],
+    [
+     66.72,
+     "And after."
+    ]
+   ]
+  },
+  {
+   "piece": 17,
+   "parts": [
+    [
+     67.54,
+     "And if both improve..."
+    ],
+    [
+     69.17,
+     "Scale it."
+    ]
+   ]
+  },
+  {
+   "piece": 18,
+   "parts": [
+    [
+     69.86,
+     "So, Skye."
+    ]
+   ]
+  },
+  {
+   "piece": 19,
+   "parts": [
+    [
+     70.88,
+     "Don't be the next blockbuster."
+    ]
+   ]
+  },
+  {
+   "piece": 20,
+   "parts": [
+    [
+     72.66,
+     "Thank you."
+    ]
+   ]
+  }
+ ],
+ "final_transcript": "Sorry I kept you waiting. That's AI chips, every day, waiting for data. And you, Sky, you pay full price to wait. So first, why change? Ofcom says traditional TV fell by 12 in a year as people move to streaming. Netflix and YouTube already know what you want to watch, so Sky needs that too, and fast. Second, why now? Well, you've already started with SkyQ voice search. Now, the next step is an AI assistant that knows each household. Imagine asking, Sky, make me scared. Third, why DDN? Idle chips will still cost you, and Cast AI found that enterprise chips average around 5 of use. It's like paying for a whole Sky Sports bundle just to watch Arsenal lose. Now, DDN's Infinia keeps data flowing to the chips, and they say customers reach up to 99 busy and cut costs per token by 75%. Plus, they already work with media companies like Canal Plus and Starz. So the arcs is clear. Let DDN run a pilot on the AI behind your voice search or your next assistant. Then measure the values before and after. And if both improve, scale it. So Sky. Don't be the next blockbuster. Thank you.",
+ "script_check": [],
+ "cutsheet": "qa_v4/cutsheet.jpg"
+}

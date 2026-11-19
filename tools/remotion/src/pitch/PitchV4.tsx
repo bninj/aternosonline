@@ -4,7 +4,7 @@ import {EASE, Footage, FootageSource, LineChartFall, MeasureCard, PITCH_CAPTION_
 import plan from './shotplan_v4.json';
 import {pitchTranscriptV3} from './captions';
 import {cameraAt, faceAt, fr, keepOutZoomed, segIndexAt, Box} from './layout_v4';
-import {ChairSpotlight, ChipGrid, EndBuild, LogoTiles, ShatterLogo, VoiceChat, VoicePill} from './graphics';
+import {ChairSpotlight, ChipGrid, DepthLogos, DepthShatter, EndBuild, NameTag, PersonLayer, VoiceChat, VoicePill} from './graphics';
 
 // PitchFinal v4: the tight edit (SHOTPLAN_v4, 20 picture segments, J-cuts), 74.2 s = 2226 f.
 // Camera: eased drift per segment, snap-zoom accents on the key words, a velocity-matched seam (push + rack-focus
@@ -22,8 +22,13 @@ const PLATE_END = 2136; // 71.197 s: first frame without picture
 const W = plan.word_anchors as Record<string, number>;
 const w = (k: string) => fr(W[k]);
 const cutF = (i: number) => fr(plan.segments[i].start);
+const CUTS = plan.segments.slice(1).map((s) => fr(s.start));
 const G = 0.79; // graphics bottom (fraction of H): clears the 54 px caption pill (top at 0.83 H) by 40 px
 const R = {anchor: 'right' as const};
+// Depth logos: [x, y, height] in footage px @1920 (pre-zoom), placed behind calm edges (head side, shoulder).
+const LOGO_POS = {netflix: [290, 160, 112], youtube: [230, 322, 108], canal: [320, 170, 108], starz: [300, 318, 96], bb: [360, 110, 196]} as const;
+// Person alpha (SAM 2.1 + ViTMatte on the look plate), plate frame ranges [from, to).
+const PERSON = [{src: 'pitch/person_s3.webm', from: 497, to: 583}, {src: 'pitch/person_s13.webm', from: 1694, to: 1761}, {src: 'pitch/person_s18.webm', from: 2079, to: 2113}];
 
 export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice, showGuides = false}) => {
   const frame = useCurrentFrame();
@@ -31,6 +36,7 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
   const cam = cameraAt(Math.min(frame, PLATE_END - 1));
   const endT = interpolate(frame, [PLATE_END, PLATE_END + 16], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.inOut});
   const blur = cam.blur + 18 * endT;
+  const camStyle: React.CSSProperties = {transformOrigin: `${cam.origin[0]}px ${cam.origin[1]}px`, transform: `scale(${(cam.z * (1 + 0.04 * endT)).toFixed(5)})`, filter: blur > 0.05 ? `blur(${blur.toFixed(2)}px)` : undefined};
   const footage: FootageSource = {
     src: plate, kind: 'video', blurredSrc: plateBlur ?? undefined,
     freezeAt: frame >= PLATE_END ? PLATE_END - 1 : undefined,
@@ -59,7 +65,18 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
           The pitch clock starts on "Sorry". */}
       <AbsoluteFill style={{transformOrigin: `${cam.origin[0]}px ${cam.origin[1]}px`, transform: `scale(${cam.z.toFixed(5)})`}}>
         <ChairSpotlight dimIn={[4, 20]} dimOut={[34, 54]} lineIn={[8, 34]} offAt={[fr(2.45), fr(3.0)]} />
+        {/* Logos IN the room, partly behind him (the person layer below re-composites him in front). Footage space. */}
+        <DepthLogos from={tilesFrom} durationInFrames={fr(19.25) - tilesFrom} items={[
+          {logo: 'netflix', at: 3, x: LOGO_POS.netflix[0], y: LOGO_POS.netflix[1], h: LOGO_POS.netflix[2]},
+          {logo: 'youtube', at: w('YouTube') - 4 - tilesFrom, x: LOGO_POS.youtube[0], y: LOGO_POS.youtube[1], h: LOGO_POS.youtube[2]}]} />
+        <DepthLogos from={caFrom} durationInFrames={fr(58.5) - caFrom} items={[
+          {logo: 'canalplus', at: 3, x: LOGO_POS.canal[0], y: LOGO_POS.canal[1], h: LOGO_POS.canal[2]},
+          {logo: 'starz', at: w('Starz') - 4 - caFrom, x: LOGO_POS.starz[0], y: LOGO_POS.starz[1], h: LOGO_POS.starz[2]}]} />
+        <DepthShatter from={bbFrom} durationInFrames={fr(70.36) - bbFrom} x={LOGO_POS.bb[0]} y={LOGO_POS.bb[1]} h={LOGO_POS.bb[2]}
+          crackAt={fr(69.62) - bbFrom} breakAt={fr(69.76) - bbFrom} />
       </AbsoluteFill>
+      {PERSON.map((pl) => <PersonLayer key={pl.src} src={pl.src} plateFrom={pl.from} durationInFrames={pl.to - pl.from} style={camStyle} />)}
+      <NameTag from={fr(3.1)} durationInFrames={fr(6.0) - fr(3.1)} anchor="right" bottom={0.36} name="ELIUD AWUAH" />
       <PitchTimer from={timerFrom} durationInFrames={fr(2.9) - timerFrom} clockZero={w('Sorry')} anchor="right" bottom={0.3} />
 
       {/* Progress: presents at each section seam, then a slim strip. */}
@@ -69,7 +86,7 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
       {/* Why change */}
       <LineChartFall from={chartFrom} durationInFrames={fr(16.4) - chartFrom} {...R} bottom={G} valueAt={w('12%') - chartFrom} value="12%" source="Ofcom Media Nations 2026"
         chartW={400} chartH={100} scale={0.66} countUp glow />
-      <LogoTiles from={tilesFrom} durationInFrames={fr(19.25) - tilesFrom} {...R} bottom={G} items={[{logo: 'netflix', at: 3}, {logo: 'youtube', at: w('YouTube') - 4 - tilesFrom}]} />
+
 
       {/* Why now */}
       <VoicePill from={voiceFrom} durationInFrames={fr(26.15) - voiceFrom} {...R} bottom={G} text="Sky Q voice search" voice={voice} />
@@ -80,18 +97,16 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
       <ChipGrid from={idleFrom} durationInFrames={fr(41.0) - idleFrom} {...R} bottom={0.8} mode="idle" landAt={w('5%') - idleFrom} source="Cast AI, enterprise average" />
       <ChipGrid from={ddnFrom} durationInFrames={fr(54.35) - ddnFrom} {...R} bottom={0.8} mode="ddn" flowAt={w('data flowing to the chips') - ddnFrom - 4}
         landAt={w('99%') - ddnFrom} countFrames={Math.min(34, w('99%') - w('customers'))} costFrom={w('cut costs per token') - ddnFrom - 2} costLandAt={w('75%') - ddnFrom} source="per DDN" />
-      <LogoTiles from={caFrom} durationInFrames={fr(58.5) - caFrom} {...R} bottom={G} items={[{logo: 'canalplus', at: 3}, {logo: 'starz', at: w('Starz') - 4 - caFrom}]} />
+
 
       {/* The ask: "30 day pilot" pill on "pilot", grows into the measure card on "Then measure", holds through "So Sky",
           leaves before "Blockbuster". Upper right: clear of the face in all four shots and of the AI sign. */}
       <MeasureCard from={askFrom} durationInFrames={fr(69.3) - askFrom} {...R} bottom={0.45}
         tag="30 day pilot" tagAt={w('pilot') - askFrom - 1} itemsAt={after(w('Then measure'), 16) - askFrom} width={500} labelSize={32} barLabelSize={24} pad={24} gap={12}
         items={[{label: 'How busy the chips are', at: after(w('Then measure'), 16) - askFrom + 2, before: 0.22, after: 0.9}, {label: 'What each answer costs', at: after(w('Then measure'), 16) - askFrom + 10, before: 0.85, after: 0.3}]} />
-      {/* Blockbuster lands on its word, cracks on the music's soft knock (about 69.6), shatters, gone before "Thank you". */}
-      <ShatterLogo from={bbFrom} durationInFrames={fr(70.36) - bbFrom} {...R} bottom={0.44} logo="blockbuster" logoH={190}
-        crackAt={fr(69.62) - bbFrom} breakAt={fr(69.76) - bbFrom} />
 
-      <Subtitles transcript={transcript} look={PITCH_CAPTION_LOOK} anchor="center" joinGapFrames={6}
+
+      <Subtitles transcript={transcript} look={PITCH_CAPTION_LOOK} anchor="center" joinGapFrames={6} snapTo={CUTS}
         suppress={[{from: chatFrom, to: fr(32.4)}, {from: PLATE_END - 6, to: 2400}]} />
 
       <EndBuild from={PLATE_END} durationInFrames={2226 - PLATE_END} />

@@ -26,25 +26,9 @@ const split = (ws: Word[]): Word[][] => {
 
 type RawPhrase = {words: {text: string; start: number; end: number; emphasis: boolean}[]};
 export const pitchTranscript = (): Transcript => makeTranscript(raw as RawPhrase[]);
-// v4: also enforce a minimum on-screen time (0.35 s): a chunk shorter than that joins its neighbour when the
-// joined phrase still fits the one-line rule, so tight pacing never makes the caption flicker.
-export const pitchTranscriptV3 = (): Transcript => {
-  const t = makeTranscript(raw3 as RawPhrase[]);
-  const out: {from: number; to: number}[] = [];
-  for (const ph of t.phrases) {
-    const dur = t.words[ph.to].end - t.words[ph.from].start;
-    const prev = out[out.length - 1];
-    if (prev && dur < 0.35) {
-      const ws = t.words.slice(prev.from, ph.to + 1);
-      if (ws.length <= MAX_WORDS && len(ws) <= MAX_CHARS) {
-        prev.to = ph.to;
-        continue;
-      }
-    }
-    out.push({...ph});
-  }
-  return {words: t.words, phrases: out};
-};
+// v5: captions_v3 phrases are the source of truth. They are only ever SPLIT (one-line rule), never merged, so a
+// caption can never join the end of one sentence or section to the start of the next.
+export const pitchTranscriptV3 = (): Transcript => makeTranscript(raw3 as RawPhrase[]);
 
 const makeTranscript = (rawPhrases: RawPhrase[]): Transcript => {
   const words: Word[] = [];

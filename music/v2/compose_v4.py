@@ -231,11 +231,12 @@ def compose(tm):
     for k, p in enumerate([57, 61, 64]):
         s.add("marimba", r0 - 1.5 + k * 0.5, 0.45, p, 40 + 4 * k, human=0)
     s.add("cymbal", r0, 0, 3, 100, human=0)
-    s.add("kick", r0, 0, 36, 52, human=0)
-    s.add("bass", r0, 5.0, 38, 80, human=0)
-    s.add("fmpiano", r0, 5.0, 0, 44, human=0, extra=(50, 57, 62, 64, 66))
+    rv = cfg.get("resolve_vel_offset", 0)
+    s.add("kick", r0, 0, 36, 52 + rv, human=0)
+    s.add("bass", r0, 5.0, 38, 80 + rv, human=0)
+    s.add("fmpiano", r0 + 0.02, 5.0, 0, 44 + rv, human=0, extra=(50, 57, 62, 64, 66))
     for p in [50, 57, 62, 66]:
-        s.add("marimba", r0, 1.2, p, 56, human=0)
+        s.add("marimba", r0 + 0.01, 1.2, p, 56 + rv, human=0)
     for p in [74, 78, 81]:
         s.add("vibes", r0, 4.0, p, 40, human=0)
     s.add("cymbal", r0, 0, 4, 100, human=0)

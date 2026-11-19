@@ -369,7 +369,7 @@ def render(s, tm, out):
         x = x[: len(buf) - i]
         buf[i: i + len(x)] += x * g
 
-    kit = S.drums()
+    kit = S.drums_cc0() if cfg.get("kit") == "cc0" else S.drums()
     mar = S.marimba()
     vs = S.vibes("Soft Mallets")
     vbow = S.vibes("Bowed")

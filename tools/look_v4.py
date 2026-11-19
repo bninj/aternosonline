@@ -35,11 +35,11 @@ import numpy as np
 import cv2
 
 ROOT = "/home/user/ddn-project"
-TL = f"{ROOT}/edit/timeline_v4.json"
-GRADE = f"{ROOT}/edit/grade/grade_v4.json"
+TL = os.environ.get("LOOK_TL", f"{ROOT}/edit/timeline_v4.json")
+GRADE = os.environ.get("LOOK_GRADE", f"{ROOT}/edit/grade/grade_v4.json")
 KEEP = f"{ROOT}/tools/blur/keep"
 MODELS = f"{ROOT}/tools/blur/models"
-CACHE = f"{ROOT}/tools/look_cache"
+CACHE = os.environ.get("LOOK_CACHE", f"{ROOT}/tools/look_cache")
 W, H = 2304, 1296
 AW, AH = 640, 360                       # analysis resolution
 FPS = 30

@@ -269,3 +269,31 @@ def cymbal(name):
         if os.path.exists(p):
             return load(p, trim=not ("cresc" in name or "bow" in name))
     raise FileNotFoundError(name)
+
+
+# ----------------------------------------------------------------------------
+# CC0-only kit (no attribution needed): Renoise "Acoustic Kit Two Handed"
+# (crash_noise_division, CC0) Yamaha Stage Custom muffled kick + Pearl snare,
+# VCSL (CC0) Tom 1 / Tom 2 stick hits.  Gains level-match the Naked Drums
+# pieces they replace (measured RMS at the velocities used).
+# ----------------------------------------------------------------------------
+REN_WAV = os.path.join(CAND, "renoise_acoustic_kit_two_handed", "extracted", "wav")
+VCSL_TOM = os.path.join(VCSL, "Membranophones", "Struck Membranophones")
+
+
+def drums_cc0():
+    db = lambda g: 10 ** (g / 20)
+    kick = Kit([[os.path.join(REN_WAV, f"Sample0{4 - i} (kick stop {i + 1}).wav")] for i in range(5)], gain=db(3.0))
+    snare = Kit([[os.path.join(REN_WAV, f"Sample3{4 - i} (snare center r {i + 1}).wav"),
+                  os.path.join(REN_WAV, f"Sample3{8 - i} (snare center l {i + 1}).wav")] for i in (1, 2, 3)],
+                gain=db(SNARE_GAIN_DB))
+    th = lambda g: Kit([sorted(glob.glob(os.path.join(VCSL_TOM, "Tom 1", "Stick", f"TomH_HitS_v{v}_*.wav"))) for v in (2, 3, 4)], gain=db(g))
+    tl = Kit([sorted(glob.glob(os.path.join(VCSL_TOM, "Tom 2", "Stick", f"TomL_HitS_v{v}_*.wav"))) for v in (2, 3, 4)], gain=db(13.6))
+    kit = {"kick": kick, "snare": snare, "tom_hi": th(17.1), "tom_mid": th(16.9), "tom_lo": tl}
+    sh = vcsl("Idiophones", "Struck Idiophones", "Shaker, Small")
+    kit["shaker_dn"] = Kit([sorted(glob.glob(os.path.join(sh, "Mid_ShakerLowFaster_Down_rr*.wav")))])
+    kit["shaker_up"] = Kit([sorted(glob.glob(os.path.join(sh, "Mid_ShakerLowFaster_Up_rr*.wav")))])
+    return kit
+
+
+SNARE_GAIN_DB = 1.3

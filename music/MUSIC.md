@@ -3,6 +3,25 @@
 ## v5: re-timed to `edit/SHOTPLAN_v4.json` and `edit/voice_master_v3.wav` (74.2 s)
 The sound and arrangement are v4's (curious, then confident; described below). Only the timing changed: `v2/edit_v5.json`.
 
+**Licensing: no credits needed.** v5 contains **no attribution-required material**. Every sample in `music_mix.wav`, the stems and the SFX is CC0 (public domain).
+- The Naked Drums kit (CC BY 4.0, which v3 and v4 used) has been **removed** (`"kit": "cc0"` in `edit_v5.json`). It is replaced by:
+  - **Kick:** the Renoise "Acoustic Kit Two Handed" Yamaha Stage Custom muffled kick ("kick stop" 1–5). The author is crash_noise_division. The licence is "CC0, Public Domain", re-checked at https://files.renoise.com/forum/downloads/Instruments/Crash_noise_division-Acoustic_Kit_Two_Handed/LICENSE.txt. Its 32-bit FLACs were converted to 24-bit WAV.
+  - **Ghost snare:** the same kit's Pearl snare, centre hits, layers 2–4. CC0.
+  - **Toms:** VCSL "Tom 1" and "Tom 2" stick hits (Versilian Studios, CC0).
+- Each replacement is level-matched to the piece it replaces: measured RMS at the velocities used is within ±1 dB. Timing is identical.
+- The resolve stack was softened by 10 velocity steps so the mix reaches −20.0 LUFS at −3.4 dBTP.
+- Exact sources used, per `out_v5/timing.json` (`samples_used` + `sfx_sources`): VCSL (44 files), FreePats RBX bass (7), Renoise kit (4) and BigSoundBank (1). All are CC0. A courtesy credit is optional, never required.
+- After the kit swap, the measured results are:
+  - **Mix:** −20.0 LUFS, true peak −3.4 dBTP, 74.2 s.
+  - **Loudness by section (LUFS):**
+
+| hook | change | now | DDN | ask | punchline drop | end card |
+|---|---|---|---|---|---|---|
+| −24.4 | −23.0 | −20.8 | −18.9 | −18.3 | −23.5 | −19.7 |
+
+  - **Downbeats:** within ±4 ms.
+  - **Preview:** the voice is a median 23.6 dB above the music.
+
 **Section downbeats.** Hook 1.07, change 9.353, now 21.906, DDN 32.592, ask 58.71, punchline 67.643, end-card resolve 71.30.
 - Bars per section: 4 / 6 / 5 / 12 / 4 / 1.5.
 - The tempo map glides **116 → 96 BPM**. It runs faster than v4 because the edit is tighter; the hook bars are the fastest, the punchline the slowest.
@@ -241,7 +260,7 @@ Levels are given relative to the dialogue-peak reference: the 95th percentile of
 
 | Library | Used for | Author / source | Licence (checked at source) | Attribution |
 |---|---|---|---|---|
-| **Naked Drums** (kick, snare at lowest layers, 3 toms) | kick, ghost backbeat, tom fills | Wilkinson Audio; SFZ by kinwie. https://github.com/sfzinstruments/WilkinsonAudio.NakedDrums (commit 407732a5) | **CC BY 4.0** (repo LICENSE; https://sfzinstruments.github.io/drums/naked_drums) | **Required:** "Drums: 'Naked Drums' by Wilkinson Audio (SFZ by kinwie), CC BY 4.0, https://github.com/sfzinstruments/WilkinsonAudio.NakedDrums" |
+| **Naked Drums** (v3/v4 only; NOT used in v5) (kick, snare at lowest layers, 3 toms) | kick, ghost backbeat, tom fills | Wilkinson Audio; SFZ by kinwie. https://github.com/sfzinstruments/WilkinsonAudio.NakedDrums (commit 407732a5) | **CC BY 4.0** (repo LICENSE; https://sfzinstruments.github.io/drums/naked_drums) | **Required:** "Drums: 'Naked Drums' by Wilkinson Audio (SFZ by kinwie), CC BY 4.0, https://github.com/sfzinstruments/WilkinsonAudio.NakedDrums" |
 | **FreePats Finger Bass YR** | bass | Andrea Biasior, FreePats. http://freepats.zenvoid.org/ElectricGuitar/clean-electric-bass.html | CC0 1.0 (README + LICENSE.txt) | none (courtesy credit optional) |
 | **VCSL**: TX81Z FM Piano, TX81Z Clavisynth, marimba, vibraphone (soft, bowed), hand chimes, suspended cymbals 1 + 2, small shaker | chords, pluck pulse, motif, accents, swells, chime, whoosh "air" | Versilian Studios. https://github.com/sgossner/VCSL (commit c1ea7bcc) | CC0 1.0 ("no royalties, no credit, no special terms") | none |
 | **BigSoundBank**: Whoosh #3 (s1795), #4 (s1796), #7 (s1800); MacBook trackpad simple click (s1740) | SFX | Joseph Sardin, https://bigsoundbank.com (each page reads "CC0 (public domain): Free and royalty-free") | CC0 1.0 | optional: "Additional sounds: Joseph SARDIN – BigSoundBank.com" |

@@ -23,6 +23,7 @@ export type SubtitlesProps = {
   suppress?: {from: number; to: number}[]; // frame ranges with no caption (e.g. a chat bubble already shows the words) [4.6]
   joinGapFrames?: number; // phrases closer than this share one plate and swap softly (default 8)
   look?: Partial<CaptionLook>;
+  snapTo?: number[]; // picture-cut frames: a phrase starting up to 8 f before a cut appears ON the cut instead (clean J-cuts)
 };
 
 // Caption look. DDN 2026 default: 78 px regular on an 18 px radius plate, two lines allowed. The pitch film uses the
@@ -168,7 +169,7 @@ const RunBody: React.FC<{run: Run; fps: number; justify: string; side: number; b
   );
 };
 
-export const Subtitles: React.FC<SubtitlesProps> = ({transcript, emphasis = DEFAULT_EMPHASIS, anchor = 'center', faceBox, avoid = [], holdAfterLastWord = 0.5, strict = true, suppress = [], joinGapFrames = 8, look}) => {
+export const Subtitles: React.FC<SubtitlesProps> = ({transcript, emphasis = DEFAULT_EMPHASIS, anchor = 'center', faceBox, avoid = [], holdAfterLastWord = 0.5, strict = true, suppress = [], joinGapFrames = 8, look, snapTo = []}) => {
   const L: CaptionLook = {...DDN_CAPTION_LOOK, ...look};
   const {fps} = useVideoConfig();
   const ready = useFontsReady();
@@ -178,6 +179,14 @@ export const Subtitles: React.FC<SubtitlesProps> = ({transcript, emphasis = DEFA
   const runs = useMemo<Run[]>(() => {
     if (!ready) return [];
     const ws = phraseWindows(transcript, fps, holdAfterLastWord);
+    // snap phrase starts to picture cuts just after them; the previous phrase holds until the cut
+    ws.forEach((wnd, k) => {
+      const c = snapTo.find((cf) => cf > wnd.from && cf - wnd.from <= 8);
+      if (c !== undefined) {
+        wnd.from = c;
+        if (k > 0 && ws[k - 1].to >= wnd.from - 8) ws[k - 1].to = c;
+      }
+    });
     ws.forEach((p) => onScreen(p.words.map((x) => x.text.trim()).join(' '), 'subtitle phrase', strict));
     // Clip phrase windows by the suppress ranges.
     const clipped: {from: number; to: number; words: Word[]}[] = [];
@@ -197,7 +206,7 @@ export const Subtitles: React.FC<SubtitlesProps> = ({transcript, emphasis = DEFA
       } else out.push({from: c.from, to: c.to, phrases: [{from: c.from, to: c.to, laid}]});
     }
     return out;
-  }, [ready, transcript, fps, holdAfterLastWord, strict, suppress, emphasis, joinGapFrames, maxText, L.size, L.role, L.emphRole, L.padX, L.padY, L.maxLines]);
+  }, [ready, transcript, fps, holdAfterLastWord, strict, suppress, emphasis, joinGapFrames, snapTo, maxText, L.size, L.role, L.emphRole, L.padX, L.padY, L.maxLines]);
 
   // Centred by default (DDN 2026). If the face or an avoid box drops into the caption band, move to the far side.
   const plateH1 = lineH(L) + 2 * L.padY;

@@ -51,3 +51,4 @@ Original brief: the competition, script, process, deviation rules, timing, capti
     - **Caption bug:** "Sky, make me scared. Third," merged across a section, so captions must never span a sentence end, a cut or a section change.
     - **Logos bigger, ideally BEHIND the speaker** (depth layering with a person alpha only for segments 3, 13 and 18; fall back to large-beside if the edges aren't clean).
     - The user is looking for IMG_3859 ("If both improve, scale it") in Drive.
+27. **v5 edit:** IMG_3859 is inserted (medium shot, "And if both improve, scale it.", source 5.69–7.99) after "before and after". 21 shots; voice 73.497 s; total 76.5 s. Files: edl_v4.json, timeline_v5.json, captions_v4.json, SHOTPLAN_v5.json, voice_master_v4.wav, grade/grade_v5.json, plates_look_v5/. The ask card gains "If both improve → scale it". Music: CC0-only kit (no credits).

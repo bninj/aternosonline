@@ -1,0 +1,191 @@
+{
+ "0": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=1.0207:bb=1.0041,eq=gamma=1.450:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.45,
+  "r": 1.0207,
+  "b": 1.0041,
+  "med": 0.23,
+  "rg": 1.048,
+  "bg": 0.926
+ },
+ "1": {
+  "filter": "colorchannelmixer=rr=1.0056:bb=1.0006,eq=gamma=0.850:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 0.85,
+  "r": 1.0056,
+  "b": 1.0006,
+  "med": 0.475,
+  "rg": 1.064,
+  "bg": 0.929
+ },
+ "2": {
+  "filter": "colorchannelmixer=rr=1.0064:bb=0.9970,eq=gamma=0.850:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 0.85,
+  "r": 1.0064,
+  "b": 0.997,
+  "med": 0.472,
+  "rg": 1.063,
+  "bg": 0.933
+ },
+ "3": {
+  "filter": "colorchannelmixer=rr=1.0128:bb=0.9805,eq=gamma=0.850:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 0.85,
+  "r": 1.0128,
+  "b": 0.9805,
+  "med": 0.47,
+  "rg": 1.056,
+  "bg": 0.948
+ },
+ "4": {
+  "filter": "colorchannelmixer=rr=0.9897:bb=0.9893,eq=gamma=0.850:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 0.85,
+  "r": 0.9897,
+  "b": 0.9893,
+  "med": 0.488,
+  "rg": 1.081,
+  "bg": 0.94
+ },
+ "5": {
+  "filter": "colorchannelmixer=rr=0.9955:bb=0.9833,eq=gamma=0.850:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 0.85,
+  "r": 0.9955,
+  "b": 0.9833,
+  "med": 0.474,
+  "rg": 1.075,
+  "bg": 0.946
+ },
+ "6": {
+  "filter": "colorchannelmixer=rr=0.9895:bb=0.9910,eq=gamma=0.850:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 0.85,
+  "r": 0.9895,
+  "b": 0.991,
+  "med": 0.493,
+  "rg": 1.081,
+  "bg": 0.938
+ },
+ "7": {
+  "filter": "colorchannelmixer=rr=0.9867:bb=0.9908,eq=gamma=0.850:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 0.85,
+  "r": 0.9867,
+  "b": 0.9908,
+  "med": 0.509,
+  "rg": 1.084,
+  "bg": 0.939
+ },
+ "8": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=0.9788:bb=1.0414,eq=gamma=1.450:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.45,
+  "r": 0.9788,
+  "b": 1.0414,
+  "med": 0.257,
+  "rg": 1.093,
+  "bg": 0.893
+ },
+ "9": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=0.9982:bb=1.0251,eq=gamma=1.450:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.45,
+  "r": 0.9982,
+  "b": 1.0251,
+  "med": 0.231,
+  "rg": 1.072,
+  "bg": 0.907
+ },
+ "10": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=0.9891:bb=1.0207,eq=gamma=1.450:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.45,
+  "r": 0.9891,
+  "b": 1.0207,
+  "med": 0.221,
+  "rg": 1.082,
+  "bg": 0.911
+ },
+ "11": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=0.9945:bb=1.0144,eq=gamma=1.450:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.45,
+  "r": 0.9945,
+  "b": 1.0144,
+  "med": 0.223,
+  "rg": 1.076,
+  "bg": 0.917
+ },
+ "12": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=0.9912:bb=1.0138,eq=gamma=1.450:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.45,
+  "r": 0.9912,
+  "b": 1.0138,
+  "med": 0.222,
+  "rg": 1.08,
+  "bg": 0.917
+ },
+ "13": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=0.9962:bb=1.0101,eq=gamma=1.450:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.45,
+  "r": 0.9962,
+  "b": 1.0101,
+  "med": 0.228,
+  "rg": 1.074,
+  "bg": 0.921
+ },
+ "14": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=1.0532:bb=0.9821,eq=gamma=1.238:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.238,
+  "r": 1.0532,
+  "b": 0.9821,
+  "med": 0.322,
+  "rg": 1.016,
+  "bg": 0.947
+ },
+ "15": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=1.0502:bb=0.9940,eq=gamma=1.224:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.224,
+  "r": 1.0502,
+  "b": 0.994,
+  "med": 0.326,
+  "rg": 1.019,
+  "bg": 0.936
+ },
+ "16": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=1.0465:bb=0.9934,eq=gamma=1.237:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.237,
+  "r": 1.0465,
+  "b": 0.9934,
+  "med": 0.322,
+  "rg": 1.022,
+  "bg": 0.936
+ },
+ "17": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=1.0259:bb=0.9911,eq=gamma=1.215:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.215,
+  "r": 1.0259,
+  "b": 0.9911,
+  "med": 0.329,
+  "rg": 1.043,
+  "bg": 0.938
+ },
+ "18": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=1.0372:bb=0.9691,eq=gamma=1.165:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.165,
+  "r": 1.0372,
+  "b": 0.9691,
+  "med": 0.344,
+  "rg": 1.032,
+  "bg": 0.96
+ },
+ "19": {
+  "filter": "colorchannelmixer=rr=1.0201:bb=0.9753,eq=gamma=1.127:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.127,
+  "r": 1.0201,
+  "b": 0.9753,
+  "med": 0.356,
+  "rg": 1.049,
+  "bg": 0.954
+ },
+ "20": {
+  "filter": "hqdn3d=1.2:1.2:4:4,colorchannelmixer=rr=1.0533:bb=0.9633,eq=gamma=1.232:contrast=1.04:saturation=0.94,curves=master='0/0.035 0.5/0.5 0.92/0.9 1/0.95'",
+  "gamma": 1.232,
+  "r": 1.0533,
+  "b": 0.9633,
+  "med": 0.323,
+  "rg": 1.016,
+  "bg": 0.965
+ }
+}
