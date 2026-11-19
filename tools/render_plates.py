@@ -18,7 +18,8 @@ segs = []
 for i, s in enumerate(tl):
     clip = os.path.basename(s["src"]).replace(".MOV", "")
     src = "/home/user/ddn-project/footage/raw/" + clip + ".MOV"
-    n = round((s["out"] - s["in"]) * 30)
+    s = dict(s); s["in"], s["out"] = s.get("vin", s["in"]), s.get("vout", s["out"])  # picture in/out (J-cut aware)
+    n = round(s["vend"] * 30) - round(s["vstart"] * 30) if "vstart" in s else round((s["out"] - s["in"]) * 30)
     raw = f"{OUT}/seg{i:02d}_blur.mp4"; fin = f"{OUT}/seg{i:02d}.mp4"; segs.append(fin)
     if only is not None and i not in only: continue
     if noblur:

@@ -36,3 +36,10 @@ music/__pycache__/
 brand/fonts/match/cand*/
 reference/yt_pages/
 tools/remotion/public/plates/
+edit/cuts/
+edit/*.log
+edit/ln*.json
+edit/ln_args.txt
+tools/blur/dbg/
+edit/plates_noblur/
+edit/plates_blur/

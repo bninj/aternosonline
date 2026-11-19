@@ -1,63 +1,348 @@
 {
-  "fps": 30,
-  "duration": 80.0,
-  "notes": "All times in seconds on the final timeline. Voice = edit/voice_v1.wav (0 to 77.0). Picture plate = edit/plates/plate.mp4 (2304x1296, 0 to 77.0, graded + background blur). End card 77.0 to 80.0. Zoom scale is relative to the full 16:9 frame (1.00 = whole plate fitted to 1920x1080); push-ins are slow eased drifts centred on the speaker's face, never sudden. Cuts happen only at segment boundaries (sentence ends).",
-  "segments": [
-    {"i": 0,  "start": 0.00,  "end": 10.50, "section": "hook",   "zoom": [1.00, 1.06], "zoom_from": 3.0, "note": "ONE continuous take: chair alone 0 to ~1.8, he rolls in, apology to chair, turns to camera. Push starts only once he is seated."},
-    {"i": 1,  "start": 10.50, "end": 12.30, "section": "change", "zoom": [1.00, 1.02], "framing": "wide"},
-    {"i": 2,  "start": 12.30, "end": 18.07, "section": "change", "zoom": [1.12, 1.15], "framing": "punch"},
-    {"i": 3,  "start": 18.07, "end": 23.76, "section": "change", "zoom": [1.00, 1.03], "framing": "wide"},
-    {"i": 4,  "start": 23.76, "end": 25.46, "section": "now",    "zoom": [1.00, 1.02], "framing": "wide"},
-    {"i": 5,  "start": 25.46, "end": 28.56, "section": "now",    "zoom": [1.12, 1.14], "framing": "punch"},
-    {"i": 6,  "start": 28.56, "end": 35.21, "section": "now",    "zoom": [1.00, 1.05], "framing": "wide"},
-    {"i": 7,  "start": 35.21, "end": 37.18, "section": "ddn",    "zoom": [1.00, 1.015], "framing": "steady"},
-    {"i": 8,  "start": 37.18, "end": 44.18, "section": "ddn",    "zoom": [1.00, 1.025], "framing": "steady"},
-    {"i": 9,  "start": 44.18, "end": 48.75, "section": "ddn",    "zoom": [1.00, 1.02], "framing": "steady"},
-    {"i": 10, "start": 48.75, "end": 52.05, "section": "ddn",    "zoom": [1.00, 1.02], "framing": "steady"},
-    {"i": 11, "start": 52.05, "end": 58.12, "section": "ddn",    "zoom": [1.00, 1.025], "framing": "steady"},
-    {"i": 12, "start": 58.12, "end": 62.73, "section": "ddn",    "zoom": [1.00, 1.02], "framing": "steady"},
-    {"i": 13, "start": 62.73, "end": 72.23, "section": "ask",    "zoom": [1.00, 1.06], "framing": "continuous", "note": "ONE continuous take, no cuts"},
-    {"i": 14, "start": 72.23, "end": 77.00, "section": "ask",    "zoom": [1.00, 1.05], "framing": "close-up punchline", "note": "ONE continuous take; keep dramatic pauses"}
-  ],
-  "sections_for_progress_bar": [
-    {"id": "change", "label": "Why change", "start": 10.50, "end": 23.76},
-    {"id": "now",    "label": "Why now",    "start": 23.76, "end": 35.21},
-    {"id": "ddn",    "label": "Why DDN",    "start": 35.21, "end": 62.73},
-    {"id": "ask",    "label": "The ask",    "start": 62.73, "end": 77.00}
-  ],
-  "graphics": [
-    {"id": "timer",        "in": 1.20,  "out": 4.60,  "detail": "Pitch clock appears while the chair is alone; starts counting at 1.85 ('Sorry'); shows 00:0x / 01:30; animates away by 4.6. Not shown again."},
-    {"id": "progress",     "in": 10.45, "out": 76.60, "detail": "Enters as 'So first, why change?' starts; current section fills; animates out before the end card."},
-    {"id": "ofcom_chart",  "in": 12.39, "out": 18.00, "detail": "Falling line + '12%' landing exactly at 14.63 (spoken '12%'); source tag 'Ofcom Media Nations 2026'."},
-    {"id": "netflix",      "in": 18.11, "out": 21.00, "detail": "Netflix logo on 'Netflix' (18.11)."},
-    {"id": "youtube",      "in": 18.75, "out": 21.00, "detail": "YouTube logo on 'YouTube' (18.75), stacked under Netflix; both leave together before 'so Sky' (21.03)."},
-    {"id": "chat_bubble",  "in": 33.40, "out": 35.15, "detail": "Chat bubble 'Sky, make me scared.' types on with his words (33.47 to 34.41)."},
-    {"id": "stat_5",       "in": 39.05, "out": 44.10, "detail": "Card '5%' with tag 'Cast AI, enterprise average'; number lands at 42.43 (spoken '5%')."},
-    {"id": "busy_gauge",   "in": 52.55, "out": 55.30, "detail": "BUSY gauge rising towards 99%, landing at 53.67 (spoken '99%'), tag 'per DDN'."},
-    {"id": "stat_99_75",   "in": 55.30, "out": 58.05, "detail": "Card '99% busy, 75% lower cost per token', tag 'per DDN'; '75%' emphasised at 56.77. Gauge morphs/hands off into this card smoothly."},
-    {"id": "canal",        "in": 60.40, "out": 62.65, "detail": "Canal+ logo on 'Canal' (60.43)."},
-    {"id": "starz",        "in": 61.50, "out": 62.65, "detail": "Starz logo on 'Starz' (61.53)."},
-    {"id": "pilot_tag",    "in": 65.35, "out": 73.70, "detail": "'30 day pilot' tag appears on 'pilot' (65.39); becomes the header of the ask card."},
-    {"id": "ask_card",     "in": 69.10, "out": 73.70, "detail": "Two-item measure card ('How busy the chips are' / 'What each answer costs', before → after bars) enters on 'Then measure' (69.11), holds through 'So Sky,' and leaves smoothly before 'Blockbuster' (74.59). No DDN logo."},
-    {"id": "blockbuster",  "in": 74.55, "out": 76.40, "detail": "Blockbuster logo on 'Blockbuster' (74.59)."},
-    {"id": "end_card",     "in": 77.00, "out": 80.00, "detail": "DDN logo + 'Keep the chips busy.' Picture cross-blurs from the last frame of the close-up into the end card (no hard cut)."}
-  ],
-  "captions": "edit/captions_v2.json (50 phrases, word times, emphasis flags). Hide captions during the end card. Captions never cover the face; keep them in the lower band, clear of the graphics.",
-  "keep_out": {
-    "sky_monitor": "segments 1 to 6: the Sky monitor (top right, about x 0.58 to 0.91, y 0.14 to 0.54 of the frame before zoom); keep graphics off it",
-    "ddn_monitor": "segments 7 to 12: the DDN monitor + laptop (about x 0.51 to 0.81, y 0.17 to 0.47); keep graphics off it",
-    "ai_chair": "segments 0, 13, 14: the AI sign chair on the right; keep graphics off the sign"
+ "fps": 30,
+ "duration": 80.0,
+ "notes": "All times in seconds on the final timeline. Voice = edit/voice_v1.wav (0 to 77.0). Picture plate = edit/plates/plate.mp4 (2304x1296, 0 to 77.0, graded + background blur). End card 77.0 to 80.0. Zoom scale is relative to the full 16:9 frame (1.00 = whole plate fitted to 1920x1080); push-ins are slow eased drifts centred on the speaker's face, never sudden. Cuts happen only at segment boundaries (sentence ends). v3: picture cuts happen 3 frames AFTER the audio cut (J-cuts: sound leads picture), so segment start/end here are the PICTURE cut times. Same-spot cuts alternate wide/punch framing everywhere (incl. Why DDN) so no cut is a same-framing jump cut. Plate: edit/plates_noblur/plate.mp4 (v3 timing).",
+ "segments": [
+  {
+   "i": 0,
+   "start": 0,
+   "end": 10.6,
+   "section": "hook",
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "zoom_from": 3.0,
+   "note": "ONE continuous take: chair alone 0 to ~1.8, he rolls in, apology to chair, turns to camera. Push starts only once he is seated."
   },
-  "sfx": [
-    {"t": 1.85,  "sfx": "click",   "note": "timer start, very soft"},
-    {"t": 10.50, "sfx": "thump",   "note": "section change"},
-    {"t": 12.39, "sfx": "whoosh",  "note": "Ofcom chart in"},
-    {"t": 23.76, "sfx": "thump"},
-    {"t": 33.40, "sfx": "whoosh",  "note": "chat bubble"},
-    {"t": 35.21, "sfx": "thump"},
-    {"t": 52.55, "sfx": "whoosh",  "note": "gauge"},
-    {"t": 62.73, "sfx": "thump"},
-    {"t": 69.10, "sfx": "whoosh",  "note": "ask card"},
-    {"t": 77.20, "sfx": "chime",   "note": "end card resolve"}
-  ]
+  {
+   "i": 1,
+   "start": 10.6,
+   "end": 12.4,
+   "section": "change",
+   "zoom": [
+    1.0,
+    1.02
+   ],
+   "framing": "wide"
+  },
+  {
+   "i": 2,
+   "start": 12.4,
+   "end": 18.167,
+   "section": "change",
+   "zoom": [
+    1.12,
+    1.15
+   ],
+   "framing": "punch"
+  },
+  {
+   "i": 3,
+   "start": 18.167,
+   "end": 23.863,
+   "section": "change",
+   "zoom": [
+    1.0,
+    1.03
+   ],
+   "framing": "wide"
+  },
+  {
+   "i": 4,
+   "start": 23.863,
+   "end": 25.563,
+   "section": "now",
+   "zoom": [
+    1.0,
+    1.02
+   ],
+   "framing": "wide"
+  },
+  {
+   "i": 5,
+   "start": 25.563,
+   "end": 28.662,
+   "section": "now",
+   "zoom": [
+    1.12,
+    1.14
+   ],
+   "framing": "punch"
+  },
+  {
+   "i": 6,
+   "start": 28.662,
+   "end": 35.312,
+   "section": "now",
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "framing": "wide"
+  },
+  {
+   "i": 7,
+   "start": 35.312,
+   "end": 37.278,
+   "section": "ddn",
+   "zoom": [
+    1.0,
+    1.015
+   ],
+   "framing": "wide"
+  },
+  {
+   "i": 8,
+   "start": 37.278,
+   "end": 44.28,
+   "section": "ddn",
+   "zoom": [
+    1.0,
+    1.025
+   ],
+   "framing": "wide"
+  },
+  {
+   "i": 9,
+   "start": 44.28,
+   "end": 48.847,
+   "section": "ddn",
+   "zoom": [
+    1.1,
+    1.12
+   ],
+   "framing": "punch"
+  },
+  {
+   "i": 10,
+   "start": 48.847,
+   "end": 52.147,
+   "section": "ddn",
+   "zoom": [
+    1.0,
+    1.02
+   ],
+   "framing": "wide"
+  },
+  {
+   "i": 11,
+   "start": 52.147,
+   "end": 58.215,
+   "section": "ddn",
+   "zoom": [
+    1.1,
+    1.13
+   ],
+   "framing": "punch"
+  },
+  {
+   "i": 12,
+   "start": 58.215,
+   "end": 62.832,
+   "section": "ddn",
+   "zoom": [
+    1.0,
+    1.02
+   ],
+   "framing": "wide"
+  },
+  {
+   "i": 13,
+   "start": 62.832,
+   "end": 72.332,
+   "section": "ask",
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "framing": "continuous",
+   "note": "ONE continuous take, no cuts"
+  },
+  {
+   "i": 14,
+   "start": 72.332,
+   "end": 77.002,
+   "section": "ask",
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "framing": "close-up punchline",
+   "note": "ONE continuous take; keep dramatic pauses"
+  }
+ ],
+ "sections_for_progress_bar": [
+  {
+   "id": "change",
+   "label": "Why change",
+   "start": 10.5,
+   "end": 23.76
+  },
+  {
+   "id": "now",
+   "label": "Why now",
+   "start": 23.76,
+   "end": 35.21
+  },
+  {
+   "id": "ddn",
+   "label": "Why DDN",
+   "start": 35.21,
+   "end": 62.73
+  },
+  {
+   "id": "ask",
+   "label": "The ask",
+   "start": 62.73,
+   "end": 77.0
+  }
+ ],
+ "graphics": [
+  {
+   "id": "timer",
+   "in": 1.2,
+   "out": 4.6,
+   "detail": "Pitch clock appears while the chair is alone; starts counting at 1.85 ('Sorry'); shows 00:0x / 01:30; animates away by 4.6. Not shown again."
+  },
+  {
+   "id": "progress",
+   "in": 10.45,
+   "out": 76.6,
+   "detail": "Enters as 'So first, why change?' starts; current section fills; animates out before the end card."
+  },
+  {
+   "id": "ofcom_chart",
+   "in": 12.39,
+   "out": 18.0,
+   "detail": "Falling line + '12%' landing exactly at 14.63 (spoken '12%'); source tag 'Ofcom Media Nations 2026'."
+  },
+  {
+   "id": "netflix",
+   "in": 18.11,
+   "out": 21.0,
+   "detail": "Netflix logo on 'Netflix' (18.11)."
+  },
+  {
+   "id": "youtube",
+   "in": 18.75,
+   "out": 21.0,
+   "detail": "YouTube logo on 'YouTube' (18.75), stacked under Netflix; both leave together before 'so Sky' (21.03)."
+  },
+  {
+   "id": "chat_bubble",
+   "in": 33.4,
+   "out": 35.15,
+   "detail": "Chat bubble 'Sky, make me scared.' types on with his words (33.47 to 34.41)."
+  },
+  {
+   "id": "stat_5",
+   "in": 39.05,
+   "out": 44.1,
+   "detail": "Card '5%' with tag 'Cast AI, enterprise average'; number lands at 42.43 (spoken '5%')."
+  },
+  {
+   "id": "busy_gauge",
+   "in": 52.55,
+   "out": 55.3,
+   "detail": "BUSY gauge rising towards 99%, landing at 53.67 (spoken '99%'), tag 'per DDN'."
+  },
+  {
+   "id": "stat_99_75",
+   "in": 55.3,
+   "out": 58.05,
+   "detail": "Card '99% busy, 75% lower cost per token', tag 'per DDN'; '75%' emphasised at 56.77. Gauge morphs/hands off into this card smoothly."
+  },
+  {
+   "id": "canal",
+   "in": 60.4,
+   "out": 62.65,
+   "detail": "Canal+ logo on 'Canal' (60.43)."
+  },
+  {
+   "id": "starz",
+   "in": 61.5,
+   "out": 62.65,
+   "detail": "Starz logo on 'Starz' (61.53)."
+  },
+  {
+   "id": "pilot_tag",
+   "in": 65.35,
+   "out": 73.7,
+   "detail": "'30 day pilot' tag appears on 'pilot' (65.39); becomes the header of the ask card."
+  },
+  {
+   "id": "ask_card",
+   "in": 69.1,
+   "out": 73.7,
+   "detail": "Two-item measure card ('How busy the chips are' / 'What each answer costs', before \u2192 after bars) enters on 'Then measure' (69.11), holds through 'So Sky,' and leaves smoothly before 'Blockbuster' (74.59). No DDN logo."
+  },
+  {
+   "id": "blockbuster",
+   "in": 74.55,
+   "out": 76.4,
+   "detail": "Blockbuster logo on 'Blockbuster' (74.59)."
+  },
+  {
+   "id": "end_card",
+   "in": 77.0,
+   "out": 80.0,
+   "detail": "DDN logo + 'Keep the chips busy.' Picture cross-blurs from the last frame of the close-up into the end card (no hard cut)."
+  }
+ ],
+ "captions": "edit/captions_v2.json (50 phrases, word times, emphasis flags). Hide captions during the end card. Captions never cover the face; keep them in the lower band, clear of the graphics.",
+ "keep_out": {
+  "sky_monitor": "segments 1 to 6: the Sky monitor (top right, about x 0.58 to 0.91, y 0.14 to 0.54 of the frame before zoom); keep graphics off it",
+  "ddn_monitor": "segments 7 to 12: the DDN monitor + laptop (about x 0.51 to 0.81, y 0.17 to 0.47); keep graphics off it",
+  "ai_chair": "segments 0, 13, 14: the AI sign chair on the right; keep graphics off the sign"
+ },
+ "sfx": [
+  {
+   "t": 1.85,
+   "sfx": "click",
+   "note": "timer start, very soft"
+  },
+  {
+   "t": 10.5,
+   "sfx": "thump",
+   "note": "section change"
+  },
+  {
+   "t": 12.39,
+   "sfx": "whoosh",
+   "note": "Ofcom chart in"
+  },
+  {
+   "t": 23.76,
+   "sfx": "thump"
+  },
+  {
+   "t": 33.4,
+   "sfx": "whoosh",
+   "note": "chat bubble"
+  },
+  {
+   "t": 35.21,
+   "sfx": "thump"
+  },
+  {
+   "t": 52.55,
+   "sfx": "whoosh",
+   "note": "gauge"
+  },
+  {
+   "t": 62.73,
+   "sfx": "thump"
+  },
+  {
+   "t": 69.1,
+   "sfx": "whoosh",
+   "note": "ask card"
+  },
+  {
+   "t": 77.2,
+   "sfx": "chime",
+   "note": "end card resolve"
+  }
+ ]
 }
