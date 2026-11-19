@@ -71,7 +71,7 @@ def build(ref):
     # 2-4. airy swishes: BigSoundBank rope whooshes #4, #7, #3 (stereo ORTF),
     # slowed attack (>=150 ms swell), rolled off above ~6 kHz, short tail
     for name, f, cy in [("whoosh_chart", "whoosh-4-s1796.flac", "susCymb1_cresc_1.5s.wav"),
-                        ("whoosh_gauge", "whoosh-7-s1800.flac", "susCymb2_cresc_2.5s2.wav"),
+                        ("whoosh_gauge", "whoosh-7-s1800.flac", "susCymb1_cresc_4s.wav"),
                         ("whoosh_ask", "whoosh-3-s1795.flac", "susCymb1_cresc_2s.wav")]:
         x = trim_lead(rd(os.path.join(BSB, f)), 0.02)
         x = hp(x, 180); x = lp(x, 6000, 4)
@@ -129,17 +129,8 @@ def main():
     info = {}
     for k, x in snd.items():
         kind = "whoosh" if k.startswith("whoosh") else k
-        pk_db = ref - below[kind]
+        pk_db = ref - below.get(k, below.get(kind))
         x = level(x, pk_db)
-        if kind == "whoosh":
-            # match loudness to the first whoosh (peaks differ in shape); cap peak at -24 dBFS
-            lm = pyln.Meter(SR, block_size=0.2)
-            lx = lm.integrated_loudness(x)
-            if "_wref" not in globals():
-                globals()["_wref"] = lx
-            x = x * 10 ** ((globals()["_wref"] - lx) / 20)
-            x = x * min(1.0, 10 ** (-24 / 20) / np.abs(x).max())
-            pk_db = 20 * np.log10(np.abs(x).max())
         sf.write(os.path.join(a.out, f"sfx_{k}.wav"), x, SR, subtype="PCM_24")
         # whooshes: the swell PEAK lands on the graphic time (offset = time - peak position)
         pkpos = int(np.argmax(np.abs(x).max(1))) / SR if kind == "whoosh" else 0.0
@@ -149,12 +140,18 @@ def main():
         allp[i: i + len(seg)] += seg
         info[k] = dict(file=f"sfx_{k}.wav", place_at=round(start, 3), event_time=place[k],
                        peak_offset_in_file=round(pkpos, 3), peak_dbfs=round(pk_db, 1),
-                       below_dialogue_peak_db=below[kind], length_s=round(len(x) / SR, 2))
+                       below_dialogue_peak_db=below.get(k, below.get(kind)), length_s=round(len(x) / SR, 2))
     sf.write(os.path.join(a.out, "sfx_all_positioned.wav"), allp, SR, subtype="PCM_24")
     info["_reference"] = dict(dialogue_peak_ref_dbfs=round(ref, 2),
                               definition="95th pct of 50 ms peaks of voice_v1.wav at -16 LUFS integrated")
     info["_sources"] = sorted(os.path.relpath(p, S.CAND) for p in S.USED)
     json.dump(info, open(os.path.join(a.out, "sfx_timing.json"), "w"), indent=1)
+    tp = os.path.join(a.out, "timing.json")
+    if os.path.exists(tp):                      # also record placement in timing.json
+        t = json.load(open(tp))
+        t["sfx"] = {k: v for k, v in info.items() if not k.startswith("_")}
+        t["sfx_reference"] = info["_reference"]; t["sfx_sources"] = info["_sources"]
+        json.dump(t, open(tp, "w"), indent=1)
     print(json.dumps(info, indent=1))
 
 

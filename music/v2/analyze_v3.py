@@ -57,16 +57,17 @@ rep["sections"] = sec
 
 
 # ---------------- does each change land on the frame? ----------------
-def onset_near(x, t, win=0.12):
-    """first attack (fast envelope rise) within +-win of t; returns offset ms."""
+def onset_near(x, t, pre=0.08, post=0.12):
+    """first sample where the 2 ms peak envelope rises 10 dB above the level
+    just before t (onset of a new event). returns offset in ms (None if none)."""
     m = np.abs(x.mean(1) if x.ndim > 1 else x)
     hop = int(0.001 * SR)
-    a, b = int((t - win) * SR), int((t + win) * SR)
-    e = np.array([m[i:i + 2 * hop].max() for i in range(a, b, hop)])
-    base = np.median(e[:40]) + 1e-9
-    d = np.diff(np.r_[e[0], e])
-    k = int(np.argmax(d))
-    return round((a + k * hop) / SR - t, 3) * 1000
+    a, b = int((t - pre) * SR), int((t + post) * SR)
+    e = np.array([m[i:i + 2 * hop].max() for i in range(a, b, hop)]) + 1e-9
+    ref = np.median(e[: int(0.03 / 0.001)])
+    k = np.where(e > ref * 10 ** (10 / 20))[0]
+    k = [i for i in k if i * hop >= int(0.03 * SR)]
+    return round(((a + k[0] * hop) / SR - t) * 1000, 1) if k else None
 lands = {}
 groove = stems["bass"] + stems["drums"]
 for k in ["change", "now", "ddn", "ask", "punch", "endcard"]:
@@ -76,7 +77,16 @@ rep["section_downbeats_vs_edit"] = lands
 acc = {}
 for a_ in tm["accents"]:
     t = a_["t"]
-    acc[f"{a_['what']} @{t}"] = onset_near(sum(stems.values()), t) if "drop-out" not in a_["what"] else "gain envelope"
+    w = a_["what"]
+    st = stems["vibes"] if "vibes" in w else stems["drums"] if "tom" in w else stems["fx"] if "cymbal" in w \
+        else stems["marimba"] if "marimba" in w else stems["shaker"] if "shaker" in w else None
+    if st is None or "drop-out" in w:
+        acc[f"{w} @{t}"] = "gain envelope (exact)"
+    elif "cymbal" in w:
+        i0 = int((t - 0.3) * SR); i1 = int((t + 0.3) * SR)
+        acc[f"{w} @{t}"] = round((i0 + int(np.argmax(np.abs(st[i0:i1]).max(1)))) / SR * 1000 - t * 1000, 1)
+    else:
+        acc[f"{w} @{t}"] = onset_near(st, t)
 rep["accent_onsets_ms"] = acc
 
 # ---------------- preview ----------------

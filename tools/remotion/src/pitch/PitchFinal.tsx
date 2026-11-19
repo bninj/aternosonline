@@ -89,7 +89,7 @@ export const PitchFinal: React.FC<PitchFinalProps> = ({plate, plateBlur, voice, 
       {/* The ask: a "30 day pilot" pill on "pilot", grows into the measure card on "Then measure", holds across the
           close-up cut (same place, clear of the face in both shots and of the AI sign), leaves before "Blockbuster". */}
       <MeasureCard from={askFrom} durationInFrames={f(g.ask_card.out) - askFrom} anchor="right" bottom={500 / 1080}
-        tag="30 day pilot" tagAt={f(65.39) - askFrom - 2} itemsAt={f(69.11) - askFrom} width={560} labelSize={36} barLabelSize={26} pad={30} gap={14}
+        tag="30 day pilot" tagAt={f(65.39) - askFrom - 2} itemsAt={f(69.11) - askFrom} width={540} labelSize={34} barLabelSize={25} pad={26} gap={12}
         items={[{label: 'How busy the chips are', at: f(69.11) - askFrom + 2, before: 0.22, after: 0.9}, {label: 'What each answer costs', at: f(69.11) - askFrom + 12, before: 0.85, after: 0.3}]} />
 
       <BigWord from={bbFrom} durationInFrames={f(g.blockbuster.out) - bbFrom} anchor="left" bottom={G_BOTTOM}

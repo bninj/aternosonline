@@ -13,8 +13,8 @@
   "place_at": 11.94,
   "event_time": 12.39,
   "peak_offset_in_file": 0.45,
-  "peak_dbfs": -25.5,
-  "below_dialogue_peak_db": 26,
+  "peak_dbfs": -23.5,
+  "below_dialogue_peak_db": 24,
   "length_s": 1.55
  },
  "whoosh_gauge": {
@@ -22,8 +22,8 @@
   "place_at": 52.1,
   "event_time": 52.55,
   "peak_offset_in_file": 0.45,
-  "peak_dbfs": -26.2,
-  "below_dialogue_peak_db": 26,
+  "peak_dbfs": -20.5,
+  "below_dialogue_peak_db": 21,
   "length_s": 1.41
  },
  "whoosh_ask": {
@@ -31,8 +31,8 @@
   "place_at": 68.662,
   "event_time": 69.1,
   "peak_offset_in_file": 0.438,
-  "peak_dbfs": -26.4,
-  "below_dialogue_peak_db": 26,
+  "peak_dbfs": -23.5,
+  "below_dialogue_peak_db": 24,
   "length_s": 1.43
  },
  "chime": {
@@ -52,7 +52,7 @@
   "VCSL/Idiophones/Struck Idiophones/Hand Chimes/sus_D4_r01_main.wav",
   "VCSL/Idiophones/Struck Idiophones/Suspended Cymbal 1/susCymb1_cresc_1.5s.wav",
   "VCSL/Idiophones/Struck Idiophones/Suspended Cymbal 1/susCymb1_cresc_2s.wav",
-  "VCSL/Idiophones/Struck Idiophones/Suspended Cymbal 2/susCymb2_cresc_2.5s2.wav",
+  "VCSL/Idiophones/Struck Idiophones/Suspended Cymbal 1/susCymb1_cresc_4s.wav",
   "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_D4_v1_rr1_Main.wav",
   "bigsoundbank/macbook-trackpad-simple-click-s1740.flac",
   "bigsoundbank/whoosh-3-s1795.flac",

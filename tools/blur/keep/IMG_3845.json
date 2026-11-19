@@ -1,3 +1,7 @@
 {"regions": [
   {"name": "AI sign chair (keep sharp)", "points": [[0.545,0.37],[0.70,0.37],[0.76,0.62],[0.79,0.92],[0.72,1.0],[0.51,1.0],[0.55,0.80],[0.565,0.62]], "strength": 0.0, "feather": 0.012}
-]}
+],
+ "track": [
+  {"name": "speaker's swivel chair (moves with him in the roll-in)", "t": 211.467,
+   "box": [0.219, 0.639, 0.464, 1.0], "points": [[0.266, 0.722], [0.234, 0.870]]}
+ ]}

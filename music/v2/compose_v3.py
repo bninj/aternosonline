@@ -103,6 +103,8 @@ class Song:
         self.accents = []         # log for timing.json
 
     def add(self, trk, beat, dur, pitch, vel, human=0.006, extra=None):
+        if beat in getattr(self, "exact", ()):      # section downbeats: no humanising
+            human = 0
         b = beat + (self.rng.normal(0, human) if human else 0)
         v = int(np.clip(vel + (self.rng.integers(-3, 4) if human else 0), 1, 127))
         self.ev[trk].append((b, dur, int(pitch), v, extra))
@@ -117,6 +119,7 @@ def compose(tm):
     cfg = tm["cfg"]
     s = Song(cfg.get("seed", 3))
     SB = tm["sec_beats"]
+    s.exact = set(SB.values())
     T, Bt = tm["time"], tm["beat"]
     bars = []
     for sec, nb in SEC_BARS:
@@ -172,7 +175,8 @@ def compose(tm):
         for pos, d, v in bp:
             p = bass
             if pos == 3.5 and nxt is not None and nxt != bass:
-                p = min(max(nxt + (1 if nxt < bass else -1), 28), 45)
+                p = deg(nxt, 1 if nxt < bass else -1)          # diatonic approach (no chromatic rub)
+                p = p if 28 <= p <= 45 else bass
             if pos == 2.0 and i % 2 == 1 and bass + 7 <= 45:
                 p = bass + 7
             s.add("bass", b0 + pos, d, p, v)
@@ -197,12 +201,12 @@ def compose(tm):
                     s.add("marimba", b0 + q + 0.5, 0.4, ch[ci], 34)
         elif sec == "now":
             if i in (1, 3):                                    # 25.46 cut: the answer
-                motif(s, b0, 62 if i == 1 else 59, 48, cell=ANSWER)
+                motif(s, b0, 64 if i == 1 else 62, 48, cell=ANSWER)
             else:
                 for q, ci in enumerate([0, 1, 2, 1]):
                     s.add("marimba", b0 + q + 0.5, 0.4, ch[ci], 36)
         elif sec == "ddn":
-            if i in (1, 5, 9):                                 # 37.18: motif in D major
+            if i in (1, 5, 9) and c not in ("A/C#", "F#m7", "A", "Asus"):  # 37.18: motif in D major
                 motif(s, b0, 62, 52)
                 motif(s, b0, 74, 30, trk="vibes")              # soft vibes double (octave up)
             elif i in (3, 7):
@@ -211,7 +215,7 @@ def compose(tm):
                 for q, ci in enumerate([0, 1, 2, 1]):
                     s.add("marimba", b0 + q + 0.5, 0.4, ch[ci], 38)
         elif sec == "ask":
-            motif(s, b0, [62, 64, 66, 67][i], 50 + 2 * i, n=4)  # lift: the motif climbs
+            motif(s, b0, [62, 64, 66, 69][i], 50 + 2 * i, n=4 if i < 3 else 3)  # lift: the motif climbs
             if i == 3:
                 s.add("vibes", b0 + 2.5, 1.5, 74, 34)
 
@@ -245,18 +249,19 @@ def compose(tm):
         s.add("vibes", at(g["99%"]) + k * 0.25, 2.5, p, 38, human=0)
     s.add("cymbal", at(g["99%"]), 0, 1, 100, human=0)
     s.accents.append(("99% vibes bloom", g["99%"]))
-    for k, p in enumerate([69, 66, 62]):                                       # 75%: falls by a third
+    for k, p in enumerate([69, 66, 61]):                                       # 75%: falls (F#m7 tones)
         s.add("marimba", at(g["75%"]) + k * 0.5, 0.45, p, 46, human=0)
     s.accents.append(("75% marimba fall", g["75%"]))
     # layers that enter exactly on a cut
     s.gates.append(("shaker_in", A["shaker_in"], None))
+    s.add("shaker", at(A["shaker_in"]), 0, 1, 44, human=0)                    # first stroke ON the cut
     s.accents.append(("shaker enters", A["shaker_in"]))
 
     # ---------------- punchline + resolve ----------------
     p0, r0 = SB["punch"], SB["endcard"]
     s.add("kick", p0, 0, 36, 40, human=0)
     s.add("bass", p0, 1.5, 28, 56, human=0)                                    # E1, short
-    s.add("fmpiano", p0, 1.5, 0, 28, human=0, extra=(55, 59, 66))
+    s.add("fmpiano", p0, 1.5, 0, 28, human=0, extra=(55, 59, 62))
     for p in [64, 67]:
         s.add("bowed", p0 + 0.5, (r0 - p0) - 3.0, p, 14, human=0)              # barely-there Em air
     s.add("bass", r0 - 2, 2.0, 33, 60, human=0)

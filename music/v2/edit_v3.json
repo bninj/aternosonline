@@ -85,7 +85,10 @@
  "seed": 3,
  "sfx_level_below_dialogue_peak_db": {
   "click": 27,
-  "whoosh": 26,
+  "whoosh": 24,
+  "whoosh_chart": 24,
+  "whoosh_gauge": 21,
+  "whoosh_ask": 24,
   "chime": 27
  }
 }
