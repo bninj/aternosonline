@@ -1,7 +1,7 @@
 // captions_v2.json -> Transcript for <Subtitles>, re-chunked to the pitch caption rule (RESEARCH_ROUND2 P3):
 // one line, 3 to 6 words, at most 42 characters. Long phrases split at the best balanced point, preferring a comma.
 import raw from './captions_v2.json';
-import raw3 from './captions_v3.json';
+import raw3 from './captions_v4.json'; // v5 edit
 import type {Transcript, Word} from '../ddn';
 
 const MAX_WORDS = 6;

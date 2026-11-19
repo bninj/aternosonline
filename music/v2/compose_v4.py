@@ -48,7 +48,7 @@ PROG = {
     "change": ["Bm11", "Gmaj7#11", "Dsus2/F#", "Em9", "Gmaj7#11", "Asus4"],
     "now":    ["Gmaj7#11", "A/G", "F#m11", "Bm11", "Asus4"],
     "ddn":    ["D", "G/D", "D", "Em7", "Bm7", "A/C#", "D", "Gadd9", "Em7", "F#m7", "G", "Asus"],
-    "ask":    ["G", "A", "Bm", "Gmaj7"],
+    "ask":    ["G", "A", "Bm", "Gmaj7", "A"],          # 5th bar (v6): the payoff line lifts to A
     "punch":  ["Em9", "Asus"],
 }
 
@@ -169,7 +169,7 @@ def compose(tm):
                 for q, ci in enumerate([0, 1, 2, 1]):
                     s.add("marimba", b0 + q + 0.5, 0.4, ch[ci], 36)
         elif sec == "ask":
-            fig(s, b0, [62, 64, 62, 59][i], 48 + 2 * i, Q2 if i < 2 else Q1)     # asks once more
+            fig(s, b0, [62, 64, 62, 59, 64][i % 5], 48 + 2 * min(i, 4), Q2 if i in (0, 1, 4) else Q1)     # asks once more; bar 5 lifts
 
     # ---------------- accents at exact edit times (as v3) ----------------
     at = Bt

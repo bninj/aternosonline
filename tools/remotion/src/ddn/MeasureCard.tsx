@@ -21,6 +21,7 @@ export type MeasureCardProps = SlotProps & {
   barLabelSize?: number; // "before" / "after" mono px (default 26: readable on a laptop)
   pad?: number;
   gap?: number;
+  payoff?: {text: string; to: string; at: number; arrowAt: number}; // final row: "If both improve" -> "scale it" (arrow drawn as a line)
 };
 
 const Bar: React.FC<{label: string; value: number; color: string; textAlpha: number; grow: number; size: number}> = ({label, value, color, textAlpha, grow, size}) => (
@@ -32,6 +33,35 @@ const Bar: React.FC<{label: string; value: number; color: string; textAlpha: num
   </div>
 );
 
+// Payoff row: hairline, then "If both improve" rises, a red arrow DRAWS (a line plus a chevron, never a dash
+// character), then "scale it" lands in Brand Red on the spoken words.
+const Payoff: React.FC<{p: NonNullable<MeasureCardProps['payoff']>; labelSize: number; width: number; grow: number}> = ({p, labelSize, width, grow}) => {
+  const frame = useCurrentFrame();
+  onScreen(p.text, 'MeasureCard payoff');
+  onScreen(p.to, 'MeasureCard payoff');
+  const c = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
+  const arrow = interpolate(frame, [p.arrowAt - 8, p.arrowAt + 4], [0, 1], {...c, easing: EASE.inOut});
+  const toIn = interpolate(frame, [p.arrowAt, p.arrowAt + 12], [0, 1], {...c, easing: EASE.out});
+  const aw = 64;
+  return (
+    <div style={{marginTop: 18 * grow, opacity: grow}}>
+      <Hairline width="100%" startFrame={p.at - 2} color="rgba(237,39,56,0.6)" />
+      <div style={{display: 'flex', alignItems: 'center', gap: 16, marginTop: 10, width, whiteSpace: 'nowrap'}}>
+        <Rise startFrame={p.at}>
+          <div style={{...display('medium', labelSize, -0.01), lineHeight: 1.15, color: C.white}}>{p.text}</div>
+        </Rise>
+        <svg width={aw} height={labelSize} viewBox={`0 0 ${aw} ${labelSize}`} style={{flex: 'none', overflow: 'visible'}}>
+          <line x1={2} y1={labelSize / 2} x2={2 + (aw - 6) * arrow} y2={labelSize / 2} stroke={C.red} strokeWidth={3} strokeLinecap="round" />
+          <path d={`M${aw - 14} ${labelSize / 2 - 9} L${aw - 3} ${labelSize / 2} L${aw - 14} ${labelSize / 2 + 9}`} fill="none" stroke={C.red} strokeWidth={3}
+            strokeLinecap="round" strokeLinejoin="round" opacity={arrow > 0.9 ? (arrow - 0.9) * 10 : 0} />
+        </svg>
+        <div style={{...display('bold', labelSize + 4, -0.01), lineHeight: 1.15, color: C.red, opacity: toIn, transform: `translateX(${((1 - toIn) * -10).toFixed(2)}px)`,
+          textShadow: '0 0 18px rgba(237,39,56,0.35)'}}>{p.to}</div>
+      </div>
+    </div>
+  );
+};
+
 const Inner: React.FC<{p: MeasureCardProps}> = ({p}) => {
   const frame = useCurrentFrame();
   p.items.forEach((i) => onScreen(i.label, 'MeasureCard'));
@@ -42,7 +72,9 @@ const Inner: React.FC<{p: MeasureCardProps}> = ({p}) => {
   const labelH = Math.round(labelSize * 0.966 * 1.15);
   const itemH = 1 + 8 + labelH + 8 + 2 * Math.round(barSize * 1.15);
   const gap = p.gap ?? 18;
-  const fullH = p.items.length * itemH + (p.items.length - 1) * gap + (p.tag ? 14 : 0);
+  const payH = p.payoff ? Math.round(labelSize * 1.25) + 20 : 0;
+  const payGrow = p.payoff ? interpolate(frame, [p.payoff.at - 2, p.payoff.at + 14], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.inOut}) : 0;
+  const fullH = p.items.length * itemH + (p.items.length - 1) * gap + (p.tag ? 14 : 0) + payH * payGrow;
   // Tag-only pill first; the card grows (in-out, 18 f) when the metrics are said. Height is computed, not measured.
   const grow = p.itemsAt === undefined ? 1 : interpolate(frame, [p.itemsAt - 4, p.itemsAt + 14], [0, 1], {...c, easing: EASE.inOut});
   const w = p.width ?? 640;
@@ -71,6 +103,7 @@ const Inner: React.FC<{p: MeasureCardProps}> = ({p}) => {
                 </div>
               );
             })}
+            {p.payoff ? <Payoff p={p.payoff} labelSize={labelSize} width={w} grow={payGrow} /> : null}
           </div>
         </div>
       </div>

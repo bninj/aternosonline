@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
 import {AbsoluteFill, Html5Audio, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {EASE, Footage, FootageSource, LineChartFall, MeasureCard, PITCH_CAPTION_LOOK, PitchTimer, SectionBar, Subtitles} from '../ddn';
-import plan from './shotplan_v4.json';
+import plan from './shotplan_v5.json';
 import {pitchTranscriptV3} from './captions';
 import {cameraAt, faceAt, fr, keepOutZoomed, segIndexAt, Box} from './layout_v4';
 import {ChairSpotlight, ChipGrid, DepthLogos, DepthShatter, EndBuild, NameTag, PersonLayer, VoiceChat, VoicePill} from './graphics';
@@ -18,7 +18,7 @@ export type PitchV4Props = {
   showGuides?: boolean;
 };
 
-const PLATE_END = 2136; // 71.197 s: first frame without picture
+const PLATE_END = 2205; // 73.497 s: first frame without picture
 const W = plan.word_anchors as Record<string, number>;
 const w = (k: string) => fr(W[k]);
 const cutF = (i: number) => fr(plan.segments[i].start);
@@ -28,7 +28,7 @@ const R = {anchor: 'right' as const};
 // Depth logos: [x, y, height] in footage px @1920 (pre-zoom), placed behind calm edges (head side, shoulder).
 const LOGO_POS = {netflix: [290, 160, 112], youtube: [230, 322, 108], canal: [320, 170, 108], starz: [300, 318, 96], bb: [360, 110, 196]} as const;
 // Person alpha (SAM 2.1 + ViTMatte on the look plate), plate frame ranges [from, to).
-const PERSON = [{src: 'pitch/person_s3.webm', from: 497, to: 583}, {src: 'pitch/person_s13.webm', from: 1694, to: 1761}, {src: 'pitch/person_s18.webm', from: 2079, to: 2113}];
+const PERSON = [{src: 'pitch/person_s3.webm', from: 497, to: 583}, {src: 'pitch/person_s13.webm', from: 1694, to: 1761}, {src: 'pitch/person_s19.webm', from: 2148, to: 2182}];
 
 export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice, showGuides = false}) => {
   const frame = useCurrentFrame();
@@ -72,8 +72,8 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
         <DepthLogos from={caFrom} durationInFrames={fr(58.5) - caFrom} items={[
           {logo: 'canalplus', at: 3, x: LOGO_POS.canal[0], y: LOGO_POS.canal[1], h: LOGO_POS.canal[2]},
           {logo: 'starz', at: w('Starz') - 4 - caFrom, x: LOGO_POS.starz[0], y: LOGO_POS.starz[1], h: LOGO_POS.starz[2]}]} />
-        <DepthShatter from={bbFrom} durationInFrames={fr(70.36) - bbFrom} x={LOGO_POS.bb[0]} y={LOGO_POS.bb[1]} h={LOGO_POS.bb[2]}
-          crackAt={fr(69.62) - bbFrom} breakAt={fr(69.76) - bbFrom} />
+        <DepthShatter from={bbFrom} durationInFrames={fr(72.62) - bbFrom} x={LOGO_POS.bb[0]} y={LOGO_POS.bb[1]} h={LOGO_POS.bb[2]}
+          crackAt={fr(71.92) - bbFrom} breakAt={fr(72.06) - bbFrom} />
       </AbsoluteFill>
       {PERSON.map((pl) => <PersonLayer key={pl.src} src={pl.src} plateFrom={pl.from} durationInFrames={pl.to - pl.from} style={camStyle} />)}
       <NameTag from={fr(3.1)} durationInFrames={fr(6.0) - fr(3.1)} anchor="right" bottom={0.36} name="ELIUD AWUAH" />
@@ -81,7 +81,7 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
 
       {/* Progress: presents at each section seam, then a slim strip. */}
       <SectionBar sections={plan.sections_for_progress_bar.map((s) => ({label: s.label, from: fr(s.start)}))} from={fr(plan.sections_for_progress_bar[0].start)}
-        durationInFrames={fr(70.9) - fr(plan.sections_for_progress_bar[0].start)} />
+        durationInFrames={fr(73.2) - fr(plan.sections_for_progress_bar[0].start)} />
 
       {/* Why change */}
       <LineChartFall from={chartFrom} durationInFrames={fr(16.4) - chartFrom} {...R} bottom={G} valueAt={w('12%') - chartFrom} value="12%" source="Ofcom Media Nations 2026"
@@ -101,15 +101,16 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
 
       {/* The ask: "30 day pilot" pill on "pilot", grows into the measure card on "Then measure", holds through "So Sky",
           leaves before "Blockbuster". Upper right: clear of the face in all four shots and of the AI sign. */}
-      <MeasureCard from={askFrom} durationInFrames={fr(69.3) - askFrom} {...R} bottom={0.45}
+      <MeasureCard from={askFrom} durationInFrames={fr(71.6) - askFrom} {...R} bottom={0.45}
         tag="30 day pilot" tagAt={w('pilot') - askFrom - 1} itemsAt={after(w('Then measure'), 16) - askFrom} width={500} labelSize={32} barLabelSize={24} pad={24} gap={12}
-        items={[{label: 'How busy the chips are', at: after(w('Then measure'), 16) - askFrom + 2, before: 0.22, after: 0.9}, {label: 'What each answer costs', at: after(w('Then measure'), 16) - askFrom + 10, before: 0.85, after: 0.3}]} />
+        items={[{label: 'How busy the chips are', at: after(w('Then measure'), 16) - askFrom + 2, before: 0.22, after: 0.9}, {label: 'What each answer costs', at: after(w('Then measure'), 16) - askFrom + 10, before: 0.85, after: 0.3}]} 
+        payoff={{text: 'If both improve', to: 'scale it', at: w('And if both improve') - askFrom, arrowAt: w('scale it') - askFrom - 6}} />
 
 
       <Subtitles transcript={transcript} look={PITCH_CAPTION_LOOK} anchor="center" joinGapFrames={6} snapTo={CUTS}
         suppress={[{from: chatFrom, to: fr(32.4)}, {from: PLATE_END - 6, to: 2400}]} />
 
-      <EndBuild from={PLATE_END} durationInFrames={2226 - PLATE_END} />
+      <EndBuild from={PLATE_END} durationInFrames={2295 - PLATE_END} />
 
       {showGuides ? <Guides frame={frame} z={cam.z} /> : null}
     </Footage>

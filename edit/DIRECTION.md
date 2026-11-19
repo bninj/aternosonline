@@ -52,3 +52,9 @@ Original brief: the competition, script, process, deviation rules, timing, capti
     - **Logos bigger, ideally BEHIND the speaker** (depth layering with a person alpha only for segments 3, 13 and 18; fall back to large-beside if the edges aren't clean).
     - The user is looking for IMG_3859 ("If both improve, scale it") in Drive.
 27. **v5 edit:** IMG_3859 is inserted (medium shot, "And if both improve, scale it.", source 5.69–7.99) after "before and after". 21 shots; voice 73.497 s; total 76.5 s. Files: edl_v4.json, timeline_v5.json, captions_v4.json, SHOTPLAN_v5.json, voice_master_v4.wav, grade/grade_v5.json, plates_look_v5/. The ask card gains "If both improve → scale it". Music: CC0-only kit (no credits).
+28. **User rated the draft 8/10.** Fixes:
+    - **Dwell time:** every text graphic stays for its reading time (0.33 s per word) + about 1 s, minimum about 2–2.5 s, never across a section change. The "Sky, make me scared" bubble enters on "Imagine asking" and holds to the seam.
+    - **Chair highlight on "That's AI chips"** (2.95) for 1.5–2 s, fading in and out.
+    - **Zooms:** subtle, but smoother (sine/expo in-out curves, face anchored, motion blur only on snap-zooms).
+    - **Captions** moved up to about 72–76% of frame height, close to the speaker, and about 10% larger.
+    - **Music 10–20% louder:** +1.3 dB in the mix (music-gain −6.7).

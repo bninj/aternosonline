@@ -3,8 +3,8 @@
 // faces in the Why DDN wides). Camera moves: per-segment eased drift (reset at every cut), snap-zoom accents on key
 // words, and a velocity-matched seam (push zoom + rack-focus blur) at the four section changes only.
 import {Easing} from 'remotion';
-import plan from './shotplan_v4.json';
-import detected from './faces_v4.json';
+import plan from './shotplan_v5.json'; // v5: 21 shots (IMG_3859 inserted at 67.643)
+import detected from './faces_v5.json'; // v4 detections, re-indexed for the v5 insert (17 re-detected on the v5 plate)
 
 export type Box = {x: number; y: number; w: number; h: number};
 const FPS = 30;
@@ -33,6 +33,7 @@ export const KEEP_OUT: Box[][] = [
   [{x: 1075, y: 430, w: 173, h: 165}], [SKY_A], [SKY_A], [SKY_A], [SKY_B], [SKY_B], [SKY_B], [SKY_B],
   [DDN_M], [DDN_M], [DDN_M], [DDN_M], [DDN_M], [DDN_M],
   [{x: 1114, y: 499, w: 211, h: 219}], [{x: 1114, y: 499, w: 211, h: 219}], [{x: 1094, y: 499, w: 192, h: 154}],
+  [{x: 1344, y: 518, w: 230, h: 173}], // 17 (v5 insert, IMG_3859 medium) checked on the plate
   [{x: 1344, y: 518, w: 230, h: 173}], [{x: 1344, y: 518, w: 230, h: 173}], [{x: 1344, y: 518, w: 230, h: 173}],
 ];
 
