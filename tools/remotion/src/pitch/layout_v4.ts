@@ -23,6 +23,7 @@ const MANUAL: Record<number, {center: [number, number]; box: Box}> = {
   13: {center: [806, 245], box: {x: 725, y: 145, w: 170, h: 210}},
   14: {center: [614, 240], box: {x: 510, y: 95, w: 210, h: 260}},
   16: {center: [576, 262], box: {x: 470, y: 140, w: 220, h: 260}},
+  17: {center: [770, 300], box: {x: 660, y: 140, w: 240, h: 300}}, // v5 insert (IMG_3859 medium)
 };
 
 // Keep-outs (pre-zoom): Sky monitor (segments 1 to 7), DDN monitor + laptop (8 to 13), AI sign (0, 14 to 19).
@@ -33,7 +34,7 @@ export const KEEP_OUT: Box[][] = [
   [{x: 1075, y: 430, w: 173, h: 165}], [SKY_A], [SKY_A], [SKY_A], [SKY_B], [SKY_B], [SKY_B], [SKY_B],
   [DDN_M], [DDN_M], [DDN_M], [DDN_M], [DDN_M], [DDN_M],
   [{x: 1114, y: 499, w: 211, h: 219}], [{x: 1114, y: 499, w: 211, h: 219}], [{x: 1094, y: 499, w: 192, h: 154}],
-  [{x: 1344, y: 518, w: 230, h: 173}], // 17 (v5 insert, IMG_3859 medium) checked on the plate
+  [{x: 1130, y: 510, w: 230, h: 170}], // 17 (v5 insert, IMG_3859 medium): AI sign, marked on the v5 plate
   [{x: 1344, y: 518, w: 230, h: 173}], [{x: 1344, y: 518, w: 230, h: 173}], [{x: 1344, y: 518, w: 230, h: 173}],
 ];
 
