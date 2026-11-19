@@ -1,5 +1,29 @@
 # BLUR: shallow depth-of-field background blur for the classroom takes
 
+## v2 (19 Nov 2026): rebuilt matte + compositing. USE THIS for the plate.
+The v1 pipeline below produced the "weird outline" the user saw whenever the speaker moved. Diagnosed with a 4-panel debug (original | alpha | fill mask | composite, 100% crops, `tools/blur/dbg/`) on the hook roll-in (IMG_3845 209–212 s). Confirmed causes, in order of visibility:
+1. **Alpha lag ghost** (`stabilise_alpha` EMA): faint copies of previous silhouettes trail the body; with the composite this drew a light-grey contour round the hair and shoulders.
+2. **Soft edge showed the sharp original background**: composite used source pixels in the 0<alpha<1 band, so unblurred desk/room texture ringed him.
+3. **The moving swivel chair was background**: RVM/MediaPipe ignore it, so the plate fill and blur tore the yellow seat into blotches with a dark outline (the worst artefact in the roll-in).
+4. **RVM on fast limbs**: holes and blotches at wrists/hands, hard steps where the eroded MediaPipe core was max()-ed in.
+5. Depth "collar" (floor at his depth stays sharp): physically right and not what reads as the outline; left as is.
+
+**New pipeline** (`tools/blur/matte2.py` then `tools/blur/bgblur2.py`; plate: `tools/render_plates_v2.py`):
+- **SAM 2.1 Hiera-Tiny** video tracker (Apache-2.0), streamed forward and backward from a prompt frame (handles the roll-in from the frame edge). Person prompt is automatic (MediaPipe box + 3 points); extra objects come from a `"track"` list in `keep/<clip>.json` (IMG_3845 tracks his swivel chair, so it rides in sharp with him).
+- **Motion-adaptive trimap**: the unknown band around the SAM mask widens per pixel with DIS optical-flow magnitude (10 px + |flow|, up to 60 px at 1080p), so motion-blurred limbs become partial alpha instead of a hard cut.
+- **ViTMatte-S** (hustvl/vitmatte-small-composition-1k; weights Apache-2.0, code MIT) on the person crop at half scale, guided-filter upsampled.
+- **Temporal**: flow-warped previous alpha, blended only in the band with weight 0.5·exp(−|flow|/2 px). Smooth when still, no lag when moving. No EMA, no MediaPipe core.
+- **Composite** = α·F + (1−α)·blurred background, with F from `pymatting.estimate_foreground_ml` (MIT) in the band: the sharp background never shows through the edge.
+- **Fill / no-spread mask** = alpha support dilated by H/160 + 0.75·speaker speed, so motion-blur tails never smear into the blur.
+- **Motion easing**: background CoC × (1 − 0.25·smoothstep(6, 22 px/frame)), 4-frame look-ahead, ~0.6 s release (0.5 looked like visible pumping). Light wrap 0.15 on the outer edge. Fixed focus per clip (no focus breathing; `--focus-every 0.5` restores tracking).
+- Speed on this box (4 shared cores): SAM ≈ 5 s/frame for one object, ≈ 10 s/frame with the chair as a second object; ViTMatte ≈ 1 s/frame; render ≈ 1.2 s/frame at 2304x1296. The 77 s plate takes about 4–6 h.
+
+Evidence: `output/blur_v2/` (before/after MP4 of the roll-in, 100% crop sequences, flicker numbers). Results and remaining issues: see "v2 verdict" at the end of this file.
+
+---
+
+# v1 (superseded)
+
 Tool: `tools/blur/bgblur.py`. QA: `tools/blur/qa.py`. Evidence: `tools/blur/qa/`, test renders in `tools/blur/out/`.
 CPU only, ffmpeg in and out. The output is H.264 with BT.709 tags and the source audio over the same range.
 

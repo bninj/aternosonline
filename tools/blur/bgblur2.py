@@ -149,7 +149,7 @@ def main():
     ap.add_argument("--bloom", type=float, default=0.35)
     ap.add_argument("--grain", type=float, default=1.0)
     ap.add_argument("--wrap", type=float, default=0.15, help="light wrap amount on the matte edge")
-    ap.add_argument("--ease", type=float, default=0.5, help="blur reduction at full motion (0 = off)")
+    ap.add_argument("--ease", type=float, default=0.25, help="blur reduction at full motion (0 = off)")
     ap.add_argument("--ease-lo", type=float, default=6.0, help="speed (px/frame @1080p) where easing starts")
     ap.add_argument("--ease-hi", type=float, default=22.0, help="speed where easing is full")
     ap.add_argument("--plate-range", default=None)
