@@ -171,17 +171,17 @@ const ChipGridInner: React.FC<{p: ChipGridProps}> = ({p}) => {
   const [a, b] = p.mode === 'idle' ? [0, 5] : [5, 99];
   const v = interpolate(frame, [p.landAt - cf, p.landAt], [a, b], {...cl, easing: EASE.inOut});
   const lit = Math.floor(v + 1e-6);
-  const TILE = 11;
+  const TILE = 10;
   const GAP = 3;
   const gridW = 10 * TILE + 9 * GAP;
   const flow = p.flowAt !== undefined ? interpolate(frame, [p.flowAt, p.flowAt + 12], [0, 1], {...cl, easing: EASE.inOut}) * interpolate(frame, [p.landAt + 6, p.landAt + 24], [1, 0], cl) : 0;
   const costIn = p.costFrom !== undefined ? interpolate(frame, [p.costFrom, p.costFrom + 14], [0, 1], {...cl, easing: EASE.out}) : 0;
   const costP = p.costLandAt !== undefined ? interpolate(frame, [p.costLandAt - 24, p.costLandAt], [0, 1], {...cl, easing: EASE.inOut}) : 0;
   const costPct = Math.floor(75 * costP + 1e-6);
-  const numSize = 92;
+  const numSize = 78;
   return (
-    <FrostedGlass padX={30} padY={26}>
-      <div style={{display: 'flex', alignItems: 'center', gap: 26}}>
+    <FrostedGlass padX={26} padY={22}>
+      <div style={{display: 'flex', alignItems: 'center', gap: 24}}>
         <div style={{position: 'relative', width: gridW, height: gridW}}>
           {/* data streams: thin lines flowing into the grid from the left (DDN Infinia feeding the chips) */}
           {flow > 0 ? (
@@ -208,11 +208,11 @@ const ChipGridInner: React.FC<{p: ChipGridProps}> = ({p}) => {
         </div>
       </div>
       {p.mode === 'ddn' ? (
-        <div style={{height: 104 * costIn, overflow: 'hidden', opacity: costIn}}>
-          <div style={{paddingTop: 22}}>
+        <div style={{height: 86 * costIn, overflow: 'hidden', opacity: costIn}}>
+          <div style={{paddingTop: 16}}>
             <div style={{display: 'flex', alignItems: 'baseline', justifyContent: 'space-between'}}>
               <div style={{fontFamily: FONT.mono, fontSize: 24, color: 'rgba(255,255,255,0.75)', letterSpacing: '0.06em'}}>COST PER TOKEN</div>
-              <div style={{...display('medium', 40, -0.01), color: C.white, fontFeatureSettings: '"tnum" 1'}}>{costPct}% lower</div>
+              <div style={{...display('medium', 34, -0.01), color: C.white, fontFeatureSettings: '"tnum" 1'}}>{costPct}% lower</div>
             </div>
             <div style={{position: 'relative', height: 12, marginTop: 10, borderRadius: 6, background: 'rgba(255,255,255,0.12)'}}>
               <div style={{position: 'absolute', left: 0, top: 0, bottom: 0, width: `${100 - 75 * costP}%`, borderRadius: 6, background: C.red}} />

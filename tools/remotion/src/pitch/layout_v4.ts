@@ -11,8 +11,30 @@ const FPS = 30;
 export const fr = (s: number) => Math.round(s * FPS);
 
 type FaceRow = {i: number; center?: number[]; box?: Box};
-const MANUAL: Record<number, {center: [number, number]; box: Box}> = (globalThis as {__PITCH_MANUAL__?: Record<number, {center: [number, number]; box: Box}>}).__PITCH_MANUAL__ ?? {};
-export const setManualFaces = (m: Record<number, {center: [number, number]; box: Box}>) => Object.assign(MANUAL, m);
+// Hand-marked from gridded mid-segment frames of the v4 plate (landmarker misses these: small or dark faces).
+const MANUAL: Record<number, {center: [number, number]; box: Box}> = {
+  0: {center: [672, 190], box: {x: 577, y: 60, w: 190, h: 260}},
+  1: {center: [710, 288], box: {x: 620, y: 170, w: 180, h: 240}},
+  8: {center: [576, 288], box: {x: 470, y: 170, w: 230, h: 250}},
+  9: {center: [710, 240], box: {x: 630, y: 140, w: 170, h: 210}},
+  10: {center: [787, 250], box: {x: 705, y: 150, w: 170, h: 210}},
+  11: {center: [787, 255], box: {x: 705, y: 155, w: 170, h: 210}},
+  12: {center: [749, 262], box: {x: 665, y: 160, w: 170, h: 210}},
+  13: {center: [806, 245], box: {x: 725, y: 145, w: 170, h: 210}},
+  14: {center: [614, 240], box: {x: 510, y: 95, w: 210, h: 260}},
+  16: {center: [576, 262], box: {x: 470, y: 140, w: 220, h: 260}},
+};
+
+// Keep-outs (pre-zoom): Sky monitor (segments 1 to 7), DDN monitor + laptop (8 to 13), AI sign (0, 14 to 19).
+const SKY_A: Box = {x: 1229, y: 230, w: 441, h: 288};
+const SKY_B: Box = {x: 1152, y: 200, w: 538, h: 365};
+const DDN_M: Box = {x: 1018, y: 205, w: 460, h: 290};
+export const KEEP_OUT: Box[][] = [
+  [{x: 1075, y: 430, w: 173, h: 165}], [SKY_A], [SKY_A], [SKY_A], [SKY_B], [SKY_B], [SKY_B], [SKY_B],
+  [DDN_M], [DDN_M], [DDN_M], [DDN_M], [DDN_M], [DDN_M],
+  [{x: 1114, y: 499, w: 211, h: 219}], [{x: 1114, y: 499, w: 211, h: 219}], [{x: 1094, y: 499, w: 192, h: 154}],
+  [{x: 1344, y: 518, w: 230, h: 173}], [{x: 1344, y: 518, w: 230, h: 173}], [{x: 1344, y: 518, w: 230, h: 173}],
+];
 
 export const SEAM_CUTS = plan.sections_for_progress_bar.map((s) => s.start).filter((t) => t > 0.5).map(fr); // 9.353, 21.906, 32.592, 58.71
 const SNAPS = plan.snap_zooms.map((s) => ({f: fr(s.t), amount: s.amount}));
@@ -79,3 +101,7 @@ export const faceZoomed = (i: number): Box => {
   const c = f.center;
   return {x: c[0] + (f.box.x - c[0]) * z, y: c[1] + (f.box.y - c[1]) * z, w: f.box.w * z, h: f.box.h * z};
 };
+
+const zoomAbout = (b: Box, c: number[], z: number): Box => ({x: c[0] + (b.x - c[0]) * z, y: c[1] + (b.y - c[1]) * z, w: b.w * z, h: b.h * z});
+export const keepOutZoomed = (i: number, z: number): Box[] => KEEP_OUT[i].map((b) => zoomAbout(b, faceOf(i).center, z));
+export const faceAt = (i: number, z: number): Box => zoomAbout(faceOf(i).box, faceOf(i).center, z);
