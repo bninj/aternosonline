@@ -117,3 +117,22 @@ Every "spike" frame the scan flagged is also high in the input. Those are real m
 - **Lighting changes inside a clip** (IMG_3849 lights off/on): use `--plate-range` for each lighting state.
 - **Monitor screens** change content (Sky, ddn, terminal), so they are always taken from the live frame and are never plate-filled. Bright white screens bloom a little: lower `--bloom` if that bothers you.
 - **Speed**: it is CPU-bound. Render only the ranges used.
+
+---
+
+# v2 verdict (19 Nov 2026, hook roll-in IMG_3845 207.3–217.9)
+**The outline is gone.** Checked at 100% on 14 consecutive frames of the fastest motion (head, arm and chair) plus 14 frames of fast seated two-hand gestures, before and after side by side (`output/blur_v2/*_14consecutive_100pct.jpg`, `rollin_before_after*.mp4`).
+- Hair and head: v1 drew a light-grey ghost contour round the head on every fast frame. v2 has none: the hair edge blends into the blur like a lens would.
+- Swivel chair: v1 tore the yellow seat into blotches with a dark outline. v2 tracks it and it stays intact and sharp.
+- Arms and hands: there are no holes, steps or trailing ghost. Motion blur reads as natural partial transparency.
+- Edge-band flicker (90 frames incl. the roll-in): the output changes no more than the original (mean 6.50 vs 6.90). The worst popping spike drops from 5.99 (v1) to 2.62. On the seated part, v2 matches the original (4.07 vs 4.10).
+- The AI sign chair stays sharp, and focus is fixed, so nothing breathes.
+
+**Small residuals, honestly:**
+- On 2–3 frames of the roll-in, a bright red wall LED right beside his ear stays sharp, because it falls inside the motion-blurred hair band.
+- On about 5 frames, a faint yellow smear appears under the seat as it swings in.
+- The background is about 20% less blurred for half a second during the fastest moves. That is the intended easing, and it is hard to see.
+- Each of these is visible only when you step through frames at 100%. None is visible at playback speed.
+- The SAM mask can only be as good as its prompt. Each clip is auto-prompted from MediaPipe on the frame with the largest, uncut person. If a future clip has a second person, add a `prompt_t` or `track` entry.
+
+**Cost:** about 7–10 s per frame in total on this shared 4-core box; SAM 2.1 is the main cost. The full 2310-frame plate is about 4–6 h, and `tools/render_plates_v2.py` runs it in the background.

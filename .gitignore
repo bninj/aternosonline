@@ -44,3 +44,5 @@ tools/blur/dbg/
 edit/plates_noblur/
 edit/plates_blur/
 edit/cuts3/
+tools/blur/mattes/
+output/
