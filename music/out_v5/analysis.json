@@ -7,7 +7,13 @@
   "duration": 74.2,
   "last_50ms_peak_dbfs": -75.9
  },
- "punchline_72.4_75.6_lufs": -25.8,
+ "punchline_drop_lufs": {
+  "window": [
+   67.84,
+   71.1
+  ],
+  "lufs": -24.6
+ },
  "sections": {
   "chair": {
    "t": [
@@ -254,24 +260,24 @@
  },
  "sfx_audibility": {
   "click": {
-   "peak_dbfs": -26.2,
-   "best_third_octave_sfx_over_rest_db": -7.9,
-   "laptop_band_sfx_over_rest_db": -16.5
+   "peak_dbfs": -24.2,
+   "best_third_octave_sfx_over_rest_db": -5.9,
+   "laptop_band_sfx_over_rest_db": -14.5
   },
   "whoosh_chart": {
-   "peak_dbfs": -25.2,
-   "best_third_octave_sfx_over_rest_db": -8.1,
-   "laptop_band_sfx_over_rest_db": -29.4
+   "peak_dbfs": -22.2,
+   "best_third_octave_sfx_over_rest_db": -5.1,
+   "laptop_band_sfx_over_rest_db": -26.4
   },
   "whoosh_gauge": {
-   "peak_dbfs": -22.2,
-   "best_third_octave_sfx_over_rest_db": -12.4,
-   "laptop_band_sfx_over_rest_db": -25.1
+   "peak_dbfs": -20.2,
+   "best_third_octave_sfx_over_rest_db": -10.4,
+   "laptop_band_sfx_over_rest_db": -23.1
   },
   "whoosh_ask": {
-   "peak_dbfs": -28.2,
-   "best_third_octave_sfx_over_rest_db": -7.7,
-   "laptop_band_sfx_over_rest_db": -25.4
+   "peak_dbfs": -23.2,
+   "best_third_octave_sfx_over_rest_db": -2.7,
+   "laptop_band_sfx_over_rest_db": -20.4
   },
   "chime": {
    "peak_dbfs": -28.2,
