@@ -250,7 +250,7 @@
    "t": 56.77
   }
  ],
- "mix_gain_db": -7.53,
+ "mix_gain_db": -7.62,
  "samples_used": [
   "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_10_four-MFUD.flac",
   "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_10_one-1J07.flac",
@@ -306,7 +306,6 @@
   "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_F3_med_01.wav",
   "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_F3_soft_01.wav",
   "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_G2_soft_01.wav",
-  "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_G4_med_01.wav",
   "VCSL/Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerLowFaster_Down_rr1.wav",
   "VCSL/Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerLowFaster_Down_rr2.wav",
   "VCSL/Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerLowFaster_Up_rr1.wav",
@@ -320,7 +319,6 @@
   "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_B3_v1_rr1_Main.wav",
   "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_C5_v1_rr1_Main.wav",
   "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_D4_v1_rr1_Main.wav",
-  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_E5_v1_rr1_Main.wav",
   "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_F4_v1_rr1_Main.wav",
   "freepats_yamaha_rbx_bass/FingerBassYR/FingerBassYR SFZ+WAV-20190930/samples/finger/A.wav",
   "freepats_yamaha_rbx_bass/FingerBassYR/FingerBassYR SFZ+WAV-20190930/samples/finger/B.wav",
@@ -336,8 +334,8 @@
    "place_at": 1.85,
    "event_time": 1.85,
    "peak_offset_in_file": 0.0,
-   "peak_dbfs": -26.5,
-   "below_dialogue_peak_db": 27,
+   "peak_dbfs": -24.5,
+   "below_dialogue_peak_db": 25,
    "length_s": 0.48
   },
   "whoosh_chart": {
@@ -363,8 +361,8 @@
    "place_at": 68.494,
    "event_time": 69.1,
    "peak_offset_in_file": 0.606,
-   "peak_dbfs": -23.5,
-   "below_dialogue_peak_db": 24,
+   "peak_dbfs": -26.5,
+   "below_dialogue_peak_db": 27,
    "length_s": 1.27
   },
   "chime": {

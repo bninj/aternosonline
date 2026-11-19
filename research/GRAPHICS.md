@@ -93,6 +93,7 @@ Captions are centred with the plate bottom on the 5 % safe line. With `anchor="a
 | `Footage` | `source: {src, kind: 'image' \| 'video', blurredSrc?, style?, trimBefore?, volume?}` or `null` | Root wrapper. Main layer plus frost source. `null` gives an overlay render with fallback tint |
 | `Subtitles` | `transcript`, `emphasis?` (`['DDN','Sky']`; digits auto), `anchor?`, `faceBox?`, `avoid?`, `suppress?`, `joinGapFrames?` (8) | Deterministic layout via `@remotion/layout-utils` after the fonts load; balanced two-line wrap; soft swaps |
 | `SectionProgress` | `sections: {label, from, to, weight?, logo?}[]` (absolute frames), `from`, `durationInFrames`, `width?` (940), `edge?` ('top'), `anchor?`, `faceBox?`, `avoid?`, `offset?`, `showWeights?` | Echoes the contest bar. Segment widths are proportional to the real section durations. The current segment fills in Brand Red; finished segments settle to pale pink #E8B5BE; the current label brightens and gains a red dot. Replaces SectionMarker |
+| `SectionBar` | `sections: {label, from}[]` (absolute frames of each section change), `from`, `durationInFrames`, `presentFrames?` (52), `width?` (900), `slimWidth?` (520), `labelSize?` (26), `top?`, `right?` | Contest-slide style progress, used in PitchFinal. Light frosted panel, equal labelled segments: active #ED2738, done pale rose, upcoming neutral. Presents on each change (fill plus DDN-spectrum glint), then condenses to a slim top strip |
 | `PitchTimer` | `clockZero` (absolute frame of 00:00), `totalSeconds?` (90), `showTotal?`, `label?`, `variant?` ('intro' \| 'reprise'), `scale?`, plus SlotProps | Frosted capsule, hairline ring draws in, Brand Red progress arc with soft head, single red pulse at 00:00, Geist Mono digits roll. Shown at the start, then animates away. A `reprise` instance near the end reads the real elapsed time |
 | `KeywordStack` | `items: {text, at, logo?, show?}[]`, `show?: 'logo' \| 'text'`, `logoHeight?` (64), `direction?` | One chip per name. Logo chips are light frost with clear space = 0.5 × logo height |
 | `BigWord` | `text`, `logo?`, `show?`, `logoHeight?` (150), `size?` | "Blockbuster": the official ticket logo, or the big word as fallback |
@@ -144,3 +145,16 @@ Geist Mono is unchanged.
 - Render speed is about 0.5 s per frame at 1080p with motion blur.
 - Sky logo missing (see above).
 - Display face is Inter Tight until Articulat CF is licensed.
+
+## PitchFinal (real film)
+`src/pitch/PitchFinal.tsx`, composition `PitchFinal`, 1920x1080, 30 fps, 2400 f.
+- Props:
+  - `plate`: `pitch/plate.mp4`, a hard link to `edit/plates_noblur/plate.mp4`;
+  - `plateBlur`: a 960 px gblur proxy (make it with the ffmpeg line above);
+  - `voice`: `pitch/voice_master.wav`;
+  - `showGuides`: draws face and keep-out boxes, for QA only.
+- Run `scripts/sync_pitch.sh` after SHOTPLAN or captions change.
+- Face boxes and keep-outs are in `src/pitch/layout.ts`.
+- Captions are re-chunked in `src/pitch/captions.ts`.
+- Use hard links, not symlinks, in `public/` (symlinks 404 in the render server).
+- Prism uses DDN's spectrum: tokens `PRISM.stops`.

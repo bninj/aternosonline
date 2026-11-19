@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import {Html5Audio, interpolate, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {
   BigWord, BusyGauge, ChatBubble, EASE, EndCard, Footage, FootageSource, KeywordStack, LineChartFall, MeasureCard, PITCH_CAPTION_LOOK,
-  PitchTimer, SectionProgress, StatCard, Subtitles,
+  PitchTimer, SectionBar, StatCard, Subtitles,
 } from '../ddn';
 import plan from './shotplan.json';
 import {pitchTranscript} from './captions';
@@ -43,7 +43,6 @@ export const PitchFinal: React.FC<PitchFinalProps> = ({plate, plateBlur, voice, 
     style: {transformOrigin: `${o[0]}px ${o[1]}px`, transform: `scale(${(z * (1 + 0.04 * endT)).toFixed(5)})`, filter: endT > 0 ? `blur(${(18 * endT).toFixed(2)}px)` : undefined},
   };
 
-  const sections = plan.sections_for_progress_bar.map((s) => ({label: s.label, from: f(s.start), to: f(s.end)}));
   const g = Object.fromEntries(plan.graphics.map((x) => [x.id, x]));
   const cut = (i: number) => f(plan.segments[i].start); // picture cut frame
 
@@ -64,7 +63,9 @@ export const PitchFinal: React.FC<PitchFinalProps> = ({plate, plateBlur, voice, 
 
       <PitchTimer from={f(g.timer.in)} durationInFrames={f(g.timer.out) - f(g.timer.in)} clockZero={f(1.85)} anchor="right" bottom={0.3} />
 
-      <SectionProgress sections={sections} from={cut(1) + 2} durationInFrames={f(g.progress.out) - cut(1) - 2} edge="top" anchor="right" width={740} labelSize={24} />
+      {/* Progress: presents at each section change (picture cut), then condenses to a slim top strip. */}
+      <SectionBar sections={[{label: 'Why change', from: cut(1)}, {label: 'Why now', from: cut(4)}, {label: 'Why DDN', from: cut(7)}, {label: 'The ask', from: cut(13)}]}
+        from={cut(1)} durationInFrames={f(g.progress.out) - cut(1)} />
 
       <LineChartFall from={chartFrom} durationInFrames={f(g.ofcom_chart.out) - chartFrom} {...PLACE_R}
         valueAt={f(14.63) - chartFrom} value="12%" source="Ofcom Media Nations 2026" chartW={420} chartH={104} scale={0.76} />

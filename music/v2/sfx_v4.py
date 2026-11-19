@@ -105,7 +105,7 @@ def build(ref):
     x[: min(n, len(vib))] += vib[:n] / np.abs(vib).max()
     x[: min(n, len(hc))] += 0.45 * hc[:n] / np.abs(hc).max()
     x = hp(x, 200); x = lp(x, 4000, 2); x = peaking(x, 2500, -2, 1.0)
-    x = fade(x, 0.012, 1.4)                        # rounded onset, short tail
+    x = fade(x, 0.025, 1.4)                        # rounded onset (25 ms), short tail
     x = reverb(np.vstack([x, np.zeros((int(0.5 * SR), 2))]), room, 0.2)
     out["chime"] = x
     return out

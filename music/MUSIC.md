@@ -1,10 +1,74 @@
-# Music + SFX for the DDN "Why DDN" pitch (v3: soft, follows the edit)
+# Music + SFX for the DDN "Why DDN" pitch: **current = v4 (curious, soft)** in `out_v4/`
 
-The current deliverable is `out_v3/`. The earlier drafts are superseded:
-- v1 (`out/`) was piano-led and the user rejected it.
-- v2 (`out_v2/`) was "energetic, 120 BPM", replaced by the "soft" brief.
+v4 keeps v3's timing work and changes the character and the whooshes. Everything below §v4 describes v3 and is still valid for licences, research, the tempo map and the method. Earlier drafts are superseded: v1 `out/` (piano), v2 `out_v2/` (energetic), v3 `out_v3/` (soft groove). Their audio was deleted to free disk; the scripts re-render them.
 
-Their audio has been deleted to save disk. Scripts and JSON are kept.
+## v4: what changed
+**Character: curious, "what if…".** It starts as a question and resolves into confidence.
+
+- **Hook and Why change: questions only.** No bass or drums until 18.07. Harmony uses only sus2/sus4, add9, m11 and **Gmaj7#11** chords (the lydian raised 4th, C# over G), with no plain triads.
+  - Soft TX81Z FM-piano colours hold under a marimba figure that **rises and pauses** (B–C#–F#…, later B–C#–F#–G…).
+  - A lone vibraphone E5 hangs unresolved.
+  - Muted TX81Z Clavisynth "pizzicato" plucks enter exactly on the 12.30 cut.
+  - At 18.07 a marimba pickup lands on the cut and the Yamaha RBX bass enters, gently.
+- **Why now: gentle motion.** Syncopated plucks, half-note bass, and a very soft shaker entering on the 23.76 downbeat. A soft Yamaha kick "heartbeat" on beat 1 starts at the 28.56 cut, under the cymbal swell. The question figure is asked again, further.
+- **Why DDN: the answer.** The harmony turns warm and plainly major (D, G/D, Em7…). The plucks become a steady 8th-note pulse, with soft kick (1, 3&) and a brush-soft ghost snare on 4. The motif's **answer** appears: it descends 6-5-3-2-1 and lands on D, doubled softly on vibes.
+- **Ask:** a soft lift, asking once more but now over major harmony.
+- **Unchanged from v3:** the punchline drop and the end-card resolve, the tempo map, the downbeats, and every camera-cut and graphic accent:
+  - 12% (14.63) is now a lydian C#–E vibes "raised eyebrow".
+  - 5% (42.43) is the drop-out.
+  - 99% (53.67) is the bloom.
+  - 75% (56.77) is the fall.
+
+**Measured** (`out_v4/analysis.json`, `spectrogram.png`):
+- `music_mix.wav` is −21.1 LUFS, true peak −3.3 dBTP, 80.0 s, with a clean tail (−74 dBFS over the last 50 ms).
+- Loudness rises section by section (LUFS):
+
+| chair | hook | change | now | DDN | ask | punchline 72.4–75.6 | end card |
+|---|---|---|---|---|---|---|---|
+| −47 | −25.3 | −24.2 | −22.2 | −20.1 | −19.8 | −26.0 | −19.0 |
+
+- Section downbeats land within ±5 ms. The hook and change downbeats are carried by the keys (0 ms); there is no bass or kick there by design.
+- Accents at cuts land within ≤ 6 ms.
+- The 1–4 kHz share of the music is ≤ 1 % under speech.
+- In the preview, the voice is a median 24 dB above the music full-band and 40 dB above it in 1–4 kHz.
+- Note-clash scan: the only overlapping semitone/maj7 pairs left are intentional maj7 / lydian colours (G–F#, C#–D an octave apart).
+
+**SFX v4: smooth and premium.**
+- The coarse rope whooshes were removed. Each swell is now the rising part of a soft mallet-roll **cymbal swell** plus a **reversed soft-mallet vibraphone note** (A3 or E4, in key), all VCSL recordings (CC0).
+  - Each is 0.55–0.7 s long, with a sin² rise (370–435 ms from 10 % to peak, never more than about 5 dB per 5 ms).
+  - It stops before the roll's own peak, so there is no spike, then releases over 75 ms.
+  - It is low-passed at 6 kHz.
+  - Its peak lands on the graphic time.
+- The chime is the same soft vibraphone D5 + hand chime, with a 25 ms rounded onset.
+- The click is the BigSoundBank trackpad click, low-passed at 3.5 kHz.
+- Peaks relative to dialogue peaks: click −25 dB, whoosh chart −24, whoosh gauge −21, whoosh ask −27, chime −27.
+- Audibility proxy (best third-octave on headphones / laptop band):
+  - click −3.4 / −13
+  - chart −3.5 / −28
+  - gauge −8.2 / −24
+  - ask +2.4 / −13
+  - chime +2.0 / −1.8 (plays after the voice ends)
+- So all are subtle. The gauge swell (52.55) is still partly masked by dense speech and will be felt more than heard.
+- Placement times are in `out_v4/timing.json → sfx` (`place_at`). `sfx_all_positioned.wav` has all five already placed over 80.0 s.
+
+**v4 sample list** (all licences as in §5 below):
+- Naked Drums (CC BY 4.0, credit required): Yamaha kick, toms, ghost snare.
+- FreePats RBX finger bass (CC0).
+- VCSL (CC0): TX81Z FM Piano and Clavisynth, marimba, vibraphone (soft and bowed), hand chimes, suspended cymbal swells and hit, shaker.
+- BigSoundBank (CC0): trackpad click only. The rope whooshes are no longer used.
+- The exact files are listed in `out_v4/timing.json` (`samples_used`, `sfx_sources`).
+
+**Re-render v4:**
+```
+cd /home/user/ddn-project/music/v2
+/home/user/ddn-project/tools/venv/bin/python compose_v4.py            # edit_v4.json -> ../out_v4
+/home/user/ddn-project/tools/venv/bin/python sfx_v4.py
+/home/user/ddn-project/tools/venv/bin/python analyze_v3.py ../out_v4 edit_v4.json
+```
+
+---
+
+# (v3 documentation, still the reference for research, licences and method)
 
 ## 1. What pitch videos actually use (brief research, Nov 2026)
 

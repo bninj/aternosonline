@@ -18,3 +18,4 @@ export * from './EndCard';
 export * from './SectionProgress';
 export * from './PitchTimer';
 export * from './MeasureCard';
+export * from './SectionBar';

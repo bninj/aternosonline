@@ -88,9 +88,9 @@ def compose(tm):
             # one soft sus/lydian colour per bar on TX81Z FM piano, very quiet
             s.add("fmpiano", b0, 3.8, 0, 26, extra=tuple(ch))
             if i == 0:
-                fig(s, b0 + 1.0, 62, 40, Q1)                      # D E A ...
+                fig(s, b0 + 1.0, 59, 40, Q1)                      # B C# F# ... (lydian question)
             elif i == 2:
-                fig(s, b0 + 1.0, 62, 42, Q2)                      # D E A B ... (further)
+                fig(s, b0 + 1.0, 59, 42, Q2)                      # B C# F# G ... (further)
             elif i == 3:
                 s.add("vibes", b0 + 2.0, 2.0, 76, 30)             # a lone E5 hangs (sus)
             continue
@@ -151,24 +151,24 @@ def compose(tm):
         # ---------------- mallet motifs --------------------------------------
         if sec == "change":
             if i in (0, 4):
-                fig(s, b0 + 1.0, 59 if i == 0 else 62, 44, Q1 if i == 0 else Q2)   # still asking
+                fig(s, b0 + 1.0, 59, 44, Q1 if i == 0 else Q2)   # still asking
             elif i == 2:
-                s.add("vibes", b0 + 2.0, 2.0, 73, 28)                            # C#5: unresolved
+                s.add("vibes", b0 + 2.0, 2.0, 76, 28)                            # E5: the sus2, left hanging
         elif sec == "now":
             if i in (0, 2):
-                fig(s, b0 + 0.5, 62 if i == 0 else 64, 46, Q2)
+                fig(s, b0 + 0.5, 59 if i == 0 else 64, 46, Q2)
             elif i in (1, 3):
                 for q, ci in enumerate([0, 1, 2]):                               # soft broken chord
                     s.add("marimba", b0 + 1.0 + q, 0.6, ch[ci], 36)
         elif sec == "ddn":
             if c in ("D", "G/D", "Gadd9") and i % 2 == 0:
-                fig(s, b0, 66, 50, ANS)                                          # the answer lands
-                fig(s, b0, 78, 26, ANS, trk="vibes")
+                fig(s, b0, 62, 50, ANS)                                          # the answer lands on D
+                fig(s, b0, 74, 26, ANS, trk="vibes")
             else:
                 for q, ci in enumerate([0, 1, 2, 1]):
                     s.add("marimba", b0 + q + 0.5, 0.4, ch[ci], 36)
         elif sec == "ask":
-            fig(s, b0, [62, 64, 66, 69][i], 48 + 2 * i, Q2 if i < 3 else Q1)     # asks once more, higher
+            fig(s, b0, [62, 64, 62, 59][i], 48 + 2 * i, Q2 if i < 2 else Q1)     # asks once more
 
     # ---------------- accents at exact edit times (as v3) ----------------
     at = Bt
@@ -195,8 +195,8 @@ def compose(tm):
         s.add("cymbal", at(tc), 0, 3, 100, human=0)
         s.accents.append(("cymbal swell peaks", tc))
     g = A["graphics"]
-    s.add("vibes", at(g["12%"]), 1.5, 73, 32, human=0)                            # C#5 then E5: a raised eyebrow
-    s.add("vibes", at(g["12%"]) + 0.5, 1.5, 76, 28, human=0)
+    s.add("vibes", at(g["12%"]), 0.8, 73, 32, human=0)                            # C#5 then E5: a raised eyebrow
+    s.add("vibes", at(g["12%"]) + 0.5, 1.2, 76, 28, human=0)
     s.accents.append(("12% vibes", g["12%"]))
     s.add("vibes", at(g["5%"]), 3.0, 69, 30, human=0)
     s.gates.append(("idle", g["5%"], A["idle_until"]))

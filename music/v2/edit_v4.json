@@ -86,11 +86,11 @@
  "target_lufs": -20.0,
  "seed": 4,
  "sfx_level_below_dialogue_peak_db": {
-  "click": 27,
+  "click": 25,
   "whoosh": 24,
   "whoosh_chart": 24,
   "whoosh_gauge": 21,
-  "whoosh_ask": 24,
+  "whoosh_ask": 27,
   "chime": 27
  }
 }

@@ -4,8 +4,8 @@
   "place_at": 1.85,
   "event_time": 1.85,
   "peak_offset_in_file": 0.0,
-  "peak_dbfs": -26.5,
-  "below_dialogue_peak_db": 27,
+  "peak_dbfs": -24.5,
+  "below_dialogue_peak_db": 25,
   "length_s": 0.48
  },
  "whoosh_chart": {
@@ -31,8 +31,8 @@
   "place_at": 68.494,
   "event_time": 69.1,
   "peak_offset_in_file": 0.606,
-  "peak_dbfs": -23.5,
-  "below_dialogue_peak_db": 24,
+  "peak_dbfs": -26.5,
+  "below_dialogue_peak_db": 27,
   "length_s": 1.27
  },
  "chime": {
