@@ -1,0 +1,394 @@
+{
+ "version": "v4 curious/speculative",
+ "tempo_map": "smooth PCHIP beat->time through the section downbeats; see bars[] for every downbeat",
+ "bpm_min": 100.49,
+ "bpm_max": 111.97,
+ "section_downbeats": {
+  "hook": 1.85,
+  "change": 10.5,
+  "now": 23.76,
+  "ddn": 35.21,
+  "ask": 62.73,
+  "punch": 72.23,
+  "endcard": 77.0
+ },
+ "requested": {
+  "hook": 1.85,
+  "change": 10.5,
+  "now": 23.76,
+  "ddn": 35.21,
+  "ask": 62.73,
+  "punch": 72.23,
+  "endcard": 77.0
+ },
+ "bars": [
+  {
+   "t": 1.85,
+   "section": "hook",
+   "chord": "Gmaj7#11"
+  },
+  {
+   "t": 3.998,
+   "section": "hook",
+   "chord": "Dsus2"
+  },
+  {
+   "t": 6.155,
+   "section": "hook",
+   "chord": "Gmaj7#11"
+  },
+  {
+   "t": 8.322,
+   "section": "hook",
+   "chord": "Asus2"
+  },
+  {
+   "t": 10.5,
+   "section": "change",
+   "chord": "Bm11"
+  },
+  {
+   "t": 12.687,
+   "section": "change",
+   "chord": "Gmaj7#11"
+  },
+  {
+   "t": 14.879,
+   "section": "change",
+   "chord": "Dsus2/F#"
+  },
+  {
+   "t": 17.08,
+   "section": "change",
+   "chord": "Em9"
+  },
+  {
+   "t": 19.293,
+   "section": "change",
+   "chord": "Gmaj7#11"
+  },
+  {
+   "t": 21.518,
+   "section": "change",
+   "chord": "Asus4"
+  },
+  {
+   "t": 23.76,
+   "section": "now",
+   "chord": "Gmaj7#11"
+  },
+  {
+   "t": 26.024,
+   "section": "now",
+   "chord": "A/G"
+  },
+  {
+   "t": 28.311,
+   "section": "now",
+   "chord": "F#m11"
+  },
+  {
+   "t": 30.61,
+   "section": "now",
+   "chord": "Bm11"
+  },
+  {
+   "t": 32.913,
+   "section": "now",
+   "chord": "Asus4"
+  },
+  {
+   "t": 35.21,
+   "section": "ddn",
+   "chord": "D"
+  },
+  {
+   "t": 37.498,
+   "section": "ddn",
+   "chord": "G/D"
+  },
+  {
+   "t": 39.781,
+   "section": "ddn",
+   "chord": "D"
+  },
+  {
+   "t": 42.06,
+   "section": "ddn",
+   "chord": "Em7"
+  },
+  {
+   "t": 44.338,
+   "section": "ddn",
+   "chord": "Bm7"
+  },
+  {
+   "t": 46.616,
+   "section": "ddn",
+   "chord": "A/C#"
+  },
+  {
+   "t": 48.897,
+   "section": "ddn",
+   "chord": "D"
+  },
+  {
+   "t": 51.181,
+   "section": "ddn",
+   "chord": "Gadd9"
+  },
+  {
+   "t": 53.472,
+   "section": "ddn",
+   "chord": "Em7"
+  },
+  {
+   "t": 55.77,
+   "section": "ddn",
+   "chord": "F#m7"
+  },
+  {
+   "t": 58.078,
+   "section": "ddn",
+   "chord": "G"
+  },
+  {
+   "t": 60.397,
+   "section": "ddn",
+   "chord": "Asus"
+  },
+  {
+   "t": 62.73,
+   "section": "ask",
+   "chord": "G"
+  },
+  {
+   "t": 65.084,
+   "section": "ask",
+   "chord": "A"
+  },
+  {
+   "t": 67.46,
+   "section": "ask",
+   "chord": "Bm"
+  },
+  {
+   "t": 69.845,
+   "section": "ask",
+   "chord": "Gmaj7"
+  },
+  {
+   "t": 72.23,
+   "section": "punch",
+   "chord": "Em9"
+  },
+  {
+   "t": 74.613,
+   "section": "punch",
+   "chord": "Asus"
+  }
+ ],
+ "accents": [
+  {
+   "what": "TX81Z plucks enter",
+   "t": 12.3
+  },
+  {
+   "what": "bass enters",
+   "t": 18.07
+  },
+  {
+   "what": "marimba pickup lands",
+   "t": 18.07
+  },
+  {
+   "what": "shaker enters",
+   "t": 23.76
+  },
+  {
+   "what": "soft kick enters (with swell)",
+   "t": 28.56
+  },
+  {
+   "what": "soft tom fill lands",
+   "t": 48.75
+  },
+  {
+   "what": "vibes note",
+   "t": 25.46
+  },
+  {
+   "what": "vibes note",
+   "t": 37.18
+  },
+  {
+   "what": "vibes note",
+   "t": 52.05
+  },
+  {
+   "what": "cymbal swell peaks",
+   "t": 28.56
+  },
+  {
+   "what": "cymbal swell peaks",
+   "t": 58.12
+  },
+  {
+   "what": "12% vibes",
+   "t": 14.63
+  },
+  {
+   "what": "5%: drop-out until",
+   "t": 44.18
+  },
+  {
+   "what": "99% vibes bloom",
+   "t": 53.67
+  },
+  {
+   "what": "75% marimba fall",
+   "t": 56.77
+  }
+ ],
+ "mix_gain_db": -7.53,
+ "samples_used": [
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_10_four-MFUD.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_10_one-1J07.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_10_three-A4MX.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_10_two-TD31.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_20_four-CGP2.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_20_one-II9X.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_20_three-VFGS.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_20_two-N3VW.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-Bottom_Black_D2_30_one-NLNF.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_10_four-727O.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_10_one-UD4F.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_10_three-OT6G.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_10_two-D1EG.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_20_four-9OAC.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_20_one-35AH.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_20_three-MUX6.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_20_two-U6FG.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_Black_D2_30_one-YFZG.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_10_one-38X2.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_10_one-C75T.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-OH_D3_10_one-MKLJ.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_10_four-PIVO.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_10_one-NDOX.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_10_three-I6YE.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_10_two-QJ6N.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_20_four-0TV9.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_20_one-PHDM.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_20_three-R209.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_20_two-9O0E.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_Black_D2_30_one-IULU.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_10_one-DJ8O.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_10_one-KH0Z.flac",
+  "NakedDrums/Wilkinson Audio/Naked Drums/Samples/-TopOne_D3_10_one-NHRO.flac",
+  "VCSL/Electrophones/TX81Z/Clavisynth/Clavisynth_C3_vl1.wav",
+  "VCSL/Electrophones/TX81Z/Clavisynth/Clavisynth_E2_vl1.wav",
+  "VCSL/Electrophones/TX81Z/Clavisynth/Clavisynth_E3_vl1.wav",
+  "VCSL/Electrophones/TX81Z/Clavisynth/Clavisynth_G#2_vl1.wav",
+  "VCSL/Electrophones/TX81Z/Clavisynth/Clavisynth_G#3_vl1.wav",
+  "VCSL/Electrophones/TX81Z/FM Piano/FMPiano_C4_vl1.wav",
+  "VCSL/Electrophones/TX81Z/FM Piano/FMPiano_E3_vl1.wav",
+  "VCSL/Electrophones/TX81Z/FM Piano/FMPiano_E3_vl2.wav",
+  "VCSL/Electrophones/TX81Z/FM Piano/FMPiano_E4_vl1.wav",
+  "VCSL/Electrophones/TX81Z/FM Piano/FMPiano_E4_vl2.wav",
+  "VCSL/Electrophones/TX81Z/FM Piano/FMPiano_G#3_vl1.wav",
+  "VCSL/Electrophones/TX81Z/FM Piano/FMPiano_G#3_vl2.wav",
+  "VCSL/Electrophones/TX81Z/FM Piano/FMPiano_G#4_vl1.wav",
+  "VCSL/Electrophones/TX81Z/FM Piano/FMPiano_G#4_vl2.wav",
+  "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_B2_med_01.wav",
+  "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_B2_soft_01.wav",
+  "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_C2_med_01.wav",
+  "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_C4_med_01.wav",
+  "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_F3_med_01.wav",
+  "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_F3_soft_01.wav",
+  "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_G2_soft_01.wav",
+  "VCSL/Idiophones/Struck Idiophones/Marimba/Marimba_hit_Outrigger_G4_med_01.wav",
+  "VCSL/Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerLowFaster_Down_rr1.wav",
+  "VCSL/Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerLowFaster_Down_rr2.wav",
+  "VCSL/Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerLowFaster_Up_rr1.wav",
+  "VCSL/Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerLowFaster_Up_rr2.wav",
+  "VCSL/Idiophones/Struck Idiophones/Suspended Cymbal 1/susCymb1_cresc_1.5s.wav",
+  "VCSL/Idiophones/Struck Idiophones/Suspended Cymbal 2/susCymb2_hit_pp1.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Bowed/Vibes_bowed_D4_rr1_Main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Bowed/Vibes_bowed_E3_rr1_Main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Bowed/Vibes_bowed_G3_rr1_Main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_A4_v1_rr1_Main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_B3_v1_rr1_Main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_C5_v1_rr1_Main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_D4_v1_rr1_Main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_E5_v1_rr1_Main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_F4_v1_rr1_Main.wav",
+  "freepats_yamaha_rbx_bass/FingerBassYR/FingerBassYR SFZ+WAV-20190930/samples/finger/A.wav",
+  "freepats_yamaha_rbx_bass/FingerBassYR/FingerBassYR SFZ+WAV-20190930/samples/finger/B.wav",
+  "freepats_yamaha_rbx_bass/FingerBassYR/FingerBassYR SFZ+WAV-20190930/samples/finger/C#.wav",
+  "freepats_yamaha_rbx_bass/FingerBassYR/FingerBassYR SFZ+WAV-20190930/samples/finger/D.wav",
+  "freepats_yamaha_rbx_bass/FingerBassYR/FingerBassYR SFZ+WAV-20190930/samples/finger/E.wav",
+  "freepats_yamaha_rbx_bass/FingerBassYR/FingerBassYR SFZ+WAV-20190930/samples/finger/F#.wav",
+  "freepats_yamaha_rbx_bass/FingerBassYR/FingerBassYR SFZ+WAV-20190930/samples/finger/G.wav"
+ ],
+ "sfx": {
+  "click": {
+   "file": "sfx_click.wav",
+   "place_at": 1.85,
+   "event_time": 1.85,
+   "peak_offset_in_file": 0.0,
+   "peak_dbfs": -26.5,
+   "below_dialogue_peak_db": 27,
+   "length_s": 0.48
+  },
+  "whoosh_chart": {
+   "file": "sfx_whoosh_chart.wav",
+   "place_at": 11.808,
+   "event_time": 12.39,
+   "peak_offset_in_file": 0.582,
+   "peak_dbfs": -23.5,
+   "below_dialogue_peak_db": 24,
+   "length_s": 1.18
+  },
+  "whoosh_gauge": {
+   "file": "sfx_whoosh_gauge.wav",
+   "place_at": 52.019,
+   "event_time": 52.55,
+   "peak_offset_in_file": 0.531,
+   "peak_dbfs": -20.5,
+   "below_dialogue_peak_db": 21,
+   "length_s": 1.12
+  },
+  "whoosh_ask": {
+   "file": "sfx_whoosh_ask.wav",
+   "place_at": 68.494,
+   "event_time": 69.1,
+   "peak_offset_in_file": 0.606,
+   "peak_dbfs": -23.5,
+   "below_dialogue_peak_db": 24,
+   "length_s": 1.27
+  },
+  "chime": {
+   "file": "sfx_chime.wav",
+   "place_at": 77.2,
+   "event_time": 77.2,
+   "peak_offset_in_file": 0.0,
+   "peak_dbfs": -26.5,
+   "below_dialogue_peak_db": 27,
+   "length_s": 3.1
+  }
+ },
+ "sfx_reference": {
+  "dialogue_peak_ref_dbfs": 0.47,
+  "definition": "95th pct of 50 ms peaks of voice_v1.wav at -16 LUFS integrated"
+ },
+ "sfx_sources": [
+  "VCSL/Idiophones/Struck Idiophones/Hand Chimes/sus_D4_r01_main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Suspended Cymbal 1/susCymb1_cresc_1.5s.wav",
+  "VCSL/Idiophones/Struck Idiophones/Suspended Cymbal 1/susCymb1_cresc_2s.wav",
+  "VCSL/Idiophones/Struck Idiophones/Suspended Cymbal 1/susCymb1_cresc_4s.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_A2_v1_rr1_Main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_D4_v1_rr1_Main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_E3_v1_rr2_Main.wav",
+  "bigsoundbank/macbook-trackpad-simple-click-s1740.flac"
+ ]
+}
