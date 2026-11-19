@@ -2,13 +2,13 @@ import React, {useMemo} from 'react';
 import {AbsoluteFill, interpolate, Sequence, useCurrentFrame, useVideoConfig} from 'remotion';
 import {measureText} from '@remotion/layout-utils';
 import {C, EASE, FRAME, SAFE, T, TYPE} from './tokens';
-import {display, FONT, useFontsReady} from './fonts';
+import {display, FONT, TypeRole, useFontsReady} from './fonts';
 import {EnvelopeProvider, FrostedGlass, makeEnvelope, MotionBlurWhileMoving, Reveal} from './primitives';
 import {onScreen} from './sanitize';
 import {Box, obstacles, overlaps} from './layout';
 
 // Input JSON shape (seconds). Phrases are inclusive word index ranges: one short phrase per card.
-export type Word = {text: string; start: number; end: number};
+export type Word = {text: string; start: number; end: number; emphasis?: boolean}; // emphasis: explicit flag wins over the list
 export type PhraseGroup = {from: number; to: number};
 export type Transcript = {words: Word[]; phrases: PhraseGroup[]};
 
@@ -22,17 +22,17 @@ export type SubtitlesProps = {
   strict?: boolean; // dash sanitiser: throw (default) or only warn
   suppress?: {from: number; to: number}[]; // frame ranges with no caption (e.g. a chat bubble already shows the words) [4.6]
   joinGapFrames?: number; // phrases closer than this share one plate and swap softly (default 8)
+  look?: Partial<CaptionLook>;
 };
 
-export const DEFAULT_EMPHASIS = ['DDN', 'Sky'];
-const SIZE = TYPE.caption;
-const LINE_H = Math.round(SIZE * 1.25);
-const PAD_X = 56;
-const PAD_Y = 30;
-const BOTTOM = FRAME.h * SAFE.margin; // plate bottom on the 5 % safe line (95 % H)
-const PLATE_H1 = LINE_H + 2 * PAD_Y;
+// Caption look. DDN 2026 default: 78 px regular on an 18 px radius plate, two lines allowed. The pitch film uses the
+// short-form preset (PITCH_CAPTION_LOOK): one line, 48 px semi-bold, frosted pill, 8 % bottom margin.
+export type CaptionLook = {size: number; role: TypeRole; emphRole: TypeRole; padX: number; padY: number; radius: number; bottomPx: number; maxLines: number};
+export const DDN_CAPTION_LOOK: CaptionLook = {size: TYPE.caption, role: 'regular', emphRole: 'medium', padX: 56, padY: 30, radius: 18, bottomPx: FRAME.h * SAFE.margin, maxLines: 2};
+export const PITCH_CAPTION_LOOK: CaptionLook = {size: 48, role: 'bold', emphRole: 'bold', padX: 34, padY: 17, radius: 999, bottomPx: Math.round(FRAME.h * 0.08), maxLines: 1};
 
-const isEmph = (core: string, list: string[]) => /\d/.test(core) || list.includes(core);
+export const DEFAULT_EMPHASIS = ['DDN', 'Sky'];
+const isEmph = (core: string, list: string[], flag?: boolean) => (flag !== undefined ? flag : /\d/.test(core) || list.includes(core));
 
 // Split "Sky." into core "Sky" and trailing punctuation so only the word is marked.
 const splitWord = (w: string) => {
@@ -50,21 +50,21 @@ export const phraseWindows = (t: Transcript, fps: number, hold = 0.5) =>
     return {from, to, words: t.words.slice(p.from, p.to + 1)};
   });
 
-type Laid = {lines: {words: {lead: string; core: string; trail: string; emph: boolean; start: number}[]}[]; w: number; h: number};
-
-const CAP = display('regular', SIZE); // caption body (Articulat Normal match)
-const EMPH = display('medium', SIZE); // marked word
-const measure = (text: string, weight: '400' | '500') => {
-  const t = weight === '500' ? EMPH : CAP;
-  return measureText({text, fontFamily: FONT.displayFamilyLoaded, fontSize: t.fontSize, fontWeight: String(t.fontWeight), letterSpacing: t.letterSpacing}).width;
-};
+type Laid = {lines: {words: {lead: string; core: string; trail: string; emph: boolean; start: number}[]}[]; w: number; h: number; look: CaptionLook};
+const lineH = (l: CaptionLook) => Math.round(l.size * 1.25);
 
 // Deterministic layout: greedy wrap, then balance two lines. The plate size is known per phrase, so it can tween.
-const layoutPhrase = (words: Word[], emphasis: string[], maxText: number): Laid => {
+const layoutPhrase = (words: Word[], emphasis: string[], maxText: number, look: CaptionLook): Laid => {
+  const CAP = display(look.role, look.size);
+  const EMPH = display(look.emphRole, look.size);
+  const measure = (text: string, weight: '400' | '500') => {
+    const t = weight === '500' ? EMPH : CAP;
+    return measureText({text, fontFamily: FONT.displayFamilyLoaded, fontSize: t.fontSize, fontWeight: String(t.fontWeight), letterSpacing: t.letterSpacing}).width;
+  };
   const space = measure('a a', '400') - measure('aa', '400');
   const items = words.map((w) => {
     const s = splitWord(w.text.trim());
-    const emph = isEmph(s.core, emphasis);
+    const emph = isEmph(s.core, emphasis, w.emphasis);
     const width = measure(s.lead, '400') + measure(s.core, emph ? '500' : '400') + measure(s.trail, '400');
     return {...s, emph, start: w.start, width};
   });
@@ -72,7 +72,7 @@ const layoutPhrase = (words: Word[], emphasis: string[], maxText: number): Laid 
   let lines: (typeof items)[] = [];
   let cur: typeof items = [];
   for (const it of items) {
-    if (cur.length && lineW([...cur, it]) > maxText) {
+    if (look.maxLines > 1 && cur.length && lineW([...cur, it]) > maxText) {
       lines.push(cur);
       cur = [];
     }
@@ -95,17 +95,18 @@ const layoutPhrase = (words: Word[], emphasis: string[], maxText: number): Laid 
     lines = best;
   }
   const w = Math.max(...lines.map(lineW));
-  return {lines: lines.map((l) => ({words: l})), w: Math.ceil(w) + 2 * PAD_X + 6, h: lines.length * LINE_H + 2 * PAD_Y};
+  return {lines: lines.map((l) => ({words: l})), w: Math.ceil(w) + 2 * look.padX + 6, h: lines.length * lineH(look) + 2 * look.padY, look};
 };
 
 // Emphasis: white text on a Brand Red marker that wipes in (ddn-out, 7 f) as the word is spoken.
 // White on #ED2738 is 3.9:1 (large text AA); red text on smoked glass over a cream wall could not be guaranteed.
-const Marked: React.FC<{text: string; startFrame: number}> = ({text, startFrame}) => {
+const Marked: React.FC<{text: string; startFrame: number; look: CaptionLook}> = ({text, startFrame, look}) => {
+  const EMPH = display(look.emphRole, look.size);
   const frame = useCurrentFrame();
   const p = interpolate(frame, [startFrame, startFrame + 9], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.inOut});
   return (
     <span style={{position: 'relative', display: 'inline-block', fontWeight: EMPH.fontWeight, letterSpacing: EMPH.letterSpacing}}>
-      <span style={{position: 'absolute', left: -9, right: -9, top: '17%', bottom: '11%', background: C.red, borderRadius: 9, transformOrigin: 'left center', transform: `scaleX(${p})`, opacity: p > 0 ? 1 : 0}} />
+      <span style={{position: 'absolute', left: -Math.round(look.size * 0.12), right: -Math.round(look.size * 0.12), top: '17%', bottom: '11%', background: C.red, borderRadius: Math.round(look.size * 0.12), transformOrigin: 'left center', transform: `scaleX(${p})`, opacity: p > 0 ? 1 : 0}} />
       <span style={{position: 'relative'}}>{text}</span>
     </span>
   );
@@ -115,13 +116,13 @@ const PhraseText: React.FC<{laid: Laid; opacity: number; y: number; blur: number
   <div style={{position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', opacity,
     transform: `translateY(${y.toFixed(2)}px)`, filter: blur > 0.05 ? `blur(${blur.toFixed(2)}px)` : undefined}}>
     {laid.lines.map((l, i) => (
-      <div key={i} style={{height: LINE_H, lineHeight: `${LINE_H}px`, whiteSpace: 'nowrap', ...CAP,
+      <div key={i} style={{height: lineH(laid.look), lineHeight: `${lineH(laid.look)}px`, whiteSpace: 'nowrap', ...display(laid.look.role, laid.look.size),
         color: 'rgba(255,255,255,0.97)', fontFeatureSettings: '"tnum" 1', textShadow: '0 1px 12px rgba(20,10,14,0.25)'}}>
         {l.words.map((w, j) => (
           <React.Fragment key={j}>
             {j > 0 ? ' ' : ''}
             {w.lead}
-            {w.emph ? <Marked text={w.core} startFrame={Math.round(w.start * fps) - runFrom} /> : w.core}
+            {w.emph ? <Marked text={w.core} startFrame={Math.round(w.start * fps) - runFrom} look={laid.look} /> : w.core}
             {w.trail}
           </React.Fragment>
         ))}
@@ -132,7 +133,7 @@ const PhraseText: React.FC<{laid: Laid; opacity: number; y: number; blur: number
 
 type Run = {from: number; to: number; phrases: {from: number; to: number; laid: Laid}[]};
 
-const RunBody: React.FC<{run: Run; fps: number; justify: string; side: number}> = ({run, fps, justify, side}) => {
+const RunBody: React.FC<{run: Run; fps: number; justify: string; side: number; bottom: number}> = ({run, fps, justify, side, bottom}) => {
   const frame = useCurrentFrame(); // relative to run.from
   const env = makeEnvelope(run.to - run.from, {delay: 0, enter: 10, exit: 8});
   const rel = run.phrases.map((p) => ({...p, from: p.from - run.from, to: p.to - run.from}));
@@ -148,9 +149,9 @@ const RunBody: React.FC<{run: Run; fps: number; justify: string; side: number}> 
   return (
     <EnvelopeProvider value={env}>
       <MotionBlurWhileMoving env={env} samples={5}>
-        <AbsoluteFill style={{justifyContent: 'flex-end', alignItems: justify, padding: `0 ${side}px ${BOTTOM}px`}}>
+        <AbsoluteFill style={{justifyContent: 'flex-end', alignItems: justify, padding: `0 ${side}px ${bottom}px`}}>
         <Reveal rise={18} blur={10}>
-          <FrostedGlass padX={0} padY={0} style={{width: w, height: h}}>
+          <FrostedGlass padX={0} padY={0} radius={Math.min(cur.laid.look.radius, h / 2)} style={{width: w, height: h}}>
             <div style={{position: 'relative', width: w, height: h}}>
               {prev && out < 1 ? <PhraseText laid={prev.laid} opacity={1 - out} y={-8 * out} blur={6 * out} fps={fps} runFrom={run.from} /> : null}
               <PhraseText laid={cur.laid} opacity={prev ? interpolate(frame, [cur.from + 2, cur.from + s + 1], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.inOut}) : 1} y={prev ? 10 * (1 - t) : 0} blur={prev ? 7 * Math.pow(1 - t, 1.5) : 0} fps={fps} runFrom={run.from} />
@@ -163,11 +164,12 @@ const RunBody: React.FC<{run: Run; fps: number; justify: string; side: number}> 
   );
 };
 
-export const Subtitles: React.FC<SubtitlesProps> = ({transcript, emphasis = DEFAULT_EMPHASIS, anchor = 'center', faceBox, avoid = [], holdAfterLastWord = 0.5, strict = true, suppress = [], joinGapFrames = 8}) => {
+export const Subtitles: React.FC<SubtitlesProps> = ({transcript, emphasis = DEFAULT_EMPHASIS, anchor = 'center', faceBox, avoid = [], holdAfterLastWord = 0.5, strict = true, suppress = [], joinGapFrames = 8, look}) => {
+  const L: CaptionLook = {...DDN_CAPTION_LOOK, ...look};
   const {fps} = useVideoConfig();
   const ready = useFontsReady();
   const side = FRAME.w * SAFE.margin;
-  const maxText = FRAME.w - 2 * side - 2 * PAD_X;
+  const maxText = FRAME.w - 2 * side - 2 * L.padX;
 
   const runs = useMemo<Run[]>(() => {
     if (!ready) return [];
@@ -182,7 +184,7 @@ export const Subtitles: React.FC<SubtitlesProps> = ({transcript, emphasis = DEFA
     }
     const out: Run[] = [];
     for (const c of clipped) {
-      const laid = layoutPhrase(c.words, emphasis, maxText);
+      const laid = layoutPhrase(c.words, emphasis, maxText, L);
       const last = out[out.length - 1];
       if (last && c.from - last.to <= joinGapFrames) {
         last.phrases[last.phrases.length - 1].to = c.from;
@@ -191,10 +193,11 @@ export const Subtitles: React.FC<SubtitlesProps> = ({transcript, emphasis = DEFA
       } else out.push({from: c.from, to: c.to, phrases: [{from: c.from, to: c.to, laid}]});
     }
     return out;
-  }, [ready, transcript, fps, holdAfterLastWord, strict, suppress, emphasis, joinGapFrames, maxText]);
+  }, [ready, transcript, fps, holdAfterLastWord, strict, suppress, emphasis, joinGapFrames, maxText, L.size, L.role, L.emphRole, L.padX, L.padY, L.maxLines]);
 
   // Centred by default (DDN 2026). If the face or an avoid box drops into the caption band, move to the far side.
-  const band: Box = {x: 0, y: FRAME.h - BOTTOM - PLATE_H1, w: FRAME.w, h: PLATE_H1};
+  const plateH1 = lineH(L) + 2 * L.padY;
+  const band: Box = {x: 0, y: FRAME.h - L.bottomPx - plateH1, w: FRAME.w, h: plateH1};
   let a = anchor;
   if (a === 'auto') {
     const hit = obstacles(faceBox, avoid).find((b) => overlaps(band, b));
@@ -206,7 +209,7 @@ export const Subtitles: React.FC<SubtitlesProps> = ({transcript, emphasis = DEFA
     <>
       {runs.map((r, i) => (
         <Sequence key={i} from={r.from} durationInFrames={r.to - r.from} name={`Caption run ${i + 1}`} layout="none">
-          <RunBody run={r} fps={fps} justify={justify} side={side} />
+          <RunBody run={r} fps={fps} justify={justify} side={side} bottom={L.bottomPx} />
         </Sequence>
       ))}
     </>

@@ -300,49 +300,28 @@
   {
    "t": 1.85,
    "sfx": "click",
-   "note": "timer start, very soft"
-  },
-  {
-   "t": 10.5,
-   "sfx": "thump",
-   "note": "section change"
+   "note": "timer start, barely audible"
   },
   {
    "t": 12.39,
    "sfx": "whoosh",
-   "note": "Ofcom chart in"
-  },
-  {
-   "t": 23.76,
-   "sfx": "thump"
-  },
-  {
-   "t": 33.4,
-   "sfx": "whoosh",
-   "note": "chat bubble"
-  },
-  {
-   "t": 35.21,
-   "sfx": "thump"
+   "note": "chart in, soft swell"
   },
   {
    "t": 52.55,
    "sfx": "whoosh",
-   "note": "gauge"
-  },
-  {
-   "t": 62.73,
-   "sfx": "thump"
+   "note": "gauge, soft swell"
   },
   {
    "t": 69.1,
    "sfx": "whoosh",
-   "note": "ask card"
+   "note": "ask card, soft swell"
   },
   {
    "t": 77.2,
    "sfx": "chime",
-   "note": "end card resolve"
+   "note": "end card, warm and soft"
   }
- ]
+ ],
+ "sfx_rule": "Max 5 SFX. Felt, not heard: slow attacks, low-passed, about -26 to -30 dB below dialogue peaks. Section changes are marked by the music, not SFX."
 }
