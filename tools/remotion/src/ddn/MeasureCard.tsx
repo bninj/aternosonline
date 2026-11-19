@@ -34,7 +34,7 @@ const Bar: React.FC<{label: string; value: number; color: string; textAlpha: num
 );
 
 // Payoff row: hairline, then "If both improve" rises, a red arrow DRAWS (a line plus a chevron, never a dash
-// character), then "scale it" lands in Brand Red on the spoken words.
+// character), then "scale it" lands on a Brand Red marker (white text, as caption emphasis) on the spoken words.
 const Payoff: React.FC<{p: NonNullable<MeasureCardProps['payoff']>; labelSize: number; width: number; grow: number}> = ({p, labelSize, width, grow}) => {
   const frame = useCurrentFrame();
   onScreen(p.text, 'MeasureCard payoff');
@@ -55,8 +55,8 @@ const Payoff: React.FC<{p: NonNullable<MeasureCardProps['payoff']>; labelSize: n
           <path d={`M${aw - 14} ${labelSize / 2 - 9} L${aw - 3} ${labelSize / 2} L${aw - 14} ${labelSize / 2 + 9}`} fill="none" stroke={C.red} strokeWidth={3}
             strokeLinecap="round" strokeLinejoin="round" opacity={arrow > 0.9 ? (arrow - 0.9) * 10 : 0} />
         </svg>
-        <div style={{...display('bold', labelSize + 4, -0.01), lineHeight: 1.15, color: C.red, opacity: toIn, transform: `translateX(${((1 - toIn) * -10).toFixed(2)}px)`,
-          textShadow: '0 0 18px rgba(237,39,56,0.35)'}}>{p.to}</div>
+        <div style={{...display('bold', labelSize + 2, -0.01), lineHeight: 1.15, color: C.white, background: C.red, borderRadius: 8, padding: '2px 12px',
+          opacity: toIn, transform: `translateX(${((1 - toIn) * -10).toFixed(2)}px)`}}>{p.to}</div>
       </div>
     </div>
   );
