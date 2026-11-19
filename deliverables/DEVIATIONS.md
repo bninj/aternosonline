@@ -28,7 +28,7 @@ I checked each number with a second transcription pass. You say "twelve percent"
 | 12 | 58.1 s | "And DDN already works with media companies like Canal Plus and Starz." | "**Plus, they** already work with media companies like Canal Plus and Starz." | Captions as spoken |
 | 13 | 62.7 s | "Let DDN run a thirty day pilot on your AI assistant." | "Let DDN run a pilot on **the AI behind your voice search or your next assistant.**" | Captions as spoken. **"30 day pilot" appears only in the graphic** (approved by you); it is not spoken. |
 | 14 | 62.7 s | "We measure two numbers before and after: how busy your chips are, and what each answer costs." | "**Then measure the values** before and after." | The two items ("How busy the chips are", "What each answer costs") appear **in the graphic only** (approved by you). |
-| 15 | — | "If both improve, scale it." | **Not recorded** | Omitted |
+| 15 | 1:07.6 | "If both improve, scale it." | "**And** if both improve, scale it." (recorded in IMG_3859, uploaded later) | Captions as spoken; also shown as its own kinetic text moment |
 | 16 | 72.2 s | "Sky, don't be the next Blockbuster." | "**So** Sky. Don't be the next Blockbuster." | Captions as spoken |
 
 ## Not in the footage (from the brief)
