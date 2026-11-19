@@ -39,3 +39,6 @@ Original brief: the competition, script, process, deviation rules, timing, capti
     - The Blockbuster logo **breaks/shatters** after it lands (before "Thank you").
     - Logos are **larger (about 1.5x) and transparent**: no opaque tiles; they float on frosted glass or over the footage with a soft shadow.
     - Subtitles are **slightly larger (+15–20%) and improved** (cleaner pill, a slightly heavier weight, one line).
+24. **v5 (user, 19 Nov):**
+    - Remove the hook's "AI chip / Waiting for data" card. Instead **highlight the real AI chair**: a precise glowing contour in DDN red plus a subtle spotlight, during the chair-alone opener and "Sorry I kept you waiting".
+    - Overall **cleaner, more polished, "less but better"** pass: no empty caption pills, a consistent grid and margins, one graphic at a time, consistent type and colour.
