@@ -47,3 +47,5 @@ edit/cuts3/
 tools/blur/mattes/
 output/
 edit/plates_*/
+tools/look_cache*/
+*.npz
