@@ -46,3 +46,8 @@ Original brief: the competition, script, process, deviation rules, timing, capti
     - **Name card: name only**, in DDN bracket style, after he turns to camera in the hook. The name text is still to come from the user.
     - **"If both improve, scale it"** was said on camera, per the user; it's not in the 16 uploaded clips. Clip numbering gaps: **IMG_3846 and IMG_3859 are missing** (3859 sits between the ask 3858 and the ending 3860). The user has been asked to upload them.
     - **No credits** wanted, so swap the CC BY Naked Drums for the CC0 Renoise Yamaha Stage Custom kick (and CC0 toms), so no attribution is needed.
+26. **User, 19 Nov (with a screenshot):**
+    - Name: **Eliud Awuah**; name card "[ ELIUD AWUAH ]".
+    - **Caption bug:** "Sky, make me scared. Third," merged across a section, so captions must never span a sentence end, a cut or a section change.
+    - **Logos bigger, ideally BEHIND the speaker** (depth layering with a person alpha only for segments 3, 13 and 18; fall back to large-beside if the edges aren't clean).
+    - The user is looking for IMG_3859 ("If both improve, scale it") in Drive.
