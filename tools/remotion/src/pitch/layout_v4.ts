@@ -109,25 +109,41 @@ export const keepOutZoomed = (i: number, z: number): Box[] => KEEP_OUT[i].map((b
 export const faceAt = (i: number, z: number): Box => zoomAbout(faceOf(i).box, faceOf(i).center, z);
 
 // ---------------------------------------------------------------------------------------------------------------
-// v6 camera (user: "the zooming got a lot worse"): calmer and simpler.
-//  * one slow, steady push per shot (the SHOTPLAN zoom pair, 1 to 4 %), eased over the WHOLE shot with an ease-out
-//    curve that never accelerates late; origin fixed per shot (no lateral motion);
-//  * only three gentle snaps (12 %, 99 %, Blockbuster): +2.5 % over 9 f, in-out, no blur;
-//  * section seams keep only a soft 4 f rack-focus blur (8 px peak) across the cut, no zoom.
-const PUSH = Easing.bezier(0.25, 0.46, 0.45, 0.94);
-const V6_SNAPS = plan.snap_zooms.filter((s) => ['12%', '99%', 'Blockbuster'].includes(s.word)).map((s) => fr(s.t));
+// v6 camera, revised ("more dynamic and not like a cut"): every scale change is a smooth, eased camera move.
+//  * slow push over each shot: +4 % (wides) / +3 % (punches), sine in-out over the whole shot, origin fixed per shot
+//    (no sideways drift, never zooming out mid-shot);
+//  * eased punch-ins on key words (12 %, 5 %, 99 %, scale it, Blockbuster): +5 % over 16 f (0.53 s), sine-out, with a
+//    light motion blur only while moving, then hold (the slow push continues underneath);
+//  * at every picture cut the new shot lands 1.5 % tighter and settles back over 15 f, so a framing change reads as
+//    a camera move; the four section seams also get a soft 8 px rack-focus blur across the cut;
+//  * the total is soft-capped near 1.20 (4K source, about 20 % upscale at worst).
+const IN_OUT = Easing.bezier(0.37, 0, 0.63, 1);
+const SINE_OUT = Easing.bezier(0.39, 0.575, 0.565, 1);
+const PUNCH_WORDS: Record<string, number> = {'12%': 13.15, '5%': 39.46, '99%': 50.08, Blockbuster: 71.82, 'scale it': 69.2};
+const PUNCHES = Object.values(PUNCH_WORDS).map(fr);
 export const cameraV6 = (frame: number) => {
   const i = segIndexAt(frame);
   const s = plan.segments[i];
   const f0 = fr((s as {zoom_from?: number}).zoom_from ?? s.start);
   const f1 = fr(s.end);
-  let z = s.zoom[0] + (s.zoom[1] - s.zoom[0]) * PUSH(clamp01((frame - f0) / Math.max(1, f1 - f0)));
-  for (const sf of V6_SNAPS) {
-    if (sf >= segStart[i] && sf < f1 && frame >= sf) z *= 1 + 0.025 * DRIFT(clamp01((frame - sf) / 9));
-  }
+  const punchShot = s.zoom[0] > 1.05;
+  const span = punchShot ? 0.03 : 0.04;
+  let z = s.zoom[0] * (1 + span * IN_OUT(clamp01((frame - f0) / Math.max(1, f1 - f0))));
   let blur = 0;
+  for (const pf of PUNCHES) {
+    if (pf >= segStart[i] && pf < f1 && frame >= pf - 4) {
+      const r = clamp01((frame - (pf - 4)) / 16);
+      z *= 1 + 0.05 * SINE_OUT(r);
+      if (r > 0 && r < 1) blur = Math.max(blur, 1.4 * Math.sin(Math.PI * r));
+    }
+  }
+  if (i > 0) {
+    const q = clamp01((frame - segStart[i]) / 15);
+    z *= 1 + 0.015 * (1 - SINE_OUT(q));
+  }
   for (const c of SEAM_CUTS) {
     if (frame >= c - 3 && frame < c + 4) blur = Math.max(blur, 8 * (1 - Math.abs(frame - c + 0.5) / 4));
   }
-  return {i, z, blur, origin: faceOf(i).center};
+  const zc = z <= 1.16 ? z : 1.16 + 0.04 * Math.tanh((z - 1.16) / 0.04); // soft cap near 1.20 (no kink)
+  return {i, z: zc, blur, origin: faceOf(i).center};
 };
