@@ -15,12 +15,12 @@ export type LineChartFallProps = SlotProps & {
   points?: number[]; // y values 0..1 (1 = top), left to right
   label?: string; // optional small mono caption above the chart; omitted by default
   valueAt?: number; // frame (in slot) the value is spoken; the line finishes just before and the value lands on it
+  chartW?: number;
+  chartH?: number;
 };
 
-const W = 620;
-const H = 250;
 
-const Inner: React.FC<Omit<LineChartFallProps, keyof SlotProps> & {duration: number}> = ({value, source, points = [0.86, 0.8, 0.83, 0.71, 0.66, 0.52, 0.47, 0.3, 0.18], label, valueAt, duration}) => {
+const Inner: React.FC<Omit<LineChartFallProps, keyof SlotProps> & {duration: number}> = ({value, source, points = [0.86, 0.8, 0.83, 0.71, 0.66, 0.52, 0.47, 0.3, 0.18], label, valueAt, duration, chartW: W = 620, chartH: H = 250}) => {
   const frame = useCurrentFrame();
   onScreen(value, 'chart value');
   if (label) onScreen(label, 'chart label');
@@ -41,8 +41,8 @@ const Inner: React.FC<Omit<LineChartFallProps, keyof SlotProps> & {duration: num
   const r = evolvePath(redP, dLast);
   const dot = interpolate(frame, [s0 + drawF - 2, s0 + drawF + 5], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.inOut});
   const autoValue = s0 + drawF + Math.round(4 * k); // short stillness after the line lands
-  // Value lands on its word: the rise is 12 f, so start it 10 f before the word (lands <=0.15 s early).
-  const valueStart = valueAt !== undefined ? Math.max(autoValue, valueAt - 10) : autoValue;
+  // Value lands ON its word: the 12 f expo-out rise is visually settled (>94 %) after 6 f, so start 6 f early.
+  const valueStart = valueAt !== undefined ? valueAt - 6 : autoValue;
   const tagStart = valueStart + Math.round(12 * k);
   return (
     <GlassPlate padX={48} padY={40}>

@@ -7,18 +7,19 @@ import {Slot, SlotProps} from './Slot';
 import {C, EASE, T, TYPE} from './tokens';
 
 // BUSY gauge: Geist Mono label, number counts with the bar (one motion, ddn-inout), Brand Red fill.
-export type BusyGaugeProps = SlotProps & {fromValue?: number; toValue?: number; label?: string; source: string; riseFrames?: number};
+export type BusyGaugeProps = SlotProps & {fromValue?: number; toValue?: number; label?: string; source: string; riseFrames?: number; landAt?: number /* frame in slot the top value is spoken */};
 
 const BAR_W = 600;
 
-const Inner: React.FC<Omit<BusyGaugeProps, keyof SlotProps> & {duration: number}> = ({fromValue = 5, toValue = 99, label = 'BUSY', source, riseFrames = 36, duration}) => {
+const Inner: React.FC<Omit<BusyGaugeProps, keyof SlotProps> & {duration: number}> = ({fromValue = 5, toValue = 99, label = 'BUSY', source, riseFrames = 36, duration, landAt}) => {
   const frame = useCurrentFrame();
   onScreen(label, 'gauge label');
   const k = buildScale(duration, riseFrames + 24);
   const s0 = Math.round(T.firstOffset * k);
-  const g0 = s0 + Math.round(10 * k);
-  const v = interpolate(frame, [g0, g0 + Math.round(riseFrames * k)], [fromValue, toValue], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.inOut});
-  const tagStart = g0 + Math.round(riseFrames * k) + Math.round(4 * k);
+  const rf = landAt !== undefined ? Math.min(riseFrames, Math.max(12, landAt - s0 - 4)) : Math.round(riseFrames * k);
+  const g0 = landAt !== undefined ? landAt - rf : s0 + Math.round(10 * k);
+  const v = interpolate(frame, [g0, g0 + rf], [fromValue, toValue], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.inOut});
+  const tagStart = g0 + rf + Math.round(4 * k);
   return (
     <GlassPlate padX={48} padY={40}>
       <Rise startFrame={s0}>

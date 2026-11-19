@@ -13,7 +13,7 @@ Original brief: the competition, script, process, deviation rules, timing, capti
 8. **Fonts:** exact DDN look. Articulat CF is unlicensed here, so use the closest measured free match (see `research/FONT_MATCH.md`), plus real Geist Mono.
 9. **Background blur:** high-quality depth-aware shallow DOF (see `research/BLUR.md`). Keep the speaker, chairs, sign and phone timer sharp, and keep the monitor logos recognisable.
 10. **Music:** energetic like a pitch video, but not crazy (about 116–124 BPM, driving, confident, no drops). Not piano-led, nothing synth-generic. Use real licensed Yamaha instruments where they exist (bass, kick/toms, TX81Z, nylon guitar), plus high-quality licensed alternatives for the rest. No vocals; imitate no one.
-11. **SFX must be smooth and DAMPENED, felt not heard:** max 5 (timer click, 3 airy whooshes on key graphics, soft end-card chime), slow attacks, low-passed, about −26 to −30 dB below dialogue peaks. No section thumps; the music marks the sections.
+11. **SFX must be smooth and DAMPENED, felt not heard, and NEVER synthesised or generic; only professionally recorded, licensed SFX (Sonniss GDC bundle, Pixabay, Freesound CC0, BigSoundBank):** max 5 (timer click, 3 airy whooshes on key graphics, soft end-card chime), slow attacks, low-passed, about −26 to −30 dB below dialogue peaks. No section thumps; the music marks the sections.
 12. **Lighting:** IMG_3849 has the lights going off at about 27 s, so avoid it. Flag any other light changes.
 13. Draft for the user to review before the final render.
 

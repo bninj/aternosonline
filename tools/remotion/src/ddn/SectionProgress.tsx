@@ -30,11 +30,11 @@ export type SectionProgressProps = {
   avoid?: Box[];
   offset?: Offset;
   showWeights?: boolean;
+  labelSize?: number; // px @1080 (default 24)
 };
 
-const LABEL = 24;
 
-const Body: React.FC<SectionProgressProps> = ({sections, from, durationInFrames, width = 940, edge = 'top', anchor = 'auto', faceBox, avoid = [], offset = {}, showWeights = false}) => {
+const Body: React.FC<SectionProgressProps> = ({sections, from, durationInFrames, width = 940, edge = 'top', anchor = 'auto', faceBox, avoid = [], offset = {}, showWeights = false, labelSize: LABEL = 24}) => {
   const frame = useCurrentFrame();
   const abs = from + frame;
   const env = makeEnvelope(durationInFrames, {delay: 0, enter: 16, exit: 12});
@@ -59,8 +59,8 @@ const Body: React.FC<SectionProgressProps> = ({sections, from, durationInFrames,
                     const labelAlpha = 0.58 + 0.42 * active + 0.12 * done * (1 - active);
                     const barColor = interpolateColors(done, [0, 1], [C.red, C.palePink]);
                     return (
-                      <div key={i} style={{flex: `${len / total} 1 0`, minWidth: 0}}>
-                        <div style={{display: 'flex', alignItems: 'center', height: 30, fontFamily: FONT.mono, fontSize: LABEL, color: `rgba(255,255,255,${labelAlpha.toFixed(3)})`, whiteSpace: 'nowrap'}}>
+                      <div key={i} style={{flex: `${len / total} 1 0`, minWidth: 'max-content'}}>
+                        <div style={{display: 'flex', alignItems: 'center', height: Math.round(LABEL * 1.25), fontFamily: FONT.mono, fontSize: LABEL, color: `rgba(255,255,255,${labelAlpha.toFixed(3)})`, whiteSpace: 'nowrap'}}>
                           <span style={{width: 8 * active + 0.001, height: 8, marginRight: 9 * active, borderRadius: 4, background: C.red, opacity: active, flex: 'none',
                             boxShadow: `0 0 10px rgba(237,39,56,${(0.6 * active).toFixed(3)})`}} />
                           <span>{s.label}</span>

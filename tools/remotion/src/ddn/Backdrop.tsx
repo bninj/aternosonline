@@ -1,5 +1,5 @@
 import React, {createContext, useContext, useLayoutEffect, useRef, useState} from 'react';
-import {AbsoluteFill, Img, Internals, OffthreadVideo, staticFile, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Freeze, Img, Internals, OffthreadVideo, staticFile, useVideoConfig} from 'remotion';
 
 // Deterministic frosted glass, v2.
 // CSS backdrop-filter dropped plates on ~1 % of frames in headless Chrome (critique log v1, round 3), so the frost
@@ -18,6 +18,7 @@ export type FootageSource = {
   style?: React.CSSProperties; // extra style shared by main layer and copies (e.g. a punch-in transform)
   trimBefore?: number; // frames of the source skipped at composition frame 0
   volume?: number; // main layer only
+  freezeAt?: number; // main layer: hold this absolute frame (e.g. the last frame under an end card handoff)
 };
 
 type Ctx = {source: FootageSource | null; rootRef: React.RefObject<HTMLDivElement | null>};
@@ -42,7 +43,7 @@ export const Footage: React.FC<{source: FootageSource | null; background?: strin
   const rootRef = useRef<HTMLDivElement>(null);
   return (
     <AbsoluteFill ref={rootRef} data-ddn-footage-root="" style={{backgroundColor: source ? background : 'transparent'}}>
-      {source ? <Layer source={source} blurred={false} muted={false} /> : null}
+      {source ? (source.freezeAt !== undefined ? <Freeze frame={source.freezeAt}><Layer source={source} blurred={false} muted /></Freeze> : <Layer source={source} blurred={false} muted={source.volume === undefined ? true : false} />) : null}
       <BackdropCtx.Provider value={{source, rootRef}}>{children}</BackdropCtx.Provider>
     </AbsoluteFill>
   );

@@ -14,9 +14,11 @@ export type StatCardProps = SlotProps & {
   source: string; // tag text, e.g. "Cast AI, enterprise average"
   countFrom?: number;
   valueSize?: number;
+  landAt?: number; // frame (in slot) the number is spoken: the count lands exactly there
+  linesAt?: number; // frame (in slot) the extra lines rise (e.g. on a spoken "75%")
 };
 
-const Inner: React.FC<Omit<StatCardProps, keyof SlotProps> & {duration: number}> = ({value, lines = [], source, countFrom = 0, valueSize = TYPE.number, duration}) => {
+const Inner: React.FC<Omit<StatCardProps, keyof SlotProps> & {duration: number}> = ({value, lines = [], source, countFrom = 0, valueSize = TYPE.number, duration, landAt, linesAt}) => {
   const frame = useCurrentFrame();
   const k = buildScale(duration, 40);
   onScreen(value, 'StatCard value');
@@ -24,11 +26,12 @@ const Inner: React.FC<Omit<StatCardProps, keyof SlotProps> & {duration: number}>
   const m = value.match(/^(\D*)(\d+(?:\.\d+)?)(.*)$/);
   const target = m ? parseFloat(m[2]) : 0;
   const decimals = m && m[2].includes('.') ? m[2].split('.')[1].length : 0;
-  const start = Math.round(T.firstOffset * k);
-  const n = useCount(countFrom, target, start, Math.round(T.countFrames * k));
+  const cf = Math.round(T.countFrames * k);
+  const start = landAt !== undefined ? Math.max(T.firstOffset, landAt - cf) : Math.round(T.firstOffset * k);
+  const n = useCount(countFrom, target, start, landAt !== undefined ? landAt - start : cf);
   const shown = m ? `${m[1]}${n.toFixed(decimals)}${m[3]}` : value;
-  const linesStart = start + Math.round(14 * k);
-  const tagStart = linesStart + Math.round((lines.length ? 12 : 10) * k);
+  const linesStart = linesAt !== undefined ? linesAt - 6 : start + Math.round(14 * k);
+  const tagStart = Math.max(start, linesStart) + Math.round((lines.length ? 12 : 10) * k);
   return (
     <GlassPlate padX={48} padY={40}>
       <Rise startFrame={start}>

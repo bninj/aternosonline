@@ -9,14 +9,14 @@ import {C, T} from './tokens';
 // Chat bubble that types on (stepped, linear). Layout is reserved for the full string so nothing reflows.
 // Red underscore cursor [2, 4.7] while typing, removed 12 f after the last character.
 // breakAfterComma: layout only (the string is unchanged): first clause on line 1 when it fits.
-export type ChatBubbleProps = SlotProps & {text: string; charsPerFrame?: number; size?: number; breakAfterComma?: boolean};
+export type ChatBubbleProps = SlotProps & {text: string; charsPerFrame?: number; size?: number; breakAfterComma?: boolean; typeStart?: number; typeEnd?: number /* frames in slot: type on with the spoken words */};
 
-const Inner: React.FC<{text: string; cpf: number; size: number; tail: 'left' | 'right'; duration: number; brk: boolean}> = ({text, cpf, size, tail, duration, brk}) => {
+const Inner: React.FC<{text: string; cpf: number; size: number; tail: 'left' | 'right'; duration: number; brk: boolean; typeStart?: number; typeEnd?: number}> = ({text, cpf, size, tail, duration, brk, typeStart, typeEnd}) => {
   const frame = useCurrentFrame();
   onScreen(text, 'ChatBubble');
-  const start = T.firstOffset + 3;
-  // Never let typing outlast 60 % of the line.
-  const rate = Math.max(cpf, text.length / Math.max(1, duration * 0.6 - start));
+  const start = typeStart ?? T.firstOffset + 3;
+  // Typing follows the spoken words when typeEnd is given; otherwise it never outlasts 60 % of the line.
+  const rate = typeEnd !== undefined ? text.length / Math.max(1, typeEnd - start) : Math.max(cpf, text.length / Math.max(1, duration * 0.6 - start));
   const n = typedCount(frame, start, text.length, rate);
   const doneAt = start + Math.ceil(text.length / rate);
   // v2: characters fade up over 3 f each (no popping); the red cursor fades out after typing.
@@ -42,6 +42,6 @@ const Inner: React.FC<{text: string; cpf: number; size: number; tail: 'left' | '
 
 export const ChatBubble: React.FC<ChatBubbleProps> = (p) => (
   <Slot {...p} name={p.name ?? 'ChatBubble'}>
-    {({side, duration}) => <Inner text={p.text} cpf={p.charsPerFrame ?? 1.5} size={p.size ?? 62} tail={side === 'left' ? 'left' : 'right'} duration={duration} brk={p.breakAfterComma ?? true} />}
+    {({side, duration}) => <Inner text={p.text} cpf={p.charsPerFrame ?? 1.5} size={p.size ?? 62} tail={side === 'left' ? 'left' : 'right'} duration={duration} brk={p.breakAfterComma ?? true} typeStart={p.typeStart} typeEnd={p.typeEnd} />}
   </Slot>
 );
