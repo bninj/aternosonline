@@ -1,7 +1,9 @@
 // Pitch-specific illustrative graphics (v4). All use the DDN v2 system: frosted glass with the DDN-spectrum prism,
 // Slot envelope (rise + blur-to-sharp, motion blur while moving, exits ~75 % of entries), ddn-out / ddn-inout easing.
 // Text only plus permitted logos; no numbers or claims beyond the fact table.
-import React from 'react';
+import React, {useMemo} from 'react';
+import {getLength, getPointAtLength} from '@remotion/paths';
+import chair from './chair_contour.json';
 import {AbsoluteFill, interpolate, Sequence, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {getWaveformPortion, useAudioData} from '@remotion/media-utils';
 import {C, display, EASE, FONT, FrostedGlass, Grain, Hairline, Logo, LogoId, LOGOS, MonoTag, onScreen, Rise, Slot, SlotProps, T, TYPE} from '../ddn';
@@ -178,7 +180,7 @@ const ChipGridInner: React.FC<{p: ChipGridProps}> = ({p}) => {
   const costIn = p.costFrom !== undefined ? interpolate(frame, [p.costFrom, p.costFrom + 14], [0, 1], {...cl, easing: EASE.out}) : 0;
   const costP = p.costLandAt !== undefined ? interpolate(frame, [p.costLandAt - 24, p.costLandAt], [0, 1], {...cl, easing: EASE.inOut}) : 0;
   const costPct = Math.floor(75 * costP + 1e-6);
-  const numSize = 78;
+  const numSize = 84;
   return (
     <FrostedGlass padX={26} padY={22}>
       <div style={{display: 'flex', alignItems: 'center', gap: 24}}>
@@ -235,7 +237,7 @@ export const LogoTiles: React.FC<SlotProps & {items: {logo: LogoId; at: number}[
 const LogoTilesInner: React.FC<{items: {logo: LogoId; at: number}[]; logoH: number; gap: number}> = ({items, logoH, gap}) => {
   const frame = useCurrentFrame();
   return (
-    <FrostedGlass tone="light" tint="rgba(250,247,245,0.52)" padX={34} padY={26} radius={24}>
+    <FrostedGlass tone="light" tint="rgba(250,247,245,0.52)" padX={34} padY={26} radius={22}>
       <div style={{display: 'flex', alignItems: 'center', gap}}>
         {items.map((it, i) => {
           const pr = interpolate(frame, [it.at, it.at + 16], [0, 1], {...cl, easing: EASE.out});
@@ -369,3 +371,41 @@ const EndBuildInner: React.FC<{line: string; logoHeight: number}> = ({line, logo
   );
 };
 export {T};
+
+// ---------------------------------------------------------------------------------------------------------------
+// Hook: spotlight on the real AI chair (static tripod shot). SAM 2.1 mask of the chair (scripts in critique log):
+//  * a gentle wine-black darkening of everything but the chair (feathered inverse matte),
+//  * a soft local lift on the chair itself (screen),
+//  * a precise DDN-red contour that draws on around the chair's silhouette, with a DDN-spectrum glint travelling it.
+// Rendered inside the footage transform, so it stays locked to the chair through the push-in.
+
+export const ChairSpotlight: React.FC<{dimIn: [number, number]; dimOut: [number, number]; lineIn: [number, number]; offAt: [number, number]}> = ({dimIn, dimOut, lineIn, offAt}) => {
+  const frame = useCurrentFrame();
+  const off = interpolate(frame, offAt, [1, 0], {...cl, easing: EASE.inOut});
+  const dim = Math.min(interpolate(frame, dimIn, [0, 1], {...cl, easing: EASE.inOut}), interpolate(frame, dimOut, [1, 0], {...cl, easing: EASE.inOut}));
+  const draw = interpolate(frame, lineIn, [0, 1], {...cl, easing: EASE.inOut});
+  const len = useMemo(() => getLength(chair.d), []);
+  const g = ((frame - lineIn[0]) * 18) % len; // glint position along the contour (px), one lap per ~2 s
+  const gp = getPointAtLength(chair.d, Math.max(0, g));
+  const vis = draw * off;
+  if (vis <= 0.001 && dim <= 0.001) return null;
+  return (
+    <AbsoluteFill style={{pointerEvents: 'none'}}>
+      <AbsoluteFill style={{background: 'rgba(14,8,10,0.42)', opacity: dim * off, WebkitMaskImage: `url(${staticFile('pitch/chair_inverse.png')})`, WebkitMaskSize: '100% 100%', maskImage: `url(${staticFile('pitch/chair_inverse.png')})`, maskSize: '100% 100%'}} />
+      <AbsoluteFill style={{background: 'rgba(255,240,236,0.22)', mixBlendMode: 'screen', opacity: vis, WebkitMaskImage: `url(${staticFile('pitch/chair_alpha.png')})`, WebkitMaskSize: '100% 100%', maskImage: `url(${staticFile('pitch/chair_alpha.png')})`, maskSize: '100% 100%'}} />
+      <svg width={1920} height={1080} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible', opacity: off}}>
+        <defs>
+          <radialGradient id="chairglint">
+            <stop offset="0" stopColor="#FFFFFF" stopOpacity={0.95} /><stop offset="0.35" stopColor="#FE7500" stopOpacity={0.7} />
+            <stop offset="0.7" stopColor="#7594B2" stopOpacity={0.25} /><stop offset="1" stopColor="#7594B2" stopOpacity={0} />
+          </radialGradient>
+        </defs>
+        <path d={chair.d} fill="none" stroke={C.red} strokeOpacity={0.35} strokeWidth={9} strokeLinejoin="round" style={{filter: 'blur(6px)'}}
+          strokeDasharray={len} strokeDashoffset={len * (1 - draw)} />
+        <path d={chair.d} fill="none" stroke={C.red} strokeWidth={2.6} strokeLinejoin="round" strokeLinecap="round"
+          strokeDasharray={len} strokeDashoffset={len * (1 - draw)} />
+        {draw > 0.98 && gp ? <circle cx={gp.x} cy={gp.y} r={16} fill="url(#chairglint)" /> : null}
+      </svg>
+    </AbsoluteFill>
+  );
+};

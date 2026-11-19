@@ -145,7 +145,12 @@ const RunBody: React.FC<{run: Run; fps: number; justify: string; side: number; b
   const t = prev ? interpolate(frame, [cur.from, cur.from + s], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.inOut}) : 1; // plate size: in-out, no first-frame snap
   const w = prev ? prev.laid.w + (cur.laid.w - prev.laid.w) * t : cur.laid.w;
   const h = prev ? prev.laid.h + (cur.laid.h - prev.laid.h) * t : cur.laid.h;
-  const out = prev ? interpolate(frame, [cur.from - 1, cur.from + 6], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.inOut}) : 1;
+  // Focus swap inside a stable pill (never empty, never two lines of text at once): the outgoing phrase softens
+  // (blur to 6 px, opacity to 0.55) over 3 f, the text swaps on one frame at peak softness, the incoming phrase
+  // sharpens over 5 f. The pill width tweens across the same window.
+  const nxt = i + 1 < rel.length ? rel[i + 1] : null;
+  const q1 = nxt ? interpolate(frame, [nxt.from - 3, nxt.from], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.ui}) : 0; // soften before the swap
+  const q2 = prev ? interpolate(frame, [cur.from, cur.from + 5], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.out}) : 1; // sharpen after it
   return (
     <EnvelopeProvider value={env}>
       <MotionBlurWhileMoving env={env} samples={5}>
@@ -153,8 +158,7 @@ const RunBody: React.FC<{run: Run; fps: number; justify: string; side: number; b
         <Reveal rise={18} blur={10}>
           <FrostedGlass padX={0} padY={0} radius={Math.min(cur.laid.look.radius, h / 2)} style={{width: w, height: h}}>
             <div style={{position: 'relative', width: w, height: h}}>
-              {prev && out < 1 ? <PhraseText laid={prev.laid} opacity={1 - out} y={-8 * out} blur={6 * out} fps={fps} runFrom={run.from} /> : null}
-              <PhraseText laid={cur.laid} opacity={prev ? interpolate(frame, [cur.from + 2, cur.from + s + 1], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.inOut}) : 1} y={prev ? 10 * (1 - t) : 0} blur={prev ? 7 * Math.pow(1 - t, 1.5) : 0} fps={fps} runFrom={run.from} />
+              <PhraseText laid={cur.laid} opacity={(prev ? 0.55 + 0.45 * q2 : 1) * (1 - 0.45 * q1)} y={prev ? 4 * (1 - q2) : 0} blur={(prev ? 6 * (1 - q2) : 0) + 6 * q1} fps={fps} runFrom={run.from} />
             </div>
           </FrostedGlass>
         </Reveal>

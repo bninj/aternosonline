@@ -42,3 +42,7 @@ Original brief: the competition, script, process, deviation rules, timing, capti
 24. **v5 (user, 19 Nov):**
     - Remove the hook's "AI chip / Waiting for data" card. Instead **highlight the real AI chair**: a precise glowing contour in DDN red plus a subtle spotlight, during the chair-alone opener and "Sorry I kept you waiting".
     - Overall **cleaner, more polished, "less but better"** pass: no empty caption pills, a consistent grid and margins, one graphic at a time, consistent type and colour.
+25. **User, 19 Nov:**
+    - **Name card: name only**, in DDN bracket style, after he turns to camera in the hook. The name text is still to come from the user.
+    - **"If both improve, scale it"** was said on camera, per the user; it's not in the 16 uploaded clips. Clip numbering gaps: **IMG_3846 and IMG_3859 are missing** (3859 sits between the ask 3858 and the ending 3860). The user has been asked to upload them.
+    - **No credits** wanted, so swap the CC BY Naked Drums for the CC0 Renoise Yamaha Stage Custom kick (and CC0 toms), so no attribution is needed.

@@ -1,10 +1,10 @@
 import React, {useMemo} from 'react';
-import {Html5Audio, interpolate, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Html5Audio, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {EASE, Footage, FootageSource, LineChartFall, MeasureCard, PITCH_CAPTION_LOOK, PitchTimer, SectionBar, Subtitles} from '../ddn';
 import plan from './shotplan_v4.json';
 import {pitchTranscriptV3} from './captions';
 import {cameraAt, faceAt, fr, keepOutZoomed, segIndexAt, Box} from './layout_v4';
-import {ChipGrid, ChipStatus, EndBuild, LogoTiles, ShatterLogo, VoiceChat, VoicePill} from './graphics';
+import {ChairSpotlight, ChipGrid, EndBuild, LogoTiles, ShatterLogo, VoiceChat, VoicePill} from './graphics';
 
 // PitchFinal v4: the tight edit (SHOTPLAN_v4, 20 picture segments, J-cuts), 74.2 s = 2226 f.
 // Camera: eased drift per segment, snap-zoom accents on the key words, a velocity-matched seam (push + rack-focus
@@ -39,7 +39,7 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
 
   // slot helpers: in/out in frames; entrances never start before the picture cut they would otherwise straddle
   const after = (f: number, seg: number) => Math.max(f, cutF(seg) + 2);
-  const timerFrom = fr(0.3);
+  const timerFrom = fr(0.85);
   const chartFrom = after(w('Ofcom') - 3, 2);
   const tilesFrom = after(w('Netflix') - 4, 3);
   const voiceFrom = w('Sky Q voice search') - 6;
@@ -54,9 +54,13 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
     <Footage source={footage}>
       {audio ? <Html5Audio src={staticFile(audio)} /> : null}
 
-      {/* 0 Hook: the clock starts on "Sorry"; the idle chip waits for data near the AI chair (above its sign). */}
-      <PitchTimer from={timerFrom} durationInFrames={fr(2.6) - timerFrom} clockZero={w('Sorry')} anchor="right" bottom={0.3} />
-      <ChipStatus from={w("That's AI chips") - 3} durationInFrames={fr(6.0) - w("That's AI chips") + 3} {...R} bottom={0.37} emphAt={w('waiting for data') - (w("That's AI chips") - 3)} />
+      {/* 0 Hook: the real AI chair is spotlit (SAM 2.1 contour, local lift, gentle surround dim) while it is alone and
+          through "Sorry I kept you waiting", locked to the footage transform; off by 3.0 s as he turns to camera.
+          The pitch clock starts on "Sorry". */}
+      <AbsoluteFill style={{transformOrigin: `${cam.origin[0]}px ${cam.origin[1]}px`, transform: `scale(${cam.z.toFixed(5)})`}}>
+        <ChairSpotlight dimIn={[4, 20]} dimOut={[34, 54]} lineIn={[8, 34]} offAt={[fr(2.45), fr(3.0)]} />
+      </AbsoluteFill>
+      <PitchTimer from={timerFrom} durationInFrames={fr(2.9) - timerFrom} clockZero={w('Sorry')} anchor="right" bottom={0.3} />
 
       {/* Progress: presents at each section seam, then a slim strip. */}
       <SectionBar sections={plan.sections_for_progress_bar.map((s) => ({label: s.label, from: fr(s.start)}))} from={fr(plan.sections_for_progress_bar[0].start)}
@@ -64,7 +68,7 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
 
       {/* Why change */}
       <LineChartFall from={chartFrom} durationInFrames={fr(16.4) - chartFrom} {...R} bottom={G} valueAt={w('12%') - chartFrom} value="12%" source="Ofcom Media Nations 2026"
-        chartW={400} chartH={100} scale={0.74} countUp glow />
+        chartW={400} chartH={100} scale={0.66} countUp glow />
       <LogoTiles from={tilesFrom} durationInFrames={fr(19.25) - tilesFrom} {...R} bottom={G} items={[{logo: 'netflix', at: 3}, {logo: 'youtube', at: w('YouTube') - 4 - tilesFrom}]} />
 
       {/* Why now */}
