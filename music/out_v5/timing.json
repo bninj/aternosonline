@@ -342,8 +342,8 @@
    "place_at": 1.07,
    "event_time": 1.07,
    "peak_offset_in_file": 0.0,
-   "peak_dbfs": -26.2,
-   "below_dialogue_peak_db": 25,
+   "peak_dbfs": -24.2,
+   "below_dialogue_peak_db": 23,
    "length_s": 0.48
   },
   "whoosh_chart": {
@@ -351,8 +351,8 @@
    "place_at": 10.348,
    "event_time": 10.93,
    "peak_offset_in_file": 0.582,
-   "peak_dbfs": -25.2,
-   "below_dialogue_peak_db": 24,
+   "peak_dbfs": -22.2,
+   "below_dialogue_peak_db": 21,
    "length_s": 1.18
   },
   "whoosh_gauge": {
@@ -360,8 +360,8 @@
    "place_at": 48.449,
    "event_time": 48.98,
    "peak_offset_in_file": 0.531,
-   "peak_dbfs": -22.2,
-   "below_dialogue_peak_db": 21,
+   "peak_dbfs": -20.2,
+   "below_dialogue_peak_db": 19,
    "length_s": 1.12
   },
   "whoosh_ask": {
@@ -369,8 +369,8 @@
    "place_at": 64.234,
    "event_time": 64.84,
    "peak_offset_in_file": 0.606,
-   "peak_dbfs": -28.2,
-   "below_dialogue_peak_db": 27,
+   "peak_dbfs": -23.2,
+   "below_dialogue_peak_db": 22,
    "length_s": 1.27
   },
   "chime": {

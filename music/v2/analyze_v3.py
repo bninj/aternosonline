@@ -51,8 +51,9 @@ for name, a, b in bounds:
                                ">4k": round(100 * P[f >= 4000].sum() / tot, 1)},
                      stems_rms={k: round(db(np.sqrt(np.mean(v[int(a * SR): int(b * SR)] ** 2))), 1) for k, v in stems.items()})
 # punchline window specifically
-pw = mix[int(72.4 * SR): int(75.6 * SR)]
-rep["punchline_72.4_75.6_lufs"] = round(meter.integrated_loudness(pw), 1)
+_p0, _p1 = cfg["sections"]["punch"] + 0.2, cfg["sections"]["endcard"] - 0.2
+pw = mix[int(_p0 * SR): int(_p1 * SR)]
+rep["punchline_drop_lufs"] = dict(window=[round(_p0, 2), round(_p1, 2)], lufs=round(meter.integrated_loudness(pw), 1))
 rep["sections"] = sec
 
 

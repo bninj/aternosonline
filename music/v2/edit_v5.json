@@ -95,11 +95,11 @@
  "target_lufs": -20.0,
  "seed": 4,
  "sfx_level_below_dialogue_peak_db": {
-  "click": 25,
-  "whoosh": 24,
-  "whoosh_chart": 24,
-  "whoosh_gauge": 21,
-  "whoosh_ask": 27,
+  "click": 23,
+  "whoosh": 22,
+  "whoosh_chart": 21,
+  "whoosh_gauge": 19,
+  "whoosh_ask": 22,
   "chime": 27
  },
  "version": "v5 (v4 sound, tightened edit)",
