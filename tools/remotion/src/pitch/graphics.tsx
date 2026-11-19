@@ -210,7 +210,7 @@ const ChipGridInner: React.FC<{p: ChipGridProps}> = ({p}) => {
       {p.mode === 'ddn' ? (
         <div style={{height: 86 * costIn, overflow: 'hidden', opacity: costIn}}>
           <div style={{paddingTop: 16}}>
-            <div style={{display: 'flex', alignItems: 'baseline', justifyContent: 'space-between'}}>
+            <div style={{display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 20}}>
               <div style={{fontFamily: FONT.mono, fontSize: 24, color: 'rgba(255,255,255,0.75)', letterSpacing: '0.06em'}}>COST PER TOKEN</div>
               <div style={{...display('medium', 34, -0.01), color: C.white, fontFeatureSettings: '"tnum" 1'}}>{costPct}% lower</div>
             </div>
@@ -225,54 +225,94 @@ const ChipGridInner: React.FC<{p: ChipGridProps}> = ({p}) => {
 };
 
 // ---------------------------------------------------------------------------------------------------------------
-// Streaming-style logo tiles in a row, waterfall entry (staggered arrival from below, ddn-out).
-export const LogoTiles: React.FC<SlotProps & {items: {logo: LogoId; at: number}[]; tileW?: number; tileH?: number; logoH?: number}> = (p) => (
+// Logos float on ONE translucent light-frost panel (no opaque tiles): official artwork, unaltered, about 1.5x the v1
+// size, arriving as a waterfall (staggered rise from below with blur to sharp, ddn-out).
+export const LogoTiles: React.FC<SlotProps & {items: {logo: LogoId; at: number}[]; logoH?: number; gap?: number}> = (p) => (
   <Slot {...p} name="LogoTiles">
-    {() => <LogoTilesInner items={p.items} tileW={p.tileW ?? 196} tileH={p.tileH ?? 110} logoH={p.logoH ?? 46} />}
+    {() => <LogoTilesInner items={p.items} logoH={p.logoH ?? 72} gap={p.gap ?? 44} />}
   </Slot>
 );
-const LogoTilesInner: React.FC<{items: {logo: LogoId; at: number}[]; tileW: number; tileH: number; logoH: number}> = ({items, tileW, tileH, logoH}) => {
+const LogoTilesInner: React.FC<{items: {logo: LogoId; at: number}[]; logoH: number; gap: number}> = ({items, logoH, gap}) => {
   const frame = useCurrentFrame();
   return (
-    <div style={{display: 'flex', gap: 14}}>
-      {items.map((it, i) => {
-        const pr = interpolate(frame, [it.at, it.at + 16], [0, 1], {...cl, easing: EASE.out});
-        const o = interpolate(frame, [it.at, it.at + 10], [0, 1], {...cl, easing: EASE.inOut});
-        const bl = 1 - interpolate(frame, [it.at, it.at + 16], [0, 1], {...cl, easing: EASE.ui});
-        const l = LOGOS[it.logo];
-        const h = Math.min(logoH, (tileW - 40) / l.aspect);
-        return (
-          <div key={i} style={{opacity: o, transform: `translateY(${(1 - pr) * 34}px)`, filter: bl > 0.01 ? `blur(${(8 * bl).toFixed(2)}px)` : undefined}}>
-            <FrostedGlass tone="light" padX={0} padY={0} radius={16} style={{width: tileW, height: tileH}}>
-              <div style={{width: tileW, height: tileH, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                <Logo id={it.logo} height={h} />
-              </div>
-            </FrostedGlass>
-          </div>
-        );
-      })}
-    </div>
+    <FrostedGlass tone="light" tint="rgba(250,247,245,0.52)" padX={34} padY={26} radius={24}>
+      <div style={{display: 'flex', alignItems: 'center', gap}}>
+        {items.map((it, i) => {
+          const pr = interpolate(frame, [it.at, it.at + 16], [0, 1], {...cl, easing: EASE.out});
+          const o = interpolate(frame, [it.at, it.at + 10], [0, 1], {...cl, easing: EASE.inOut});
+          const bl = 1 - interpolate(frame, [it.at, it.at + 16], [0, 1], {...cl, easing: EASE.ui});
+          const l = LOGOS[it.logo];
+          const h = Math.min(logoH, 300 / l.aspect);
+          return (
+            <div key={i} style={{opacity: o, transform: `translateY(${((1 - pr) * 30).toFixed(2)}px)`, filter: `${bl > 0.01 ? `blur(${(8 * bl).toFixed(2)}px) ` : ''}drop-shadow(0 2px 6px rgba(20,10,14,0.18))`}}>
+              <Logo id={it.logo} height={h} />
+            </div>
+          );
+        })}
+      </div>
+    </FrostedGlass>
   );
 };
 
 // ---------------------------------------------------------------------------------------------------------------
-// Blockbuster: the official logo arrives, then fades to grey (the obsolete one). The artwork itself is untouched;
-// only the whole tile is desaturated and dimmed after it has been seen in full colour.
-export const ObsoleteLogo: React.FC<SlotProps & {logo: LogoId; greyAt: number; logoH?: number}> = (p) => (
-  <Slot {...p} name="ObsoleteLogo">{() => <ObsoleteInner logo={p.logo} greyAt={p.greyAt} logoH={p.logoH ?? 104} />}</Slot>
+// Blockbuster BREAKS: the official logo lands (rise + blur to sharp) floating over the footage with a soft shadow,
+// holds a beat, hairline cracks run from the impact point (with a DDN-spectrum glint), then it splits into a few large
+// shards along those cracks that drift apart (motion blurred) and fade. The artwork is never redrawn: every shard is
+// the same official logo, clipped to its polygon.
+const SHARDS: {poly: [number, number][]; dir: [number, number]; rot: number}[] = [
+  {poly: [[0, 0], [0.42, 0], [0.36, 0.46], [0, 0.58]], dir: [-1, -0.7], rot: -9},
+  {poly: [[0.42, 0], [0.78, 0], [0.55, 0.42], [0.36, 0.46]], dir: [0.2, -1], rot: 6},
+  {poly: [[0.78, 0], [1, 0], [1, 0.52], [0.55, 0.42]], dir: [1, -0.6], rot: 11},
+  {poly: [[0, 0.58], [0.36, 0.46], [0.47, 1], [0, 1]], dir: [-1, 0.8], rot: 8},
+  {poly: [[0.36, 0.46], [0.55, 0.42], [0.72, 1], [0.47, 1]], dir: [0.1, 1], rot: -5},
+  {poly: [[0.55, 0.42], [1, 0.52], [1, 1], [0.72, 1]], dir: [1, 0.7], rot: -12},
+];
+const IMPACT: [number, number] = [0.47, 0.45];
+
+export const ShatterLogo: React.FC<SlotProps & {logo: LogoId; crackAt: number; breakAt: number; logoH?: number}> = (p) => (
+  <Slot {...p} name="ShatterLogo" exitFrames={p.exitFrames ?? 6}>{() => <ShatterInner logo={p.logo} crackAt={p.crackAt} breakAt={p.breakAt} logoH={p.logoH ?? 150} />}</Slot>
 );
-const ObsoleteInner: React.FC<{logo: LogoId; greyAt: number; logoH: number}> = ({logo, greyAt, logoH}) => {
+const ShatterInner: React.FC<{logo: LogoId; crackAt: number; breakAt: number; logoH: number}> = ({logo, crackAt, breakAt, logoH}) => {
   const frame = useCurrentFrame();
-  const g = interpolate(frame, [greyAt, greyAt + 24], [0, 1], {...cl, easing: EASE.inOut});
-  const pad = Math.round(logoH * LOGOS[logo].clear);
+  const lw = logoH * LOGOS[logo].aspect;
+  const crack = interpolate(frame, [crackAt, crackAt + 4], [0, 1], {...cl, easing: EASE.out});
+  const t = interpolate(frame, [breakAt, breakAt + 18], [0, 1], {...cl, easing: Easing4in});
+  const fade = interpolate(frame, [breakAt + 4, breakAt + 18], [1, 0], {...cl, easing: EASE.inOut});
+  const speed = frame >= breakAt && frame <= breakAt + 18 ? (Easing4in(Math.min(1, (frame - breakAt + 1) / 18)) - Easing4in(Math.max(0, (frame - breakAt) / 18))) : 0;
+  const st = ['rgba(254,117,0,0.95)', 'rgba(237,39,56,0.95)', 'rgba(117,148,178,0.9)'];
+  const cracks = SHARDS.flatMap((sh) => sh.poly).filter(([x, y]) => x > 0 && x < 1 && y > 0 && y < 1);
   return (
-    <div style={{filter: g > 0.01 ? `grayscale(${g.toFixed(3)}) brightness(${(1 - 0.12 * g).toFixed(3)})` : undefined, opacity: 1 - 0.35 * g}}>
-      <FrostedGlass tone="light" padX={pad + 10} padY={pad} radius={22}>
-        <Logo id={logo} height={logoH} />
-      </FrostedGlass>
+    <div style={{position: 'relative', width: lw, height: logoH, filter: 'drop-shadow(0 6px 18px rgba(10,6,8,0.35))'}}>
+      {SHARDS.map((sh, i) => {
+        const dx = sh.dir[0] * 150 * t;
+        const dy = sh.dir[1] * 110 * t + 70 * t * t; // a little gravity
+        const clip = `polygon(${sh.poly.map(([x, y]) => `${(x * 100).toFixed(1)}% ${(y * 100).toFixed(1)}%`).join(', ')})`;
+        const mb = Math.min(10, speed * 260);
+        return (
+          <div key={i} style={{position: 'absolute', inset: 0, clipPath: clip, opacity: t > 0 ? fade : 1,
+            transform: `translate(${dx.toFixed(2)}px, ${dy.toFixed(2)}px) rotate(${(sh.rot * 1.8 * t).toFixed(2)}deg)`, transformOrigin: `${IMPACT[0] * 100}% ${IMPACT[1] * 100}%`,
+            filter: mb > 0.2 ? `blur(${mb.toFixed(2)}px)` : undefined}}>
+            <Logo id={logo} height={logoH} />
+          </div>
+        );
+      })}
+      {/* hairline cracks from the impact point, glinting in DDN's spectrum, gone once the shards separate */}
+      <svg width={lw} height={logoH} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible', opacity: crack * (1 - t * 3 > 0 ? 1 - t * 3 : 0)}}>
+        <defs>
+          <linearGradient id="crackglint" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stopColor={st[0]} /><stop offset="0.5" stopColor="#FFFFFF" /><stop offset="1" stopColor={st[2]} />
+          </linearGradient>
+        </defs>
+        {cracks.map(([x, y], i) => {
+          const x0 = IMPACT[0] * lw;
+          const y0 = IMPACT[1] * logoH;
+          return <line key={i} x1={x0} y1={y0} x2={x0 + (x * lw - x0) * crack} y2={y0 + (y * logoH - y0) * crack} stroke="url(#crackglint)" strokeWidth={3.5} strokeLinecap="round" />;
+        })}
+      </svg>
     </div>
   );
 };
+const Easing4in = (x: number) => Math.pow(x, 2.2); // accelerating break-away
 
 // ---------------------------------------------------------------------------------------------------------------
 // End card v4 [4.10A 2026 outro]: #E7E7E7 dissolves in, thin pink-red circles grow and orbit, then converge into the

@@ -47,18 +47,20 @@ FPS = 30
 # --- look parameters (fractions of frame height unless noted)
 DIL = 0.07          # hard protection distance around the occupancy
 FEATH = 0.13        # width of the protection ramp
-RMAX = 0.0095       # max disc radius (~12 px at 1296)
-FALLOFF_EXP = 0.85
+RMAX = 0.0075       # max disc radius (~10 px at 1296)
+FALLOFF_EXP = 1.0
 KEY_STOP = 0.20     # virtual key amount (stops at centre)
 KEY_SX, KEY_SY = 0.20, 0.30   # key ellipse sigma (fraction of W, H)
 KEY_SMOOTH_S = 1.0  # temporal smoothing sigma (seconds)
 VIGNETTE = 0.14     # linear-light loss at the corners
-HALATION = 0.035
+HALATION = 0.02
+CONTRAST = {k: 1.06 for k in (8, 9, 10, 11, 12, 13)}     # gentle mid contrast around 18% grey (de-milk)
+HAL_THR = 0.85
 KNEE, KMAX = 0.70, 1.30       # highlight soft knee (linear)
-VEIL_K = {8: 0.55, 9: 0.55, 10: 0.55, 11: 0.55, 12: 0.55, 13: 0.55}   # DDN-monitor shots
+VEIL_K = {0: 0.40, 8: 0.70, 9: 0.70, 10: 0.70, 11: 0.70, 12: 0.70, 13: 0.70}   # milky shots: fraction of black lift removed
 SKIN_NUDGE = 0.6    # fraction of the skin deviation removed
-SKIN_MAX_STOP = 0.20
-SKIN_MAX_WB = 0.03
+SKIN_MAX_STOP = 0.25   # total skin exposure nudge; half global, half through the key light
+SKIN_MAX_WB = 0.05
 
 NT = 2
 cv2.setNumThreads(NT)
@@ -216,6 +218,68 @@ def analyse(p, force=False):
     return res
 
 
+def face_analyse(p, force=False):
+    """per-frame face centre + skin colour. MediaPipe FaceLandmarker (Apache-2.0) on an upscaled
+    head crop located from the person mask (the full-frame detector misses the small, hazy faces
+    of the wide DDN shots)."""
+    fn = f"{CACHE}/face{p['i']:02d}.npz"
+    if os.path.exists(fn) and not force:
+        return dict(np.load(fn))
+    import mediapipe as mp
+    from mediapipe.tasks.python import vision, BaseOptions
+    o = vision.FaceLandmarkerOptions(base_options=BaseOptions(model_asset_path=f"{ROOT}/tools/models/face_landmarker.task"),
+                                     num_faces=1, min_face_detection_confidence=0.3)
+    fl = vision.FaceLandmarker.create_from_options(o)
+    seg = Seg()
+    FW, FH = 1280, 720
+    xy, w, skin = [], [], []
+    for f in reader(p, FW, FH):
+        pp, fs = seg(cv2.resize(f, (AW, AH), interpolation=cv2.INTER_AREA))
+        m = pp > 0.5
+        res = None
+        if m.sum() > 200:
+            ys, xs = np.nonzero(m); top = ys.min()
+            bx = np.nonzero(m[top:top + int(0.11 * AH)])[1]
+            cx, cy = bx.mean() * FW / AW, (top + 0.07 * AH) * FH / AH
+            r = 128
+            x0 = int(np.clip(cx - r, 0, FW - 2 * r)); y0 = int(np.clip(cy - r, 0, FH - 2 * r))
+            crop = np.ascontiguousarray(cv2.resize(f[y0:y0 + 2 * r, x0:x0 + 2 * r], (512, 512), interpolation=cv2.INTER_CUBIC))
+            det = fl.detect(mp.Image(image_format=mp.ImageFormat.SRGB, data=crop))
+            if det.face_landmarks:
+                lm = np.array([[q.x, q.y] for q in det.face_landmarks[0]], np.float32) * 2 * r + [x0, y0]
+                res = lm
+        if res is None:      # close-ups: the face is bigger than the crop -> full frame
+            det = fl.detect(mp.Image(image_format=mp.ImageFormat.SRGB, data=np.ascontiguousarray(f)))
+            if det.face_landmarks:
+                res = np.array([[q.x, q.y] for q in det.face_landmarks[0]], np.float32) * [FW, FH]
+        if res is not None:
+            c = res.mean(0)
+            xy.append((c[0] / FW, c[1] / FH)); w.append(1.0)
+            hull = cv2.convexHull(res.astype(np.int32))
+            mk = np.zeros((FH, FW), np.uint8); cv2.fillConvexPoly(mk, hull, 1)
+            mk = cv2.erode(mk, np.ones((5, 5), np.uint8))
+            px = (f[mk > 0].astype(np.float32) / 255.0) ** GAMMA
+            if len(px) > 50:
+                yv = px @ np.array([0.2126, 0.7152, 0.0722], np.float32)
+                lo, hi = np.percentile(yv, [25, 85])
+                sel = px[(yv >= lo) & (yv <= hi)]
+                skin.append(sel.mean(0))
+            else:
+                skin.append((np.nan,) * 3)
+        else:
+            xy.append((np.nan, np.nan)); w.append(0.0); skin.append((np.nan,) * 3)
+    out = dict(face_xy=np.array(xy, np.float32), face_w=np.array(w, np.float32), skin=np.array(skin, np.float32))
+    np.savez_compressed(fn, **out)
+    log(f"faces piece {p['i']}: found in {np.mean(w) * 100:.0f}% of frames")
+    return out
+
+
+def load(p):
+    A = analyse(p)
+    A.update(face_analyse(p))
+    return A
+
+
 # ------------------------------------------------------------- static maps
 def blur_weight(p, A):
     """static blur weight b in [0,1] at analysis res + its parts (for QA)."""
@@ -224,7 +288,7 @@ def blur_weight(p, A):
     # focus plane = the speaker's depth (near); far = the far wall
     dfocus = np.percentile(disp[A["pers"]], 50) if A["pers"].any() else np.percentile(disp, 90)
     dfar = np.percentile(disp, 1.5)
-    start = dfar + 0.72 * (dfocus - dfar)                 # everything nearer than this stays sharp
+    start = dfar + 0.65 * (dfocus - dfar)                 # everything nearer than this stays sharp
     bd = np.clip((start - disp) / max(1e-6, start - dfar), 0, 1) ** FALLOFF_EXP
     bd = cv2.GaussianBlur(bd, (0, 0), 3)
     # distance (in fractions of H) from anything the speaker occupies at any time
@@ -246,7 +310,7 @@ def skin_targets(P):
     """per-piece multiplicative linear gains that pull skin into one range."""
     stats = []
     for p in P:
-        A = analyse(p)
+        A = load(p)
         s = A["skin"]; s = s[~np.isnan(s).any(1)]
         stats.append(np.median(s, 0) if len(s) else np.array([np.nan] * 3))
     S = np.array(stats)
@@ -254,7 +318,7 @@ def skin_targets(P):
     rg, bg = S[:, 0] / S[:, 1], S[:, 2] / S[:, 1]
     ok = ~np.isnan(Y)
     tY, trg, tbg = np.median(Y[ok]), np.median(rg[ok]), np.median(bg[ok])
-    gains = np.ones((len(P), 3), np.float32)
+    gains = np.ones((len(P), 3), np.float32); keyx = np.zeros(len(P), np.float32)
     for k in range(len(P)):
         if not ok[k]:
             continue
@@ -262,8 +326,9 @@ def skin_targets(P):
         gr = np.clip((trg / rg[k]) ** SKIN_NUDGE, 1 - SKIN_MAX_WB, 1 + SKIN_MAX_WB)
         gb = np.clip((tbg / bg[k]) ** SKIN_NUDGE, 1 - SKIN_MAX_WB, 1 + SKIN_MAX_WB)
         g = np.array([gr, 1.0, gb]); g /= (g @ np.array([0.2126, 0.7152, 0.0722]))   # WB without exposure change
-        gains[k] = g * 2 ** ev
-    return gains, dict(Y=Y, rg=rg, bg=bg, tY=tY, trg=trg, tbg=tbg)
+        gains[k] = g * 2 ** (0.5 * ev)
+        keyx[k] = 0.5 * ev
+    return gains, keyx, dict(Y=Y, rg=rg, bg=bg, tY=tY, trg=trg, tbg=tbg)
 
 
 def face_track(A, n):
@@ -284,7 +349,7 @@ def face_track(A, n):
 
 
 # ------------------------------------------------------------------ render
-def render(p, A, gain, out, do_blur=True, do_light=True, qa_frames=(), qa_dir=None, log_every=60):
+def render(p, A, gain, keyx, out, do_blur=True, do_light=True, qa_frames=(), qa_dir=None, log_every=60, max_frames=0):
     i = p["i"]
     b_small, parts = blur_weight(p, A)
     b = cv2.resize(b_small, (W, H), interpolation=cv2.INTER_LINEAR)
@@ -292,6 +357,9 @@ def render(p, A, gain, out, do_blur=True, do_light=True, qa_frames=(), qa_dir=No
     if not do_blur:
         b[:] = 0
     active = b > 1e-3
+    zone = cv2.resize((parts["dist"] < DIL).astype(np.uint8), (W, H), interpolation=cv2.INTER_NEAREST) > 0
+    bg8 = cv2.resize(b_small, (W // 8, H // 8), interpolation=cv2.INTER_AREA) > 0.3     # blurred background
+    contrast = CONTRAST.get(i, 1.0)
     # blur layers at half resolution: radii 0, r1, r2, r3 ; per-pixel weights from b
     hw, hh = W // 2, H // 2
     R = RMAX * H / 2.0
@@ -310,9 +378,12 @@ def render(p, A, gain, out, do_blur=True, do_light=True, qa_frames=(), qa_dir=No
     xx /= (W // 8); yy /= (H // 8)
     r2 = ((xx - 0.5) / 0.5) ** 2 * 0.6 + ((yy - 0.5) / 0.5) ** 2 * 0.4
     vig = 1 - VIGNETTE * smoothstep(0.25, 1.0, r2)
-    veil = cv2.resize(A["veil"], (W, H), interpolation=cv2.INTER_CUBIC) * VEIL_K.get(i, 0.0)
+    # veiling glare / milky blacks: a uniform additive lift (estimated as the black level of the median
+    # frame); a spatial dark-channel estimate confuses the white walls with glare, so stay global.
+    linm = (A["med"].astype(np.float32) / 255.0) ** GAMMA
+    veil = float(VEIL_K.get(i, 0.0) * np.percentile(linm @ np.array([0.2126, 0.7152, 0.0722], np.float32), 0.5))
     fxy, famp = face_track(A, p["n"])
-    key_a = 2 ** KEY_STOP - 1
+    key_a = 2 ** (KEY_STOP + keyx) - 1
     tint = np.array([1.0, 0.80, 0.62], np.float32)
     enc = subprocess.Popen(["ffmpeg", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
                             "-r", "30", "-i", "-", "-vf", "format=yuv420p,setsar=1",
@@ -323,7 +394,10 @@ def render(p, A, gain, out, do_blur=True, do_light=True, qa_frames=(), qa_dir=No
     prev_in = prev_out = None
     t0 = time.time(); n = 0
     for fi, f16 in enumerate(reader(p, W, H, "rgb48le")):
+        if max_frames and fi >= max_frames:
+            break
         L = LIN16[f16]                                        # linear float32
+        L0 = L
         if roi is not None:
             y0, y1, x0, x1 = roi
             sub = L[y0:y1, x0:x1]
@@ -346,44 +420,59 @@ def render(p, A, gain, out, do_blur=True, do_light=True, qa_frames=(), qa_dir=No
             L = L.copy()
             L[y0:y1, x0:x1] = np.where(active[y0:y1, x0:x1, None], np.maximum(acc, 0), sub)
         pre = L
-        if do_light:
+
+        def light(L):
+            if not do_light:
+                return L
             L = L * gain[None, None, :]
-            if VEIL_K.get(i, 0) > 0:
-                L = np.maximum((L - veil[..., None]) / (1 - veil[..., None]), 0)
-                # soft toe so nothing crushes: lift the very bottom back a little
-                L = L + 0.0008 * np.exp(-L / 0.002)
-            cx, cy = fxy[min(fi, len(fxy) - 1)]
-            am = famp[min(fi, len(famp) - 1)]
-            key = 1 + key_a * am * np.exp(-0.5 * (((xx - cx) / KEY_SX) ** 2 + ((yy - cy) / KEY_SY) ** 2))
-            m = cv2.resize((key * vig).astype(np.float32), (W, H), interpolation=cv2.INTER_LINEAR)
+            if veil > 0:
+                # soft subtraction: L - V above 2V, quadratic toe below (continuous, slope-matched, never < 0)
+                L = np.where(L > 2 * veil, L - veil, L * L / (4 * veil)) / (1 - veil)
+            if contrast != 1.0:
+                L = 0.18 * np.power(L / 0.18, contrast, dtype=np.float32)
             L = L * m[..., None]
-            # halation: bright parts bloom softly, warm tint
-            q = cv2.resize(L, (W // 8, H // 8), interpolation=cv2.INTER_AREA)
-            hb = cv2.GaussianBlur(np.maximum(q - 0.55, 0), (0, 0), H / 8 * 0.012)
-            hb = cv2.GaussianBlur(hb, (0, 0), H / 8 * 0.02)
-            L = L + HALATION * cv2.resize(hb, (W, H), interpolation=cv2.INTER_LINEAR) * tint
+            L = L + hal                                 # halation from the un-blurred frame (pixelwise add)
             # highlight soft knee on the max channel (hue preserving)
             mx = L.max(-1)
             t = np.clip((mx - KNEE) / (KMAX - KNEE), 0, 1)
             f = np.where(mx > KNEE, KNEE + (1 - KNEE) * (1 - (1 - t) ** 2), mx)
-            L = L * (f / np.maximum(mx, 1e-6))[..., None]
+            return L * (f / np.maximum(mx, 1e-6))[..., None]
+
+        if do_light:
+            cx, cy = fxy[min(fi, len(fxy) - 1)]
+            am = famp[min(fi, len(famp) - 1)]
+            key = 1 + key_a * am * np.exp(-0.5 * (((xx - cx) / KEY_SX) ** 2 + ((yy - cy) / KEY_SY) ** 2))
+            m = cv2.resize((key * vig).astype(np.float32), (W, H), interpolation=cv2.INTER_LINEAR)
+            # halation: near-clipping parts bloom softly, warm tint; computed from the ORIGINAL frame so
+            # the background blur cannot leak into the protected zone through it
+            q = cv2.resize(L0, (W // 8, H // 8), interpolation=cv2.INTER_AREA)
+            hb = cv2.GaussianBlur(np.maximum(q - HAL_THR, 0), (0, 0), H / 8 * 0.012)
+            hb = cv2.GaussianBlur(hb, (0, 0), H / 8 * 0.02)
+            hal = HALATION * cv2.resize(hb, (W, H), interpolation=cv2.INTER_LINEAR) * tint
+        L = light(L)
         o8 = encode(L)
         enc.stdin.write(o8.tobytes())
-        if fi in qa_frames and qa_dir:
-            os.makedirs(qa_dir, exist_ok=True)
-            np.save(f"{qa_dir}/p{i:02d}_f{fi:03d}_in.npy", f16)
-            np.save(f"{qa_dir}/p{i:02d}_f{fi:03d}_preblur.npy", encode(pre))
+        zdiff = -1.0
+        if qa_dir:
+            # proof: same frame rendered WITHOUT the background blur; must be bit-identical in the zone
+            ref = encode(light(L0))
+            zdiff = float(np.abs(ref[zone].astype(np.int16) - o8[zone]).max())
+            if fi in qa_frames:
+                os.makedirs(qa_dir, exist_ok=True)
+                cv2.imwrite(f"{qa_dir}/p{i:02d}_f{fi:03d}_look.png", cv2.cvtColor(o8, cv2.COLOR_RGB2BGR))
+                cv2.imwrite(f"{qa_dir}/p{i:02d}_f{fi:03d}_noblurlook.png", cv2.cvtColor(ref, cv2.COLOR_RGB2BGR))
         # flicker scan at 1/8 res: temporal change of output vs input (background region)
         si = cv2.resize(f16, (W // 8, H // 8), interpolation=cv2.INTER_AREA).astype(np.float32) / 257
         so = cv2.resize(o8, (W // 8, H // 8), interpolation=cv2.INTER_AREA).astype(np.float32)
         if prev_in is not None:
-            flick.append((np.abs(si - prev_in).mean(), np.abs(so - prev_out).mean(), so.mean() - si.mean()))
+            flick.append((np.abs(si - prev_in).mean(), np.abs(so - prev_out).mean(), so.mean() - si.mean(), zdiff,
+                          np.abs(so - prev_out)[bg8].mean() - np.abs(si - prev_in)[bg8].mean()))
         prev_in, prev_out = si, so
         n += 1
         if n % log_every == 0:
             log(f"piece {i}: {n}/{p['n']} {n / (time.time() - t0):.2f} fps")
     enc.stdin.close(); enc.wait()
-    if n != p["n"]:
+    if n != p["n"] and not max_frames:
         raise RuntimeError(f"piece {i}: got {n} frames, expected {p['n']}")
     log(f"piece {i} done {n} frames in {time.time() - t0:.0f}s")
     return np.array(flick, np.float32), b_small, parts
@@ -414,23 +503,24 @@ def main():
     ap.add_argument("--qa-dir", default=None)
     ap.add_argument("--concat", action="store_true")
     ap.add_argument("--suffix", default="")
+    ap.add_argument("--max-frames", type=int, default=0)
     a = ap.parse_args()
     P = pieces()
     os.makedirs(a.out, exist_ok=True)
     only = [int(x) for x in a.only.split(",")] if a.only else list(range(len(P)))
     if not a.concat:
         for k in only:
-            analyse(P[k])
+            load(P[k])
         if a.analyse_only:
             return
-        gains, _ = skin_targets(P)
+        gains, keyx, _ = skin_targets(P)
         qa = set(int(x) for x in a.qa_frames.split(",") if x)
         for k in only:
-            A = add_noise_estimate(P[k], analyse(P[k]))
-            fl, bs, parts = render(P[k], A, gains[k], f"{a.out}/seg{k:02d}{a.suffix}.mp4", not a.no_blur, not a.no_light,
-                                   qa, a.qa_dir)
+            A = add_noise_estimate(P[k], load(P[k]))
+            fl, bs, parts = render(P[k], A, gains[k], keyx[k], f"{a.out}/seg{k:02d}{a.suffix}.mp4", not a.no_blur, not a.no_light,
+                                   qa, a.qa_dir, max_frames=a.max_frames)
             np.savez_compressed(f"{CACHE}/render{k:02d}{a.suffix}.npz", flick=fl, b=bs, prot=parts["prot"],
-                                bd=parts["bd"], keep=parts["keep"], gain=gains[k], noise=A["noise"])
+                                bd=parts["bd"], keep=parts["keep"], gain=gains[k], keyx=keyx[k], noise=A["noise"])
     if a.concat or a.only is None:
         with open(f"{a.out}/list.txt", "w") as f:
             for k in range(len(P)):

@@ -72,15 +72,16 @@ export const useFontsReady = () => {
 // Type roles (research/FONT_MATCH.md, section 2). Inter Tight is set to match Articulat CF: size x0.966 (cap height
 // 0.7275 em vs 0.70 em), weights and extra tracking measured per style. With real Articulat files the roles map to
 // the desktop styles at size x1 and no extra tracking. `tracking` is DDN's own spec tracking (em), added on top.
-export type TypeRole = 'regular' | 'regularDesktop' | 'medium' | 'bold' | 'capsName';
+export type TypeRole = 'regular' | 'regularDesktop' | 'medium' | 'bold' | 'capsName' | 'caption';
 export const DDN_TYPE: Record<TypeRole, {fontWeight: number; letterSpacing: number; sizeScale: number}> = {
   regular: {fontWeight: 340, letterSpacing: 0.014, sizeScale: 0.966}, // body, captions (ddn.com 400 = Articulat Normal)
   regularDesktop: {fontWeight: 380, letterSpacing: 0.022, sizeScale: 0.966}, // Articulat Regular
   medium: {fontWeight: 480, letterSpacing: 0.025, sizeScale: 0.966}, // names, title cards, keywords
   bold: {fontWeight: 620, letterSpacing: 0.023, sizeScale: 0.966}, // headlines (Articulat Demi Bold)
   capsName: {fontWeight: 540, letterSpacing: 0.05, sizeScale: 0.966}, // lower third caps
+  caption: {fontWeight: 650, letterSpacing: 0.012, sizeScale: 0.966}, // pitch captions: a touch heavier, tighter set for one-line reading
 };
-const ARTICULAT_WEIGHT: Record<TypeRole, number> = {regular: 400, regularDesktop: 400, medium: 500, bold: 600, capsName: 500};
+const ARTICULAT_WEIGHT: Record<TypeRole, number> = {regular: 400, regularDesktop: 400, medium: 500, bold: 600, capsName: 500, caption: 600};
 
 export const display = (role: TypeRole, size: number, tracking = 0): {fontFamily: string; fontWeight: number; fontSize: number; letterSpacing: string} =>
   FONT_STATUS.usingArticulat

@@ -128,12 +128,12 @@ const PrismRim: React.FC<{radius: number | string; tone: 'dark' | 'light'}> = ({
 // Frosted glass plate (v2). Layers, bottom to top: real frost (aligned blurred footage, smoked), Wine to Slate tint,
 // top sheen, grain, inner highlight, prism rim. Content gets the entrance RGB split. Hugs its content.
 export const FrostedGlass: React.FC<{
-  children: React.ReactNode; padX?: number; padY?: number; radius?: number | string; tone?: 'dark' | 'light'; prism?: boolean; style?: React.CSSProperties; contentStyle?: React.CSSProperties;
-}> = ({children, padX = 56, padY = 36, radius = GLASS.radiusPx, tone = 'dark', prism = true, style, contentStyle}) => {
+  children: React.ReactNode; padX?: number; padY?: number; radius?: number | string; tone?: 'dark' | 'light'; prism?: boolean; style?: React.CSSProperties; contentStyle?: React.CSSProperties; tint?: string;
+}> = ({children, padX = 56, padY = 36, radius = GLASS.radiusPx, tone = 'dark', prism = true, style, contentStyle, tint}) => {
   const {source} = useFootage();
   const d = useSplit();
   const dark = tone === 'dark';
-  const fill = source ? (dark ? GLASS.tint : GLASS.lightTint) : dark ? GLASS.fallbackDark : GLASS.fallbackLight;
+  const fill = tint && source ? tint : source ? (dark ? GLASS.tint : GLASS.lightTint) : dark ? GLASS.fallbackDark : GLASS.fallbackLight;
   const filter = dark ? `brightness(${GLASS.smoke}) saturate(${GLASS.saturate})` : `brightness(${GLASS.lightSmoke}) saturate(1.05)`;
   return (
     <div style={{position: 'relative', borderRadius: radius, padding: `${padY}px ${padX}px`,

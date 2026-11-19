@@ -1,0 +1,20 @@
+[look] piece 0: 60/281 0.74 fps
+[look] piece 0: 120/281 0.71 fps
+[look] piece 0: 180/281 0.72 fps
+[look] piece 0: 240/281 0.73 fps
+[look] piece 0 done 281 frames in 369s
+[look] piece 3: 60/160 1.35 fps
+[look] piece 3: 120/160 1.34 fps
+[look] piece 3 done 160 frames in 124s
+[look] piece 1 done 49 frames in 30s
+[look] piece 2: 60/167 1.83 fps
+[look] piece 2: 120/167 1.83 fps
+[look] piece 2 done 167 frames in 96s
+[look] piece 4 done 44 frames in 34s
+[look] piece 5: 60/87 1.80 fps
+[look] piece 5 done 87 frames in 59s
+[look] piece 6: 60/111 1.81 fps
+[look] piece 6 done 111 frames in 74s
+[look] piece 7: 60/79 1.21 fps
+[look] piece 7 done 79 frames in 78s
+[look] piece 8 done 53 frames in 61s

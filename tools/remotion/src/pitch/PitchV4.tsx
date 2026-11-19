@@ -4,7 +4,7 @@ import {EASE, Footage, FootageSource, LineChartFall, MeasureCard, PITCH_CAPTION_
 import plan from './shotplan_v4.json';
 import {pitchTranscriptV3} from './captions';
 import {cameraAt, faceAt, fr, keepOutZoomed, segIndexAt, Box} from './layout_v4';
-import {ChipGrid, ChipStatus, EndBuild, LogoTiles, ObsoleteLogo, VoiceChat, VoicePill} from './graphics';
+import {ChipGrid, ChipStatus, EndBuild, LogoTiles, ShatterLogo, VoiceChat, VoicePill} from './graphics';
 
 // PitchFinal v4: the tight edit (SHOTPLAN_v4, 20 picture segments, J-cuts), 74.2 s = 2226 f.
 // Camera: eased drift per segment, snap-zoom accents on the key words, a velocity-matched seam (push + rack-focus
@@ -83,7 +83,9 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
       <MeasureCard from={askFrom} durationInFrames={fr(69.3) - askFrom} {...R} bottom={0.45}
         tag="30 day pilot" tagAt={w('pilot') - askFrom - 1} itemsAt={after(w('Then measure'), 16) - askFrom} width={500} labelSize={32} barLabelSize={24} pad={24} gap={12}
         items={[{label: 'How busy the chips are', at: after(w('Then measure'), 16) - askFrom + 2, before: 0.22, after: 0.9}, {label: 'What each answer costs', at: after(w('Then measure'), 16) - askFrom + 10, before: 0.85, after: 0.3}]} />
-      <ObsoleteLogo from={bbFrom} durationInFrames={fr(70.4) - bbFrom} {...R} bottom={0.44} logo="blockbuster" greyAt={24} logoH={96} />
+      {/* Blockbuster lands on its word, cracks on the music's soft knock (about 69.6), shatters, gone before "Thank you". */}
+      <ShatterLogo from={bbFrom} durationInFrames={fr(70.36) - bbFrom} {...R} bottom={0.44} logo="blockbuster" logoH={190}
+        crackAt={fr(69.62) - bbFrom} breakAt={fr(69.76) - bbFrom} />
 
       <Subtitles transcript={transcript} look={PITCH_CAPTION_LOOK} anchor="center" joinGapFrames={6}
         suppress={[{from: chatFrom, to: fr(32.4)}, {from: PLATE_END - 6, to: 2400}]} />

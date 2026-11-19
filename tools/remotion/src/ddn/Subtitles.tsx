@@ -29,7 +29,7 @@ export type SubtitlesProps = {
 // short-form preset (PITCH_CAPTION_LOOK): one line, 48 px semi-bold, frosted pill, 8 % bottom margin.
 export type CaptionLook = {size: number; role: TypeRole; emphRole: TypeRole; padX: number; padY: number; radius: number; bottomPx: number; maxLines: number};
 export const DDN_CAPTION_LOOK: CaptionLook = {size: TYPE.caption, role: 'regular', emphRole: 'medium', padX: 56, padY: 30, radius: 18, bottomPx: FRAME.h * SAFE.margin, maxLines: 2};
-export const PITCH_CAPTION_LOOK: CaptionLook = {size: 46, role: 'bold', emphRole: 'bold', padX: 30, padY: 14, radius: 999, bottomPx: Math.round(FRAME.h * 0.08), maxLines: 1};
+export const PITCH_CAPTION_LOOK: CaptionLook = {size: 54, role: 'caption', emphRole: 'caption', padX: 34, padY: 15, radius: 999, bottomPx: Math.round(FRAME.h * 0.08), maxLines: 1};
 
 export const DEFAULT_EMPHASIS = ['DDN', 'Sky'];
 const isEmph = (core: string, list: string[], flag?: boolean) => (flag !== undefined ? flag : /\d/.test(core) || list.includes(core));
@@ -117,7 +117,7 @@ const PhraseText: React.FC<{laid: Laid; opacity: number; y: number; blur: number
     transform: `translateY(${y.toFixed(2)}px)`, filter: blur > 0.05 ? `blur(${blur.toFixed(2)}px)` : undefined}}>
     {laid.lines.map((l, i) => (
       <div key={i} style={{height: lineH(laid.look), lineHeight: `${lineH(laid.look)}px`, whiteSpace: 'nowrap', ...display(laid.look.role, laid.look.size),
-        color: 'rgba(255,255,255,0.97)', fontFeatureSettings: '"tnum" 1', textShadow: '0 1px 12px rgba(20,10,14,0.25)'}}>
+        color: 'rgba(255,255,255,0.98)', fontFeatureSettings: '"kern" 1, "tnum" 1', fontKerning: 'normal', textRendering: 'geometricPrecision', textShadow: '0 1px 10px rgba(20,10,14,0.28)'}}>
         {l.words.map((w, j) => (
           <React.Fragment key={j}>
             {j > 0 ? ' ' : ''}
