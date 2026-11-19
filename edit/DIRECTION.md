@@ -58,3 +58,4 @@ Original brief: the competition, script, process, deviation rules, timing, capti
     - **Zooms:** subtle, but smoother (sine/expo in-out curves, face anchored, motion blur only on snap-zooms).
     - **Captions** moved up to about 72–76% of frame height, close to the speaker, and about 10% larger.
     - **Music 10–20% louder:** +1.3 dB in the mix (music-gain −6.7).
+29. **Caption placement (final rule):** DDN convention, in the lower third over the lap/lower torso (about 80–84% of frame height). Never over the face, chin, mouth or upper chest, logos, graphics, monitors or the AI sign. A fixed position per shot (changes only at cuts), shifted horizontally into clean space if needed, and verified frame by frame.
