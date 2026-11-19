@@ -11,7 +11,7 @@ const cl = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 // ---------------------------------------------------------------------------------------------------------------
 // Subtitles v6: no box. White Inter Tight semibold, bottom centre at a fixed position (baseline band at about 87 % H),
 // a soft shadow plus a very faint feathered dark "layer" (a blurred ellipse sized to the line) for legibility.
-// Emphasis: the word in Brand Red (same weight), no blocks. Phrase to phrase: a 4 f crossfade; runs fade 6 f in/out.
+// Emphasis: a slightly heavier weight plus a thin Brand Red underline (red text was illegible over the dark room; no blocks). Phrase to phrase: a 4 f crossfade; runs fade 6 f in/out.
 export const CleanSubtitles: React.FC<{transcript: Transcript; snapTo?: number[]; suppress?: {from: number; to: number}[]; size?: number; centerY?: number}> = ({transcript, snapTo = [], suppress = [], size = 64, centerY = 940}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
@@ -69,7 +69,7 @@ export const CleanSubtitles: React.FC<{transcript: Transcript; snapTo?: number[]
             return (
               <React.Fragment key={i}>
                 {i > 0 ? ' ' : ''}
-                {emph ? <span style={{color: C.red}}>{core}</span> : core}
+                {emph ? <span style={{fontWeight: 780, backgroundImage: `linear-gradient(${C.red}, ${C.red})`, backgroundSize: '100% 4px', backgroundPosition: '0 92%', backgroundRepeat: 'no-repeat', paddingBottom: 2}}>{core}</span> : core}
                 {tail}
               </React.Fragment>
             );

@@ -158,3 +158,30 @@ Geist Mono is unchanged.
 - Captions are re-chunked in `src/pitch/captions.ts`.
 - Use hard links, not symlinks, in `public/` (symlinks 404 in the render server).
 - Prism uses DDN's spectrum: tokens `PRISM.stops`.
+
+## v6 research: subtitles, name supers and push-ins in premium founder / pitch videos (2026-11-19)
+The web sources found are practitioner and vendor guides, not studies, so treat the numbers as starting points.
+
+**Subtitles**
+- Use a clean sans, one consistent position at lower centre, inside title-safe ([HappyScribe](https://ws.happyscribe.com/blog/en/elements-to-consider-when-adding-subtitles-to-videos), [OpusClip placement](https://www.opus.pro/blog/video-caption-design-placement)).
+- Legibility comes from either a box or a soft shadow. For a premium, boxless look the usual advice is a soft black shadow at about 50 % ([techbloat](https://www.techbloat.com/how-to-style-subtitles-for-your-videos.html), [captions.ai](https://captions.ai/blog/subtitle-fonts)).
+- Keep each line on screen long enough to read comfortably.
+- **Applied:** no pill. White Inter Tight 620 at 64 px @1080, centred at 87 % H, with a soft double shadow plus a very faint feathered dark ellipse behind the line (the "layer"). One line, at most 5 words / 28 characters.
+  - Emphasis is a heavier weight (780) with a thin Brand Red underline. Red text alone failed over the dark room.
+  - Phrase swaps are a 4 f crossfade; runs fade 6 f in and out.
+
+**Name supers**
+- Keep them minimal and on brand, with high contrast, inside title-safe. Move them up when the bottom of frame is busy ([Frame.io](https://blog.frame.io/2017/12/04/create-lower-thirds-titles-that-dont-suck/), [Vimeo](https://vimeo.com/blog/post/what-is-lower-thirds), [Epidemic Sound](https://epidemicsound.com/blog/lower-thirds)).
+- **Applied:** top-left "Eliud Awuah" in Inter Tight 620 at 58 px, "T Level Placement Student" in Geist Mono 25 px, a thin Brand Red accent line. It draws on, the text slides from behind the line, and it holds about 3 s (3.6 to 6.8 s).
+
+**Push-ins**
+- Subtle pushes are about 5 to 10 % over a shot ([Vashi Nedomansky / No Film School](https://nofilmschool.com/push-post-vashi-nedomanskys-premiere-pro-preset), [PremiumBeat](https://www.premiumbeat.com/blog/mastering-zoom-and-punch-in)), eased rather than linear. Punch-ins are reserved for emphasis.
+- **Applied (smaller, at the user's request):**
+  - one push per shot of 1 to 4 %, ease-out over the whole shot, no lateral motion;
+  - three gentle +2.5 % snaps (12 %, 99 %, Blockbuster);
+  - section seams are blur-only.
+
+**Other v6 changes**
+- Stopwatch with a real dial (60 ticks, crown, red sweep hand, elapsed arc) and a Geist Mono `mm:ss.t` readout from "Sorry". No total; the old "/ 01:30" was wrong for a 1:17 film.
+- Chip-grid labels now carry the hedge: "AVERAGE USE" (Cast AI) and "BUSY, UP TO" (DDN's "up to 99 %").
+- The film is authored at 1920x1080 and scaled to 3840x2160 as one vector transform. `will-change` was removed so text rasterises at 4K, and Frost measures in layout px.
