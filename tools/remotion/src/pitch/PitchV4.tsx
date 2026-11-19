@@ -22,7 +22,7 @@ const PLATE_END = 2136; // 71.197 s: first frame without picture
 const W = plan.word_anchors as Record<string, number>;
 const w = (k: string) => fr(W[k]);
 const cutF = (i: number) => fr(plan.segments[i].start);
-const G = 0.81; // graphics bottom (fraction of H): clears the caption pill
+const G = 0.79; // graphics bottom (fraction of H): clears the 54 px caption pill (top at 0.83 H) by 40 px
 const R = {anchor: 'right' as const};
 
 export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice, showGuides = false}) => {
@@ -73,8 +73,8 @@ export const PitchV4: React.FC<PitchV4Props> = ({plate, plateBlur, audio, voice,
         typeStart={w('Sky, make me scared') - chatFrom} typeEnd={fr(32.25) - chatFrom} />
 
       {/* Why DDN: one chip-use grid that evolves (idle 5 %, then data flows in, 99 % busy, cost per token down 75 %) */}
-      <ChipGrid from={idleFrom} durationInFrames={fr(41.0) - idleFrom} {...R} bottom={0.83} mode="idle" landAt={w('5%') - idleFrom} source="Cast AI, enterprise average" />
-      <ChipGrid from={ddnFrom} durationInFrames={fr(54.35) - ddnFrom} {...R} bottom={0.83} mode="ddn" flowAt={w('data flowing to the chips') - ddnFrom - 4}
+      <ChipGrid from={idleFrom} durationInFrames={fr(41.0) - idleFrom} {...R} bottom={0.8} mode="idle" landAt={w('5%') - idleFrom} source="Cast AI, enterprise average" />
+      <ChipGrid from={ddnFrom} durationInFrames={fr(54.35) - ddnFrom} {...R} bottom={0.8} mode="ddn" flowAt={w('data flowing to the chips') - ddnFrom - 4}
         landAt={w('99%') - ddnFrom} countFrames={Math.min(34, w('99%') - w('customers'))} costFrom={w('cut costs per token') - ddnFrom - 2} costLandAt={w('75%') - ddnFrom} source="per DDN" />
       <LogoTiles from={caFrom} durationInFrames={fr(58.5) - caFrom} {...R} bottom={G} items={[{logo: 'canalplus', at: 3}, {logo: 'starz', at: w('Starz') - 4 - caFrom}]} />
 

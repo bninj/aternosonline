@@ -61,18 +61,18 @@ const ChipStatusInner: React.FC<{emphAt?: number}> = ({emphAt}) => {
   const glow = emphAt !== undefined ? interpolate(frame, [emphAt - 4, emphAt + 8], [0, 1], {...cl, easing: EASE.inOut}) : 0;
   const cycle = 24;
   return (
-    <FrostedGlass padX={26} padY={18} radius={22}>
-      <div style={{display: 'flex', alignItems: 'center', gap: 20}}>
-        <Chip size={62} glow={glow * 0.6} />
+    <FrostedGlass padX={40} padY={28} radius={30}>
+      <div style={{display: 'flex', alignItems: 'center', gap: 30}}>
+        <Chip size={98} glow={glow * 0.6} />
         <div>
-          <div style={{fontFamily: FONT.mono, fontSize: 22, color: 'rgba(255,255,255,0.65)', letterSpacing: '0.04em'}}>AI chip</div>
-          <div style={{display: 'flex', alignItems: 'baseline', gap: 10}}>
-            <div style={{...display('medium', 36, -0.01), color: C.white, whiteSpace: 'nowrap'}}>Waiting for data</div>
-            <div style={{display: 'flex', gap: 6}}>
+          <div style={{fontFamily: FONT.mono, fontSize: 32, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.04em'}}>AI chip</div>
+          <div style={{display: 'flex', alignItems: 'baseline', gap: 16}}>
+            <div style={{...display('medium', 58, -0.01), color: C.white, whiteSpace: 'nowrap'}}>Waiting for data</div>
+            <div style={{display: 'flex', gap: 9}}>
               {[0, 1, 2].map((i) => {
                 const ph = ((frame - 8 - i * 6) % cycle + cycle) % cycle;
                 const on = frame >= 8 + i * 6 ? interpolate(ph, [0, 6, 12, 18], [0.25, 1, 1, 0.25], cl) : 0.25;
-                return <div key={i} style={{width: 8, height: 8, borderRadius: 4, background: C.red, opacity: on}} />;
+                return <div key={i} style={{width: 12, height: 12, borderRadius: 6, background: C.red, opacity: on}} />;
               })}
             </div>
           </div>
@@ -91,11 +91,11 @@ const VoicePillInner: React.FC<{text: string; voice: string; from: number}> = ({
   const frame = useCurrentFrame();
   onScreen(text, 'VoicePill');
   return (
-    <FrostedGlass padX={26} padY={14} radius={999}>
-      <div style={{display: 'flex', alignItems: 'center', gap: 16}}>
-        <Mic size={28} color={C.red} />
-        <VoiceBars voice={voice} absFrame={from + frame} bars={14} height={30} width={4} />
-        <div style={{...display('medium', 34, -0.01), color: C.white, whiteSpace: 'nowrap'}}>{text}</div>
+    <FrostedGlass padX={40} padY={22} radius={999}>
+      <div style={{display: 'flex', alignItems: 'center', gap: 24}}>
+        <Mic size={44} color={C.red} />
+        <VoiceBars voice={voice} absFrame={from + frame} bars={14} height={48} width={6} />
+        <div style={{...display('medium', 54, -0.01), color: C.white, whiteSpace: 'nowrap'}}>{text}</div>
       </div>
     </FrostedGlass>
   );
@@ -202,7 +202,7 @@ const ChipGridInner: React.FC<{p: ChipGridProps}> = ({p}) => {
           })}
         </div>
         <div>
-          <div style={{fontFamily: FONT.mono, fontSize: 24, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.06em'}}>CHIPS BUSY</div>
+          <div style={{fontFamily: FONT.mono, fontSize: 26, color: 'rgba(255,255,255,0.78)', letterSpacing: '0.06em'}}>CHIPS BUSY</div>
           <div style={{...display('regular', numSize, -0.02), lineHeight: 1, color: C.white, fontFeatureSettings: '"tnum" 1', whiteSpace: 'nowrap'}}>{lit}%</div>
           <div style={{marginTop: 12, height: TYPE.tagBar}}><MonoTag text={p.source} startFrame={p.landAt + 2} /></div>
         </div>
@@ -211,7 +211,7 @@ const ChipGridInner: React.FC<{p: ChipGridProps}> = ({p}) => {
         <div style={{height: 86 * costIn, overflow: 'hidden', opacity: costIn}}>
           <div style={{paddingTop: 16}}>
             <div style={{display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 20}}>
-              <div style={{fontFamily: FONT.mono, fontSize: 24, color: 'rgba(255,255,255,0.75)', letterSpacing: '0.06em'}}>COST PER TOKEN</div>
+              <div style={{fontFamily: FONT.mono, fontSize: 26, color: 'rgba(255,255,255,0.8)', letterSpacing: '0.06em'}}>COST PER TOKEN</div>
               <div style={{...display('medium', 34, -0.01), color: C.white, fontFeatureSettings: '"tnum" 1'}}>{costPct}% lower</div>
             </div>
             <div style={{position: 'relative', height: 12, marginTop: 10, borderRadius: 6, background: 'rgba(255,255,255,0.12)'}}>
