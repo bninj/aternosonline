@@ -48,7 +48,7 @@ const Body: React.FC<SectionProgressProps> = ({sections, from, durationInFrames,
           <div style={{position: 'absolute', ...vert, ...sideStyle(side, offset)}}>
             <Reveal rise={edge === 'top' ? -16 : 16} blur={10}>
               <FrostedGlass padX={26} padY={16} radius={18}>
-                <div style={{display: 'flex', gap: 12, width}}>
+                <div style={{display: 'flex', gap: 22, width}}>
                   {sections.map((s, i) => {
                     onScreen(s.label, 'SectionProgress');
                     const len = s.to - s.from;

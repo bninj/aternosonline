@@ -1,0 +1,62 @@
+{
+ "click": {
+  "file": "sfx_click.wav",
+  "place_at": 1.85,
+  "event_time": 1.85,
+  "peak_offset_in_file": 0.0,
+  "peak_dbfs": -26.5,
+  "below_dialogue_peak_db": 27,
+  "length_s": 0.48
+ },
+ "whoosh_chart": {
+  "file": "sfx_whoosh_chart.wav",
+  "place_at": 11.94,
+  "event_time": 12.39,
+  "peak_offset_in_file": 0.45,
+  "peak_dbfs": -25.5,
+  "below_dialogue_peak_db": 26,
+  "length_s": 1.55
+ },
+ "whoosh_gauge": {
+  "file": "sfx_whoosh_gauge.wav",
+  "place_at": 52.1,
+  "event_time": 52.55,
+  "peak_offset_in_file": 0.45,
+  "peak_dbfs": -26.2,
+  "below_dialogue_peak_db": 26,
+  "length_s": 1.41
+ },
+ "whoosh_ask": {
+  "file": "sfx_whoosh_ask.wav",
+  "place_at": 68.662,
+  "event_time": 69.1,
+  "peak_offset_in_file": 0.438,
+  "peak_dbfs": -26.4,
+  "below_dialogue_peak_db": 26,
+  "length_s": 1.43
+ },
+ "chime": {
+  "file": "sfx_chime.wav",
+  "place_at": 77.2,
+  "event_time": 77.2,
+  "peak_offset_in_file": 0.0,
+  "peak_dbfs": -26.5,
+  "below_dialogue_peak_db": 27,
+  "length_s": 3.1
+ },
+ "_reference": {
+  "dialogue_peak_ref_dbfs": 0.47,
+  "definition": "95th pct of 50 ms peaks of voice_v1.wav at -16 LUFS integrated"
+ },
+ "_sources": [
+  "VCSL/Idiophones/Struck Idiophones/Hand Chimes/sus_D4_r01_main.wav",
+  "VCSL/Idiophones/Struck Idiophones/Suspended Cymbal 1/susCymb1_cresc_1.5s.wav",
+  "VCSL/Idiophones/Struck Idiophones/Suspended Cymbal 1/susCymb1_cresc_2s.wav",
+  "VCSL/Idiophones/Struck Idiophones/Suspended Cymbal 2/susCymb2_cresc_2.5s2.wav",
+  "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_D4_v1_rr1_Main.wav",
+  "bigsoundbank/macbook-trackpad-simple-click-s1740.flac",
+  "bigsoundbank/whoosh-3-s1795.flac",
+  "bigsoundbank/whoosh-4-s1796.flac",
+  "bigsoundbank/whoosh-7-s1800.flac"
+ ]
+}

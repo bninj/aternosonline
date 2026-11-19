@@ -1,18 +1,91 @@
 {
-  "_comment": "Locked edit (seconds, final video). sections = exact downbeats. accents = camera switches / graphic beats (placed at exact times).",
-  "sections": {"hook": 1.85, "change": 10.50, "now": 23.76, "ddn": 35.21, "ask": 62.73, "punch": 72.23, "endcard": 77.00},
-  "end": 80.0,
-  "cuts": [10.50, 12.30, 18.07, 23.76, 25.46, 28.56, 35.21, 37.18, 44.18, 48.75, 52.05, 58.12, 62.73, 72.23, 77.00],
-  "accents": {
-    "shaker_in": 12.30,
-    "tom_fill_into": [18.07, 48.75],
-    "mallet_on": [[25.46, 69], [37.18, 74], [52.05, 76]],
-    "swell_into": [28.56, 58.12],
-    "idle_until": 44.18,
-    "graphics": {"12%": 14.63, "5%": 42.43, "99%": 53.67, "75%": 56.77}
-  },
-  "sfx": {"click": [1.85], "thump": [10.50, 23.76, 35.21, 62.73], "whoosh": [12.39, 52.55, 69.10], "chime": [77.2]},
-  "balance": {"bass": 0.0, "drums": -1.0, "shaker": -14.0, "marimba": -2.0, "keys": -5.0, "vibes": -6.0, "fx": -8.0},
-  "target_lufs": -20.0,
-  "seed": 3
+ "_comment": "Locked edit (seconds, final video). sections = exact downbeats. accents = camera switches / graphic beats (placed at exact times).",
+ "sections": {
+  "hook": 1.85,
+  "change": 10.5,
+  "now": 23.76,
+  "ddn": 35.21,
+  "ask": 62.73,
+  "punch": 72.23,
+  "endcard": 77.0
+ },
+ "end": 80.0,
+ "cuts": [
+  10.5,
+  12.3,
+  18.07,
+  23.76,
+  25.46,
+  28.56,
+  35.21,
+  37.18,
+  44.18,
+  48.75,
+  52.05,
+  58.12,
+  62.73,
+  72.23,
+  77.0
+ ],
+ "accents": {
+  "shaker_in": 12.3,
+  "tom_fill_into": [
+   18.07,
+   48.75
+  ],
+  "mallet_on": [
+   [
+    25.46,
+    69
+   ],
+   [
+    37.18,
+    74
+   ],
+   [
+    52.05,
+    76
+   ]
+  ],
+  "swell_into": [
+   28.56,
+   58.12
+  ],
+  "idle_until": 44.18,
+  "graphics": {
+   "12%": 14.63,
+   "5%": 42.43,
+   "99%": 53.67,
+   "75%": 56.77
+  }
+ },
+ "sfx": {
+  "click": [
+   1.85
+  ],
+  "whoosh": [
+   12.39,
+   52.55,
+   69.1
+  ],
+  "chime": [
+   77.2
+  ]
+ },
+ "balance": {
+  "bass": -1.0,
+  "drums": -2.0,
+  "shaker": -14.0,
+  "marimba": 0.0,
+  "keys": -3.0,
+  "vibes": -5.0,
+  "fx": -8.0
+ },
+ "target_lufs": -20.0,
+ "seed": 3,
+ "sfx_level_below_dialogue_peak_db": {
+  "click": 27,
+  "whoosh": 26,
+  "chime": 27
+ }
 }

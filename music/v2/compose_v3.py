@@ -254,11 +254,11 @@ def compose(tm):
 
     # ---------------- punchline + resolve ----------------
     p0, r0 = SB["punch"], SB["endcard"]
-    s.add("kick", p0, 0, 36, 50, human=0)
-    s.add("bass", p0, 4.0, 28, 70, human=0)                                    # E1 rings
-    s.add("fmpiano", p0, 3.0, 0, 34, human=0, extra=(55, 59, 66))
-    for p in [64, 67, 74]:
-        s.add("bowed", p0 + 0.5, (r0 - p0) - 3.0, p, 34, human=0)              # soft Em(add9) air
+    s.add("kick", p0, 0, 36, 40, human=0)
+    s.add("bass", p0, 1.5, 28, 56, human=0)                                    # E1, short
+    s.add("fmpiano", p0, 1.5, 0, 28, human=0, extra=(55, 59, 66))
+    for p in [64, 67]:
+        s.add("bowed", p0 + 0.5, (r0 - p0) - 3.0, p, 14, human=0)              # barely-there Em air
     s.add("bass", r0 - 2, 2.0, 33, 60, human=0)
     for k, p in enumerate([57, 61, 64]):
         s.add("marimba", r0 - 1.5 + k * 0.5, 0.45, p, 40 + 4 * k, human=0)
@@ -396,7 +396,7 @@ def render(s, tm, out):
     for (b, d, p, v, ex) in s.ev["bowed"]:
         x = vbow.render(p, v, dur(b, d), release=1.0)
         x *= np.minimum(1, np.arange(len(x)) / (0.9 * SR))[:, None]
-        place(tb["vibes"], T(b), x)
+        place(tb["vibes"], T(b), x, 0.25)
     for (b, d, p, v, ex) in s.ev["cymbal"]:
         if p == 3:
             x = S.cymbal("susCymb1_cresc_1.5s.wav")
@@ -410,7 +410,7 @@ def render(s, tm, out):
     x = vbow.render(66, 30, 2.6, release=1.2) + 0.6 * vbow.render(74, 28, 2.6, release=1.2)
     n = len(x); t = np.arange(n) / SR
     env = np.clip(t / 1.2, 0, 1) ** 2 * np.clip((2.7 - t) / 1.5, 0, 1)
-    place(tb["vibes"], 0.10, x * env[:, None], 0.8)
+    place(tb["vibes"], 0.10, x * env[:, None], 0.18)
 
     # ---- gain envelopes at exact edit times ----
     for kind, t_on, t_off in s.gates:

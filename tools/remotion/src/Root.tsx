@@ -3,9 +3,12 @@ import {Composition, staticFile} from 'remotion';
 import {SmokeTest} from './SmokeTest';
 import {TalkingHead} from './TalkingHead';
 import {GraphicsDemo, DEMO, DEMO_FACE, DEMO_FOOTAGE} from './GraphicsDemo';
+import {PitchFinal} from './pitch/PitchFinal';
 import {parseMedia} from '@remotion/media-parser';
 export const RemotionRoot: React.FC = () => (
   <>
+    <Composition id="PitchFinal" component={PitchFinal} fps={30} width={1920} height={1080} durationInFrames={2400}
+      defaultProps={{plate: 'pitch/plate.mp4', plateBlur: 'pitch/plate_blur34.mp4', voice: 'pitch/voice_master.wav', showGuides: false}} />
     <Composition id="SmokeTest" component={SmokeTest} durationInFrames={90} fps={30} width={1920} height={1080}
       defaultProps={{title: 'Accelerating AI Infrastructure', subtitle: 'Jane Doe · VP Engineering'}} />
     <Composition id="SmokeTest4K" component={SmokeTest} durationInFrames={90} fps={30} width={3840} height={2160}
