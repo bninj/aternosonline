@@ -59,3 +59,16 @@ Original brief: the competition, script, process, deviation rules, timing, capti
     - **Captions** moved up to about 72–76% of frame height, close to the speaker, and about 10% larger.
     - **Music 10–20% louder:** +1.3 dB in the mix (music-gain −6.7).
 29. **Caption placement (final rule):** DDN convention, in the lower third over the lap/lower torso (about 80–84% of frame height). Never over the face, chin, mouth or upper chest, logos, graphics, monitors or the AI sign. A fixed position per shot (changes only at cuts), shifted horizontally into clean space if needed, and verified frame by frame.
+30. **v6 = FINAL, in 4K (user feedback on v5):**
+    - **Subtitles:** no pill; clean bottom-centre text with a soft "layer" (shadow/feathered gradient), larger; subtle emphasis.
+    - **Bubble:** types word-synced.
+    - **Stopwatch:** a realistic one starting at 0; never "1:30" (any total = the real length, 1:17).
+    - **Zooms:** calmer, one slow push per shot, max 3 gentle snaps.
+    - **Name super at the top-left:** "Eliud Awuah" / "T Level Placement Student".
+    - **Arsenal crest "losing" gag** on "Arsenal lose", with no invented score.
+    - **Canal+ left and Starz right** of him, large.
+    - **The ask card holds longer.** "If both improve, scale it" is its own kinetic moment.
+    - **From "So Sky":** only Blockbuster (larger, premium shatter).
+    - **+0.75 s of real-footage rest after "Thank you"** (no freeze), end card 74.247–77.247.
+    - **Music v7:** subtler and less generic; SFX dampened but satisfying.
+    - **Output 3840x2160.**
