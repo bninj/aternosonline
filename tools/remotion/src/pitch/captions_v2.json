@@ -1,0 +1,1534 @@
+[
+ {
+  "start": 1.82,
+  "end": 3.59,
+  "text": "Sorry I kept you waiting.",
+  "words": [
+   {
+    "text": "Sorry",
+    "start": 1.87,
+    "end": 2.51,
+    "emphasis": false
+   },
+   {
+    "text": "I",
+    "start": 2.51,
+    "end": 2.63,
+    "emphasis": false
+   },
+   {
+    "text": "kept",
+    "start": 2.63,
+    "end": 2.83,
+    "emphasis": false
+   },
+   {
+    "text": "you",
+    "start": 2.83,
+    "end": 2.99,
+    "emphasis": false
+   },
+   {
+    "text": "waiting.",
+    "start": 2.99,
+    "end": 3.29,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 3.54,
+  "end": 5.03,
+  "text": "That's AI chips,",
+  "words": [
+   {
+    "text": "That's",
+    "start": 3.59,
+    "end": 4.15,
+    "emphasis": false
+   },
+   {
+    "text": "AI",
+    "start": 4.15,
+    "end": 4.41,
+    "emphasis": false
+   },
+   {
+    "text": "chips,",
+    "start": 4.41,
+    "end": 4.85,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 4.98,
+  "end": 5.95,
+  "text": "every day,",
+  "words": [
+   {
+    "text": "every",
+    "start": 5.03,
+    "end": 5.43,
+    "emphasis": false
+   },
+   {
+    "text": "day,",
+    "start": 5.43,
+    "end": 5.75,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 5.9,
+  "end": 6.95,
+  "text": "waiting for data.",
+  "words": [
+   {
+    "text": "waiting",
+    "start": 5.95,
+    "end": 6.19,
+    "emphasis": false
+   },
+   {
+    "text": "for",
+    "start": 6.19,
+    "end": 6.37,
+    "emphasis": false
+   },
+   {
+    "text": "data.",
+    "start": 6.37,
+    "end": 6.69,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 6.9,
+  "end": 8.05,
+  "text": "And you, Sky,",
+  "words": [
+   {
+    "text": "And",
+    "start": 6.95,
+    "end": 7.29,
+    "emphasis": false
+   },
+   {
+    "text": "you,",
+    "start": 7.29,
+    "end": 7.53,
+    "emphasis": false
+   },
+   {
+    "text": "Sky,",
+    "start": 7.65,
+    "end": 7.77,
+    "emphasis": true
+   }
+  ]
+ },
+ {
+  "start": 8.0,
+  "end": 10.26,
+  "text": "you pay full price to wait.",
+  "words": [
+   {
+    "text": "you",
+    "start": 8.05,
+    "end": 8.43,
+    "emphasis": false
+   },
+   {
+    "text": "pay",
+    "start": 8.43,
+    "end": 8.61,
+    "emphasis": false
+   },
+   {
+    "text": "full",
+    "start": 8.61,
+    "end": 8.97,
+    "emphasis": false
+   },
+   {
+    "text": "price",
+    "start": 8.97,
+    "end": 9.41,
+    "emphasis": false
+   },
+   {
+    "text": "to",
+    "start": 9.41,
+    "end": 9.67,
+    "emphasis": false
+   },
+   {
+    "text": "wait.",
+    "start": 9.67,
+    "end": 9.91,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 10.62,
+  "end": 11.33,
+  "text": "So first,",
+  "words": [
+   {
+    "text": "So",
+    "start": 10.67,
+    "end": 10.77,
+    "emphasis": false
+   },
+   {
+    "text": "first,",
+    "start": 10.77,
+    "end": 11.09,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 11.28,
+  "end": 12.39,
+  "text": "why change?",
+  "words": [
+   {
+    "text": "why",
+    "start": 11.33,
+    "end": 11.51,
+    "emphasis": false
+   },
+   {
+    "text": "change?",
+    "start": 11.51,
+    "end": 11.95,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 12.34,
+  "end": 14.05,
+  "text": "Ofcom says traditional TV",
+  "words": [
+   {
+    "text": "Ofcom",
+    "start": 12.39,
+    "end": 12.73,
+    "emphasis": false
+   },
+   {
+    "text": "says",
+    "start": 12.73,
+    "end": 13.07,
+    "emphasis": false
+   },
+   {
+    "text": "traditional",
+    "start": 13.07,
+    "end": 13.55,
+    "emphasis": false
+   },
+   {
+    "text": "TV",
+    "start": 13.55,
+    "end": 14.05,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 14.0,
+  "end": 16.53,
+  "text": "fell by 12% in a year",
+  "words": [
+   {
+    "text": "fell",
+    "start": 14.05,
+    "end": 14.41,
+    "emphasis": false
+   },
+   {
+    "text": "by",
+    "start": 14.41,
+    "end": 14.63,
+    "emphasis": false
+   },
+   {
+    "text": "12%",
+    "start": 14.63,
+    "end": 15.61,
+    "emphasis": true
+   },
+   {
+    "text": "in",
+    "start": 15.61,
+    "end": 16.19,
+    "emphasis": false
+   },
+   {
+    "text": "a",
+    "start": 16.19,
+    "end": 16.27,
+    "emphasis": false
+   },
+   {
+    "text": "year",
+    "start": 16.27,
+    "end": 16.53,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 16.48,
+  "end": 18.11,
+  "text": "as people move to streaming.",
+  "words": [
+   {
+    "text": "as",
+    "start": 16.53,
+    "end": 16.77,
+    "emphasis": false
+   },
+   {
+    "text": "people",
+    "start": 16.77,
+    "end": 17.07,
+    "emphasis": false
+   },
+   {
+    "text": "move",
+    "start": 17.07,
+    "end": 17.31,
+    "emphasis": false
+   },
+   {
+    "text": "to",
+    "start": 17.31,
+    "end": 17.45,
+    "emphasis": false
+   },
+   {
+    "text": "streaming.",
+    "start": 17.45,
+    "end": 17.75,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 18.06,
+  "end": 19.03,
+  "text": "Netflix and YouTube",
+  "words": [
+   {
+    "text": "Netflix",
+    "start": 18.11,
+    "end": 18.49,
+    "emphasis": false
+   },
+   {
+    "text": "and",
+    "start": 18.49,
+    "end": 18.75,
+    "emphasis": false
+   },
+   {
+    "text": "YouTube",
+    "start": 18.75,
+    "end": 19.03,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 18.98,
+  "end": 21.03,
+  "text": "already know what you want to watch,",
+  "words": [
+   {
+    "text": "already",
+    "start": 19.03,
+    "end": 19.43,
+    "emphasis": false
+   },
+   {
+    "text": "know",
+    "start": 19.43,
+    "end": 19.67,
+    "emphasis": false
+   },
+   {
+    "text": "what",
+    "start": 19.67,
+    "end": 19.83,
+    "emphasis": false
+   },
+   {
+    "text": "you",
+    "start": 19.83,
+    "end": 19.95,
+    "emphasis": false
+   },
+   {
+    "text": "want",
+    "start": 19.95,
+    "end": 20.11,
+    "emphasis": false
+   },
+   {
+    "text": "to",
+    "start": 20.11,
+    "end": 20.25,
+    "emphasis": false
+   },
+   {
+    "text": "watch,",
+    "start": 20.25,
+    "end": 20.63,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 20.98,
+  "end": 22.33,
+  "text": "so Sky needs that too,",
+  "words": [
+   {
+    "text": "so",
+    "start": 21.03,
+    "end": 21.11,
+    "emphasis": false
+   },
+   {
+    "text": "Sky",
+    "start": 21.11,
+    "end": 21.33,
+    "emphasis": true
+   },
+   {
+    "text": "needs",
+    "start": 21.33,
+    "end": 21.69,
+    "emphasis": false
+   },
+   {
+    "text": "that",
+    "start": 21.69,
+    "end": 21.93,
+    "emphasis": false
+   },
+   {
+    "text": "too,",
+    "start": 21.93,
+    "end": 22.19,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 22.28,
+  "end": 23.4,
+  "text": "and fast.",
+  "words": [
+   {
+    "text": "and",
+    "start": 22.33,
+    "end": 22.65,
+    "emphasis": false
+   },
+   {
+    "text": "fast.",
+    "start": 22.65,
+    "end": 23.05,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 23.78,
+  "end": 25.43,
+  "text": "Second, why now?",
+  "words": [
+   {
+    "text": "Second,",
+    "start": 23.83,
+    "end": 24.29,
+    "emphasis": false
+   },
+   {
+    "text": "why",
+    "start": 24.57,
+    "end": 24.85,
+    "emphasis": false
+   },
+   {
+    "text": "now?",
+    "start": 24.85,
+    "end": 25.13,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 25.38,
+  "end": 26.69,
+  "text": "Well, you've already started",
+  "words": [
+   {
+    "text": "Well,",
+    "start": 25.43,
+    "end": 25.73,
+    "emphasis": false
+   },
+   {
+    "text": "you've",
+    "start": 25.85,
+    "end": 25.97,
+    "emphasis": false
+   },
+   {
+    "text": "already",
+    "start": 25.97,
+    "end": 26.15,
+    "emphasis": false
+   },
+   {
+    "text": "started",
+    "start": 26.15,
+    "end": 26.69,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 26.64,
+  "end": 28.39,
+  "text": "with Sky Q voice search.",
+  "words": [
+   {
+    "text": "with",
+    "start": 26.69,
+    "end": 26.95,
+    "emphasis": false
+   },
+   {
+    "text": "Sky",
+    "start": 26.95,
+    "end": 27.23,
+    "emphasis": true
+   },
+   {
+    "text": "Q",
+    "start": 27.23,
+    "end": 27.55,
+    "emphasis": false
+   },
+   {
+    "text": "voice",
+    "start": 27.55,
+    "end": 27.83,
+    "emphasis": false
+   },
+   {
+    "text": "search.",
+    "start": 27.83,
+    "end": 28.23,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 28.34,
+  "end": 29.71,
+  "text": "Now, the next step",
+  "words": [
+   {
+    "text": "Now,",
+    "start": 28.39,
+    "end": 28.91,
+    "emphasis": false
+   },
+   {
+    "text": "the",
+    "start": 29.07,
+    "end": 29.19,
+    "emphasis": false
+   },
+   {
+    "text": "next",
+    "start": 29.19,
+    "end": 29.39,
+    "emphasis": false
+   },
+   {
+    "text": "step",
+    "start": 29.39,
+    "end": 29.71,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 29.66,
+  "end": 30.87,
+  "text": "is an AI assistant",
+  "words": [
+   {
+    "text": "is",
+    "start": 29.71,
+    "end": 29.89,
+    "emphasis": false
+   },
+   {
+    "text": "an",
+    "start": 29.89,
+    "end": 30.05,
+    "emphasis": false
+   },
+   {
+    "text": "AI",
+    "start": 30.05,
+    "end": 30.39,
+    "emphasis": false
+   },
+   {
+    "text": "assistant",
+    "start": 30.39,
+    "end": 30.87,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 30.82,
+  "end": 32.45,
+  "text": "that knows each household.",
+  "words": [
+   {
+    "text": "that",
+    "start": 30.87,
+    "end": 31.13,
+    "emphasis": false
+   },
+   {
+    "text": "knows",
+    "start": 31.13,
+    "end": 31.37,
+    "emphasis": false
+   },
+   {
+    "text": "each",
+    "start": 31.37,
+    "end": 31.67,
+    "emphasis": false
+   },
+   {
+    "text": "household.",
+    "start": 31.67,
+    "end": 32.23,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 32.4,
+  "end": 33.47,
+  "text": "Imagine asking,",
+  "words": [
+   {
+    "text": "Imagine",
+    "start": 32.45,
+    "end": 32.95,
+    "emphasis": false
+   },
+   {
+    "text": "asking,",
+    "start": 32.95,
+    "end": 33.27,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 33.42,
+  "end": 35.16,
+  "text": "Sky, make me scared.",
+  "words": [
+   {
+    "text": "Sky,",
+    "start": 33.47,
+    "end": 33.75,
+    "emphasis": true
+   },
+   {
+    "text": "make",
+    "start": 33.97,
+    "end": 34.29,
+    "emphasis": false
+   },
+   {
+    "text": "me",
+    "start": 34.29,
+    "end": 34.41,
+    "emphasis": false
+   },
+   {
+    "text": "scared.",
+    "start": 34.41,
+    "end": 34.81,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 35.4,
+  "end": 36.15,
+  "text": "Third,",
+  "words": [
+   {
+    "text": "Third,",
+    "start": 35.45,
+    "end": 35.69,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 36.1,
+  "end": 37.19,
+  "text": "why DDN?",
+  "words": [
+   {
+    "text": "why",
+    "start": 36.15,
+    "end": 36.33,
+    "emphasis": false
+   },
+   {
+    "text": "DDN?",
+    "start": 36.33,
+    "end": 36.87,
+    "emphasis": true
+   }
+  ]
+ },
+ {
+  "start": 37.14,
+  "end": 38.99,
+  "text": "Idle chips will still cost you,",
+  "words": [
+   {
+    "text": "Idle",
+    "start": 37.19,
+    "end": 37.57,
+    "emphasis": false
+   },
+   {
+    "text": "chips",
+    "start": 37.57,
+    "end": 37.79,
+    "emphasis": false
+   },
+   {
+    "text": "will",
+    "start": 37.79,
+    "end": 38.03,
+    "emphasis": false
+   },
+   {
+    "text": "still",
+    "start": 38.03,
+    "end": 38.25,
+    "emphasis": false
+   },
+   {
+    "text": "cost",
+    "start": 38.25,
+    "end": 38.53,
+    "emphasis": false
+   },
+   {
+    "text": "you,",
+    "start": 38.53,
+    "end": 38.77,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 38.94,
+  "end": 40.17,
+  "text": "and Cast AI found",
+  "words": [
+   {
+    "text": "and",
+    "start": 38.99,
+    "end": 39.07,
+    "emphasis": false
+   },
+   {
+    "text": "Cast",
+    "start": 39.07,
+    "end": 39.41,
+    "emphasis": false
+   },
+   {
+    "text": "AI",
+    "start": 39.41,
+    "end": 39.71,
+    "emphasis": false
+   },
+   {
+    "text": "found",
+    "start": 39.71,
+    "end": 40.17,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 40.12,
+  "end": 41.99,
+  "text": "that enterprise chips average",
+  "words": [
+   {
+    "text": "that",
+    "start": 40.17,
+    "end": 40.37,
+    "emphasis": false
+   },
+   {
+    "text": "enterprise",
+    "start": 40.37,
+    "end": 40.85,
+    "emphasis": false
+   },
+   {
+    "text": "chips",
+    "start": 40.85,
+    "end": 41.29,
+    "emphasis": false
+   },
+   {
+    "text": "average",
+    "start": 41.29,
+    "end": 41.99,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 41.94,
+  "end": 44.17,
+  "text": "around 5% of use.",
+  "words": [
+   {
+    "text": "around",
+    "start": 41.99,
+    "end": 42.43,
+    "emphasis": false
+   },
+   {
+    "text": "5%",
+    "start": 42.43,
+    "end": 43.21,
+    "emphasis": true
+   },
+   {
+    "text": "of",
+    "start": 43.21,
+    "end": 43.51,
+    "emphasis": false
+   },
+   {
+    "text": "use.",
+    "start": 43.51,
+    "end": 43.79,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 44.12,
+  "end": 45.45,
+  "text": "It's like paying for",
+  "words": [
+   {
+    "text": "It's",
+    "start": 44.17,
+    "end": 44.75,
+    "emphasis": false
+   },
+   {
+    "text": "like",
+    "start": 44.75,
+    "end": 44.93,
+    "emphasis": false
+   },
+   {
+    "text": "paying",
+    "start": 44.93,
+    "end": 45.25,
+    "emphasis": false
+   },
+   {
+    "text": "for",
+    "start": 45.25,
+    "end": 45.45,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 45.4,
+  "end": 46.79,
+  "text": "a whole Sky Sports bundle",
+  "words": [
+   {
+    "text": "a",
+    "start": 45.45,
+    "end": 45.61,
+    "emphasis": false
+   },
+   {
+    "text": "whole",
+    "start": 45.61,
+    "end": 45.77,
+    "emphasis": false
+   },
+   {
+    "text": "Sky",
+    "start": 45.77,
+    "end": 46.05,
+    "emphasis": true
+   },
+   {
+    "text": "Sports",
+    "start": 46.05,
+    "end": 46.37,
+    "emphasis": false
+   },
+   {
+    "text": "bundle",
+    "start": 46.37,
+    "end": 46.79,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 46.74,
+  "end": 48.91,
+  "text": "just to watch Arsenal lose.",
+  "words": [
+   {
+    "text": "just",
+    "start": 46.79,
+    "end": 47.35,
+    "emphasis": false
+   },
+   {
+    "text": "to",
+    "start": 47.35,
+    "end": 47.51,
+    "emphasis": false
+   },
+   {
+    "text": "watch",
+    "start": 47.51,
+    "end": 47.71,
+    "emphasis": false
+   },
+   {
+    "text": "Arsenal",
+    "start": 47.71,
+    "end": 48.09,
+    "emphasis": false
+   },
+   {
+    "text": "lose.",
+    "start": 48.09,
+    "end": 48.43,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 48.86,
+  "end": 49.97,
+  "text": "Now, DDN's Infinia",
+  "words": [
+   {
+    "text": "Now,",
+    "start": 48.91,
+    "end": 49.01,
+    "emphasis": false
+   },
+   {
+    "text": "DDN's",
+    "start": 49.13,
+    "end": 49.57,
+    "emphasis": true
+   },
+   {
+    "text": "Infinia",
+    "start": 49.57,
+    "end": 49.97,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 49.92,
+  "end": 51.81,
+  "text": "keeps data flowing to the chips,",
+  "words": [
+   {
+    "text": "keeps",
+    "start": 49.97,
+    "end": 50.21,
+    "emphasis": false
+   },
+   {
+    "text": "data",
+    "start": 50.21,
+    "end": 50.63,
+    "emphasis": false
+   },
+   {
+    "text": "flowing",
+    "start": 50.63,
+    "end": 51.05,
+    "emphasis": false
+   },
+   {
+    "text": "to",
+    "start": 51.05,
+    "end": 51.21,
+    "emphasis": false
+   },
+   {
+    "text": "the",
+    "start": 51.21,
+    "end": 51.31,
+    "emphasis": false
+   },
+   {
+    "text": "chips,",
+    "start": 51.31,
+    "end": 51.67,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 51.76,
+  "end": 53.05,
+  "text": "and they say customers",
+  "words": [
+   {
+    "text": "and",
+    "start": 51.81,
+    "end": 52.25,
+    "emphasis": false
+   },
+   {
+    "text": "they",
+    "start": 52.25,
+    "end": 52.37,
+    "emphasis": false
+   },
+   {
+    "text": "say",
+    "start": 52.37,
+    "end": 52.57,
+    "emphasis": false
+   },
+   {
+    "text": "customers",
+    "start": 52.57,
+    "end": 53.05,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 53.0,
+  "end": 54.79,
+  "text": "reach up to 99% busy",
+  "words": [
+   {
+    "text": "reach",
+    "start": 53.05,
+    "end": 53.35,
+    "emphasis": false
+   },
+   {
+    "text": "up",
+    "start": 53.35,
+    "end": 53.51,
+    "emphasis": false
+   },
+   {
+    "text": "to",
+    "start": 53.51,
+    "end": 53.67,
+    "emphasis": false
+   },
+   {
+    "text": "99%",
+    "start": 53.67,
+    "end": 54.39,
+    "emphasis": true
+   },
+   {
+    "text": "busy",
+    "start": 54.39,
+    "end": 54.79,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 54.74,
+  "end": 56.53,
+  "text": "and cut costs per token",
+  "words": [
+   {
+    "text": "and",
+    "start": 54.79,
+    "end": 55.37,
+    "emphasis": false
+   },
+   {
+    "text": "cut",
+    "start": 55.37,
+    "end": 55.61,
+    "emphasis": false
+   },
+   {
+    "text": "costs",
+    "start": 55.61,
+    "end": 55.87,
+    "emphasis": false
+   },
+   {
+    "text": "per",
+    "start": 55.87,
+    "end": 56.09,
+    "emphasis": false
+   },
+   {
+    "text": "token",
+    "start": 56.09,
+    "end": 56.53,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 56.48,
+  "end": 58.07,
+  "text": "by 75%.",
+  "words": [
+   {
+    "text": "by",
+    "start": 56.53,
+    "end": 56.77,
+    "emphasis": false
+   },
+   {
+    "text": "75%.",
+    "start": 56.77,
+    "end": 57.77,
+    "emphasis": true
+   }
+  ]
+ },
+ {
+  "start": 58.02,
+  "end": 59.25,
+  "text": "Plus, they already work",
+  "words": [
+   {
+    "text": "Plus,",
+    "start": 58.07,
+    "end": 58.45,
+    "emphasis": false
+   },
+   {
+    "text": "they",
+    "start": 58.59,
+    "end": 58.75,
+    "emphasis": false
+   },
+   {
+    "text": "already",
+    "start": 58.75,
+    "end": 58.97,
+    "emphasis": false
+   },
+   {
+    "text": "work",
+    "start": 58.97,
+    "end": 59.25,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 59.2,
+  "end": 60.17,
+  "text": "with media companies",
+  "words": [
+   {
+    "text": "with",
+    "start": 59.25,
+    "end": 59.41,
+    "emphasis": false
+   },
+   {
+    "text": "media",
+    "start": 59.41,
+    "end": 59.71,
+    "emphasis": false
+   },
+   {
+    "text": "companies",
+    "start": 59.71,
+    "end": 60.17,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 60.12,
+  "end": 62.37,
+  "text": "like Canal Plus and Starz.",
+  "words": [
+   {
+    "text": "like",
+    "start": 60.17,
+    "end": 60.43,
+    "emphasis": false
+   },
+   {
+    "text": "Canal",
+    "start": 60.43,
+    "end": 60.75,
+    "emphasis": false
+   },
+   {
+    "text": "Plus",
+    "start": 60.75,
+    "end": 61.09,
+    "emphasis": false
+   },
+   {
+    "text": "and",
+    "start": 61.09,
+    "end": 61.53,
+    "emphasis": false
+   },
+   {
+    "text": "Starz.",
+    "start": 61.53,
+    "end": 62.09,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 62.32,
+  "end": 64.27,
+  "text": "So the ask is clear.",
+  "words": [
+   {
+    "text": "So",
+    "start": 62.37,
+    "end": 62.99,
+    "emphasis": false
+   },
+   {
+    "text": "the",
+    "start": 62.99,
+    "end": 63.13,
+    "emphasis": false
+   },
+   {
+    "text": "ask",
+    "start": 63.13,
+    "end": 63.49,
+    "emphasis": false
+   },
+   {
+    "text": "is",
+    "start": 63.49,
+    "end": 63.71,
+    "emphasis": false
+   },
+   {
+    "text": "clear.",
+    "start": 63.71,
+    "end": 64.03,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 64.22,
+  "end": 65.73,
+  "text": "Let DDN run a pilot",
+  "words": [
+   {
+    "text": "Let",
+    "start": 64.27,
+    "end": 64.65,
+    "emphasis": false
+   },
+   {
+    "text": "DDN",
+    "start": 64.65,
+    "end": 65.13,
+    "emphasis": true
+   },
+   {
+    "text": "run",
+    "start": 65.13,
+    "end": 65.29,
+    "emphasis": false
+   },
+   {
+    "text": "a",
+    "start": 65.29,
+    "end": 65.39,
+    "emphasis": false
+   },
+   {
+    "text": "pilot",
+    "start": 65.39,
+    "end": 65.73,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 65.68,
+  "end": 67.55,
+  "text": "on the AI behind your voice search",
+  "words": [
+   {
+    "text": "on",
+    "start": 65.73,
+    "end": 65.97,
+    "emphasis": false
+   },
+   {
+    "text": "the",
+    "start": 65.97,
+    "end": 66.11,
+    "emphasis": false
+   },
+   {
+    "text": "AI",
+    "start": 66.11,
+    "end": 66.41,
+    "emphasis": false
+   },
+   {
+    "text": "behind",
+    "start": 66.41,
+    "end": 66.73,
+    "emphasis": false
+   },
+   {
+    "text": "your",
+    "start": 66.73,
+    "end": 66.93,
+    "emphasis": false
+   },
+   {
+    "text": "voice",
+    "start": 66.93,
+    "end": 67.21,
+    "emphasis": false
+   },
+   {
+    "text": "search",
+    "start": 67.21,
+    "end": 67.55,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 67.5,
+  "end": 69.11,
+  "text": "or your next assistant.",
+  "words": [
+   {
+    "text": "or",
+    "start": 67.55,
+    "end": 67.97,
+    "emphasis": false
+   },
+   {
+    "text": "your",
+    "start": 67.97,
+    "end": 68.15,
+    "emphasis": false
+   },
+   {
+    "text": "next",
+    "start": 68.15,
+    "end": 68.43,
+    "emphasis": false
+   },
+   {
+    "text": "assistant.",
+    "start": 68.43,
+    "end": 68.95,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 69.06,
+  "end": 70.31,
+  "text": "Then measure the values",
+  "words": [
+   {
+    "text": "Then",
+    "start": 69.11,
+    "end": 69.47,
+    "emphasis": false
+   },
+   {
+    "text": "measure",
+    "start": 69.47,
+    "end": 69.77,
+    "emphasis": false
+   },
+   {
+    "text": "the",
+    "start": 69.77,
+    "end": 69.91,
+    "emphasis": false
+   },
+   {
+    "text": "values",
+    "start": 69.91,
+    "end": 70.31,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 70.26,
+  "end": 72.41,
+  "text": "before and after.",
+  "words": [
+   {
+    "text": "before",
+    "start": 70.31,
+    "end": 70.83,
+    "emphasis": false
+   },
+   {
+    "text": "and",
+    "start": 70.83,
+    "end": 71.43,
+    "emphasis": false
+   },
+   {
+    "text": "after.",
+    "start": 71.43,
+    "end": 71.89,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 72.36,
+  "end": 73.21,
+  "text": "So Sky,",
+  "words": [
+   {
+    "text": "So",
+    "start": 72.41,
+    "end": 72.47,
+    "emphasis": false
+   },
+   {
+    "text": "Sky,",
+    "start": 72.47,
+    "end": 72.81,
+    "emphasis": true
+   }
+  ]
+ },
+ {
+  "start": 73.16,
+  "end": 75.53,
+  "text": "don't be the next Blockbuster.",
+  "words": [
+   {
+    "text": "don't",
+    "start": 73.21,
+    "end": 73.89,
+    "emphasis": false
+   },
+   {
+    "text": "be",
+    "start": 73.89,
+    "end": 74.09,
+    "emphasis": false
+   },
+   {
+    "text": "the",
+    "start": 74.09,
+    "end": 74.39,
+    "emphasis": false
+   },
+   {
+    "text": "next",
+    "start": 74.39,
+    "end": 74.59,
+    "emphasis": false
+   },
+   {
+    "text": "Blockbuster.",
+    "start": 74.59,
+    "end": 75.19,
+    "emphasis": false
+   }
+  ]
+ },
+ {
+  "start": 75.48,
+  "end": 76.58,
+  "text": "Thank you.",
+  "words": [
+   {
+    "text": "Thank",
+    "start": 75.53,
+    "end": 76.01,
+    "emphasis": false
+   },
+   {
+    "text": "you.",
+    "start": 76.01,
+    "end": 76.23,
+    "emphasis": false
+   }
+  ]
+ }
+]
