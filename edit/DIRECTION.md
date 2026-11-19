@@ -72,3 +72,4 @@ Original brief: the competition, script, process, deviation rules, timing, capti
     - **+0.75 s of real-footage rest after "Thank you"** (no freeze), end card 74.247–77.247.
     - **Music v7:** subtler and less generic; SFX dampened but satisfying.
     - **Output 3840x2160.**
+31. **Zooms (user):** more dynamic, but never like a cut. Smooth eased punch-ins (0.4–0.6 s, 5–7%) at key moments; slow pushes of 4–6% per shot; a gentle "settle" move after same-spot cuts; no instant scale jumps except at real cuts; verified with a per-frame scale-curve plot. **Arsenal crest large** (about 30–35% of frame height).
