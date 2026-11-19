@@ -1,4 +1,73 @@
-# Music + SFX for the DDN "Why DDN" pitch: **current = v4 (curious, soft)** in `out_v4/`
+# Music + SFX for the DDN "Why DDN" pitch: **current = v5** in `out_v5/` (the v4 sound, re-fitted to the tightened edit)
+
+## v5: re-timed to `edit/SHOTPLAN_v4.json` and `edit/voice_master_v3.wav` (74.2 s)
+The sound and arrangement are v4's (curious, then confident; described below). Only the timing changed: `v2/edit_v5.json`.
+
+**Section downbeats.** Hook 1.07, change 9.353, now 21.906, DDN 32.592, ask 58.71, punchline 67.643, end-card resolve 71.30.
+- Bars per section: 4 / 6 / 5 / 12 / 4 / 1.5.
+- The tempo map glides **116 → 96 BPM**. It runs faster than v4 because the edit is tighter; the hook bars are the fastest, the punchline the slowest.
+- Measured onsets at every downbeat: −1 to +7 ms.
+
+**Accents at exact cut and graphic times** (scheduled exactly; measured within ≤ 12 ms):
+
+| Time (s) | Accent |
+|---|---|
+| 10.986 | TX81Z plucks enter |
+| 13.15 | "12%": vibes C#–E |
+| 16.553 | marimba pickup lands and the bass enters |
+| 21.906 | shaker enters |
+| 23.354 | vibes note |
+| 26.252 | soft kick enters, cymbal swell peaks |
+| 34.359 | vibes note |
+| 39.46 → 41.154 | "5%": drop-out |
+| 44.52 | snap zoom, "Arsenal lose": a wry two-note marimba fall |
+| 45.52 | soft tom fill lands |
+| 50.08 | "99%": vibes bloom |
+| 53.18 | "75%": marimba fall |
+| 54.488 | cymbal swell peaks |
+| 60.143 | vibes note |
+| 69.52 | snap zoom, "Blockbuster": one soft low knock inside the drop |
+
+**Measured** (`out_v5/analysis.json`, `spectrogram.png`):
+- `music_mix.wav` and `sfx_all_positioned.wav` are each exactly 74.2 s at 48 kHz.
+- The mix is −20.9 LUFS with true peak −3.3 dBTP. The tail is at −76 dBFS by 74.2 s.
+- Loudness by section (LUFS):
+
+| chair | hook | change | now | DDN | ask | punchline drop | end card |
+|---|---|---|---|---|---|---|---|
+| −50 | −25.3 | −23.9 | −21.8 | −19.8 | −19.3 | −24.6 | −18.7 |
+
+- Preview (voice at −16 LUFS): music is −37 LUFS under speech, the voice is a median 24.8 dB above it full-band and 40.8 dB above it in 1–4 kHz.
+
+**SFX** (same recorded set as v4): click 1.07, swells 10.93 (chart) / 48.98 (gauge) / 64.84 (measure card), chime 71.40.
+- The new voice master is denser than voice_v1, so the SFX were raised to stay audible on headphones.
+- Peaks relative to dialogue peaks: click −23 dB, swells −21 / −19 / −22 dB, chime −27 dB.
+- Audibility proxy (headphone / laptop):
+
+| SFX | Headphone | Laptop |
+|---|---|---|
+| click | −5.9 | −14.5 |
+| chart swell | −5.1 | −26 |
+| gauge swell | −10.4 | −23 |
+| measure-card swell | −2.7 | −20 |
+| chime | +0.3 | −4 |
+
+- The gauge swell is still partly masked by dense speech.
+- Each file's `place_at` is in `out_v5/timing.json → sfx`.
+
+**Re-render:**
+```
+cd /home/user/ddn-project/music/v2
+/home/user/ddn-project/tools/venv/bin/python compose_v4.py edit_v5.json --out ../out_v5
+/home/user/ddn-project/tools/venv/bin/python sfx_v4.py edit_v5.json --out ../out_v5
+/home/user/ddn-project/tools/venv/bin/python analyze_v3.py ../out_v5 edit_v5.json
+```
+
+The v4 audio was deleted to save disk; it is reproducible with `edit_v4.json`.
+
+---
+
+# v4 (curious, soft): the sound v5 uses
 
 v4 keeps v3's timing work and changes the character and the whooshes. Everything below §v4 describes v3 and is still valid for licences, research, the tempo map and the method. Earlier drafts are superseded: v1 `out/` (piano), v2 `out_v2/` (energetic), v3 `out_v3/` (soft groove). Their audio was deleted to free disk; the scripts re-render them.
 
