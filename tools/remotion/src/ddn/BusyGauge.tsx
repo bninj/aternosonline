@@ -26,7 +26,7 @@ const Inner: React.FC<Omit<BusyGaugeProps, keyof SlotProps> & {duration: number}
         <div style={{display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', width: BAR_W}}>
           <div style={{fontFamily: FONT.mono, fontSize: 28, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.78)'}}>{label}</div>
           <div style={{...display('regular', TYPE.number, -0.02), lineHeight: 1, color: C.white, fontFeatureSettings: '"tnum" 1'}}>
-            {Math.round(v)}%
+            {Math.floor(v + 1e-6)}%
           </div>
         </div>
       </Rise>

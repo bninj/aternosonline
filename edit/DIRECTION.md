@@ -29,3 +29,5 @@ Original brief: the competition, script, process, deviation rules, timing, capti
 16. **Work state when paused:**
     - Done: picks (`edit/picks.json`), cut list (`edit/edl_v2.json`), rough cut (`edit/rough_v1.mp4`), voice (`edit/voice_v1.wav`), captions (`edit/captions_v2.json` + .srt), grade (`edit/grade/grade.json`), shot and graphics timing (`edit/SHOTPLAN.json`), TAKES.md, DEVIATIONS.md and FACTS.md (in `deliverables/`).
     - Interrupted: plate render (`tools/render_plates.py`), the final graphics composition (PitchFinal), and the music v2 composition.
+17. **Music v4 (user, 19 Nov):** soft, **curious and speculative** (an inquisitive "what if" feel that resolves into confidence by Why DDN and the ask). SFX smooth and premium.
+18. **Graphics (user, 19 Nov):** must not obstruct too much (compact, to the side, slim progress bar). **Prism effect clearly present but in DDN's palette** (red, orange to wine logo ring, a hint of steel blue), not a generic rainbow.

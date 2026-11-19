@@ -32,7 +32,7 @@ export type Segment = (typeof plan.segments)[number];
 const EASE_PUSH = Easing.bezier(0.65, 0, 0.35, 1); // ddn-inout: slow drift, no overshoot
 
 export const segmentAt = (t: number): Segment => {
-  for (let i = plan.segments.length - 1; i >= 0; i--) if (t >= plan.segments[i].start - 1e-6) return plan.segments[i];
+  for (let i = plan.segments.length - 1; i >= 0; i--) if (t >= plan.segments[i].start - 0.5 / 30) return plan.segments[i]; // frame-rounded, matches the plate cut frame
   return plan.segments[0];
 };
 

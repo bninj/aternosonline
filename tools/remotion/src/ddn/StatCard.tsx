@@ -29,7 +29,9 @@ const Inner: React.FC<Omit<StatCardProps, keyof SlotProps> & {duration: number}>
   const cf = Math.round(T.countFrames * k);
   const start = landAt !== undefined ? Math.max(T.firstOffset, landAt - cf) : Math.round(T.firstOffset * k);
   const n = useCount(countFrom, target, start, landAt !== undefined ? landAt - start : cf);
-  const shown = m ? `${m[1]}${n.toFixed(decimals)}${m[3]}` : value;
+  // Floor while counting up, so the final value appears exactly on the landing frame (not 0.5 early via rounding).
+  const q = Math.pow(10, decimals);
+  const shown = m ? `${m[1]}${(Math.floor(n * q + 1e-6) / q).toFixed(decimals)}${m[3]}` : value;
   const linesStart = linesAt !== undefined ? linesAt - 6 : start + Math.round(14 * k);
   const tagStart = Math.max(start, linesStart) + Math.round((lines.length ? 12 : 10) * k);
   return (

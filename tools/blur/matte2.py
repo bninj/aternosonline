@@ -85,7 +85,7 @@ class Tracker:
                                                          original_size=inp.original_sizes[0], **kw)
                 sess.obj_with_new_inputs = list(ids)   # HF overwrites this per call
             with torch.inference_mode():
-                o = model(inference_session=sess, frame=inp.pixel_values[0])
+                o = model(inference_session=sess, frame_idx=k, frame=inp.pixel_values[0])
             m = proc.post_process_masks([o.pred_masks], original_sizes=inp.original_sizes, binarize=False)[0]
             m = torch.sigmoid(m[:, 0]).amax(0).numpy().astype(np.float16)
             out.append(m)
