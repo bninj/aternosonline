@@ -11,7 +11,7 @@ const cl = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 // ---------------------------------------------------------------------------------------------------------------
 // Subtitles v6: no box. White Inter Tight semibold, bottom centre at a fixed position (baseline band at about 87 % H),
 // a soft shadow plus a very faint feathered dark "layer" (a blurred ellipse sized to the line) for legibility.
-// Emphasis: a slightly heavier weight plus a thin Brand Red underline (red text was illegible over the dark room; no blocks). Phrase to phrase: a 4 f crossfade; runs fade 6 f in/out.
+// Emphasis: a slightly heavier weight plus a thin Brand Red underline (red text was illegible over the dark room; no blocks). Phrase to phrase: 3 f out then 4 f in (no overlap); runs fade 6 f in/out.
 export const CleanSubtitles: React.FC<{transcript: Transcript; snapTo?: number[]; suppress?: {from: number; to: number}[]; size?: number; centerY?: number}> = ({transcript, snapTo = [], suppress = [], size = 64, centerY = 940}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
@@ -44,11 +44,13 @@ export const CleanSubtitles: React.FC<{transcript: Transcript; snapTo?: number[]
     const next = ws[k + 1];
     const joinedIn = prev && p.from - prev.to <= 2;
     const joinedOut = next && next.from - p.to <= 2;
+    // Never two phrases at once (an overlap reads as garbled text): the outgoing phrase fades over its last 3 f,
+    // the incoming one fades up over 4 f from its first frame.
     const inF = joinedIn ? 4 : 6;
-    const outF = joinedOut ? 4 : 6;
-    if (frame < p.from - (joinedIn ? 0 : 0) || frame >= p.to + (joinedOut ? 4 : 0)) return;
+    const outF = joinedOut ? 3 : 6;
+    if (frame < p.from || frame >= p.to) return;
     const oIn = interpolate(frame, [p.from, p.from + inF], [0, 1], {...cl, easing: EASE.inOut});
-    const oOut = joinedOut ? interpolate(frame, [p.to, p.to + outF], [1, 0], {...cl, easing: EASE.inOut}) : interpolate(frame, [p.to - outF, p.to], [1, 0], {...cl, easing: EASE.inOut});
+    const oOut = interpolate(frame, [p.to - outF, p.to], [1, 0], {...cl, easing: EASE.inOut});
     const o = Math.min(oIn, oOut);
     if (o <= 0.001) return;
     const text = p.words.map((x) => x.text).join(' ');

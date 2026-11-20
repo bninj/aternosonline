@@ -10,7 +10,7 @@ import {parseMedia} from '@remotion/media-parser';
 export const RemotionRoot: React.FC = () => (
   <>
     <Composition id="PitchFinal" component={PitchV6} fps={30} width={3840} height={2160} durationInFrames={2317}
-      defaultProps={{plate: 'pitch/plate_look_v5.mp4', plateBlur: 'pitch/plate_look_v5_blur34.mp4', plateFrames: 2205, audio: 'pitch/voice_master_v5.wav', voice: 'pitch/voice_master_v5.wav', showGuides: false}} />
+      defaultProps={{plate: 'pitch/plate_look_v6_4k.mp4', plateBlur: 'pitch/plate_look_v6_blur34.mp4', plateFrames: 2227, audio: 'pitch/mix_v5.wav', voice: 'pitch/voice_master_v5.wav', showGuides: false}} />
     <Composition id="PitchFinalV5" component={PitchV4} fps={30} width={1920} height={1080} durationInFrames={2295}
       defaultProps={{plate: 'pitch/plate_look_v5.mp4', plateBlur: 'pitch/plate_look_v5_blur34.mp4', audio: 'pitch/mix_v4.wav', voice: 'pitch/voice_master_v4.wav', showGuides: false}} />
     <Composition id="PitchFinalV1" component={PitchFinal} fps={30} width={1920} height={1080} durationInFrames={2400}
