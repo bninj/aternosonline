@@ -16,7 +16,7 @@ Rule: only these claims may appear on screen. No other statistics or claims.
 | 7 | "Canal Plus", "Starz" (name and official logo) | "DDN already works with media companies like Canal Plus and Starz." | DDN media page ([ddn.com/solutions/media-companies](https://www.ddn.com/solutions/media-companies/)) lists both as customers. Wording is "works with", which does not imply AI work. | ✅ | 0:56.6–0:58.6 (Canal+ left, Starz right) |
 | 8 | Two-item card "How busy the chips are" / "What each answer costs" | The ask | The user's own pilot proposal, **not a DDN standard**. No DDN logo or claim attached. | n/a | 1:01.0–1:07.5 ('30 day pilot' tag and the two-metric card); 'If both improve → scale it' 1:07.5–1:10.0 |
 | 9 | "Blockbuster" | "Sky, don't be the next Blockbuster." | Rhetorical, not a claim | n/a | 1:11.8–1:12.7 (logo lands, then shatters) |
-| 10 | End card "DDN. Keep the chips busy." | none | Slogan for the pitch, with the DDN logo | n/a | 1:14.2–1:17.2 (end card, with the DDN logo) |
+| 10 | End card "Thanks for watching." | none | Closing card, no claim, no logo | n/a | 1:14.2–1:17.2 (end card) |
 
 ## Notes for a DDN-employee audience
 - **The 75% figure:** DDN's earlier KV-cache material says it comes from cutting *input* token costs ("up to 75%"). The 2.4 blog states it more broadly. Our wording ("per DDN", "DDN says") attributes it correctly. Judges know the background, so the attribution matters.
@@ -29,4 +29,4 @@ Rule: only these claims may appear on screen. No other statistics or claims.
 - Stopwatch: counts elapsed time from the first word; it shows no total.
 - Name super: 'Eliud Awuah', 'T Level Placement Student'.
 - Progress bar: Why change, Why now, Why DDN, The ask (section labels only).
-- Logos: Netflix, YouTube, Canal+, Starz, Blockbuster and Arsenal on screen; DDN on the end card. Sky and DDN also appear on monitors in the footage. Sources: brand/logos/SOURCES.md.
+- Logos: Netflix, YouTube, Canal+, Starz, Blockbuster and Arsenal on screen (no logo on the end card). Sky and DDN also appear on monitors in the footage. Sources: brand/logos/SOURCES.md.
