@@ -5,8 +5,8 @@ import plan from './shotplan_v6.json';
 import caps from './captions_v4.json';
 import {pitchTranscriptV3} from './captions';
 import {cameraV6, faceAt, fr, keepOutZoomed, segIndexAt, Box} from './layout_v4';
-import {ChairSpotlight, ChipGrid, DepthLogos, DepthShatter, EndBuild, PersonLayer, VoiceChat, VoicePill} from './graphics';
-import {ArsenalGag, CleanSubtitles, LogoPlate, NameSuper, ScaleIt, Stopwatch} from './v6';
+import {ChairSpotlight, ChipGrid, DepthLogos, DepthShatter, PersonLayer, VoiceChat, VoicePill} from './graphics';
+import {ArsenalGag, CleanSubtitles, LogoPlate, NameSuper, ScaleIt, Stopwatch, ThanksCard} from './v6';
 
 // PitchFinal v6 (final, 4K): SHOTPLAN_v6 (21 shots, last shot rests to 74.247), end card 74.247 to 77.247.
 // Authored in 1920x1080 layout px; the whole film is scaled to the composition size (3840x2160) so text and
@@ -117,7 +117,8 @@ const Film: React.FC<PitchV6Props> = ({plate, plateBlur, plateFrames, audio, voi
       <CleanSubtitles transcript={transcript} snapTo={CUTS}
         suppress={[{from: w('Imagine asking'), to: SEAM_DDN}, {from: cutF(17), to: cutF(18)}, {from: PLATE_END - 14, to: TOTAL + 10}]} />
 
-      <EndBuild from={PLATE_END - 12} durationInFrames={TOTAL - (PLATE_END - 12)} />
+      {/* Final end card (user change): "Thanks for watching.", no logo; same dissolve from the moving last shot. */}
+      <ThanksCard from={PLATE_END - 12} durationInFrames={TOTAL - (PLATE_END - 12)} />
 
       {showGuides ? <Guides frame={frame} z={cam.z} /> : null}
     </Footage>

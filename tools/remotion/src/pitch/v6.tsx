@@ -3,7 +3,7 @@
 import React, {useMemo} from 'react';
 import {AbsoluteFill, interpolate, Sequence, useCurrentFrame, useVideoConfig} from 'remotion';
 import {measureText} from '@remotion/layout-utils';
-import {C, display, EASE, FONT, FrostedGlass, Logo, LogoId, LOGOS, onScreen, Slot, SlotProps, Transcript, useFontsReady} from '../ddn';
+import {C, display, EASE, FONT, FrostedGlass, Grain, Logo, LogoId, LOGOS, onScreen, Slot, SlotProps, Transcript, useFontsReady} from '../ddn';
 import {phraseWindows} from '../ddn/Subtitles';
 
 const cl = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
@@ -251,3 +251,35 @@ export const LogoPlate: React.FC<SlotProps & {logo: LogoId; logoH: number}> = (p
   </Slot>
 );
 export {LOGOS};
+
+// ---------------------------------------------------------------------------------------------------------------
+// Final end card (user change): "Thanks for watching." on the 2026 outro grey with grain, a short Brand Red accent
+// line that draws in above it, the line rising from under it. Dissolves in from the moving last shot. No logo.
+export const ThanksCard: React.FC<{from: number; durationInFrames: number; text?: string}> = ({from, durationInFrames, text = 'Thanks for watching.'}) => (
+  <Sequence from={from} durationInFrames={durationInFrames} name="ThanksCard">
+    <ThanksInner text={text} />
+  </Sequence>
+);
+const ThanksInner: React.FC<{text: string}> = ({text}) => {
+  const frame = useCurrentFrame();
+  onScreen(text, 'ThanksCard');
+  const bg = interpolate(frame, [0, 14], [0, 1], {...cl, easing: EASE.inOut});
+  const line = interpolate(frame, [16, 32], [0, 1], {...cl, easing: EASE.out});
+  const t = interpolate(frame, [20, 38], [0, 1], {...cl, easing: EASE.out});
+  const o = interpolate(frame, [20, 32], [0, 1], {...cl, easing: EASE.inOut});
+  return (
+    <AbsoluteFill style={{opacity: bg}}>
+      <AbsoluteFill style={{background: C.outroGray}} />
+      <Grain opacity={0.06} />
+      <AbsoluteFill style={{justifyContent: 'center', alignItems: 'center'}}>
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+          <div style={{width: 72, height: 4, borderRadius: 2, background: C.red, transformOrigin: 'center', transform: `scaleX(${line})`, marginBottom: 30}} />
+          <div style={{overflow: 'hidden', padding: '6px 10px'}}>
+            <div style={{...display('medium', 92, -0.02), lineHeight: 1.1, color: C.black, whiteSpace: 'nowrap', opacity: o,
+              transform: `translateY(${((1 - t) * 60).toFixed(2)}%)`, filter: t < 1 ? `blur(${(5 * (1 - t)).toFixed(2)}px)` : undefined}}>{text}</div>
+          </div>
+        </div>
+      </AbsoluteFill>
+    </AbsoluteFill>
+  );
+};
