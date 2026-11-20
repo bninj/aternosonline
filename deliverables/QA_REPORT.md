@@ -1,6 +1,6 @@
 # QA report: "Why DDN" pitch, final (v6)
 
-Entrant: Eliud Awuah, T Level Placement Student. Customer example: Sky. Final files: `output/final/final_4k.mp4` (3840x2160) and `output/final/final_1080.mp4`.
+Entrant: Eliud Awuah, T Level Placement Student. Customer example: Sky. Final file: `output/final/final_1080.mp4` (1920x1080, 30 fps, H.264 High, 77.247 s, 2317 frames). The 4K version was dropped at Eliud's request.
 
 ## The brief's 7 checks
 | # | Check | Result |
@@ -22,6 +22,6 @@ Entrant: Eliud Awuah, T Level Placement Student. Customer example: Sky. Final fi
 - **Fonts:** Inter Tight (closest measured match to DDN's Articulat CF) and Geist Mono, both OFL.
 
 ## Known limits
-- The footage is iPhone 4K. Wide shots are native 4K; the closer framings (punch-ins, up to about 15%) are slightly upscaled.
+- Delivered at 1080p, downscaled from the 4K iPhone source, so all framings, including punch-ins, are fully sharp.
 - "30 day pilot" and the two metric labels appear in the graphics only; they weren't spoken (approved by Eliud). "If both improve, scale it" was recorded and is in the cut (IMG_3859).
-- The sign reads "AI" (no "waiting for data", no flip), so the end resolve sits on the DDN end card.
+- The sign reads "AI" (no "waiting for data", no flip). The video ends on a "Thanks for watching." card (no logo), with the music resolving there.
